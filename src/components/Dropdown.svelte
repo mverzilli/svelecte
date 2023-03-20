@@ -235,6 +235,7 @@
       <div class="creatable-row" on:click={dispatch('select', inputValue)} on:mouseenter={dispatch('hover', listIndex.last)}
         class:active={currentListLength == dropdownIndex}
         class:is-disabled={alreadyCreated.includes(inputValue)}
+        on:keypress={() => {}}
       >
       {@html createLabel(inputValue)}
       {#if currentListLength != dropdownIndex}

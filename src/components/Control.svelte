@@ -69,6 +69,7 @@
 <div class="sv-control" class:is-active={$hasFocus} class:is-disabled={disabled}
   on:mousedown|preventDefault
   on:click|preventDefault={focusControl}
+  on:keypress={() => {}}
 >
   <slot name="icon"></slot>
   <!-- selection & input -->

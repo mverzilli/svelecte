@@ -1,10 +1,8 @@
 <script>
   import { createEventDispatcher, onDestroy, onMount, tick } from 'svelte';
   import VirtualList from 'svelte-tiny-virtual-list';
-  import { isOutOfViewport } from './../lib/utils.js';
 
   export let lazyDropdown;
-  
   export let creatable;
   export let maxReached = false;
   export let dropdownIndex = 0;
@@ -26,24 +24,7 @@
   export let metaKey;
   export let itemComponent;
   export let selection = null;
-
-  export function scrollIntoView(params) {
-    if (virtualList) return;
-    const focusedEl = container.querySelector(`[data-pos="${dropdownIndex}"]`);
-    if (!focusedEl) return;
-    const focusedRect = focusedEl.getBoundingClientRect();
-    const menuRect = scrollContainer.getBoundingClientRect();
-    const overScroll = focusedEl.offsetHeight / 3;
-    const centerOffset = params && params.center ? scrollContainer.offsetHeight / 2 : 0;
-    switch (true) {
-      case focusedEl.offsetTop < scrollContainer.scrollTop:
-        scrollContainer.scrollTop = focusedEl.offsetTop - overScroll + centerOffset;
-        break;
-      case focusedEl.offsetTop + focusedRect.height > scrollContainer.scrollTop + menuRect.height:
-          scrollContainer.scrollTop = focusedEl.offsetTop + focusedRect.height - scrollContainer.offsetHeight + overScroll + centerOffset;
-        break;
-    }
-  }
+  export let control;
 
   export function getDimensions() {
     if (virtualList) {
@@ -61,6 +42,7 @@
   const dispatch = createEventDispatcher();
 
   let dropdown;
+  let outOfViewport;
   let container;
   let scrollContainer;
   let isMounted = false;
@@ -90,19 +72,22 @@
       if (hasEmptyList) dropdownIndex = null;
       vl_itemSize = 0;
       tick().then(virtualListDimensionsResolver)
+      console.log("tick")
         .then(positionDropdown);
     }
   }
 
-  function positionDropdown(val) {
-    // if (!scrollContainer && !renderDropdown) return;
-    // const outVp = isOutOfViewport(scrollContainer);
-    // if (outVp.bottom && !outVp.top) {
-    //   scrollContainer.parentElement.style.bottom = (scrollContainer.parentElement.parentElement.clientHeight + 1) + 'px';
-    //   // FUTURE: debounce ....
-    // } else if (!val || outVp.top) {
-    //   scrollContainer.parentElement.style.bottom = '';
-    // }
+  function positionDropdown() {
+    if(!document.body.contains(dropdown) || !control) return
+    const controlBounds = control.getBoundingClientRect();
+    const dropdownBounds = dropdown.getBoundingClientRect();
+    if(outOfViewport === undefined) {
+      outOfViewport = controlBounds.bottom + dropdownBounds.height > window.innerHeight;
+    }
+    dropdown.setAttribute("style", `
+      top: ${controlBounds.bottom - (outOfViewport? controlBounds.height + dropdownBounds.height : 0)}px;
+      left: ${controlBounds.left}px;
+      width: ${controlBounds.width}px;`)
   }
 
   function virtualListDimensionsResolver() {
@@ -147,34 +132,47 @@
     scrollContainer.parentElement.style = '';
   }
 
-  const appendDropdown = () => {
-    if(document?.body) document.body.appendChild(dropdown);
+  const scrollHandler = (e) => {
+    if(!dropdown?.contains) return;
+    if(!dropdown.contains(e.target)) {
+      console.log("scroll handler")
+      positionDropdown();
+    }
   }
+
+  const appendDropdown = () => {
+    if(!control) control = dropdown.parentElement;
+    if(document?.body) {
+      // control.scrollIntoView({ block: "nearest", inline: "nearest" });
+      document.body.appendChild(dropdown);
+    }
+  }
+
   const removeDropdown = () => {
     if(document?.body.contains(dropdown)) document.body.removeChild(dropdown);
   }
+
   let dropdownStateSubscription = () => {};
-  let onScrollHandler = null;
-  /** ************************************ lifecycle */
+
   onMount(() => {
-    /** ************************************ flawless UX related tweak */
     dropdownStateSubscription = hasDropdownOpened.subscribe(val => {
       if (!renderDropdown && val) renderDropdown = true;
+      document.removeEventListener('scroll', scrollHandler, { capture: true });
       tick().then(() => {
         if(val) {
+          console.log("append")
           appendDropdown();
+          positionDropdown(true);
+          document.addEventListener('scroll', scrollHandler, { capture: true });
         } else {
+          outOfViewport = undefined;
           removeDropdown();
         }
-        positionDropdown(val);
-        val && scrollIntoView({ center: true });
       });
-      if (!onScrollHandler) onScrollHandler = () => positionDropdown(val);
-      // bind/unbind scroll listener
-      document[val ? 'addEventListener' : 'removeEventListener']('scroll', onScrollHandler, { passive: true });
     });
     isMounted = true;
   });
+
   onDestroy(() => {
     dropdownStateSubscription();
     removeDropdown();
@@ -265,7 +263,7 @@
 <style>
 .sv-dropdown {
   box-sizing: border-box;
-  position: absolute;
+  position: fixed;
   background-color: var(--sv-bg);
   width: 100%;
   display: none;

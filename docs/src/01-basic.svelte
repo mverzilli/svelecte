@@ -13,20 +13,45 @@
 </script>
 
 <style lang="scss">
-  .container {
-    margin: 100px;
-    width: 300px;
-    height: 150px;
+  .outer {
     overflow: scroll;
+    width: 200px;
+    border: 2px solid red;
+    height: 800px;
+  }
+  .container {
+    display: grid;
+    gap: 90px;
+    width: 300px;
+    height: 4000px;
   }
 </style>
 
-<div class="container">
-  <Svelecte {options} 
-  inputId="country"
-  bind:readSelection={selection}
-  bind:value={value}
-  placeholder="Select country"
-></Svelecte>
-
+<div class="outer">
+  <div class="container">
+  <div>1<Svelecte inputId={1} {options} 
+    bind:readSelection={selection}
+    bind:value={value}
+    placeholder="Select country" /></div>
+  <div>2<Svelecte inputId={2} {options} 
+    bind:readSelection={selection}
+    bind:value={value}
+    placeholder="Select country" /></div>
+  <div>3<Svelecte inputId={3} {options} 
+    bind:readSelection={selection}
+    bind:value={value}
+    placeholder="Select country" /></div>
+  <div>4<Svelecte inputId={4} {options} 
+    bind:readSelection={selection}
+    bind:value={value}
+    placeholder="Select country" /></div>
+  <div>5<Svelecte inputId={5} {options} 
+    bind:readSelection={selection}
+    bind:value={value}
+    placeholder="Select country" /></div>
+  <div>6<Svelecte inputId={6} {options} 
+    bind:readSelection={selection}
+    bind:value={value}
+    placeholder="Select country" /></div>
+</div>
 </div>

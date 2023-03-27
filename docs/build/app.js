@@ -4106,19 +4106,19 @@
 
     function get_each_context$1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[54] = list[i];
-    	child_ctx[56] = i;
+    	child_ctx[56] = list[i];
+    	child_ctx[58] = i;
     	return child_ctx;
     }
 
     function get_each_context_1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[54] = list[i];
-    	child_ctx[56] = i;
+    	child_ctx[56] = list[i];
+    	child_ctx[58] = i;
     	return child_ctx;
     }
 
-    // (184:0) {#if isMounted && renderDropdown}
+    // (182:0) {#if isMounted && renderDropdown}
     function create_if_block$2(ctx) {
     	let div2;
     	let t0;
@@ -4146,12 +4146,12 @@
     			if (if_block2) if_block2.c();
     			t2 = space();
     			if (if_block3) if_block3.c();
-    			attr(div0, "class", "sv-dropdown-content svelte-9227bl");
+    			attr(div0, "class", "sv-dropdown-content svelte-gvgdfq");
     			toggle_class(div0, "max-reached", /*maxReached*/ ctx[2]);
-    			attr(div1, "class", "sv-dropdown-scroll svelte-9227bl");
+    			attr(div1, "class", "sv-dropdown-scroll svelte-gvgdfq");
     			attr(div1, "tabindex", "-1");
     			toggle_class(div1, "is-empty", !/*items*/ ctx[5].length);
-    			attr(div2, "class", "sv-dropdown svelte-9227bl");
+    			attr(div2, "class", "sv-dropdown svelte-gvgdfq");
     			attr(div2, "aria-expanded", /*$hasDropdownOpened*/ ctx[28]);
     			toggle_class(div2, "is-virtual", /*virtualList*/ ctx[7]);
     		},
@@ -4291,14 +4291,14 @@
     	};
     }
 
-    // (188:2) {#if selection}
+    // (186:2) {#if selection}
     function create_if_block_6(ctx) {
     	let div;
     	let each_blocks = [];
     	let each_1_lookup = new Map();
     	let current;
     	let each_value_1 = /*selection*/ ctx[17];
-    	const get_key = ctx => /*i*/ ctx[56];
+    	const get_key = ctx => /*i*/ ctx[58];
 
     	for (let i = 0; i < each_value_1.length; i += 1) {
     		let child_ctx = get_each_context_1(ctx, each_value_1, i);
@@ -4314,7 +4314,7 @@
     				each_blocks[i].c();
     			}
 
-    			attr(div, "class", "sv-content has-multiSelection alwaysCollapsed-selection svelte-9227bl");
+    			attr(div, "class", "sv-content has-multiSelection alwaysCollapsed-selection svelte-gvgdfq");
     		},
     		m(target, anchor) {
     			insert(target, div, anchor);
@@ -4361,7 +4361,7 @@
     	};
     }
 
-    // (190:4) {#each selection as opt, i (i)}
+    // (188:4) {#each selection as opt, i (i)}
     function create_each_block_1(key_1, ctx) {
     	let first;
     	let switch_instance;
@@ -4373,7 +4373,7 @@
     		return {
     			props: {
     				formatter: /*renderer*/ ctx[3],
-    				item: /*opt*/ ctx[54],
+    				item: /*opt*/ ctx[56],
     				isSelected: true,
     				isMultiple: /*multiple*/ ctx[9],
     				inputValue: /*inputValue*/ ctx[8]
@@ -4405,7 +4405,7 @@
     			ctx = new_ctx;
     			const switch_instance_changes = {};
     			if (dirty[0] & /*renderer*/ 8) switch_instance_changes.formatter = /*renderer*/ ctx[3];
-    			if (dirty[0] & /*selection*/ 131072) switch_instance_changes.item = /*opt*/ ctx[54];
+    			if (dirty[0] & /*selection*/ 131072) switch_instance_changes.item = /*opt*/ ctx[56];
     			if (dirty[0] & /*multiple*/ 512) switch_instance_changes.isMultiple = /*multiple*/ ctx[9];
     			if (dirty[0] & /*inputValue*/ 256) switch_instance_changes.inputValue = /*inputValue*/ ctx[8];
 
@@ -4451,7 +4451,7 @@
     	};
     }
 
-    // (197:4) {#if items.length}
+    // (195:4) {#if items.length}
     function create_if_block_4(ctx) {
     	let current_block_type_index;
     	let if_block;
@@ -4521,7 +4521,7 @@
     	};
     }
 
-    // (223:6) {:else}
+    // (221:6) {:else}
     function create_else_block$1(ctx) {
     	let each_1_anchor;
     	let current;
@@ -4607,7 +4607,7 @@
     	};
     }
 
-    // (198:6) {#if virtualList}
+    // (196:6) {#if virtualList}
     function create_if_block_5(ctx) {
     	let virtuallist;
     	let current;
@@ -4624,8 +4624,8 @@
     		$$slots: {
     			item: [
     				create_item_slot,
-    				({ style, index }) => ({ 52: style, 53: index }),
-    				({ style, index }) => [0, (style ? 2097152 : 0) | (index ? 4194304 : 0)]
+    				({ style, index }) => ({ 54: style, 55: index }),
+    				({ style, index }) => [0, (style ? 8388608 : 0) | (index ? 16777216 : 0)]
     			]
     		},
     		$$scope: { ctx }
@@ -4652,7 +4652,7 @@
     			? parseInt(/*dropdownIndex*/ ctx[0])
     			: null;
 
-    			if (dirty[0] & /*dropdownIndex, items, itemComponent, renderer, listIndex, disabledField, inputValue, disableHighlight*/ 75065 | dirty[1] & /*$$scope, style, index*/ 140509184) {
+    			if (dirty[0] & /*dropdownIndex, items, itemComponent, renderer, listIndex, disabledField, inputValue, disableHighlight*/ 75065 | dirty[1] & /*$$scope, style, index*/ 562036736) {
     				virtuallist_changes.$$scope = { dirty, ctx };
     			}
 
@@ -4674,7 +4674,7 @@
     	};
     }
 
-    // (224:8) {#each items as opt, i}
+    // (222:8) {#each items as opt, i}
     function create_each_block$1(ctx) {
     	let div;
     	let switch_instance;
@@ -4687,9 +4687,9 @@
     		return {
     			props: {
     				formatter: /*renderer*/ ctx[3],
-    				index: /*listIndex*/ ctx[10].map[/*i*/ ctx[56]],
-    				isDisabled: /*opt*/ ctx[54][/*disabledField*/ ctx[13]],
-    				item: /*opt*/ ctx[54],
+    				index: /*listIndex*/ ctx[10].map[/*i*/ ctx[58]],
+    				isDisabled: /*opt*/ ctx[56][/*disabledField*/ ctx[13]],
+    				item: /*opt*/ ctx[56],
     				inputValue: /*inputValue*/ ctx[8],
     				disableHighlight: /*disableHighlight*/ ctx[4]
     			}
@@ -4707,11 +4707,11 @@
     			div = element("div");
     			if (switch_instance) create_component(switch_instance.$$.fragment);
     			t = space();
-    			attr(div, "data-pos", div_data_pos_value = /*listIndex*/ ctx[10].map[/*i*/ ctx[56]]);
+    			attr(div, "data-pos", div_data_pos_value = /*listIndex*/ ctx[10].map[/*i*/ ctx[58]]);
     			attr(div, "class", "sv-dd-item");
-    			toggle_class(div, "sv-dd-item-active", /*listIndex*/ ctx[10].map[/*i*/ ctx[56]] == /*dropdownIndex*/ ctx[0]);
-    			toggle_class(div, "sv-group-item", /*opt*/ ctx[54].$isGroupItem);
-    			toggle_class(div, "sv-group-header", /*opt*/ ctx[54].$isGroupHeader);
+    			toggle_class(div, "sv-dd-item-active", /*listIndex*/ ctx[10].map[/*i*/ ctx[58]] == /*dropdownIndex*/ ctx[0]);
+    			toggle_class(div, "sv-group-item", /*opt*/ ctx[56].$isGroupItem);
+    			toggle_class(div, "sv-group-header", /*opt*/ ctx[56].$isGroupHeader);
     		},
     		m(target, anchor) {
     			insert(target, div, anchor);
@@ -4722,9 +4722,9 @@
     		p(ctx, dirty) {
     			const switch_instance_changes = {};
     			if (dirty[0] & /*renderer*/ 8) switch_instance_changes.formatter = /*renderer*/ ctx[3];
-    			if (dirty[0] & /*listIndex*/ 1024) switch_instance_changes.index = /*listIndex*/ ctx[10].map[/*i*/ ctx[56]];
-    			if (dirty[0] & /*items, disabledField*/ 8224) switch_instance_changes.isDisabled = /*opt*/ ctx[54][/*disabledField*/ ctx[13]];
-    			if (dirty[0] & /*items*/ 32) switch_instance_changes.item = /*opt*/ ctx[54];
+    			if (dirty[0] & /*listIndex*/ 1024) switch_instance_changes.index = /*listIndex*/ ctx[10].map[/*i*/ ctx[58]];
+    			if (dirty[0] & /*items, disabledField*/ 8224) switch_instance_changes.isDisabled = /*opt*/ ctx[56][/*disabledField*/ ctx[13]];
+    			if (dirty[0] & /*items*/ 32) switch_instance_changes.item = /*opt*/ ctx[56];
     			if (dirty[0] & /*inputValue*/ 256) switch_instance_changes.inputValue = /*inputValue*/ ctx[8];
     			if (dirty[0] & /*disableHighlight*/ 16) switch_instance_changes.disableHighlight = /*disableHighlight*/ ctx[4];
 
@@ -4754,20 +4754,20 @@
     				switch_instance.$set(switch_instance_changes);
     			}
 
-    			if (!current || dirty[0] & /*listIndex*/ 1024 && div_data_pos_value !== (div_data_pos_value = /*listIndex*/ ctx[10].map[/*i*/ ctx[56]])) {
+    			if (!current || dirty[0] & /*listIndex*/ 1024 && div_data_pos_value !== (div_data_pos_value = /*listIndex*/ ctx[10].map[/*i*/ ctx[58]])) {
     				attr(div, "data-pos", div_data_pos_value);
     			}
 
     			if (!current || dirty[0] & /*listIndex, dropdownIndex*/ 1025) {
-    				toggle_class(div, "sv-dd-item-active", /*listIndex*/ ctx[10].map[/*i*/ ctx[56]] == /*dropdownIndex*/ ctx[0]);
+    				toggle_class(div, "sv-dd-item-active", /*listIndex*/ ctx[10].map[/*i*/ ctx[58]] == /*dropdownIndex*/ ctx[0]);
     			}
 
     			if (!current || dirty[0] & /*items*/ 32) {
-    				toggle_class(div, "sv-group-item", /*opt*/ ctx[54].$isGroupItem);
+    				toggle_class(div, "sv-group-item", /*opt*/ ctx[56].$isGroupItem);
     			}
 
     			if (!current || dirty[0] & /*items*/ 32) {
-    				toggle_class(div, "sv-group-header", /*opt*/ ctx[54].$isGroupHeader);
+    				toggle_class(div, "sv-group-header", /*opt*/ ctx[56].$isGroupHeader);
     			}
     		},
     		i(local) {
@@ -4786,7 +4786,7 @@
     	};
     }
 
-    // (207:10) 
+    // (205:10) 
     function create_item_slot(ctx) {
     	let div;
     	let switch_instance;
@@ -4798,9 +4798,9 @@
     		return {
     			props: {
     				formatter: /*renderer*/ ctx[3],
-    				index: /*listIndex*/ ctx[10].map[/*index*/ ctx[53]],
-    				isDisabled: /*items*/ ctx[5][/*index*/ ctx[53]][/*disabledField*/ ctx[13]],
-    				item: /*items*/ ctx[5][/*index*/ ctx[53]],
+    				index: /*listIndex*/ ctx[10].map[/*index*/ ctx[55]],
+    				isDisabled: /*items*/ ctx[5][/*index*/ ctx[55]][/*disabledField*/ ctx[13]],
+    				item: /*items*/ ctx[5][/*index*/ ctx[55]],
     				inputValue: /*inputValue*/ ctx[8],
     				disableHighlight: /*disableHighlight*/ ctx[4]
     			}
@@ -4818,11 +4818,11 @@
     			div = element("div");
     			if (switch_instance) create_component(switch_instance.$$.fragment);
     			attr(div, "slot", "item");
-    			attr(div, "style", div_style_value = /*style*/ ctx[52]);
+    			attr(div, "style", div_style_value = /*style*/ ctx[54]);
     			attr(div, "class", "sv-dd-item");
-    			toggle_class(div, "sv-dd-item-active", /*index*/ ctx[53] == /*dropdownIndex*/ ctx[0]);
-    			toggle_class(div, "sv-group-item", /*items*/ ctx[5][/*index*/ ctx[53]].$isGroupItem);
-    			toggle_class(div, "sv-group-header", /*items*/ ctx[5][/*index*/ ctx[53]].$isGroupHeader);
+    			toggle_class(div, "sv-dd-item-active", /*index*/ ctx[55] == /*dropdownIndex*/ ctx[0]);
+    			toggle_class(div, "sv-group-item", /*items*/ ctx[5][/*index*/ ctx[55]].$isGroupItem);
+    			toggle_class(div, "sv-group-header", /*items*/ ctx[5][/*index*/ ctx[55]].$isGroupHeader);
     		},
     		m(target, anchor) {
     			insert(target, div, anchor);
@@ -4832,9 +4832,9 @@
     		p(ctx, dirty) {
     			const switch_instance_changes = {};
     			if (dirty[0] & /*renderer*/ 8) switch_instance_changes.formatter = /*renderer*/ ctx[3];
-    			if (dirty[0] & /*listIndex*/ 1024 | dirty[1] & /*index*/ 4194304) switch_instance_changes.index = /*listIndex*/ ctx[10].map[/*index*/ ctx[53]];
-    			if (dirty[0] & /*items, disabledField*/ 8224 | dirty[1] & /*index*/ 4194304) switch_instance_changes.isDisabled = /*items*/ ctx[5][/*index*/ ctx[53]][/*disabledField*/ ctx[13]];
-    			if (dirty[0] & /*items*/ 32 | dirty[1] & /*index*/ 4194304) switch_instance_changes.item = /*items*/ ctx[5][/*index*/ ctx[53]];
+    			if (dirty[0] & /*listIndex*/ 1024 | dirty[1] & /*index*/ 16777216) switch_instance_changes.index = /*listIndex*/ ctx[10].map[/*index*/ ctx[55]];
+    			if (dirty[0] & /*items, disabledField*/ 8224 | dirty[1] & /*index*/ 16777216) switch_instance_changes.isDisabled = /*items*/ ctx[5][/*index*/ ctx[55]][/*disabledField*/ ctx[13]];
+    			if (dirty[0] & /*items*/ 32 | dirty[1] & /*index*/ 16777216) switch_instance_changes.item = /*items*/ ctx[5][/*index*/ ctx[55]];
     			if (dirty[0] & /*inputValue*/ 256) switch_instance_changes.inputValue = /*inputValue*/ ctx[8];
     			if (dirty[0] & /*disableHighlight*/ 16) switch_instance_changes.disableHighlight = /*disableHighlight*/ ctx[4];
 
@@ -4864,20 +4864,20 @@
     				switch_instance.$set(switch_instance_changes);
     			}
 
-    			if (!current || dirty[1] & /*style*/ 2097152 && div_style_value !== (div_style_value = /*style*/ ctx[52])) {
+    			if (!current || dirty[1] & /*style*/ 8388608 && div_style_value !== (div_style_value = /*style*/ ctx[54])) {
     				attr(div, "style", div_style_value);
     			}
 
-    			if (!current || dirty[0] & /*dropdownIndex*/ 1 | dirty[1] & /*index*/ 4194304) {
-    				toggle_class(div, "sv-dd-item-active", /*index*/ ctx[53] == /*dropdownIndex*/ ctx[0]);
+    			if (!current || dirty[0] & /*dropdownIndex*/ 1 | dirty[1] & /*index*/ 16777216) {
+    				toggle_class(div, "sv-dd-item-active", /*index*/ ctx[55] == /*dropdownIndex*/ ctx[0]);
     			}
 
-    			if (!current || dirty[0] & /*items*/ 32 | dirty[1] & /*index*/ 4194304) {
-    				toggle_class(div, "sv-group-item", /*items*/ ctx[5][/*index*/ ctx[53]].$isGroupItem);
+    			if (!current || dirty[0] & /*items*/ 32 | dirty[1] & /*index*/ 16777216) {
+    				toggle_class(div, "sv-group-item", /*items*/ ctx[5][/*index*/ ctx[55]].$isGroupItem);
     			}
 
-    			if (!current || dirty[0] & /*items*/ 32 | dirty[1] & /*index*/ 4194304) {
-    				toggle_class(div, "sv-group-header", /*items*/ ctx[5][/*index*/ ctx[53]].$isGroupHeader);
+    			if (!current || dirty[0] & /*items*/ 32 | dirty[1] & /*index*/ 16777216) {
+    				toggle_class(div, "sv-group-header", /*items*/ ctx[5][/*index*/ ctx[55]].$isGroupHeader);
     			}
     		},
     		i(local) {
@@ -4896,7 +4896,7 @@
     	};
     }
 
-    // (243:4) {#if hasEmptyList || maxReached}
+    // (241:4) {#if hasEmptyList || maxReached}
     function create_if_block_3(ctx) {
     	let div;
     	let t;
@@ -4905,7 +4905,7 @@
     		c() {
     			div = element("div");
     			t = text(/*listMessage*/ ctx[12]);
-    			attr(div, "class", "empty-list-row svelte-9227bl");
+    			attr(div, "class", "empty-list-row svelte-gvgdfq");
     		},
     		m(target, anchor) {
     			insert(target, div, anchor);
@@ -4920,7 +4920,7 @@
     	};
     }
 
-    // (248:2) {#if inputValue && creatable && !maxReached}
+    // (246:2) {#if inputValue && creatable && !maxReached}
     function create_if_block_1$2(ctx) {
     	let div1;
     	let div0;
@@ -4939,10 +4939,10 @@
     			t = space();
     			if (if_block) if_block.c();
     			html_tag.a = t;
-    			attr(div0, "class", "creatable-row svelte-9227bl");
+    			attr(div0, "class", "creatable-row svelte-gvgdfq");
     			toggle_class(div0, "active", /*currentListLength*/ ctx[27] == /*dropdownIndex*/ ctx[0]);
     			toggle_class(div0, "is-disabled", /*alreadyCreated*/ ctx[6].includes(/*inputValue*/ ctx[8]));
-    			attr(div1, "class", "creatable-row-wrap svelte-9227bl");
+    			attr(div1, "class", "creatable-row-wrap svelte-gvgdfq");
     		},
     		m(target, anchor) {
     			insert(target, div1, anchor);
@@ -4999,7 +4999,7 @@
     	};
     }
 
-    // (256:6) {#if currentListLength != dropdownIndex}
+    // (254:6) {#if currentListLength != dropdownIndex}
     function create_if_block_2(ctx) {
     	let span;
     	let kbd0;
@@ -5015,9 +5015,9 @@
     			t1 = text("+");
     			kbd1 = element("kbd");
     			kbd1.textContent = "Enter";
-    			attr(kbd0, "class", "svelte-9227bl");
-    			attr(kbd1, "class", "svelte-9227bl");
-    			attr(span, "class", "shortcut svelte-9227bl");
+    			attr(kbd0, "class", "svelte-gvgdfq");
+    			attr(kbd1, "class", "svelte-gvgdfq");
+    			attr(span, "class", "shortcut svelte-gvgdfq");
     		},
     		m(target, anchor) {
     			insert(target, span, anchor);
@@ -5090,11 +5090,6 @@
     	};
     }
 
-    function positionDropdown(val) {
-    	
-    } // if (!scrollContainer && !renderDropdown) return;
-    // const outVp = isOutOfViewport(scrollContainer);
-
     const keypress_handler = () => {
     	
     };
@@ -5130,28 +5125,7 @@
     	let { metaKey } = $$props;
     	let { itemComponent } = $$props;
     	let { selection = null } = $$props;
-
-    	function scrollIntoView(params) {
-    		if (virtualList) return;
-    		const focusedEl = container.querySelector(`[data-pos="${dropdownIndex}"]`);
-    		if (!focusedEl) return;
-    		const focusedRect = focusedEl.getBoundingClientRect();
-    		const menuRect = scrollContainer.getBoundingClientRect();
-    		const overScroll = focusedEl.offsetHeight / 3;
-
-    		const centerOffset = params && params.center
-    		? scrollContainer.offsetHeight / 2
-    		: 0;
-
-    		switch (true) {
-    			case focusedEl.offsetTop < scrollContainer.scrollTop:
-    				$$invalidate(24, scrollContainer.scrollTop = focusedEl.offsetTop - overScroll + centerOffset, scrollContainer);
-    				break;
-    			case focusedEl.offsetTop + focusedRect.height > scrollContainer.scrollTop + menuRect.height:
-    				$$invalidate(24, scrollContainer.scrollTop = focusedEl.offsetTop + focusedRect.height - scrollContainer.offsetHeight + overScroll + centerOffset, scrollContainer);
-    				break;
-    		}
-    	}
+    	let { control } = $$props;
 
     	function getDimensions() {
     		if (virtualList) {
@@ -5163,6 +5137,7 @@
 
     	const dispatch = createEventDispatcher();
     	let dropdown;
+    	let outOfViewport;
     	let container;
     	let scrollContainer;
     	let isMounted = false;
@@ -5173,12 +5148,23 @@
     	let vl_autoMode = vlHeight === null && vlItemSize === null;
     	let refVirtualList;
 
-    	// if (outVp.bottom && !outVp.top) {
-    	//   scrollContainer.parentElement.style.bottom = (scrollContainer.parentElement.parentElement.clientHeight + 1) + 'px';
-    	//   // FUTURE: debounce ....
-    	// } else if (!val || outVp.top) {
-    	//   scrollContainer.parentElement.style.bottom = '';
-    	// }
+    	function positionDropdown() {
+    		if (!document.body.contains(dropdown) || !control) return;
+    		const controlBounds = control.getBoundingClientRect();
+    		const dropdownBounds = dropdown.getBoundingClientRect();
+
+    		if (outOfViewport === undefined) {
+    			outOfViewport = controlBounds.bottom + dropdownBounds.height > window.innerHeight;
+    		}
+
+    		dropdown.setAttribute("style", `
+      top: ${controlBounds.bottom - (outOfViewport
+		? controlBounds.height + dropdownBounds.height
+		: 0)}px;
+      left: ${controlBounds.left}px;
+      width: ${controlBounds.width}px;`);
+    	}
+
     	function virtualListDimensionsResolver() {
     		if (!refVirtualList) return;
 
@@ -5229,8 +5215,18 @@
     		$$invalidate(24, scrollContainer.parentElement.style = '', scrollContainer);
     	}
 
+    	const scrollHandler = e => {
+    		if (!dropdown?.contains) return;
+    		if (!dropdown.contains(e.target)) positionDropdown();
+    	};
+
     	const appendDropdown = () => {
-    		if (document?.body) document.body.appendChild(dropdown);
+    		if (!control) $$invalidate(30, control = dropdown.parentElement);
+
+    		if (document?.body) {
+    			// control.scrollIntoView({ block: "nearest", inline: "nearest" });
+    			document.body.appendChild(dropdown);
+    		}
     	};
 
     	const removeDropdown = () => {
@@ -5241,27 +5237,21 @@
     		
     	};
 
-    	let onScrollHandler = null;
-
-    	/** ************************************ lifecycle */
     	onMount(() => {
-    		/** ************************************ flawless UX related tweak */
     		dropdownStateSubscription = hasDropdownOpened.subscribe(val => {
     			if (!renderDropdown && val) $$invalidate(20, renderDropdown = true);
+    			document.removeEventListener('scroll', scrollHandler, { capture: true });
 
     			tick().then(() => {
     				if (val) {
     					appendDropdown();
+    					positionDropdown();
+    					document.addEventListener('scroll', scrollHandler, { capture: true });
     				} else {
+    					outOfViewport = undefined;
     					removeDropdown();
     				}
-    				val && scrollIntoView({ center: true });
     			});
-
-    			if (!onScrollHandler) onScrollHandler = () => positionDropdown();
-
-    			// bind/unbind scroll listener
-    			document[val ? 'addEventListener' : 'removeEventListener']('scroll', onScrollHandler, { passive: true });
     		});
 
     		$$invalidate(18, isMounted = true);
@@ -5325,7 +5315,7 @@
     	}
 
     	$$self.$$set = $$props => {
-    		if ('lazyDropdown' in $$props) $$invalidate(30, lazyDropdown = $$props.lazyDropdown);
+    		if ('lazyDropdown' in $$props) $$invalidate(31, lazyDropdown = $$props.lazyDropdown);
     		if ('creatable' in $$props) $$invalidate(1, creatable = $$props.creatable);
     		if ('maxReached' in $$props) $$invalidate(2, maxReached = $$props.maxReached);
     		if ('dropdownIndex' in $$props) $$invalidate(0, dropdownIndex = $$props.dropdownIndex);
@@ -5334,8 +5324,8 @@
     		if ('items' in $$props) $$invalidate(5, items = $$props.items);
     		if ('alreadyCreated' in $$props) $$invalidate(6, alreadyCreated = $$props.alreadyCreated);
     		if ('virtualList' in $$props) $$invalidate(7, virtualList = $$props.virtualList);
-    		if ('vlItemSize' in $$props) $$invalidate(31, vlItemSize = $$props.vlItemSize);
-    		if ('vlHeight' in $$props) $$invalidate(32, vlHeight = $$props.vlHeight);
+    		if ('vlItemSize' in $$props) $$invalidate(32, vlItemSize = $$props.vlItemSize);
+    		if ('vlHeight' in $$props) $$invalidate(33, vlHeight = $$props.vlHeight);
     		if ('inputValue' in $$props) $$invalidate(8, inputValue = $$props.inputValue);
     		if ('multiple' in $$props) $$invalidate(9, multiple = $$props.multiple);
     		if ('listIndex' in $$props) $$invalidate(10, listIndex = $$props.listIndex);
@@ -5346,6 +5336,7 @@
     		if ('metaKey' in $$props) $$invalidate(15, metaKey = $$props.metaKey);
     		if ('itemComponent' in $$props) $$invalidate(16, itemComponent = $$props.itemComponent);
     		if ('selection' in $$props) $$invalidate(17, selection = $$props.selection);
+    		if ('control' in $$props) $$invalidate(30, control = $$props.control);
     	};
 
     	$$self.$$.update = () => {
@@ -5410,10 +5401,10 @@
     		currentListLength,
     		$hasDropdownOpened,
     		dispatch,
+    		control,
     		lazyDropdown,
     		vlItemSize,
     		vlHeight,
-    		scrollIntoView,
     		getDimensions,
     		vl_height,
     		mousedown_handler,
@@ -5440,7 +5431,7 @@
     			create_fragment$4,
     			safe_not_equal,
     			{
-    				lazyDropdown: 30,
+    				lazyDropdown: 31,
     				creatable: 1,
     				maxReached: 2,
     				dropdownIndex: 0,
@@ -5449,8 +5440,8 @@
     				items: 5,
     				alreadyCreated: 6,
     				virtualList: 7,
-    				vlItemSize: 31,
-    				vlHeight: 32,
+    				vlItemSize: 32,
+    				vlHeight: 33,
     				inputValue: 8,
     				multiple: 9,
     				listIndex: 10,
@@ -5461,16 +5452,12 @@
     				metaKey: 15,
     				itemComponent: 16,
     				selection: 17,
-    				scrollIntoView: 33,
+    				control: 30,
     				getDimensions: 34
     			},
     			null,
     			[-1, -1]
     		);
-    	}
-
-    	get scrollIntoView() {
-    		return this.$$.ctx[33];
     	}
 
     	get getDimensions() {
@@ -5906,7 +5893,7 @@
     			div = element("div");
     			if (icon_slot) icon_slot.c();
     			attr(div, "slot", "icon");
-    			attr(div, "class", "icon-slot svelte-oy0zpa");
+    			attr(div, "class", "icon-slot svelte-1s1r1y8");
     		},
     		m(target, anchor) {
     			insert(target, div, anchor);
@@ -6015,7 +6002,7 @@
     			attr(path, "d", "M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z");
     			attr(svg, "width", "20");
     			attr(svg, "height", "20");
-    			attr(svg, "class", "indicator-icon svelte-oy0zpa");
+    			attr(svg, "class", "indicator-icon svelte-1s1r1y8");
     			attr(svg, "viewBox", "0 0 20 20");
     			attr(svg, "aria-hidden", "true");
     			attr(svg, "focusable", "false");
@@ -6090,7 +6077,7 @@
     			svg = svg_element("svg");
     			path = svg_element("path");
     			attr(path, "d", "M14.348 14.849c-0.469 0.469-1.229 0.469-1.697 0l-2.651-3.030-2.651 3.029c-0.469 0.469-1.229 0.469-1.697 0-0.469-0.469-0.469-1.229 0-1.697l2.758-3.15-2.759-3.152c-0.469-0.469-0.469-1.228 0-1.697s1.228-0.469 1.697 0l2.652 3.031 2.651-3.031c0.469-0.469 1.228-0.469 1.697 0s0.469 1.229 0 1.697l-2.758 3.152 2.758 3.15c0.469 0.469 0.469 1.229 0 1.698z");
-    			attr(svg, "class", "indicator-icon svelte-oy0zpa");
+    			attr(svg, "class", "indicator-icon svelte-1s1r1y8");
     			attr(svg, "height", "20");
     			attr(svg, "width", "20");
     			attr(svg, "viewBox", "0 0 20 20");
@@ -6216,7 +6203,7 @@
     			attr(select, "id", /*__id*/ ctx[43]);
     			attr(select, "name", /*name*/ ctx[2]);
     			select.multiple = /*multiple*/ ctx[1];
-    			attr(select, "class", "is-hidden svelte-oy0zpa");
+    			attr(select, "class", "is-hidden svelte-1s1r1y8");
     			attr(select, "tabindex", "-1");
     			select.required = /*required*/ ctx[4];
     			select.disabled = /*disabled*/ ctx[0];
@@ -6418,7 +6405,7 @@
     			create_component(dropdown.$$.fragment);
     			t1 = space();
     			if (if_block) if_block.c();
-    			attr(div, "class", div_class_value = "" + (null_to_empty(`svelecte ${/*className*/ ctx[22]}`) + " svelte-oy0zpa"));
+    			attr(div, "class", div_class_value = "" + (null_to_empty(`svelecte ${/*className*/ ctx[22]}`) + " svelte-1s1r1y8"));
     			attr(div, "style", /*style*/ ctx[23]);
     			toggle_class(div, "is-disabled", /*disabled*/ ctx[0]);
     		},
@@ -6499,7 +6486,7 @@
     				if_block = null;
     			}
 
-    			if (!current || dirty[0] & /*className*/ 4194304 && div_class_value !== (div_class_value = "" + (null_to_empty(`svelecte ${/*className*/ ctx[22]}`) + " svelte-oy0zpa"))) {
+    			if (!current || dirty[0] & /*className*/ 4194304 && div_class_value !== (div_class_value = "" + (null_to_empty(`svelecte ${/*className*/ ctx[22]}`) + " svelte-1s1r1y8"))) {
     				attr(div, "class", div_class_value);
     			}
 
@@ -7936,78 +7923,378 @@
     /* docs/src/01-basic.svelte generated by Svelte v3.57.0 */
 
     function create_fragment(ctx) {
-    	let div;
-    	let svelecte;
+    	let div7;
+    	let div6;
+    	let div0;
+    	let t0;
+    	let svelecte0;
     	let updating_readSelection;
     	let updating_value;
+    	let t1;
+    	let div1;
+    	let t2;
+    	let svelecte1;
+    	let updating_readSelection_1;
+    	let updating_value_1;
+    	let t3;
+    	let div2;
+    	let t4;
+    	let svelecte2;
+    	let updating_readSelection_2;
+    	let updating_value_2;
+    	let t5;
+    	let div3;
+    	let t6;
+    	let svelecte3;
+    	let updating_readSelection_3;
+    	let updating_value_3;
+    	let t7;
+    	let div4;
+    	let t8;
+    	let svelecte4;
+    	let updating_readSelection_4;
+    	let updating_value_4;
+    	let t9;
+    	let div5;
+    	let t10;
+    	let svelecte5;
+    	let updating_readSelection_5;
+    	let updating_value_5;
     	let current;
 
-    	function svelecte_readSelection_binding(value) {
-    		/*svelecte_readSelection_binding*/ ctx[3](value);
+    	function svelecte0_readSelection_binding(value) {
+    		/*svelecte0_readSelection_binding*/ ctx[3](value);
     	}
 
-    	function svelecte_value_binding(value) {
-    		/*svelecte_value_binding*/ ctx[4](value);
+    	function svelecte0_value_binding(value) {
+    		/*svelecte0_value_binding*/ ctx[4](value);
     	}
 
-    	let svelecte_props = {
+    	let svelecte0_props = {
+    		inputId: 1,
     		options: /*options*/ ctx[2],
-    		inputId: "country",
     		placeholder: "Select country"
     	};
 
     	if (/*selection*/ ctx[0] !== void 0) {
-    		svelecte_props.readSelection = /*selection*/ ctx[0];
+    		svelecte0_props.readSelection = /*selection*/ ctx[0];
     	}
 
     	if (/*value*/ ctx[1] !== void 0) {
-    		svelecte_props.value = /*value*/ ctx[1];
+    		svelecte0_props.value = /*value*/ ctx[1];
     	}
 
-    	svelecte = new Svelecte({ props: svelecte_props });
-    	binding_callbacks.push(() => bind(svelecte, 'readSelection', svelecte_readSelection_binding));
-    	binding_callbacks.push(() => bind(svelecte, 'value', svelecte_value_binding));
+    	svelecte0 = new Svelecte({ props: svelecte0_props });
+    	binding_callbacks.push(() => bind(svelecte0, 'readSelection', svelecte0_readSelection_binding));
+    	binding_callbacks.push(() => bind(svelecte0, 'value', svelecte0_value_binding));
+
+    	function svelecte1_readSelection_binding(value) {
+    		/*svelecte1_readSelection_binding*/ ctx[5](value);
+    	}
+
+    	function svelecte1_value_binding(value) {
+    		/*svelecte1_value_binding*/ ctx[6](value);
+    	}
+
+    	let svelecte1_props = {
+    		inputId: 2,
+    		options: /*options*/ ctx[2],
+    		placeholder: "Select country"
+    	};
+
+    	if (/*selection*/ ctx[0] !== void 0) {
+    		svelecte1_props.readSelection = /*selection*/ ctx[0];
+    	}
+
+    	if (/*value*/ ctx[1] !== void 0) {
+    		svelecte1_props.value = /*value*/ ctx[1];
+    	}
+
+    	svelecte1 = new Svelecte({ props: svelecte1_props });
+    	binding_callbacks.push(() => bind(svelecte1, 'readSelection', svelecte1_readSelection_binding));
+    	binding_callbacks.push(() => bind(svelecte1, 'value', svelecte1_value_binding));
+
+    	function svelecte2_readSelection_binding(value) {
+    		/*svelecte2_readSelection_binding*/ ctx[7](value);
+    	}
+
+    	function svelecte2_value_binding(value) {
+    		/*svelecte2_value_binding*/ ctx[8](value);
+    	}
+
+    	let svelecte2_props = {
+    		inputId: 3,
+    		options: /*options*/ ctx[2],
+    		placeholder: "Select country"
+    	};
+
+    	if (/*selection*/ ctx[0] !== void 0) {
+    		svelecte2_props.readSelection = /*selection*/ ctx[0];
+    	}
+
+    	if (/*value*/ ctx[1] !== void 0) {
+    		svelecte2_props.value = /*value*/ ctx[1];
+    	}
+
+    	svelecte2 = new Svelecte({ props: svelecte2_props });
+    	binding_callbacks.push(() => bind(svelecte2, 'readSelection', svelecte2_readSelection_binding));
+    	binding_callbacks.push(() => bind(svelecte2, 'value', svelecte2_value_binding));
+
+    	function svelecte3_readSelection_binding(value) {
+    		/*svelecte3_readSelection_binding*/ ctx[9](value);
+    	}
+
+    	function svelecte3_value_binding(value) {
+    		/*svelecte3_value_binding*/ ctx[10](value);
+    	}
+
+    	let svelecte3_props = {
+    		inputId: 4,
+    		options: /*options*/ ctx[2],
+    		placeholder: "Select country"
+    	};
+
+    	if (/*selection*/ ctx[0] !== void 0) {
+    		svelecte3_props.readSelection = /*selection*/ ctx[0];
+    	}
+
+    	if (/*value*/ ctx[1] !== void 0) {
+    		svelecte3_props.value = /*value*/ ctx[1];
+    	}
+
+    	svelecte3 = new Svelecte({ props: svelecte3_props });
+    	binding_callbacks.push(() => bind(svelecte3, 'readSelection', svelecte3_readSelection_binding));
+    	binding_callbacks.push(() => bind(svelecte3, 'value', svelecte3_value_binding));
+
+    	function svelecte4_readSelection_binding(value) {
+    		/*svelecte4_readSelection_binding*/ ctx[11](value);
+    	}
+
+    	function svelecte4_value_binding(value) {
+    		/*svelecte4_value_binding*/ ctx[12](value);
+    	}
+
+    	let svelecte4_props = {
+    		inputId: 5,
+    		options: /*options*/ ctx[2],
+    		placeholder: "Select country"
+    	};
+
+    	if (/*selection*/ ctx[0] !== void 0) {
+    		svelecte4_props.readSelection = /*selection*/ ctx[0];
+    	}
+
+    	if (/*value*/ ctx[1] !== void 0) {
+    		svelecte4_props.value = /*value*/ ctx[1];
+    	}
+
+    	svelecte4 = new Svelecte({ props: svelecte4_props });
+    	binding_callbacks.push(() => bind(svelecte4, 'readSelection', svelecte4_readSelection_binding));
+    	binding_callbacks.push(() => bind(svelecte4, 'value', svelecte4_value_binding));
+
+    	function svelecte5_readSelection_binding(value) {
+    		/*svelecte5_readSelection_binding*/ ctx[13](value);
+    	}
+
+    	function svelecte5_value_binding(value) {
+    		/*svelecte5_value_binding*/ ctx[14](value);
+    	}
+
+    	let svelecte5_props = {
+    		inputId: 6,
+    		options: /*options*/ ctx[2],
+    		placeholder: "Select country"
+    	};
+
+    	if (/*selection*/ ctx[0] !== void 0) {
+    		svelecte5_props.readSelection = /*selection*/ ctx[0];
+    	}
+
+    	if (/*value*/ ctx[1] !== void 0) {
+    		svelecte5_props.value = /*value*/ ctx[1];
+    	}
+
+    	svelecte5 = new Svelecte({ props: svelecte5_props });
+    	binding_callbacks.push(() => bind(svelecte5, 'readSelection', svelecte5_readSelection_binding));
+    	binding_callbacks.push(() => bind(svelecte5, 'value', svelecte5_value_binding));
 
     	return {
     		c() {
-    			div = element("div");
-    			create_component(svelecte.$$.fragment);
-    			attr(div, "class", "container svelte-1u5k9yi");
+    			div7 = element("div");
+    			div6 = element("div");
+    			div0 = element("div");
+    			t0 = text("1");
+    			create_component(svelecte0.$$.fragment);
+    			t1 = space();
+    			div1 = element("div");
+    			t2 = text("2");
+    			create_component(svelecte1.$$.fragment);
+    			t3 = space();
+    			div2 = element("div");
+    			t4 = text("3");
+    			create_component(svelecte2.$$.fragment);
+    			t5 = space();
+    			div3 = element("div");
+    			t6 = text("4");
+    			create_component(svelecte3.$$.fragment);
+    			t7 = space();
+    			div4 = element("div");
+    			t8 = text("5");
+    			create_component(svelecte4.$$.fragment);
+    			t9 = space();
+    			div5 = element("div");
+    			t10 = text("6");
+    			create_component(svelecte5.$$.fragment);
+    			attr(div6, "class", "container svelte-rzvm4k");
+    			attr(div7, "class", "outer svelte-rzvm4k");
     		},
     		m(target, anchor) {
-    			insert(target, div, anchor);
-    			mount_component(svelecte, div, null);
+    			insert(target, div7, anchor);
+    			append(div7, div6);
+    			append(div6, div0);
+    			append(div0, t0);
+    			mount_component(svelecte0, div0, null);
+    			append(div6, t1);
+    			append(div6, div1);
+    			append(div1, t2);
+    			mount_component(svelecte1, div1, null);
+    			append(div6, t3);
+    			append(div6, div2);
+    			append(div2, t4);
+    			mount_component(svelecte2, div2, null);
+    			append(div6, t5);
+    			append(div6, div3);
+    			append(div3, t6);
+    			mount_component(svelecte3, div3, null);
+    			append(div6, t7);
+    			append(div6, div4);
+    			append(div4, t8);
+    			mount_component(svelecte4, div4, null);
+    			append(div6, t9);
+    			append(div6, div5);
+    			append(div5, t10);
+    			mount_component(svelecte5, div5, null);
     			current = true;
     		},
     		p(ctx, [dirty]) {
-    			const svelecte_changes = {};
+    			const svelecte0_changes = {};
 
     			if (!updating_readSelection && dirty & /*selection*/ 1) {
     				updating_readSelection = true;
-    				svelecte_changes.readSelection = /*selection*/ ctx[0];
+    				svelecte0_changes.readSelection = /*selection*/ ctx[0];
     				add_flush_callback(() => updating_readSelection = false);
     			}
 
     			if (!updating_value && dirty & /*value*/ 2) {
     				updating_value = true;
-    				svelecte_changes.value = /*value*/ ctx[1];
+    				svelecte0_changes.value = /*value*/ ctx[1];
     				add_flush_callback(() => updating_value = false);
     			}
 
-    			svelecte.$set(svelecte_changes);
+    			svelecte0.$set(svelecte0_changes);
+    			const svelecte1_changes = {};
+
+    			if (!updating_readSelection_1 && dirty & /*selection*/ 1) {
+    				updating_readSelection_1 = true;
+    				svelecte1_changes.readSelection = /*selection*/ ctx[0];
+    				add_flush_callback(() => updating_readSelection_1 = false);
+    			}
+
+    			if (!updating_value_1 && dirty & /*value*/ 2) {
+    				updating_value_1 = true;
+    				svelecte1_changes.value = /*value*/ ctx[1];
+    				add_flush_callback(() => updating_value_1 = false);
+    			}
+
+    			svelecte1.$set(svelecte1_changes);
+    			const svelecte2_changes = {};
+
+    			if (!updating_readSelection_2 && dirty & /*selection*/ 1) {
+    				updating_readSelection_2 = true;
+    				svelecte2_changes.readSelection = /*selection*/ ctx[0];
+    				add_flush_callback(() => updating_readSelection_2 = false);
+    			}
+
+    			if (!updating_value_2 && dirty & /*value*/ 2) {
+    				updating_value_2 = true;
+    				svelecte2_changes.value = /*value*/ ctx[1];
+    				add_flush_callback(() => updating_value_2 = false);
+    			}
+
+    			svelecte2.$set(svelecte2_changes);
+    			const svelecte3_changes = {};
+
+    			if (!updating_readSelection_3 && dirty & /*selection*/ 1) {
+    				updating_readSelection_3 = true;
+    				svelecte3_changes.readSelection = /*selection*/ ctx[0];
+    				add_flush_callback(() => updating_readSelection_3 = false);
+    			}
+
+    			if (!updating_value_3 && dirty & /*value*/ 2) {
+    				updating_value_3 = true;
+    				svelecte3_changes.value = /*value*/ ctx[1];
+    				add_flush_callback(() => updating_value_3 = false);
+    			}
+
+    			svelecte3.$set(svelecte3_changes);
+    			const svelecte4_changes = {};
+
+    			if (!updating_readSelection_4 && dirty & /*selection*/ 1) {
+    				updating_readSelection_4 = true;
+    				svelecte4_changes.readSelection = /*selection*/ ctx[0];
+    				add_flush_callback(() => updating_readSelection_4 = false);
+    			}
+
+    			if (!updating_value_4 && dirty & /*value*/ 2) {
+    				updating_value_4 = true;
+    				svelecte4_changes.value = /*value*/ ctx[1];
+    				add_flush_callback(() => updating_value_4 = false);
+    			}
+
+    			svelecte4.$set(svelecte4_changes);
+    			const svelecte5_changes = {};
+
+    			if (!updating_readSelection_5 && dirty & /*selection*/ 1) {
+    				updating_readSelection_5 = true;
+    				svelecte5_changes.readSelection = /*selection*/ ctx[0];
+    				add_flush_callback(() => updating_readSelection_5 = false);
+    			}
+
+    			if (!updating_value_5 && dirty & /*value*/ 2) {
+    				updating_value_5 = true;
+    				svelecte5_changes.value = /*value*/ ctx[1];
+    				add_flush_callback(() => updating_value_5 = false);
+    			}
+
+    			svelecte5.$set(svelecte5_changes);
     		},
     		i(local) {
     			if (current) return;
-    			transition_in(svelecte.$$.fragment, local);
+    			transition_in(svelecte0.$$.fragment, local);
+    			transition_in(svelecte1.$$.fragment, local);
+    			transition_in(svelecte2.$$.fragment, local);
+    			transition_in(svelecte3.$$.fragment, local);
+    			transition_in(svelecte4.$$.fragment, local);
+    			transition_in(svelecte5.$$.fragment, local);
     			current = true;
     		},
     		o(local) {
-    			transition_out(svelecte.$$.fragment, local);
+    			transition_out(svelecte0.$$.fragment, local);
+    			transition_out(svelecte1.$$.fragment, local);
+    			transition_out(svelecte2.$$.fragment, local);
+    			transition_out(svelecte3.$$.fragment, local);
+    			transition_out(svelecte4.$$.fragment, local);
+    			transition_out(svelecte5.$$.fragment, local);
     			current = false;
     		},
     		d(detaching) {
-    			if (detaching) detach(div);
-    			destroy_component(svelecte);
+    			if (detaching) detach(div7);
+    			destroy_component(svelecte0);
+    			destroy_component(svelecte1);
+    			destroy_component(svelecte2);
+    			destroy_component(svelecte3);
+    			destroy_component(svelecte4);
+    			destroy_component(svelecte5);
     		}
     	};
     }
@@ -8024,12 +8311,62 @@
     		4000
     	);
 
-    	function svelecte_readSelection_binding(value) {
+    	function svelecte0_readSelection_binding(value) {
     		selection = value;
     		$$invalidate(0, selection);
     	}
 
-    	function svelecte_value_binding(value$1) {
+    	function svelecte0_value_binding(value$1) {
+    		value = value$1;
+    		$$invalidate(1, value);
+    	}
+
+    	function svelecte1_readSelection_binding(value) {
+    		selection = value;
+    		$$invalidate(0, selection);
+    	}
+
+    	function svelecte1_value_binding(value$1) {
+    		value = value$1;
+    		$$invalidate(1, value);
+    	}
+
+    	function svelecte2_readSelection_binding(value) {
+    		selection = value;
+    		$$invalidate(0, selection);
+    	}
+
+    	function svelecte2_value_binding(value$1) {
+    		value = value$1;
+    		$$invalidate(1, value);
+    	}
+
+    	function svelecte3_readSelection_binding(value) {
+    		selection = value;
+    		$$invalidate(0, selection);
+    	}
+
+    	function svelecte3_value_binding(value$1) {
+    		value = value$1;
+    		$$invalidate(1, value);
+    	}
+
+    	function svelecte4_readSelection_binding(value) {
+    		selection = value;
+    		$$invalidate(0, selection);
+    	}
+
+    	function svelecte4_value_binding(value$1) {
+    		value = value$1;
+    		$$invalidate(1, value);
+    	}
+
+    	function svelecte5_readSelection_binding(value) {
+    		selection = value;
+    		$$invalidate(0, selection);
+    	}
+
+    	function svelecte5_value_binding(value$1) {
     		value = value$1;
     		$$invalidate(1, value);
     	}
@@ -8038,8 +8375,18 @@
     		selection,
     		value,
     		options,
-    		svelecte_readSelection_binding,
-    		svelecte_value_binding
+    		svelecte0_readSelection_binding,
+    		svelecte0_value_binding,
+    		svelecte1_readSelection_binding,
+    		svelecte1_value_binding,
+    		svelecte2_readSelection_binding,
+    		svelecte2_value_binding,
+    		svelecte3_readSelection_binding,
+    		svelecte3_value_binding,
+    		svelecte4_readSelection_binding,
+    		svelecte4_value_binding,
+    		svelecte5_readSelection_binding,
+    		svelecte5_value_binding
     	];
     }
 

@@ -60,6 +60,7 @@
 
   const dispatch = createEventDispatcher();
 
+  let dropdown;
   let container;
   let scrollContainer;
   let isMounted = false;
@@ -94,14 +95,14 @@
   }
 
   function positionDropdown(val) {
-    if (!scrollContainer && !renderDropdown) return;
-    const outVp = isOutOfViewport(scrollContainer);
-    if (outVp.bottom && !outVp.top) {
-      scrollContainer.parentElement.style.bottom = (scrollContainer.parentElement.parentElement.clientHeight + 1) + 'px';
-      // FUTURE: debounce ....
-    } else if (!val || outVp.top) {
-      scrollContainer.parentElement.style.bottom = '';
-    }
+    // if (!scrollContainer && !renderDropdown) return;
+    // const outVp = isOutOfViewport(scrollContainer);
+    // if (outVp.bottom && !outVp.top) {
+    //   scrollContainer.parentElement.style.bottom = (scrollContainer.parentElement.parentElement.clientHeight + 1) + 'px';
+    //   // FUTURE: debounce ....
+    // } else if (!val || outVp.top) {
+    //   scrollContainer.parentElement.style.bottom = '';
+    // }
   }
 
   function virtualListDimensionsResolver() {
@@ -146,6 +147,12 @@
     scrollContainer.parentElement.style = '';
   }
 
+  const appendDropdown = () => {
+    if(document?.body) document.body.appendChild(dropdown);
+  }
+  const removeDropdown = () => {
+    if(document?.body.contains(dropdown)) document.body.removeChild(dropdown);
+  }
   let dropdownStateSubscription = () => {};
   let onScrollHandler = null;
   /** ************************************ lifecycle */
@@ -154,6 +161,11 @@
     dropdownStateSubscription = hasDropdownOpened.subscribe(val => {
       if (!renderDropdown && val) renderDropdown = true;
       tick().then(() => {
+        if(val) {
+          appendDropdown();
+        } else {
+          removeDropdown();
+        }
         positionDropdown(val);
         val && scrollIntoView({ center: true });
       });
@@ -163,11 +175,14 @@
     });
     isMounted = true;
   });
-  onDestroy(() => dropdownStateSubscription());
+  onDestroy(() => {
+    dropdownStateSubscription();
+    removeDropdown();
+  })
 </script>
 
 {#if isMounted && renderDropdown}
-<div class="sv-dropdown" class:is-virtual={virtualList} aria-expanded={$hasDropdownOpened}
+<div bind:this={dropdown} class="sv-dropdown" class:is-virtual={virtualList} aria-expanded={$hasDropdownOpened}
   on:mousedown|preventDefault
 >
   {#if selection}

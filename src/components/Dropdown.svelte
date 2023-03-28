@@ -71,9 +71,7 @@
     if (virtualList && vl_autoMode && isMounted && renderDropdown) {
       if (hasEmptyList) dropdownIndex = null;
       vl_itemSize = 0;
-      tick().then(virtualListDimensionsResolver)
-      console.log("tick")
-        .then(positionDropdown);
+      tick().then(virtualListDimensionsResolver).then(positionDropdown);
     }
   }
 
@@ -135,7 +133,6 @@
   const scrollHandler = (e) => {
     if(!dropdown?.contains) return;
     if(!dropdown.contains(e.target)) {
-      console.log("scroll handler")
       positionDropdown();
     }
   }
@@ -160,7 +157,6 @@
       document.removeEventListener('scroll', scrollHandler, { capture: true });
       tick().then(() => {
         if(val) {
-          console.log("append")
           appendDropdown();
           positionDropdown(true);
           document.addEventListener('scroll', scrollHandler, { capture: true });

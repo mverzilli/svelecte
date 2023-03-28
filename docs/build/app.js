@@ -4118,7 +4118,7 @@
     	return child_ctx;
     }
 
-    // (182:0) {#if isMounted && renderDropdown}
+    // (180:0) {#if isMounted && renderDropdown}
     function create_if_block$2(ctx) {
     	let div2;
     	let t0;
@@ -4291,7 +4291,7 @@
     	};
     }
 
-    // (186:2) {#if selection}
+    // (184:2) {#if selection}
     function create_if_block_6(ctx) {
     	let div;
     	let each_blocks = [];
@@ -4361,7 +4361,7 @@
     	};
     }
 
-    // (188:4) {#each selection as opt, i (i)}
+    // (186:4) {#each selection as opt, i (i)}
     function create_each_block_1(key_1, ctx) {
     	let first;
     	let switch_instance;
@@ -4451,7 +4451,7 @@
     	};
     }
 
-    // (195:4) {#if items.length}
+    // (193:4) {#if items.length}
     function create_if_block_4(ctx) {
     	let current_block_type_index;
     	let if_block;
@@ -4521,7 +4521,7 @@
     	};
     }
 
-    // (221:6) {:else}
+    // (219:6) {:else}
     function create_else_block$1(ctx) {
     	let each_1_anchor;
     	let current;
@@ -4607,7 +4607,7 @@
     	};
     }
 
-    // (196:6) {#if virtualList}
+    // (194:6) {#if virtualList}
     function create_if_block_5(ctx) {
     	let virtuallist;
     	let current;
@@ -4674,7 +4674,7 @@
     	};
     }
 
-    // (222:8) {#each items as opt, i}
+    // (220:8) {#each items as opt, i}
     function create_each_block$1(ctx) {
     	let div;
     	let switch_instance;
@@ -4786,7 +4786,7 @@
     	};
     }
 
-    // (205:10) 
+    // (203:10) 
     function create_item_slot(ctx) {
     	let div;
     	let switch_instance;
@@ -4896,7 +4896,7 @@
     	};
     }
 
-    // (241:4) {#if hasEmptyList || maxReached}
+    // (239:4) {#if hasEmptyList || maxReached}
     function create_if_block_3(ctx) {
     	let div;
     	let t;
@@ -4920,7 +4920,7 @@
     	};
     }
 
-    // (246:2) {#if inputValue && creatable && !maxReached}
+    // (244:2) {#if inputValue && creatable && !maxReached}
     function create_if_block_1$2(ctx) {
     	let div1;
     	let div0;
@@ -4999,7 +4999,7 @@
     	};
     }
 
-    // (254:6) {#if currentListLength != dropdownIndex}
+    // (252:6) {#if currentListLength != dropdownIndex}
     function create_if_block_2(ctx) {
     	let span;
     	let kbd0;
@@ -5217,7 +5217,10 @@
 
     	const scrollHandler = e => {
     		if (!dropdown?.contains) return;
-    		if (!dropdown.contains(e.target)) positionDropdown();
+
+    		if (!dropdown.contains(e.target)) {
+    			positionDropdown();
+    		}
     	};
 
     	const appendDropdown = () => {

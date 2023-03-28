@@ -12,13 +12,46 @@
   }, 4000);
 </script>
 
-<label for="country">Select a country</label>
-<Svelecte {options} 
-  inputId="country"
-  bind:readSelection={selection}
-  bind:value={value}
-  placeholder="Select country"
-></Svelecte>
+<style lang="scss">
+  .outer {
+    overflow: scroll;
+    width: 200px;
+    border: 2px solid red;
+    height: 800px;
+  }
+  .container {
+    display: grid;
+    gap: 90px;
+    width: 300px;
+    height: 4000px;
+  }
+</style>
 
-<div>Current <code>readSelection</code> value: <b>{JSON.stringify(selection) }</b></div>
-<div>Current <code>value</code> value: <b>{value}</b></div>
+<div class="outer">
+  <div class="container">
+  <div>1<Svelecte inputId={1} {options} 
+    bind:readSelection={selection}
+    bind:value={value}
+    placeholder="Select country" /></div>
+  <div>2<Svelecte inputId={2} {options} 
+    bind:readSelection={selection}
+    bind:value={value}
+    placeholder="Select country" /></div>
+  <div>3<Svelecte inputId={3} {options} 
+    bind:readSelection={selection}
+    bind:value={value}
+    placeholder="Select country" /></div>
+  <div>4<Svelecte inputId={4} {options} 
+    bind:readSelection={selection}
+    bind:value={value}
+    placeholder="Select country" /></div>
+  <div>5<Svelecte inputId={5} {options} 
+    bind:readSelection={selection}
+    bind:value={value}
+    placeholder="Select country" /></div>
+  <div>6<Svelecte inputId={6} {options} 
+    bind:readSelection={selection}
+    bind:value={value}
+    placeholder="Select country" /></div>
+</div>
+</div>

@@ -1,1 +1,8421 @@
-!function(){"use strict";function e(){}const t=e=>e;function n(e,t){for(const n in t)e[n]=t[n];return e}function l(e){return e()}function i(){return Object.create(null)}function s(e){e.forEach(l)}function r(e){return"function"==typeof e}function o(e,t){return e!=e?t==t:e!==t||e&&"object"==typeof e||"function"==typeof e}function a(t,...n){if(null==t)return e;const l=t.subscribe(...n);return l.unsubscribe?()=>l.unsubscribe():l}function c(e,t,n){e.$$.on_destroy.push(a(t,n))}function u(e,t,n,l){if(e){const i=d(e,t,n,l);return e[0](i)}}function d(e,t,l,i){return e[1]&&i?n(l.ctx.slice(),e[1](i(t))):l.ctx}function h(e,t,n,l){if(e[2]&&l){const i=e[2](l(n));if(void 0===t.dirty)return i;if("object"==typeof i){const e=[],n=Math.max(t.dirty.length,i.length);for(let l=0;l<n;l+=1)e[l]=t.dirty[l]|i[l];return e}return t.dirty|i}return t.dirty}function p(e,t,n,l,i,s){if(i){const r=d(t,n,l,s);e.p(r,i)}}function f(e){if(e.ctx.length>32){const t=[],n=e.ctx.length/32;for(let e=0;e<n;e++)t[e]=-1;return t}return-1}function m(e){return null==e?"":e}function g(e,t,n){return e.set(n),t}function v(t){return t&&r(t.destroy)?t.destroy:e}const b="undefined"!=typeof window;let $=b?()=>window.performance.now():()=>Date.now(),y=b?e=>requestAnimationFrame(e):e;const x=new Set;function w(e){x.forEach((t=>{t.c(e)||(x.delete(t),t.f())})),0!==x.size&&y(w)}function S(e,t){e.appendChild(t)}function C(e){if(!e)return document;const t=e.getRootNode?e.getRootNode():e.ownerDocument;return t&&t.host?t:e.ownerDocument}function k(e){const t=O("style");return function(e,t){S(e.head||e,t),t.sheet}(C(e),t),t.sheet}function A(e,t,n){e.insertBefore(t,n||null)}function I(e){e.parentNode&&e.parentNode.removeChild(e)}function z(e,t){for(let n=0;n<e.length;n+=1)e[n]&&e[n].d(t)}function O(e){return document.createElement(e)}function E(e){return document.createElementNS("http://www.w3.org/2000/svg",e)}function F(e){return document.createTextNode(e)}function _(){return F(" ")}function T(){return F("")}function D(e,t,n,l){return e.addEventListener(t,n,l),()=>e.removeEventListener(t,n,l)}function L(e){return function(t){return t.preventDefault(),e.call(this,t)}}function M(e,t,n){null==n?e.removeAttribute(t):e.getAttribute(t)!==n&&e.setAttribute(t,n)}function P(e,t,n){t in e?e[t]="boolean"==typeof e[t]&&""===n||n:M(e,t,n)}function H(e){return""===e?null:+e}function R(e,t){t=""+t,e.wholeText!==t&&(e.data=t)}function N(e,t){e.value=null==t?"":t}function B(e,t,n,l){null===n?e.style.removeProperty(t):e.style.setProperty(t,n,l?"important":"")}function V(e,t,n){for(let n=0;n<e.options.length;n+=1){const l=e.options[n];if(l.__value===t)return void(l.selected=!0)}n&&void 0===t||(e.selectedIndex=-1)}function j(e){const t=e.querySelector(":checked");return t&&t.__value}let q;function G(){if(void 0===q){q=!1;try{"undefined"!=typeof window&&window.parent&&window.parent.document}catch(e){q=!0}}return q}function U(e,t,n){e.classList[n?"add":"remove"](t)}class K{constructor(e=!1){this.is_svg=!1,this.is_svg=e,this.e=this.n=null}c(e){this.h(e)}m(e,t,n=null){this.e||(this.is_svg?this.e=E(t.nodeName):this.e=O(11===t.nodeType?"TEMPLATE":t.nodeName),this.t="TEMPLATE"!==t.tagName?t:t.content,this.c(e)),this.i(n)}h(e){this.e.innerHTML=e,this.n=Array.from("TEMPLATE"===this.e.nodeName?this.e.content.childNodes:this.e.childNodes)}i(e){for(let t=0;t<this.n.length;t+=1)A(this.t,this.n[t],e)}p(e){this.d(),this.h(e),this.i(this.a)}d(){this.n.forEach(I)}}function J(e,t){return new e(t)}const Q=new Map;let W,X=0;function Z(e,t,n,l,i,s,r,o=0){const a=16.666/l;let c="{\n";for(let e=0;e<=1;e+=a){const l=t+(n-t)*s(e);c+=100*e+`%{${r(l,1-l)}}\n`}const u=c+`100% {${r(n,1-n)}}\n}`,d=`__svelte_${function(e){let t=5381,n=e.length;for(;n--;)t=(t<<5)-t^e.charCodeAt(n);return t>>>0}(u)}_${o}`,h=C(e),{stylesheet:p,rules:f}=Q.get(h)||function(e,t){const n={stylesheet:k(t),rules:{}};return Q.set(e,n),n}(h,e);f[d]||(f[d]=!0,p.insertRule(`@keyframes ${d} ${u}`,p.cssRules.length));const m=e.style.animation||"";return e.style.animation=`${m?`${m}, `:""}${d} ${l}ms linear ${i}ms 1 both`,X+=1,d}function Y(e,t){const n=(e.style.animation||"").split(", "),l=n.filter(t?e=>e.indexOf(t)<0:e=>-1===e.indexOf("__svelte")),i=n.length-l.length;i&&(e.style.animation=l.join(", "),X-=i,X||y((()=>{X||(Q.forEach((e=>{const{ownerNode:t}=e.stylesheet;t&&I(t)})),Q.clear())})))}function ee(n,l,i,s){if(!l)return e;const r=n.getBoundingClientRect();if(l.left===r.left&&l.right===r.right&&l.top===r.top&&l.bottom===r.bottom)return e;const{delay:o=0,duration:a=300,easing:c=t,start:u=$()+o,end:d=u+a,tick:h=e,css:p}=i(n,{from:l,to:r},s);let f,m=!0,g=!1;function v(){p&&Y(n,f),m=!1}return function(e){let t;0===x.size&&y(w),new Promise((n=>{x.add(t={c:e,f:n})}))}((e=>{if(!g&&e>=u&&(g=!0),g&&e>=d&&(h(1,0),v()),!m)return!1;if(g){const t=0+1*c((e-u)/a);h(t,1-t)}return!0})),p&&(f=Z(n,0,1,a,o,c,p)),o||(g=!0),h(0,1),v}function te(e){const t=getComputedStyle(e);if("absolute"!==t.position&&"fixed"!==t.position){const{width:n,height:l}=t,i=e.getBoundingClientRect();e.style.position="absolute",e.style.width=n,e.style.height=l,function(e,t){const n=e.getBoundingClientRect();if(t.left!==n.left||t.top!==n.top){const l=getComputedStyle(e),i="none"===l.transform?"":l.transform;e.style.transform=`${i} translate(${t.left-n.left}px, ${t.top-n.top}px)`}}(e,i)}}function ne(e){W=e}function le(){if(!W)throw new Error("Function called outside component initialization");return W}function ie(e){le().$$.on_mount.push(e)}function se(e){le().$$.on_destroy.push(e)}function re(){const e=le();return(t,n,{cancelable:l=!1}={})=>{const i=e.$$.callbacks[t];if(i){const s=function(e,t,{bubbles:n=!1,cancelable:l=!1}={}){const i=document.createEvent("CustomEvent");return i.initCustomEvent(e,n,l,t),i}(t,n,{cancelable:l});return i.slice().forEach((t=>{t.call(e,s)})),!s.defaultPrevented}return!0}}function oe(e,t){const n=e.$$.callbacks[t.type];n&&n.slice().forEach((e=>e.call(this,t)))}const ae=[],ce=[];let ue=[];const de=[],he=Promise.resolve();let pe=!1;function fe(){pe||(pe=!0,he.then(ye))}function me(){return fe(),he}function ge(e){ue.push(e)}function ve(e){de.push(e)}const be=new Set;let $e=0;function ye(){if(0!==$e)return;const e=W;do{try{for(;$e<ae.length;){const e=ae[$e];$e++,ne(e),xe(e.$$)}}catch(e){throw ae.length=0,$e=0,e}for(ne(null),ae.length=0,$e=0;ce.length;)ce.pop()();for(let e=0;e<ue.length;e+=1){const t=ue[e];be.has(t)||(be.add(t),t())}ue.length=0}while(ae.length);for(;de.length;)de.pop()();pe=!1,be.clear(),ne(e)}function xe(e){if(null!==e.fragment){e.update(),s(e.before_update);const t=e.dirty;e.dirty=[-1],e.fragment&&e.fragment.p(e.ctx,t),e.after_update.forEach(ge)}}const we=new Set;let Se;function Ce(){Se={r:0,c:[],p:Se}}function ke(){Se.r||s(Se.c),Se=Se.p}function Ae(e,t){e&&e.i&&(we.delete(e),e.i(t))}function Ie(e,t,n,l){if(e&&e.o){if(we.has(e))return;we.add(e),Se.c.push((()=>{we.delete(e),l&&(n&&e.d(1),l())})),e.o(t)}else l&&l()}function ze(e,t){Ie(e,1,1,(()=>{t.delete(e.key)}))}function Oe(e,t){e.f(),ze(e,t)}function Ee(e,t,n,l,i,r,o,a,c,u,d,h){let p=e.length,f=r.length,m=p;const g={};for(;m--;)g[e[m].key]=m;const v=[],b=new Map,$=new Map,y=[];for(m=f;m--;){const e=h(i,r,m),s=n(e);let a=o.get(s);a?l&&y.push((()=>a.p(e,t))):(a=u(s,e),a.c()),b.set(s,v[m]=a),s in g&&$.set(s,Math.abs(m-g[s]))}const x=new Set,w=new Set;function S(e){Ae(e,1),e.m(a,d),o.set(e.key,e),d=e.first,f--}for(;p&&f;){const t=v[f-1],n=e[p-1],l=t.key,i=n.key;t===n?(d=t.first,p--,f--):b.has(i)?!o.has(l)||x.has(l)?S(t):w.has(i)?p--:$.get(l)>$.get(i)?(w.add(l),S(t)):(x.add(i),p--):(c(n,o),p--)}for(;p--;){const t=e[p];b.has(t.key)||c(t,o)}for(;f;)S(v[f-1]);return s(y),v}function Fe(e,t,n){const l=e.$$.props[t];void 0!==l&&(e.$$.bound[l]=n,n(e.$$.ctx[l]))}function _e(e){e&&e.c()}function Te(e,t,n,i){const{fragment:o,after_update:a}=e.$$;o&&o.m(t,n),i||ge((()=>{const t=e.$$.on_mount.map(l).filter(r);e.$$.on_destroy?e.$$.on_destroy.push(...t):s(t),e.$$.on_mount=[]})),a.forEach(ge)}function De(e,t){const n=e.$$;null!==n.fragment&&(!function(e){const t=[],n=[];ue.forEach((l=>-1===e.indexOf(l)?t.push(l):n.push(l))),n.forEach((e=>e())),ue=t}(n.after_update),s(n.on_destroy),n.fragment&&n.fragment.d(t),n.on_destroy=n.fragment=null,n.ctx=[])}function Le(t,n,l,r,o,a,c,u=[-1]){const d=W;ne(t);const h=t.$$={fragment:null,ctx:[],props:a,update:e,not_equal:o,bound:i(),on_mount:[],on_destroy:[],on_disconnect:[],before_update:[],after_update:[],context:new Map(n.context||(d?d.$$.context:[])),callbacks:i(),dirty:u,skip_bound:!1,root:n.target||d.$$.root};c&&c(h.root);let p=!1;if(h.ctx=l?l(t,n.props||{},((e,n,...l)=>{const i=l.length?l[0]:n;return h.ctx&&o(h.ctx[e],h.ctx[e]=i)&&(!h.skip_bound&&h.bound[e]&&h.bound[e](i),p&&function(e,t){-1===e.$$.dirty[0]&&(ae.push(e),fe(),e.$$.dirty.fill(0)),e.$$.dirty[t/31|0]|=1<<t%31}(t,e)),n})):[],h.update(),p=!0,s(h.before_update),h.fragment=!!r&&r(h.ctx),n.target){if(n.hydrate){const e=function(e){return Array.from(e.childNodes)}(n.target);h.fragment&&h.fragment.l(e),e.forEach(I)}else h.fragment&&h.fragment.c();n.intro&&Ae(t.$$.fragment),Te(t,n.target,n.anchor,n.customElement),ye()}ne(d)}class Me{$destroy(){De(this,1),this.$destroy=e}$on(t,n){if(!r(n))return e;const l=this.$$.callbacks[t]||(this.$$.callbacks[t]=[]);return l.push(n),()=>{const e=l.indexOf(n);-1!==e&&l.splice(e,1)}}$set(e){var t;this.$$set&&(t=e,0!==Object.keys(t).length)&&(this.$$.skip_bound=!0,this.$$set(e),this.$$.skip_bound=!1)}}var Pe=function(e,t){this.items=e,this.settings=t||{diacritics:!0}};Pe.prototype.tokenize=function(e,t){if(!(e=Be(String(e||"").toLowerCase()))||!e.length)return[];var n,l,i,s,r=[],o=e.split(/ +/);for(n=0,l=o.length;n<l;n++){if(i=Ve(o[n]),this.settings.diacritics)for(s in je)je.hasOwnProperty(s)&&(i=i.replace(new RegExp(s,"g"),je[s]));t&&(i="\\b"+i),r.push({string:o[n],regex:new RegExp(i,"i")})}return r},Pe.prototype.iterator=function(e,t){var n;n=Array.isArray(e)?Array.prototype.forEach||function(e){for(var t=0,n=this.length;t<n;t++)e(this[t],t,this)}:function(e){for(var t in this)this.hasOwnProperty(t)&&e(this[t],t,this)},n.apply(e,[t])},Pe.prototype.getScoreFunction=function(e,t){var n,l,i,s;e=this.prepareSearch(e,t),l=e.tokens,n=e.options.fields,i=l.length,s=e.options.nesting;var r,o=function(e,t){var n,l;return e?-1===(l=(e=String(e||"")).search(t.regex))?0:(n=t.string.length/e.length,0===l&&(n+=.5),n):0},a=(r=n.length)?1===r?function(e,t){return o(Ne(t,n[0],s),e)}:function(e,t){for(var l=0,i=0;l<r;l++)i+=o(Ne(t,n[l],s),e);return i/r}:function(){return 0};return i?1===i?function(e){return a(l[0],e)}:"and"===e.options.conjunction?function(e){for(var t,n=0,s=0;n<i;n++){if((t=a(l[n],e))<=0)return 0;s+=t}return s/i}:function(e){for(var t=0,n=0;t<i;t++)n+=a(l[t],e);return n/i}:function(){return 0}},Pe.prototype.getSortFunction=function(e,t){var n,l,i,s,r,o,a,c,u,d,h;if(h=!(e=(i=this).prepareSearch(e,t)).query&&t.sort_empty||t.sort,u=function(e,n){return"$score"===e?n.score:Ne(i.items[n.id],e,t.nesting)},r=[],h)for(n=0,l=h.length;n<l;n++)(e.query||"$score"!==h[n].field)&&r.push(h[n]);if(e.query){for(d=!0,n=0,l=r.length;n<l;n++)if("$score"===r[n].field){d=!1;break}d&&r.unshift({field:"$score",direction:"desc"})}else for(n=0,l=r.length;n<l;n++)if("$score"===r[n].field){r.splice(n,1);break}for(c=[],n=0,l=r.length;n<l;n++)c.push("desc"===r[n].direction?-1:1);return(o=r.length)?1===o?(s=r[0].field,a=c[0],function(e,t){return a*He(u(s,e),u(s,t))}):function(e,t){var n,l,i;for(n=0;n<o;n++)if(i=r[n].field,l=c[n]*He(u(i,e),u(i,t)))return l;return 0}:null},Pe.prototype.prepareSearch=function(e,t){if("object"==typeof e)return e;var n=(t=Re({},t)).fields,l=t.sort,i=t.sort_empty;return n&&!Array.isArray(n)&&(t.fields=[n]),l&&!Array.isArray(l)&&(t.sort=[l]),i&&!Array.isArray(i)&&(t.sort_empty=[i]),{options:t,query:String(e||"").toLowerCase(),tokens:this.tokenize(e,t.respect_word_boundaries),total:0,items:[]}},Pe.prototype.search=function(e,t){var n,l,i,s,r=this;return l=this.prepareSearch(e,t),t=l.options,e=l.query,s=t.score||r.getScoreFunction(l),e.length?r.iterator(r.items,(function(e,i){n=s(e),(!1===t.filter||n>0)&&l.items.push({score:n,id:i})})):r.iterator(r.items,(function(e,t){l.items.push({score:1,id:t})})),(i=r.getSortFunction(l,t))&&l.items.sort(i),l.total=l.items.length,"number"==typeof t.limit&&(l.items=l.items.slice(0,t.limit)),l};var He=function(e,t){return"number"==typeof e&&"number"==typeof t?e>t?1:e<t?-1:0:(e=qe(String(e||"")))>(t=qe(String(t||"")))?1:t>e?-1:0},Re=function(e,t){var n,l,i,s;for(n=1,l=arguments.length;n<l;n++)if(s=arguments[n])for(i in s)s.hasOwnProperty(i)&&(e[i]=s[i]);return e},Ne=function(e,t,n){if(e&&t){if(!n)return e[t];for(var l=t.split(".");l.length&&(e=e[l.shift()]););return e}},Be=function(e){return(e+"").replace(/^\s+|\s+$|/g,"")},Ve=function(e){return(e+"").replace(/([.?*+^$[\]\\(){}|-])/g,"\\$1")},je={a:"[aḀḁĂăÂâǍǎȺⱥȦȧẠạÄäÀàÁáĀāÃãÅåąĄÃąĄ]",b:"[b␢βΒB฿𐌁ᛒ]",c:"[cĆćĈĉČčĊċC̄c̄ÇçḈḉȻȼƇƈɕᴄＣｃ]",d:"[dĎďḊḋḐḑḌḍḒḓḎḏĐđD̦d̦ƉɖƊɗƋƌᵭᶁᶑȡᴅＤｄð]",e:"[eÉéÈèÊêḘḙĚěĔĕẼẽḚḛẺẻĖėËëĒēȨȩĘęᶒɆɇȄȅẾếỀềỄễỂểḜḝḖḗḔḕȆȇẸẹỆệⱸᴇＥｅɘǝƏƐε]",f:"[fƑƒḞḟ]",g:"[gɢ₲ǤǥĜĝĞğĢģƓɠĠġ]",h:"[hĤĥĦħḨḩẖẖḤḥḢḣɦʰǶƕ]",i:"[iÍíÌìĬĭÎîǏǐÏïḮḯĨĩĮįĪīỈỉȈȉȊȋỊịḬḭƗɨɨ̆ᵻᶖİiIıɪＩｉ]",j:"[jȷĴĵɈɉʝɟʲ]",k:"[kƘƙꝀꝁḰḱǨǩḲḳḴḵκϰ₭]",l:"[lŁłĽľĻļĹĺḶḷḸḹḼḽḺḻĿŀȽƚⱠⱡⱢɫɬᶅɭȴʟＬｌ]",n:"[nŃńǸǹŇňÑñṄṅŅņṆṇṊṋṈṉN̈n̈ƝɲȠƞᵰᶇɳȵɴＮｎŊŋ]",o:"[oØøÖöÓóÒòÔôǑǒŐőŎŏȮȯỌọƟɵƠơỎỏŌōÕõǪǫȌȍՕօ]",p:"[pṔṕṖṗⱣᵽƤƥᵱ]",q:"[qꝖꝗʠɊɋꝘꝙq̃]",r:"[rŔŕɌɍŘřŖŗṘṙȐȑȒȓṚṛⱤɽ]",s:"[sŚśṠṡṢṣꞨꞩŜŝŠšŞşȘșS̈s̈]",t:"[tŤťṪṫŢţṬṭƮʈȚțṰṱṮṯƬƭ]",u:"[uŬŭɄʉỤụÜüÚúÙùÛûǓǔŰűŬŭƯưỦủŪūŨũŲųȔȕ∪]",v:"[vṼṽṾṿƲʋꝞꝟⱱʋ]",w:"[wẂẃẀẁŴŵẄẅẆẇẈẉ]",x:"[xẌẍẊẋχ]",y:"[yÝýỲỳŶŷŸÿỸỹẎẏỴỵɎɏƳƴ]",z:"[zŹźẐẑŽžŻżẒẓẔẕƵƶ]"};const qe=function(){var e,t,n,l,i="",s={};for(n in je)if(je.hasOwnProperty(n))for(i+=l=je[n].substring(2,je[n].length-1),e=0,t=l.length;e<t;e++)s[l.charAt(e)]=n;var r=new RegExp("["+i+"]","g");return function(e){return e.replace(r,(function(e){return s[e]})).toLowerCase()}}();let Ge,Ue=null;function Ke(e,t,n,l,i){const s=l?l(e,t,n):e;if(""==n||e.isSelected||i)return'<div class="sv-item-content">'+s+"</div>";Ge||(Ge=document.createElement("div"),Ge.className="sv-item-content"),Ge.innerHTML=s;return qe(n).split(" ").filter((e=>e)).forEach((e=>{Je(Ge,e)})),Ge.outerHTML}const Je=function(e,t){let n=0;if(3===e.nodeType){const l=qe(e.data);let i=l.indexOf(t);if(i-=l.substr(0,i).toUpperCase().length-l.substr(0,i).length,i>=0){const l=document.createElement("span");l.className="highlight";const s=e.splitText(i);s.splitText(t.length);const r=s.cloneNode(!0);l.appendChild(r),s.parentNode.replaceChild(l,s),n=1}}else if(1===e.nodeType&&e.childNodes&&!/(script|style)/i.test(e.tagName)&&("highlight"!==e.className||"SPAN"!==e.tagName))for(var l=0;l<e.childNodes.length;++l)l+=Je(e.childNodes[l],t);return n};function Qe(e,t,n){const l="value"===e;if(n.isOptionArray)return l?"value":"label";let i=l?"value":"text";if(t&&t.length){const e=t[0][n.optItems]?t[0][n.optItems][0]:t[0];if(!e)return i;const s=l?0:1,r=l?["id","value","ID"]:["name","title","label"];i=Object.keys(e).filter((e=>r.includes(e))).concat([Object.keys(e)[s]]).shift()}return i}function We(e,t){return(e||"").replace(/\t/g," ").trim().split(" ").filter((e=>e)).join(" ")}function Xe(e,t,n,l){return{[n]:e,[l]:t+e}}const Ze={disabled:!1,valueField:null,labelField:null,groupLabelField:"label",groupItemsField:"options",disabledField:"$disabled",placeholder:"Select",valueAsObject:!1,searchable:!0,clearable:!1,selectOnTab:null,resetOnBlur:!0,resetOnSelect:!0,fetchResetOnBlur:!0,multiple:!1,closeAfterSelect:!1,max:0,collapseSelection:!1,alwaysCollapsed:!1,creatable:!1,creatablePrefix:"*",keepCreated:!0,allowEditing:!1,delimiter:",",fetchCallback:null,minQuery:1,lazyDropdown:!0,virtualList:!1,vlItemSize:null,vlHeight:null,i18n:{empty:"No options",nomatch:"No matching options",max:e=>`Maximum items ${e} selected`,fetchBefore:"Type to start searching",fetchQuery:(e,t)=>`Type ${e>1&&e>t?`at least ${e-t} characters `:""}to start searching`,fetchInit:"Fetching data, please wait...",fetchEmpty:"No data related to your search",collapsedSelection:e=>`${e} selected`,createRowLabel:e=>`Create '${e}'`},collapseSelectionFn:function(e,t){return this.collapsedSelection(e)}},Ye=[];function et(t,n=e){let l;const i=new Set;function s(e){if(o(t,e)&&(t=e,l)){const e=!Ye.length;for(const e of i)e[1](),Ye.push(e,t);if(e){for(let e=0;e<Ye.length;e+=2)Ye[e][0](Ye[e+1]);Ye.length=0}}}return{set:s,update:function(e){s(e(t))},subscribe:function(r,o=e){const a=[r,o];return i.add(a),1===i.size&&(l=n(s)||e),r(t),()=>{i.delete(a),0===i.size&&l&&(l(),l=null)}}}}function tt(e,t,n){if(t)return Array.isArray(e)?e:[e];const l=Array.isArray(e)?e:[e],i=n.labelAsValue?n.labelField:n.valueField;return this.reduce(((e,t,s)=>{if(t[n.optItems]&&t[n.optItems].length){const s=t[n.optItems].reduce(((e,t)=>(l.includes(t[i])&&e.push(t),e)),[]);if(s.length)return e.push(...s),e}return l.includes("object"==typeof t?t[i]:n.labelAsValue?t:s)&&(n.isOptionArray&&(t={[n.valueField]:s,[n.labelField]:t}),e.push(t)),e}),[]).sort(((e,t)=>l.indexOf(e[i])<l.indexOf(t[i])?-1:1))}function nt(e,t){const n=e.reduce(((e,n,l)=>t.isOptionArray?(e.push({[t.valueField]:l,[t.labelField]:n}),e):n[t.optItems]&&n[t.optItems].length?(t.optionsWithGroups=!0,e.push({label:n[t.optLabel],$isGroupHeader:!0}),e.push(...n[t.optItems].map((e=>(e.$isGroupItem=!0,e)))),e):(e.push(n),e)),[]);return function(e,t){t.isOptionArray&&(t.optionProps||(t.optionProps=["value","label"]));e.some((e=>!e.$isGroupHeader&&(t.optionProps=lt(e),!0)))}(n,t),n}function lt(e){e.options&&(e=e.options[0]);const t=["$disabled","$isGroupHeader","$isGroupItem"];return Object.keys(e).filter((e=>!t.includes(e)))}function it(e){const t=e-1;return t*t*t+1}function st(e,{from:t,to:n},l={}){const i=getComputedStyle(e),s="none"===i.transform?"":i.transform,[o,a]=i.transformOrigin.split(" ").map(parseFloat),c=t.left+t.width*o/n.width-(n.left+o),u=t.top+t.height*a/n.height-(n.top+a),{delay:d=0,duration:h=(e=>120*Math.sqrt(e)),easing:p=it}=l;return{delay:d,duration:r(h)?h(Math.sqrt(c*c+u*u)):h,easing:p,css:(e,l)=>{const i=l*c,r=l*u,o=e+l*t.width/n.width,a=e+l*t.height/n.height;return`transform: ${s} translate(${i}px, ${r}px) scale(${o}, ${a});`}}}function rt(t){let n,l,i,r,o,a,c,u;return{c(){n=O("input"),i=_(),r=O("div"),o=F(t[11]),M(n,"type","text"),M(n,"class","inputBox svelte-x1t6fd"),n.disabled=t[2],n.readOnly=l=!t[1],M(n,"id",t[0]),M(n,"style",t[10]),M(n,"placeholder",t[6]),M(n,"enterkeyhint",t[9]),M(r,"class","shadow-text svelte-x1t6fd"),ge((()=>t[28].call(r)))},m(e,l){var s;A(e,n,l),t[26](n),N(n,t[7]),A(e,i,l),A(e,r,l),S(r,o),a=function(e,t){"static"===getComputedStyle(e).position&&(e.style.position="relative");const n=O("iframe");n.setAttribute("style","display: block; position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; border: 0; opacity: 0; pointer-events: none; z-index: -1;"),n.setAttribute("aria-hidden","true"),n.tabIndex=-1;const l=G();let i;return l?(n.src="data:text/html,<script>onresize=function(){parent.postMessage(0,'*')}<\/script>",i=D(window,"message",(e=>{e.source===n.contentWindow&&t()}))):(n.src="about:blank",n.onload=()=>{i=D(n.contentWindow,"resize",t),t()}),S(e,n),()=>{(l||i&&n.contentWindow)&&i(),I(n)}}(r,t[28].bind(r)),c||(u=[D(n,"input",t[27]),D(n,"focus",t[22]),D(n,"blur",t[23]),D(n,"input",t[14]),D(n,"keydown",t[12]),D(n,"keyup",t[13]),D(n,"paste",t[24]),D(n,"change",(s=t[25],function(e){return e.stopPropagation(),s.call(this,e)}))],c=!0)},p(e,t){4&t[0]&&(n.disabled=e[2]),2&t[0]&&l!==(l=!e[1])&&(n.readOnly=l),1&t[0]&&M(n,"id",e[0]),1024&t[0]&&M(n,"style",e[10]),64&t[0]&&M(n,"placeholder",e[6]),512&t[0]&&M(n,"enterkeyhint",e[9]),128&t[0]&&n.value!==e[7]&&N(n,e[7]),2048&t[0]&&R(o,e[11])},i:e,o:e,d(e){e&&I(n),t[26](null),e&&I(i),e&&I(r),a(),c=!1,s(u)}}}function ot(t,n,l){let i,s,r,o,c,u,d,h,p=e,f=()=>(p(),p=a(S,(e=>l(7,d=e))),S),m=e,v=()=>(m(),m=a(C,(e=>l(30,h=e))),C);t.$$.on_destroy.push((()=>p())),t.$$.on_destroy.push((()=>m()));let{inputId:b}=n,{placeholder:$}=n,{searchable:y}=n,{disabled:x}=n,{multiple:w}=n,{inputValue:S}=n;f();let{hasDropdownOpened:C}=n;v();let{selectedOptions:k}=n,{isAndroid:A}=n,I=null,z=0;const O=re();let E=!1;return t.$$set=e=>{"inputId"in e&&l(0,b=e.inputId),"placeholder"in e&&l(16,$=e.placeholder),"searchable"in e&&l(1,y=e.searchable),"disabled"in e&&l(2,x=e.disabled),"multiple"in e&&l(17,w=e.multiple),"inputValue"in e&&f(l(3,S=e.inputValue)),"hasDropdownOpened"in e&&v(l(4,C=e.hasDropdownOpened)),"selectedOptions"in e&&l(18,k=e.selectedOptions),"isAndroid"in e&&l(19,A=e.isAndroid)},t.$$.update=()=>{393216&t.$$.dirty[0]&&l(20,i=k.length>0&&!1===w),327680&t.$$.dirty[0]&&l(6,s=k.length>0?"":$),192&t.$$.dirty[0]&&l(11,r=d||s),262144&t.$$.dirty[0]&&l(21,o=0===k.length?19:12),3145760&t.$$.dirty[0]&&l(10,c=`width: ${i?2:z+o}px`),1048576&t.$$.dirty[0]&&l(9,u=i?null:"enter")},[b,y,x,S,C,z,s,d,I,u,c,r,function(e){if(A&&!u&&"Enter"===e.key)return!0;E=["Enter","Escape"].includes(e.key)&&h,O("keydown",e)},function(e){E&&(e.stopImmediatePropagation(),e.preventDefault()),E=!1},function(e){1!==k.length||w||g(S,d="",d)},()=>I.focus(),$,w,k,A,i,o,function(e){oe.call(this,t,e)},function(e){oe.call(this,t,e)},function(e){oe.call(this,t,e)},function(e){oe.call(this,t,e)},function(e){ce[e?"unshift":"push"]((()=>{I=e,l(8,I)}))},function(){d=this.value,S.set(d)},function(){z=this.clientWidth,l(5,z)}]}class at extends Me{constructor(e){super(),Le(this,e,ot,rt,o,{focus:15,inputId:0,placeholder:16,searchable:1,disabled:2,multiple:17,inputValue:3,hasDropdownOpened:4,selectedOptions:18,isAndroid:19},null,[-1,-1])}get focus(){return this.$$.ctx[15]}}const ct=e=>({}),ut=e=>({}),dt=e=>({}),ht=e=>({}),pt=e=>({}),ft=e=>({});function mt(e,t,n){const l=e.slice();return l[40]=t[n],l}const gt=e=>({}),vt=e=>({});function bt(e){let t,n,l,i;const s=[yt,$t],r=[];function o(e,t){return e[5]&&e[6]&&e[18]?0:1}return t=o(e),n=r[t]=s[t](e),{c(){n.c(),l=T()},m(e,n){r[t].m(e,n),A(e,l,n),i=!0},p(e,i){let a=t;t=o(e),t===a?r[t].p(e,i):(Ce(),Ie(r[a],1,1,(()=>{r[a]=null})),ke(),n=r[t],n?n.p(e,i):(n=r[t]=s[t](e),n.c()),Ae(n,1),n.m(l.parentNode,l))},i(e){i||(Ae(n),i=!0)},o(e){Ie(n),i=!1},d(e){r[t].d(e),e&&I(l)}}}function $t(e){let t,n,l=[],i=new Map,s=e[11];const r=e=>e[40][e[14]];for(let t=0;t<s.length;t+=1){let n=mt(e,s,t),o=r(n);i.set(o,l[t]=xt(o,n))}return{c(){for(let e=0;e<l.length;e+=1)l[e].c();t=T()},m(e,i){for(let t=0;t<l.length;t+=1)l[t]&&l[t].m(e,i);A(e,t,i),n=!0},p(e,n){if(1099812&n[0]){s=e[11],Ce();for(let e=0;e<l.length;e+=1)l[e].r();l=Ee(l,n,r,1,e,s,i,t.parentNode,Oe,xt,t,mt);for(let e=0;e<l.length;e+=1)l[e].a();ke()}},i(e){if(!n){for(let e=0;e<s.length;e+=1)Ae(l[e]);n=!0}},o(e){for(let e=0;e<l.length;e+=1)Ie(l[e]);n=!1},d(e){for(let t=0;t<l.length;t+=1)l[t].d(e);e&&I(t)}}}function yt(t){let n,l,i=t[6](t[11].length,t[11])+"";return{c(){n=new K(!1),l=T(),n.a=l},m(e,t){n.m(i,e,t),A(e,l,t)},p(e,t){2112&t[0]&&i!==(i=e[6](e[11].length,e[11])+"")&&n.p(i)},i:e,o:e,d(e){e&&I(l),e&&n.d()}}}function xt(t,n){let l,i,s,r,o,a=e;var c=n[15];function u(e){return{props:{formatter:e[2],item:e[40],isSelected:!0,isMultiple:e[5],inputValue:e[20]}}}return c&&(i=J(c,u(n)),i.$on("deselect",n[34])),{key:t,first:null,c(){l=O("div"),i&&_e(i.$$.fragment),s=_(),this.first=l},m(e,t){A(e,l,t),i&&Te(i,l,null),S(l,s),o=!0},p(e,t){n=e;const r={};if(4&t[0]&&(r.formatter=n[2]),2048&t[0]&&(r.item=n[40]),32&t[0]&&(r.isMultiple=n[5]),1048576&t[0]&&(r.inputValue=n[20]),32768&t[0]&&c!==(c=n[15])){if(i){Ce();const e=i;Ie(e.$$.fragment,1,0,(()=>{De(e,1)})),ke()}c?(i=J(c,u(n)),i.$on("deselect",n[34]),_e(i.$$.fragment),Ae(i.$$.fragment,1),Te(i,l,s)):i=null}else c&&i.$set(r)},r(){r=l.getBoundingClientRect()},f(){te(l),a()},a(){a(),a=ee(l,r,st,{duration:kt})},i(e){o||(i&&Ae(i.$$.fragment,e),o=!0)},o(e){i&&Ie(i.$$.fragment,e),o=!1},d(e){e&&I(l),i&&De(i)}}}function wt(e){let t,n,l,i;const r=e[28]["clear-icon"],o=u(r,e,e[27],ft);return{c(){t=O("div"),o&&o.c(),M(t,"aria-hidden","true"),M(t,"class","indicator-container close-icon svelte-1l8hgl2")},m(s,r){A(s,t,r),o&&o.m(t,null),n=!0,l||(i=[D(t,"mousedown",L(e[31])),D(t,"click",e[38])],l=!0)},p(e,t){o&&o.p&&(!n||134217728&t[0])&&p(o,r,e,e[27],n?h(r,e[27],t,pt):f(e[27]),ft)},i(e){n||(Ae(o,e),n=!0)},o(e){Ie(o,e),n=!1},d(e){e&&I(t),o&&o.d(e),l=!1,s(i)}}}function St(e){let t;return{c(){t=O("span"),M(t,"class","indicator-separator svelte-1l8hgl2")},m(e,n){A(e,t,n)},d(e){e&&I(t)}}}function Ct(e){let t,n,l,i,o,a,c,d,m,g,b,$,y,x,w;const C=e[28].icon,k=u(C,e,e[27],vt);let z=e[11].length&&bt(e),E={disabled:e[3],searchable:e[1],placeholder:e[4],multiple:e[5],inputId:e[7],inputValue:e[8],hasDropdownOpened:e[10],selectedOptions:e[11],isAndroid:e[16]};o=new at({props:E}),e[35](o),o.$on("focus",e[23]),o.$on("blur",e[24]),o.$on("keydown",e[36]),o.$on("paste",e[37]);let F=e[0]&&!e[3]&&wt(e),T=e[0]&&St();const P=e[28]["indicator-icon"],H=u(P,e,e[27],ht),R=e[28]["control-end"],N=u(R,e,e[27],ut);return{c(){t=O("div"),k&&k.c(),n=_(),l=O("div"),z&&z.c(),i=_(),_e(o.$$.fragment),c=_(),d=O("div"),F&&F.c(),m=_(),T&&T.c(),g=_(),b=O("div"),H&&H.c(),$=_(),N&&N.c(),M(l,"class","sv-content sv-input-row svelte-1l8hgl2"),U(l,"has-multiSelection",e[5]),M(b,"aria-hidden","true"),M(b,"class","indicator-container svelte-1l8hgl2"),M(d,"class","indicator svelte-1l8hgl2"),U(d,"is-loading",e[12]),M(t,"class","sv-control svelte-1l8hgl2"),U(t,"is-active",e[21]),U(t,"is-disabled",e[3])},m(s,r){A(s,t,r),k&&k.m(t,null),S(t,n),S(t,l),z&&z.m(l,null),S(l,i),Te(o,l,null),S(t,c),S(t,d),F&&F.m(d,null),S(d,m),T&&T.m(d,null),S(d,g),S(d,b),H&&H.m(b,null),S(t,$),N&&N.m(t,null),y=!0,x||(w=[v(a=e[13].call(null,l,{items:e[11],flipDurationMs:kt,type:e[7]})),D(l,"consider",e[32]),D(l,"finalize",e[33]),D(b,"mousedown",L(e[30])),D(t,"mousedown",L(e[29])),D(t,"click",L(e[17])),D(t,"keypress",At)],x=!0)},p(e,n){k&&k.p&&(!y||134217728&n[0])&&p(k,C,e,e[27],y?h(C,e[27],n,gt):f(e[27]),vt),e[11].length?z?(z.p(e,n),2048&n[0]&&Ae(z,1)):(z=bt(e),z.c(),Ae(z,1),z.m(l,i)):z&&(Ce(),Ie(z,1,1,(()=>{z=null})),ke());const s={};8&n[0]&&(s.disabled=e[3]),2&n[0]&&(s.searchable=e[1]),16&n[0]&&(s.placeholder=e[4]),32&n[0]&&(s.multiple=e[5]),128&n[0]&&(s.inputId=e[7]),256&n[0]&&(s.inputValue=e[8]),1024&n[0]&&(s.hasDropdownOpened=e[10]),2048&n[0]&&(s.selectedOptions=e[11]),65536&n[0]&&(s.isAndroid=e[16]),o.$set(s),a&&r(a.update)&&2176&n[0]&&a.update.call(null,{items:e[11],flipDurationMs:kt,type:e[7]}),(!y||32&n[0])&&U(l,"has-multiSelection",e[5]),e[0]&&!e[3]?F?(F.p(e,n),9&n[0]&&Ae(F,1)):(F=wt(e),F.c(),Ae(F,1),F.m(d,m)):F&&(Ce(),Ie(F,1,1,(()=>{F=null})),ke()),e[0]?T||(T=St(),T.c(),T.m(d,g)):T&&(T.d(1),T=null),H&&H.p&&(!y||134217728&n[0])&&p(H,P,e,e[27],y?h(P,e[27],n,dt):f(e[27]),ht),(!y||4096&n[0])&&U(d,"is-loading",e[12]),N&&N.p&&(!y||134217728&n[0])&&p(N,R,e,e[27],y?h(R,e[27],n,ct):f(e[27]),ut),(!y||2097152&n[0])&&U(t,"is-active",e[21]),(!y||8&n[0])&&U(t,"is-disabled",e[3])},i(e){y||(Ae(k,e),Ae(z),Ae(o.$$.fragment,e),Ae(F),Ae(H,e),Ae(N,e),y=!0)},o(e){Ie(k,e),Ie(z),Ie(o.$$.fragment,e),Ie(F),Ie(H,e),Ie(N,e),y=!1},d(n){n&&I(t),k&&k.d(n),z&&z.d(),e[35](null),De(o),F&&F.d(),T&&T.d(),H&&H.d(n),N&&N.d(n),x=!1,s(w)}}}const kt=100,At=()=>{};function It(t,n,l){let i,s,r,o=e,c=()=>(o(),o=a(I,(e=>l(20,i=e))),I),u=e,d=()=>(u(),u=a(O,(e=>l(39,s=e))),O),h=e,p=()=>(h(),h=a(z,(e=>l(21,r=e))),z);t.$$.on_destroy.push((()=>o())),t.$$.on_destroy.push((()=>u())),t.$$.on_destroy.push((()=>h()));let{$$slots:f={},$$scope:m}=n,{clearable:v}=n,{searchable:b}=n,{renderer:$}=n,{disabled:y}=n,{placeholder:x}=n,{multiple:w}=n,{resetOnBlur:S}=n,{collapseSelection:C}=n,{alwaysCollapsed:k}=n,{inputId:A}=n,{inputValue:I}=n;c();let{hasFocus:z}=n;p();let{hasDropdownOpened:O}=n;d();let{selectedOptions:E}=n,{isFetchingData:F}=n,{dndzone:_}=n,{currentValueField:T}=n,{itemComponent:D}=n,{isAndroid:L}=n;const M=re();let P,H=!0;return t.$$set=e=>{"clearable"in e&&l(0,v=e.clearable),"searchable"in e&&l(1,b=e.searchable),"renderer"in e&&l(2,$=e.renderer),"disabled"in e&&l(3,y=e.disabled),"placeholder"in e&&l(4,x=e.placeholder),"multiple"in e&&l(5,w=e.multiple),"resetOnBlur"in e&&l(25,S=e.resetOnBlur),"collapseSelection"in e&&l(6,C=e.collapseSelection),"alwaysCollapsed"in e&&l(26,k=e.alwaysCollapsed),"inputId"in e&&l(7,A=e.inputId),"inputValue"in e&&c(l(8,I=e.inputValue)),"hasFocus"in e&&p(l(9,z=e.hasFocus)),"hasDropdownOpened"in e&&d(l(10,O=e.hasDropdownOpened)),"selectedOptions"in e&&l(11,E=e.selectedOptions),"isFetchingData"in e&&l(12,F=e.isFetchingData),"dndzone"in e&&l(13,_=e.dndzone),"currentValueField"in e&&l(14,T=e.currentValueField),"itemComponent"in e&&l(15,D=e.itemComponent),"isAndroid"in e&&l(16,L=e.isAndroid),"$$scope"in e&&l(27,m=e.$$scope)},[v,b,$,y,x,w,C,A,I,z,O,E,F,_,T,D,L,function(e){if(!y)return e?void(r?g(O,s=!s,s):P.focus()):(!r&&P.focus(),void g(O,s=!0,s))},H,P,i,r,M,function(){g(z,r=!0,r),g(O,s=!0,s),!k&&setTimeout((()=>{l(18,H=!1)}),150)},function(){g(z,r=!1,r),g(O,s=!1,s),S&&g(I,i="",i),!k&&setTimeout((()=>{l(18,H=!0)}),100),M("blur")},S,k,m,f,function(e){oe.call(this,t,e)},function(e){oe.call(this,t,e)},function(e){oe.call(this,t,e)},function(e){oe.call(this,t,e)},function(e){oe.call(this,t,e)},function(e){oe.call(this,t,e)},function(e){ce[e?"unshift":"push"]((()=>{P=e,l(19,P)}))},function(e){oe.call(this,t,e)},function(e){oe.call(this,t,e)},()=>M("deselect")]}class zt extends Me{constructor(e){super(),Le(this,e,It,Ct,o,{clearable:0,searchable:1,renderer:2,disabled:3,placeholder:4,multiple:5,resetOnBlur:25,collapseSelection:6,alwaysCollapsed:26,inputId:7,inputValue:8,hasFocus:9,hasDropdownOpened:10,selectedOptions:11,isFetchingData:12,dndzone:13,currentValueField:14,itemComponent:15,isAndroid:16,focusControl:17},null,[-1,-1])}get focusControl(){return this.$$.ctx[17]}}const Ot="start",Et="center",Ft="end",_t={HORIZONTAL:"horizontal",VERTICAL:"vertical"},Tt={OBSERVED:0,REQUESTED:1},Dt={[_t.VERTICAL]:"top",[_t.HORIZONTAL]:"left"},Lt={[_t.VERTICAL]:"scrollTop",[_t.HORIZONTAL]:"scrollLeft"};class Mt{constructor({itemSize:e,itemCount:t,estimatedItemSize:n}){this.itemSize=e,this.itemCount=t,this.estimatedItemSize=n,this.itemSizeAndPositionData={},this.lastMeasuredIndex=-1,this.checkForMismatchItemSizeAndItemCount(),this.justInTime||this.computeTotalSizeAndPositionData()}get justInTime(){return"function"==typeof this.itemSize}updateConfig({itemSize:e,itemCount:t,estimatedItemSize:n}){null!=t&&(this.itemCount=t),null!=n&&(this.estimatedItemSize=n),null!=e&&(this.itemSize=e),this.checkForMismatchItemSizeAndItemCount(),this.justInTime&&null!=this.totalSize?this.totalSize=void 0:this.computeTotalSizeAndPositionData()}checkForMismatchItemSizeAndItemCount(){if(Array.isArray(this.itemSize)&&this.itemSize.length<this.itemCount)throw Error("When itemSize is an array, itemSize.length can't be smaller than itemCount")}getSize(e){const{itemSize:t}=this;return"function"==typeof t?t(e):Array.isArray(t)?t[e]:t}computeTotalSizeAndPositionData(){let e=0;for(let t=0;t<this.itemCount;t++){const n=this.getSize(t),l=e;e+=n,this.itemSizeAndPositionData[t]={offset:l,size:n}}this.totalSize=e}getLastMeasuredIndex(){return this.lastMeasuredIndex}getSizeAndPositionForIndex(e){if(e<0||e>=this.itemCount)throw Error(`Requested index ${e} is outside of range 0..${this.itemCount}`);return this.justInTime?this.getJustInTimeSizeAndPositionForIndex(e):this.itemSizeAndPositionData[e]}getJustInTimeSizeAndPositionForIndex(e){if(e>this.lastMeasuredIndex){const t=this.getSizeAndPositionOfLastMeasuredItem();let n=t.offset+t.size;for(let t=this.lastMeasuredIndex+1;t<=e;t++){const e=this.getSize(t);if(null==e||isNaN(e))throw Error(`Invalid size returned for index ${t} of value ${e}`);this.itemSizeAndPositionData[t]={offset:n,size:e},n+=e}this.lastMeasuredIndex=e}return this.itemSizeAndPositionData[e]}getSizeAndPositionOfLastMeasuredItem(){return this.lastMeasuredIndex>=0?this.itemSizeAndPositionData[this.lastMeasuredIndex]:{offset:0,size:0}}getTotalSize(){if(this.totalSize)return this.totalSize;const e=this.getSizeAndPositionOfLastMeasuredItem();return e.offset+e.size+(this.itemCount-this.lastMeasuredIndex-1)*this.estimatedItemSize}getUpdatedOffsetForIndex({align:e=Ot,containerSize:t,currentOffset:n,targetIndex:l}){if(t<=0)return 0;const i=this.getSizeAndPositionForIndex(l),s=i.offset,r=s-t+i.size;let o;switch(e){case Ft:o=r;break;case Et:o=s-(t-i.size)/2;break;case Ot:o=s;break;default:o=Math.max(r,Math.min(s,n))}const a=this.getTotalSize();return Math.max(0,Math.min(a-t,o))}getVisibleRange({containerSize:e=0,offset:t,overscanCount:n}){if(0===this.getTotalSize())return{};const l=t+e;let i=this.findNearestItem(t);if(void 0===i)throw Error(`Invalid offset ${t} specified`);const s=this.getSizeAndPositionForIndex(i);t=s.offset+s.size;let r=i;for(;t<l&&r<this.itemCount-1;)r++,t+=this.getSizeAndPositionForIndex(r).size;return n&&(i=Math.max(0,i-n),r=Math.min(r+n,this.itemCount-1)),{start:i,stop:r}}resetItem(e){this.lastMeasuredIndex=Math.min(this.lastMeasuredIndex,e-1)}findNearestItem(e){if(isNaN(e))throw Error(`Invalid offset ${e} specified`);e=Math.max(0,e);const t=this.getSizeAndPositionOfLastMeasuredItem(),n=Math.max(0,this.lastMeasuredIndex);return t.offset>=e?this.binarySearch({high:n,low:0,offset:e}):this.exponentialSearch({index:n,offset:e})}binarySearch({low:e,high:t,offset:n}){let l=0,i=0;for(;e<=t;){if(l=e+Math.floor((t-e)/2),i=this.getSizeAndPositionForIndex(l).offset,i===n)return l;i<n?e=l+1:i>n&&(t=l-1)}return e>0?e-1:0}exponentialSearch({index:e,offset:t}){let n=1;for(;e<this.itemCount&&this.getSizeAndPositionForIndex(e).offset<t;)e+=n,n*=2;return this.binarySearch({high:Math.min(e,this.itemCount-1),low:Math.floor(e/2),offset:t})}}const Pt=e=>({}),Ht=e=>({});function Rt(e,t,n){const l=e.slice();return l[37]=t[n],l}const Nt=e=>({style:4&e[0],index:4&e[0]}),Bt=e=>({style:e[37].style,index:e[37].index}),Vt=e=>({}),jt=e=>({});function qt(e,t){let n,l;const i=t[21].item,s=u(i,t,t[20],Bt);return{key:e,first:null,c(){n=T(),s&&s.c(),this.first=n},m(e,t){A(e,n,t),s&&s.m(e,t),l=!0},p(e,n){t=e,s&&s.p&&(!l||1048580&n[0])&&p(s,i,t,t[20],l?h(i,t[20],n,Nt):f(t[20]),Bt)},i(e){l||(Ae(s,e),l=!0)},o(e){Ie(s,e),l=!1},d(e){e&&I(n),s&&s.d(e)}}}function Gt(e){let t,n,l,i,s,r=[],o=new Map;const a=e[21].header,c=u(a,e,e[20],jt);let d=e[2];const m=e=>e[0]?e[0](e[37].index):e[37].index;for(let t=0;t<d.length;t+=1){let n=Rt(e,d,t),l=m(n);o.set(l,r[t]=qt(l,n))}const g=e[21].footer,v=u(g,e,e[20],Ht);return{c(){t=O("div"),c&&c.c(),n=_(),l=O("div");for(let e=0;e<r.length;e+=1)r[e].c();i=_(),v&&v.c(),M(l,"class","virtual-list-inner svelte-dwpad5"),M(l,"style",e[4]),M(t,"class","virtual-list-wrapper svelte-dwpad5"),M(t,"style",e[3])},m(o,a){A(o,t,a),c&&c.m(t,null),S(t,n),S(t,l);for(let e=0;e<r.length;e+=1)r[e]&&r[e].m(l,null);S(t,i),v&&v.m(t,null),e[22](t),s=!0},p(e,n){c&&c.p&&(!s||1048576&n[0])&&p(c,a,e,e[20],s?h(a,e[20],n,Vt):f(e[20]),jt),1048581&n[0]&&(d=e[2],Ce(),r=Ee(r,n,m,1,e,d,o,l,ze,qt,null,Rt),ke()),(!s||16&n[0])&&M(l,"style",e[4]),v&&v.p&&(!s||1048576&n[0])&&p(v,g,e,e[20],s?h(g,e[20],n,Pt):f(e[20]),Ht),(!s||8&n[0])&&M(t,"style",e[3])},i(e){if(!s){Ae(c,e);for(let e=0;e<d.length;e+=1)Ae(r[e]);Ae(v,e),s=!0}},o(e){Ie(c,e);for(let e=0;e<r.length;e+=1)Ie(r[e]);Ie(v,e),s=!1},d(n){n&&I(t),c&&c.d(n);for(let e=0;e<r.length;e+=1)r[e].d();v&&v.d(n),e[22](null)}}}const Ut=(()=>{let e=!1;try{const t=Object.defineProperty({},"passive",{get:()=>(e={passive:!0},!0)});window.addEventListener("testpassive",t,t),window.remove("testpassive",t,t)}catch(e){}return e})();function Kt(e,t,n){let{$$slots:l={},$$scope:i}=t,{height:s}=t,{width:r="100%"}=t,{itemCount:o}=t,{itemSize:a}=t,{estimatedItemSize:c=null}=t,{stickyIndices:u=null}=t,{getKey:d=null}=t,{scrollDirection:h=_t.VERTICAL}=t,{scrollOffset:p=null}=t,{scrollToIndex:f=null}=t,{scrollToAlignment:m=null}=t,{scrollToBehaviour:g="instant"}=t,{overscanCount:v=3}=t;const b=re(),$=new Mt({itemCount:o,itemSize:a,estimatedItemSize:D()});let y,x=!1,w=[],S={offset:p||null!=f&&w.length&&_(f)||0,scrollChangeReason:Tt.REQUESTED},C=S,k={scrollToIndex:f,scrollToAlignment:m,scrollOffset:p,itemCount:o,itemSize:a,estimatedItemSize:c},A={},I="",z="";function O(){const{offset:e}=S,{start:t,stop:l}=$.getVisibleRange({containerSize:h===_t.VERTICAL?s:r,offset:e,overscanCount:v});let i=[];const o=$.getTotalSize();h===_t.VERTICAL?(n(3,I=`height:${s}px;width:${r};`),n(4,z=`flex-direction:column;height:${o}px;`)):(n(3,I=`height:${s};width:${r}px`),n(4,z=`min-height:100%;width:${o}px;`));const a=null!=u&&0!==u.length;if(a)for(let e=0;e<u.length;e++){const t=u[e];i.push({index:t,style:L(t,!0)})}if(void 0!==t&&void 0!==l){for(let e=t;e<=l;e++)a&&u.includes(e)||i.push({index:e,style:L(e,!1)});b("itemsUpdated",{start:t,end:l})}n(2,w=i)}function E(e){"scroll"in y?y.scroll({[Dt[h]]:e,behavior:g}):n(1,y[Lt[h]]=e,y)}function F(e=0){A={},$.resetItem(e),O()}function _(e,t=m,n=o){return(e<0||e>=n)&&(e=0),$.getUpdatedOffsetForIndex({align:t,containerSize:h===_t.VERTICAL?s:r,currentOffset:S.offset||0,targetIndex:e})}function T(e){const t=y[Lt[h]];t<0||S.offset===t||e.target!==y||(n(19,S={offset:t,scrollChangeReason:Tt.OBSERVED}),b("afterScroll",{offset:t,event:e}))}function D(){return c||"number"==typeof a&&a||50}function L(e,t){if(A[e])return A[e];const{size:n,offset:l}=$.getSizeAndPositionForIndex(e);let i;return h===_t.VERTICAL?(i=`left:0;width:100%;height:${n}px;`,i+=t?`position:sticky;flex-grow:0;z-index:1;top:0;margin-top:${l}px;margin-bottom:${-(l+n)}px;`:`position:absolute;top:${l}px;`):(i=`top:0;width:${n}px;`,i+=t?`position:sticky;z-index:1;left:0;margin-left:${l}px;margin-right:${-(l+n)}px;`:`position:absolute;height:100%;left:${l}px;`),A[e]=i}return O(),ie((()=>{n(18,x=!0),y.addEventListener("scroll",T,Ut),null!=p?E(p):null!=f&&E(_(f))})),se((()=>{x&&y.removeEventListener("scroll",T)})),e.$$set=e=>{"height"in e&&n(5,s=e.height),"width"in e&&n(6,r=e.width),"itemCount"in e&&n(7,o=e.itemCount),"itemSize"in e&&n(8,a=e.itemSize),"estimatedItemSize"in e&&n(9,c=e.estimatedItemSize),"stickyIndices"in e&&n(10,u=e.stickyIndices),"getKey"in e&&n(0,d=e.getKey),"scrollDirection"in e&&n(11,h=e.scrollDirection),"scrollOffset"in e&&n(12,p=e.scrollOffset),"scrollToIndex"in e&&n(13,f=e.scrollToIndex),"scrollToAlignment"in e&&n(14,m=e.scrollToAlignment),"scrollToBehaviour"in e&&n(15,g=e.scrollToBehaviour),"overscanCount"in e&&n(16,v=e.overscanCount),"$$scope"in e&&n(20,i=e.$$scope)},e.$$.update=()=>{29568&e.$$.dirty[0]&&function(){if(!x)return;const e=k.scrollToIndex!==f||k.scrollToAlignment!==m,t=k.itemCount!==o||k.itemSize!==a||k.estimatedItemSize!==c;t&&($.updateConfig({itemSize:a,itemCount:o,estimatedItemSize:D()}),F()),k.scrollOffset!==p?n(19,S={offset:p||0,scrollChangeReason:Tt.REQUESTED}):"number"==typeof f&&(e||t)&&n(19,S={offset:_(f,m,o),scrollChangeReason:Tt.REQUESTED}),k={scrollToIndex:f,scrollToAlignment:m,scrollOffset:p,itemCount:o,itemSize:a,estimatedItemSize:c}}(),524288&e.$$.dirty[0]&&function(){if(!x)return;const{offset:e,scrollChangeReason:t}=S;C.offset===e&&C.scrollChangeReason===t||O(),C.offset!==e&&t===Tt.REQUESTED&&E(e),C=S}(),263264&e.$$.dirty[0]&&x&&F(0)},[d,y,w,I,z,s,r,o,a,c,u,h,p,f,m,g,v,F,x,S,i,l,function(e){ce[e?"unshift":"push"]((()=>{y=e,n(1,y)}))}]}class Jt extends Me{constructor(e){super(),Le(this,e,Kt,Gt,o,{height:5,width:6,itemCount:7,itemSize:8,estimatedItemSize:9,stickyIndices:10,getKey:0,scrollDirection:11,scrollOffset:12,scrollToIndex:13,scrollToAlignment:14,scrollToBehaviour:15,overscanCount:16,recomputeSizes:17},null,[-1,-1])}get recomputeSizes(){return this.$$.ctx[17]}}function Qt(e,t,n){const l=e.slice();return l[51]=t[n],l[53]=n,l}function Wt(e,t,n){const l=e.slice();return l[51]=t[n],l[53]=n,l}function Xt(e){let t,n,l,i,s,r,o,a,c,u=e[17]&&Zt(e),d=e[5].length&&en(e),h=(e[19]||e[2])&&rn(e),p=e[8]&&e[1]&&!e[2]&&on(e);return{c(){t=O("div"),u&&u.c(),n=_(),l=O("div"),i=O("div"),d&&d.c(),s=_(),h&&h.c(),r=_(),p&&p.c(),M(i,"class","sv-dropdown-content svelte-9227bl"),U(i,"max-reached",e[2]),M(l,"class","sv-dropdown-scroll svelte-9227bl"),M(l,"tabindex","-1"),U(l,"is-empty",!e[5].length),M(t,"class","sv-dropdown svelte-9227bl"),M(t,"aria-expanded",e[27]),U(t,"is-virtual",e[7])},m(f,m){A(f,t,m),u&&u.m(t,null),S(t,n),S(t,l),S(l,i),d&&d.m(i,null),S(i,s),h&&h.m(i,null),e[42](i),e[43](l),S(t,r),p&&p.m(t,null),o=!0,a||(c=D(t,"mousedown",L(e[35])),a=!0)},p(e,r){e[17]?u?(u.p(e,r),131072&r[0]&&Ae(u,1)):(u=Zt(e),u.c(),Ae(u,1),u.m(t,n)):u&&(Ce(),Ie(u,1,1,(()=>{u=null})),ke()),e[5].length?d?(d.p(e,r),32&r[0]&&Ae(d,1)):(d=en(e),d.c(),Ae(d,1),d.m(i,s)):d&&(Ce(),Ie(d,1,1,(()=>{d=null})),ke()),e[19]||e[2]?h?h.p(e,r):(h=rn(e),h.c(),h.m(i,null)):h&&(h.d(1),h=null),(!o||4&r[0])&&U(i,"max-reached",e[2]),(!o||32&r[0])&&U(l,"is-empty",!e[5].length),e[8]&&e[1]&&!e[2]?p?p.p(e,r):(p=on(e),p.c(),p.m(t,null)):p&&(p.d(1),p=null),(!o||134217728&r[0])&&M(t,"aria-expanded",e[27]),(!o||128&r[0])&&U(t,"is-virtual",e[7])},i(e){o||(Ae(u),Ae(d),o=!0)},o(e){Ie(u),Ie(d),o=!1},d(n){n&&I(t),u&&u.d(),d&&d.d(),h&&h.d(),e[42](null),e[43](null),p&&p.d(),a=!1,c()}}}function Zt(e){let t,n,l=[],i=new Map,s=e[17];const r=e=>e[53];for(let t=0;t<s.length;t+=1){let n=Wt(e,s,t),o=r(n);i.set(o,l[t]=Yt(o,n))}return{c(){t=O("div");for(let e=0;e<l.length;e+=1)l[e].c();M(t,"class","sv-content has-multiSelection alwaysCollapsed-selection svelte-9227bl")},m(e,i){A(e,t,i);for(let e=0;e<l.length;e+=1)l[e]&&l[e].m(t,null);n=!0},p(e,n){197384&n[0]&&(s=e[17],Ce(),l=Ee(l,n,r,1,e,s,i,t,ze,Yt,null,Wt),ke())},i(e){if(!n){for(let e=0;e<s.length;e+=1)Ae(l[e]);n=!0}},o(e){for(let e=0;e<l.length;e+=1)Ie(l[e]);n=!1},d(e){e&&I(t);for(let e=0;e<l.length;e+=1)l[e].d()}}}function Yt(e,t){let n,l,i,s;var r=t[16];function o(e){return{props:{formatter:e[3],item:e[51],isSelected:!0,isMultiple:e[9],inputValue:e[8]}}}return r&&(l=J(r,o(t)),l.$on("deselect",t[36])),{key:e,first:null,c(){n=T(),l&&_e(l.$$.fragment),i=T(),this.first=n},m(e,t){A(e,n,t),l&&Te(l,e,t),A(e,i,t),s=!0},p(e,n){t=e;const s={};if(8&n[0]&&(s.formatter=t[3]),131072&n[0]&&(s.item=t[51]),512&n[0]&&(s.isMultiple=t[9]),256&n[0]&&(s.inputValue=t[8]),65536&n[0]&&r!==(r=t[16])){if(l){Ce();const e=l;Ie(e.$$.fragment,1,0,(()=>{De(e,1)})),ke()}r?(l=J(r,o(t)),l.$on("deselect",t[36]),_e(l.$$.fragment),Ae(l.$$.fragment,1),Te(l,i.parentNode,i)):l=null}else r&&l.$set(s)},i(e){s||(l&&Ae(l.$$.fragment,e),s=!0)},o(e){l&&Ie(l.$$.fragment,e),s=!1},d(e){e&&I(n),e&&I(i),l&&De(l,e)}}}function en(e){let t,n,l,i;const s=[nn,tn],r=[];function o(e,t){return e[7]?0:1}return t=o(e),n=r[t]=s[t](e),{c(){n.c(),l=T()},m(e,n){r[t].m(e,n),A(e,l,n),i=!0},p(e,i){let a=t;t=o(e),t===a?r[t].p(e,i):(Ce(),Ie(r[a],1,1,(()=>{r[a]=null})),ke(),n=r[t],n?n.p(e,i):(n=r[t]=s[t](e),n.c()),Ae(n,1),n.m(l.parentNode,l))},i(e){i||(Ae(n),i=!0)},o(e){Ie(n),i=!1},d(e){r[t].d(e),e&&I(l)}}}function tn(e){let t,n,l=e[5],i=[];for(let t=0;t<l.length;t+=1)i[t]=ln(Qt(e,l,t));const s=e=>Ie(i[e],1,1,(()=>{i[e]=null}));return{c(){for(let e=0;e<i.length;e+=1)i[e].c();t=T()},m(e,l){for(let t=0;t<i.length;t+=1)i[t]&&i[t].m(e,l);A(e,t,l),n=!0},p(e,n){if(75065&n[0]){let r;for(l=e[5],r=0;r<l.length;r+=1){const s=Qt(e,l,r);i[r]?(i[r].p(s,n),Ae(i[r],1)):(i[r]=ln(s),i[r].c(),Ae(i[r],1),i[r].m(t.parentNode,t))}for(Ce(),r=l.length;r<i.length;r+=1)s(r);ke()}},i(e){if(!n){for(let e=0;e<l.length;e+=1)Ae(i[e]);n=!0}},o(e){i=i.filter(Boolean);for(let e=0;e<i.length;e+=1)Ie(i[e]);n=!1},d(e){z(i,e),e&&I(t)}}}function nn(e){let t,n,l={width:"100%",height:e[25],itemCount:e[5].length,itemSize:e[21],scrollToAlignment:"auto",scrollToIndex:!e[9]&&e[0]?parseInt(e[0]):null,$$slots:{item:[sn,({style:e,index:t})=>({49:e,50:t}),({style:e,index:t})=>[0,(e?262144:0)|(t?524288:0)]]},$$scope:{ctx:e}};return t=new Jt({props:l}),e[39](t),{c(){_e(t.$$.fragment)},m(e,l){Te(t,e,l),n=!0},p(e,n){const l={};33554432&n[0]&&(l.height=e[25]),32&n[0]&&(l.itemCount=e[5].length),2097152&n[0]&&(l.itemSize=e[21]),513&n[0]&&(l.scrollToIndex=!e[9]&&e[0]?parseInt(e[0]):null),75065&n[0]|17563648&n[1]&&(l.$$scope={dirty:n,ctx:e}),t.$set(l)},i(e){n||(Ae(t.$$.fragment,e),n=!0)},o(e){Ie(t.$$.fragment,e),n=!1},d(n){e[39](null),De(t,n)}}}function ln(e){let t,n,l,i,s;var r=e[16];function o(e){return{props:{formatter:e[3],index:e[10].map[e[53]],isDisabled:e[51][e[13]],item:e[51],inputValue:e[8],disableHighlight:e[4]}}}return r&&(n=J(r,o(e)),n.$on("hover",e[40]),n.$on("select",e[41])),{c(){t=O("div"),n&&_e(n.$$.fragment),l=_(),M(t,"data-pos",i=e[10].map[e[53]]),M(t,"class","sv-dd-item"),U(t,"sv-dd-item-active",e[10].map[e[53]]==e[0]),U(t,"sv-group-item",e[51].$isGroupItem),U(t,"sv-group-header",e[51].$isGroupHeader)},m(e,i){A(e,t,i),n&&Te(n,t,null),S(t,l),s=!0},p(e,a){const c={};if(8&a[0]&&(c.formatter=e[3]),1024&a[0]&&(c.index=e[10].map[e[53]]),8224&a[0]&&(c.isDisabled=e[51][e[13]]),32&a[0]&&(c.item=e[51]),256&a[0]&&(c.inputValue=e[8]),16&a[0]&&(c.disableHighlight=e[4]),65536&a[0]&&r!==(r=e[16])){if(n){Ce();const e=n;Ie(e.$$.fragment,1,0,(()=>{De(e,1)})),ke()}r?(n=J(r,o(e)),n.$on("hover",e[40]),n.$on("select",e[41]),_e(n.$$.fragment),Ae(n.$$.fragment,1),Te(n,t,l)):n=null}else r&&n.$set(c);(!s||1024&a[0]&&i!==(i=e[10].map[e[53]]))&&M(t,"data-pos",i),(!s||1025&a[0])&&U(t,"sv-dd-item-active",e[10].map[e[53]]==e[0]),(!s||32&a[0])&&U(t,"sv-group-item",e[51].$isGroupItem),(!s||32&a[0])&&U(t,"sv-group-header",e[51].$isGroupHeader)},i(e){s||(n&&Ae(n.$$.fragment,e),s=!0)},o(e){n&&Ie(n.$$.fragment,e),s=!1},d(e){e&&I(t),n&&De(n)}}}function sn(e){let t,n,l,i;var s=e[16];function r(e){return{props:{formatter:e[3],index:e[10].map[e[50]],isDisabled:e[5][e[50]][e[13]],item:e[5][e[50]],inputValue:e[8],disableHighlight:e[4]}}}return s&&(n=J(s,r(e)),n.$on("hover",e[37]),n.$on("select",e[38])),{c(){t=O("div"),n&&_e(n.$$.fragment),M(t,"slot","item"),M(t,"style",l=e[49]),M(t,"class","sv-dd-item"),U(t,"sv-dd-item-active",e[50]==e[0]),U(t,"sv-group-item",e[5][e[50]].$isGroupItem),U(t,"sv-group-header",e[5][e[50]].$isGroupHeader)},m(e,l){A(e,t,l),n&&Te(n,t,null),i=!0},p(e,o){const a={};if(8&o[0]&&(a.formatter=e[3]),1024&o[0]|524288&o[1]&&(a.index=e[10].map[e[50]]),8224&o[0]|524288&o[1]&&(a.isDisabled=e[5][e[50]][e[13]]),32&o[0]|524288&o[1]&&(a.item=e[5][e[50]]),256&o[0]&&(a.inputValue=e[8]),16&o[0]&&(a.disableHighlight=e[4]),65536&o[0]&&s!==(s=e[16])){if(n){Ce();const e=n;Ie(e.$$.fragment,1,0,(()=>{De(e,1)})),ke()}s?(n=J(s,r(e)),n.$on("hover",e[37]),n.$on("select",e[38]),_e(n.$$.fragment),Ae(n.$$.fragment,1),Te(n,t,null)):n=null}else s&&n.$set(a);(!i||262144&o[1]&&l!==(l=e[49]))&&M(t,"style",l),(!i||1&o[0]|524288&o[1])&&U(t,"sv-dd-item-active",e[50]==e[0]),(!i||32&o[0]|524288&o[1])&&U(t,"sv-group-item",e[5][e[50]].$isGroupItem),(!i||32&o[0]|524288&o[1])&&U(t,"sv-group-header",e[5][e[50]].$isGroupHeader)},i(e){i||(n&&Ae(n.$$.fragment,e),i=!0)},o(e){n&&Ie(n.$$.fragment,e),i=!1},d(e){e&&I(t),n&&De(n)}}}function rn(e){let t,n;return{c(){t=O("div"),n=F(e[12]),M(t,"class","empty-list-row svelte-9227bl")},m(e,l){A(e,t,l),S(t,n)},p(e,t){4096&t[0]&&R(n,e[12])},d(e){e&&I(t)}}}function on(e){let t,n,l,i,o,a,c=e[14](e[8])+"",u=e[26]!=e[0]&&an(e);return{c(){t=O("div"),n=O("div"),l=new K(!1),i=_(),u&&u.c(),l.a=i,M(n,"class","creatable-row svelte-9227bl"),U(n,"active",e[26]==e[0]),U(n,"is-disabled",e[6].includes(e[8])),M(t,"class","creatable-row-wrap svelte-9227bl")},m(s,d){A(s,t,d),S(t,n),l.m(c,n),S(n,i),u&&u.m(n,null),o||(a=[D(n,"click",(function(){r(e[28]("select",e[8]))&&e[28]("select",e[8]).apply(this,arguments)})),D(n,"mouseenter",(function(){r(e[28]("hover",e[10].last))&&e[28]("hover",e[10].last).apply(this,arguments)})),D(n,"keypress",un)],o=!0)},p(t,i){e=t,16640&i[0]&&c!==(c=e[14](e[8])+"")&&l.p(c),e[26]!=e[0]?u?u.p(e,i):(u=an(e),u.c(),u.m(n,null)):u&&(u.d(1),u=null),67108865&i[0]&&U(n,"active",e[26]==e[0]),320&i[0]&&U(n,"is-disabled",e[6].includes(e[8]))},d(e){e&&I(t),u&&u.d(),o=!1,s(a)}}}function an(e){let t,n,l,i,s;return{c(){t=O("span"),n=O("kbd"),l=F(e[15]),i=F("+"),s=O("kbd"),s.textContent="Enter",M(n,"class","svelte-9227bl"),M(s,"class","svelte-9227bl"),M(t,"class","shortcut svelte-9227bl")},m(e,r){A(e,t,r),S(t,n),S(n,l),S(t,i),S(t,s)},p(e,t){32768&t[0]&&R(l,e[15])},d(e){e&&I(t)}}}function cn(e){let t,n,l=e[18]&&e[20]&&Xt(e);return{c(){l&&l.c(),t=T()},m(e,i){l&&l.m(e,i),A(e,t,i),n=!0},p(e,n){e[18]&&e[20]?l?(l.p(e,n),1310720&n[0]&&Ae(l,1)):(l=Xt(e),l.c(),Ae(l,1),l.m(t.parentNode,t)):l&&(Ce(),Ie(l,1,1,(()=>{l=null})),ke())},i(e){n||(Ae(l),n=!0)},o(e){Ie(l),n=!1},d(e){l&&l.d(e),e&&I(t)}}}const un=()=>{};function dn(t,n,l){let i,s,r,o=e,c=()=>(o(),o=a(C,(e=>l(27,r=e))),C);t.$$.on_destroy.push((()=>o()));let{lazyDropdown:u}=n,{creatable:d}=n,{maxReached:h=!1}=n,{dropdownIndex:p=0}=n,{renderer:f}=n,{disableHighlight:m}=n,{items:g=[]}=n,{alreadyCreated:v}=n,{virtualList:b}=n,{vlItemSize:$}=n,{vlHeight:y}=n,{inputValue:x}=n,{multiple:w}=n,{listIndex:S}=n,{hasDropdownOpened:C}=n;c();let{listMessage:k}=n,{disabledField:A}=n,{createLabel:I}=n,{metaKey:z}=n,{itemComponent:O}=n,{selection:E=null}=n;function F(e){if(b)return;const t=T.querySelector(`[data-pos="${p}"]`);if(!t)return;const n=t.getBoundingClientRect(),i=D.getBoundingClientRect(),s=t.offsetHeight/3,r=e&&e.center?D.offsetHeight/2:0;switch(!0){case t.offsetTop<D.scrollTop:l(23,D.scrollTop=t.offsetTop-s+r,D);break;case t.offsetTop+n.height>D.scrollTop+i.height:l(23,D.scrollTop=t.offsetTop+n.height-D.offsetHeight+s+r,D)}}const _=re();let T,D,L,M=!1,P=!1,H=!u,R=y,N=$,B=null===y&&null===$;function V(e){if(!D&&!H)return;const t=function(e){if(!e)return!1;const t=e.parentElement.parentElement.getBoundingClientRect(),n=e.getBoundingClientRect(),l={};return l.top=t.top<0,l.left=t.left<0,l.bottom=t.bottom+n.height>(window.innerHeight||document.documentElement.clientHeight),l.right=t.right>(window.innerWidth||document.documentElement.clientWidth),l.any=l.top||l.left||l.bottom||l.right,l}(D);t.bottom&&!t.top?l(23,D.parentElement.style.bottom=D.parentElement.parentElement.clientHeight+1+"px",D):e&&!t.top||l(23,D.parentElement.style.bottom="",D)}function j(){if(!L)return;const e=(e,t)=>{const n=window.getComputedStyle(e);let{groups:{value:l,unit:i}}=n[t].match(/(?<value>\d+)(?<unit>[a-zA-Z]+)/);if(l=parseFloat(l),"px"!==i){const e="rem"===i?document.documentElement:D.parentElement.parentElement;l*=parseFloat(window.getComputedStyle(e).fontSize.match(/\d+/).shift())}return l};l(34,R=e(D,"maxHeight")-e(D,"paddingTop")-e(D,"paddingBottom")),l(23,D.parentElement.style="opacity: 0; display: block",D);const t=L.$$.ctx[1].firstElementChild.firstElementChild;if(t){t.style="";const e=t.getBoundingClientRect().height,n=L.$$.ctx[1].firstElementChild.firstElementChild.nextElementSibling;let i;if(n&&(n.style="",i=n.getBoundingClientRect().height),e!==i){const t=g[0].$isGroupHeader?e:i,n=g[0].$isGroupHeader?i:e;l(21,N=g.map((e=>e.$isGroupHeader?t:n)))}else l(21,N=e)}l(23,D.parentElement.style="",D)}let q=()=>{},G=null;return ie((()=>{q=C.subscribe((e=>{!H&&e&&l(20,H=!0),me().then((()=>{V(e),e&&F({center:!0})})),G||(G=()=>V(e)),document[e?"addEventListener":"removeEventListener"]("scroll",G,{passive:!0})})),l(18,M=!0)})),se((()=>q())),t.$$set=e=>{"lazyDropdown"in e&&l(29,u=e.lazyDropdown),"creatable"in e&&l(1,d=e.creatable),"maxReached"in e&&l(2,h=e.maxReached),"dropdownIndex"in e&&l(0,p=e.dropdownIndex),"renderer"in e&&l(3,f=e.renderer),"disableHighlight"in e&&l(4,m=e.disableHighlight),"items"in e&&l(5,g=e.items),"alreadyCreated"in e&&l(6,v=e.alreadyCreated),"virtualList"in e&&l(7,b=e.virtualList),"vlItemSize"in e&&l(30,$=e.vlItemSize),"vlHeight"in e&&l(31,y=e.vlHeight),"inputValue"in e&&l(8,x=e.inputValue),"multiple"in e&&l(9,w=e.multiple),"listIndex"in e&&l(10,S=e.listIndex),"hasDropdownOpened"in e&&c(l(11,C=e.hasDropdownOpened)),"listMessage"in e&&l(12,k=e.listMessage),"disabledField"in e&&l(13,A=e.disabledField),"createLabel"in e&&l(14,I=e.createLabel),"metaKey"in e&&l(15,z=e.metaKey),"itemComponent"in e&&l(16,O=e.itemComponent),"selection"in e&&l(17,E=e.selection)},t.$$.update=()=>{32&t.$$.dirty[0]&&l(26,i=g.length),1835426&t.$$.dirty[0]&&(l(19,P=g.length<1&&(!d||!x)),b&&B&&M&&H&&(P&&l(0,p=null),l(21,N=0),me().then(j).then(V))),2097184&t.$$.dirty[0]|8&t.$$.dirty[1]&&l(25,s=Math.min(R,Array.isArray(N)?N.reduce(((e,t)=>e+=t),0):g.length*N))},[p,d,h,f,m,g,v,b,x,w,S,C,k,A,I,z,O,E,M,P,H,N,T,D,L,s,i,r,_,u,$,y,F,function(){return b?[D.offsetHeight,N]:[D.offsetHeight,T.firstElementChild.offsetHeight]},R,function(e){oe.call(this,t,e)},function(e){oe.call(this,t,e)},function(e){oe.call(this,t,e)},function(e){oe.call(this,t,e)},function(e){ce[e?"unshift":"push"]((()=>{L=e,l(24,L)}))},function(e){oe.call(this,t,e)},function(e){oe.call(this,t,e)},function(e){ce[e?"unshift":"push"]((()=>{T=e,l(22,T)}))},function(e){ce[e?"unshift":"push"]((()=>{D=e,l(23,D)}))}]}class hn extends Me{constructor(e){super(),Le(this,e,dn,cn,o,{lazyDropdown:29,creatable:1,maxReached:2,dropdownIndex:0,renderer:3,disableHighlight:4,items:5,alreadyCreated:6,virtualList:7,vlItemSize:30,vlHeight:31,inputValue:8,multiple:9,listIndex:10,hasDropdownOpened:11,listMessage:12,disabledField:13,createLabel:14,metaKey:15,itemComponent:16,selection:17,scrollIntoView:32,getDimensions:33},null,[-1,-1])}get scrollIntoView(){return this.$$.ctx[32]}get getDimensions(){return this.$$.ctx[33]}}function pn(t){let n;return{c(){n=O("button"),n.innerHTML='<svg height="16" width="16" viewBox="0 0 20 20" aria-hidden="true" focusable="false" class="svelte-w7c5vi"><path d="M14.348 14.849c-0.469 0.469-1.229 0.469-1.697 0l-2.651-3.030-2.651 3.029c-0.469 0.469-1.229 0.469-1.697 0-0.469-0.469-0.469-1.229 0-1.697l2.758-3.15-2.759-3.152c-0.469-0.469-0.469-1.228 0-1.697s1.228-0.469 1.697 0l2.652 3.031 2.651-3.031c0.469-0.469 1.228-0.469 1.697 0s0.469 1.229 0 1.697l-2.758 3.152 2.758 3.15c0.469 0.469 0.469 1.229 0 1.698z"></path></svg>',M(n,"class","sv-item-btn svelte-w7c5vi"),M(n,"tabindex","-1"),M(n,"data-action","deselect"),M(n,"type","button")},m(e,t){A(e,n,t)},p:e,i:e,o:e,d(e){e&&I(n)}}}class fn extends Me{constructor(e){super(),Le(this,e,null,pn,o,{})}}const mn=e=>e.preventDefault();function gn(e,{item:t,index:n}){function l(n){const l=n.target.closest('[data-action="deselect"]')?"deselect":"select";e.dispatchEvent(new CustomEvent(l,{bubble:!0,detail:t}))}function i(){e.dispatchEvent(new CustomEvent("hover",{detail:n}))}return e.onmousedown=mn,e.onclick=l,e.addEventListener("mouseenter",i),{update(e){t=e.item,n=e.index},destroy(){e.removeEventListener("mousedown",mn),e.removeEventListener("click",l),e.removeEventListener("mouseenter",i)}}}function vn(e){let t,n,l,i,o,a,c,u,d=(e[3]?`<div class="sv-item-content">${e[6](e[2],e[3],e[0])}</div>`:Ke(e[2],e[3],e[0],e[6],e[7]))+"",h=e[3]&&e[5]&&$n();return{c(){t=O("div"),n=new K(!1),l=_(),h&&h.c(),n.a=l,M(t,"class","sv-item"),M(t,"title",i=e[2].$created?"Created item":""),U(t,"is-disabled",e[4])},m(i,s){A(i,t,s),n.m(d,t),S(t,l),h&&h.m(t,null),a=!0,c||(u=[v(o=gn.call(null,t,{item:e[2],index:e[1]})),D(t,"select",e[9]),D(t,"deselect",e[10]),D(t,"hover",e[11])],c=!0)},p(e,l){(!a||205&l)&&d!==(d=(e[3]?`<div class="sv-item-content">${e[6](e[2],e[3],e[0])}</div>`:Ke(e[2],e[3],e[0],e[6],e[7]))+"")&&n.p(d),e[3]&&e[5]?h?40&l&&Ae(h,1):(h=$n(),h.c(),Ae(h,1),h.m(t,null)):h&&(Ce(),Ie(h,1,1,(()=>{h=null})),ke()),(!a||4&l&&i!==(i=e[2].$created?"Created item":""))&&M(t,"title",i),o&&r(o.update)&&6&l&&o.update.call(null,{item:e[2],index:e[1]}),(!a||16&l)&&U(t,"is-disabled",e[4])},i(e){a||(Ae(h),a=!0)},o(e){Ie(h),a=!1},d(e){e&&I(t),h&&h.d(),c=!1,s(u)}}}function bn(t){let n,l,i,s,r,o=t[2].label+"";return{c(){n=O("div"),l=O("b"),i=F(o),M(n,"class","optgroup-header svelte-1e087o6")},m(e,o){A(e,n,o),S(n,l),S(l,i),s||(r=D(n,"mousedown",L(t[8])),s=!0)},p(e,t){4&t&&o!==(o=e[2].label+"")&&R(i,o)},i:e,o:e,d(e){e&&I(n),s=!1,r()}}}function $n(e){let t,n;return t=new fn({}),{c(){_e(t.$$.fragment)},m(e,l){Te(t,e,l),n=!0},i(e){n||(Ae(t.$$.fragment,e),n=!0)},o(e){Ie(t.$$.fragment,e),n=!1},d(e){De(t,e)}}}function yn(e){let t,n,l,i;const s=[bn,vn],r=[];function o(e,t){return e[2].$isGroupHeader?0:1}return t=o(e),n=r[t]=s[t](e),{c(){n.c(),l=T()},m(e,n){r[t].m(e,n),A(e,l,n),i=!0},p(e,[i]){let a=t;t=o(e),t===a?r[t].p(e,i):(Ce(),Ie(r[a],1,1,(()=>{r[a]=null})),ke(),n=r[t],n?n.p(e,i):(n=r[t]=s[t](e),n.c()),Ae(n,1),n.m(l.parentNode,l))},i(e){i||(Ae(n),i=!0)},o(e){Ie(n),i=!1},d(e){r[t].d(e),e&&I(l)}}}function xn(e,t,n){let{inputValue:l}=t,{index:i=-1}=t,{item:s={}}=t,{isSelected:r=!1}=t,{isDisabled:o=!1}=t,{isMultiple:a=!1}=t,{formatter:c=null}=t,{disableHighlight:u=!1}=t;return e.$$set=e=>{"inputValue"in e&&n(0,l=e.inputValue),"index"in e&&n(1,i=e.index),"item"in e&&n(2,s=e.item),"isSelected"in e&&n(3,r=e.isSelected),"isDisabled"in e&&n(4,o=e.isDisabled),"isMultiple"in e&&n(5,a=e.isMultiple),"formatter"in e&&n(6,c=e.formatter),"disableHighlight"in e&&n(7,u=e.disableHighlight)},[l,i,s,r,o,a,c,u,function(t){oe.call(this,e,t)},function(t){oe.call(this,e,t)},function(t){oe.call(this,e,t)},function(t){oe.call(this,e,t)}]}class wn extends Me{constructor(e){super(),Le(this,e,xn,yn,o,{inputValue:0,index:1,item:2,isSelected:3,isDisabled:4,isMultiple:5,formatter:6,disableHighlight:7})}}function Sn(e,t,n){const l=e.slice();return l[118]=t[n],l}const Cn=e=>({}),kn=e=>({}),An=e=>({}),In=e=>({}),zn=e=>({hasDropdownOpened:8388608&e[1]}),On=e=>({slot:"indicator-icon",hasDropdownOpened:e[54]}),En=e=>({selectedOptions:1073741824&e[0],inputValue:8&e[1]}),Fn=e=>({slot:"clear-icon",selectedOptions:e[30],inputValue:e[34]});function _n(e){let t,n;const l=e[93].icon,i=u(l,e,e[98],kn);return{c(){t=O("div"),i&&i.c(),M(t,"slot","icon"),M(t,"class","icon-slot svelte-oy0zpa")},m(e,l){A(e,t,l),i&&i.m(t,null),n=!0},p(e,t){i&&i.p&&(!n||32&t[3])&&p(i,l,e,e[98],n?h(l,e[98],t,Cn):f(e[98]),kn)},i(e){n||(Ae(i,e),n=!0)},o(e){Ie(i,e),n=!1},d(e){e&&I(t),i&&i.d(e)}}}function Tn(e){let t,n;const l=e[93]["control-end"],i=u(l,e,e[98],In);return{c(){t=O("div"),i&&i.c(),M(t,"slot","control-end")},m(e,l){A(e,t,l),i&&i.m(t,null),n=!0},p(e,t){i&&i.p&&(!n||32&t[3])&&p(i,l,e,e[98],n?h(l,e[98],t,An):f(e[98]),In)},i(e){n||(Ae(i,e),n=!0)},o(e){Ie(i,e),n=!1},d(e){e&&I(t),i&&i.d(e)}}}function Dn(t){let n;const l=t[93]["indicator-icon"],i=u(l,t,t[98],On),s=i||function(t){let n,l;return{c(){n=E("svg"),l=E("path"),M(l,"d","M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"),M(n,"width","20"),M(n,"height","20"),M(n,"class","indicator-icon svelte-oy0zpa"),M(n,"viewBox","0 0 20 20"),M(n,"aria-hidden","true"),M(n,"focusable","false")},m(e,t){A(e,n,t),S(n,l)},p:e,d(e){e&&I(n)}}}();return{c(){s&&s.c()},m(e,t){s&&s.m(e,t),n=!0},p(e,t){i&&i.p&&(!n||8388608&t[1]|32&t[3])&&p(i,l,e,e[98],n?h(l,e[98],t,zn):f(e[98]),On)},i(e){n||(Ae(s,e),n=!0)},o(e){Ie(s,e),n=!1},d(e){s&&s.d(e)}}}function Ln(e){let t,n;return{c(){t=E("svg"),n=E("path"),M(n,"d","M14.348 14.849c-0.469 0.469-1.229 0.469-1.697 0l-2.651-3.030-2.651 3.029c-0.469 0.469-1.229 0.469-1.697 0-0.469-0.469-0.469-1.229 0-1.697l2.758-3.15-2.759-3.152c-0.469-0.469-0.469-1.228 0-1.697s1.228-0.469 1.697 0l2.652 3.031 2.651-3.031c0.469-0.469 1.228-0.469 1.697 0s0.469 1.229 0 1.697l-2.758 3.152 2.758 3.15c0.469 0.469 0.469 1.229 0 1.698z"),M(t,"class","indicator-icon svelte-oy0zpa"),M(t,"height","20"),M(t,"width","20"),M(t,"viewBox","0 0 20 20"),M(t,"aria-hidden","true"),M(t,"focusable","false")},m(e,l){A(e,t,l),S(t,n)},d(e){e&&I(t)}}}function Mn(e){let t;const n=e[93]["clear-icon"],l=u(n,e,e[98],Fn),i=l||function(e){let t,n=e[30].length&&Ln();return{c(){n&&n.c(),t=T()},m(e,l){n&&n.m(e,l),A(e,t,l)},p(e,l){e[30].length?n||(n=Ln(),n.c(),n.m(t.parentNode,t)):n&&(n.d(1),n=null)},d(e){n&&n.d(e),e&&I(t)}}}(e);return{c(){i&&i.c()},m(e,n){i&&i.m(e,n),t=!0},p(e,s){l?l.p&&(!t||1073741824&s[0]|8&s[1]|32&s[3])&&p(l,n,e,e[98],t?h(n,e[98],s,En):f(e[98]),Fn):i&&i.p&&(!t||1073741824&s[0])&&i.p(e,t?s:[-1,-1,-1,-1])},i(e){t||(Ae(i,e),t=!0)},o(e){Ie(i,e),t=!1},d(e){i&&i.d(e)}}}function Pn(e){let t,n,l,i=e[30],s=[];for(let t=0;t<i.length;t+=1)s[t]=Hn(Sn(e,i,t));return{c(){t=O("select");for(let e=0;e<s.length;e+=1)s[e].c();M(t,"id",e[43]),M(t,"name",e[2]),t.multiple=e[1],M(t,"class","is-hidden svelte-oy0zpa"),M(t,"tabindex","-1"),t.required=e[4],t.disabled=e[0]},m(i,r){A(i,t,r);for(let e=0;e<s.length;e+=1)s[e]&&s[e].m(t,null);n||(l=v(e[44].call(null,t,e[45])),n=!0)},p(e,n){if(1291845632&n[0]){let l;for(i=e[30],l=0;l<i.length;l+=1){const r=Sn(e,i,l);s[l]?s[l].p(r,n):(s[l]=Hn(r),s[l].c(),s[l].m(t,null))}for(;l<s.length;l+=1)s[l].d(1);s.length=i.length}4&n[0]&&M(t,"name",e[2]),2&n[0]&&(t.multiple=e[1]),16&n[0]&&(t.required=e[4]),1&n[0]&&(t.disabled=e[0])},d(e){e&&I(t),z(s,e),n=!1,l()}}}function Hn(e){let t,n,l,i=e[118][e[27]]+"";return{c(){t=O("option"),n=F(i),t.__value=l=e[118][e[24]?e[27]:e[26]],t.value=t.__value,t.selected=!0},m(e,l){A(e,t,l),S(t,n)},p(e,s){1207959552&s[0]&&i!==(i=e[118][e[27]]+"")&&R(n,i),1291845632&s[0]&&l!==(l=e[118][e[24]?e[27]:e[26]])&&(t.__value=l,t.value=t.__value)},d(e){e&&I(t)}}}function Rn(e){let t,n,l,i,s,r,o,a={renderer:e[41],disabled:e[0],clearable:e[9],searchable:e[8],placeholder:e[7],multiple:e[1],inputId:e[3]||e[43],resetOnBlur:e[11],collapseSelection:e[15]?Vn.collapseSelectionFn.bind(e[29]):null,inputValue:e[46],hasFocus:e[47],hasDropdownOpened:e[54],selectedOptions:e[30],isFetchingData:e[28],dndzone:e[12],currentValueField:e[26],isAndroid:e[38],alwaysCollapsed:e[16],itemComponent:e[14],$$slots:{"clear-icon":[Mn],"indicator-icon":[Dn,({hasDropdownOpened:e})=>({54:e}),({hasDropdownOpened:e})=>[0,e?8388608:0]],"control-end":[Tn],icon:[_n]},$$scope:{ctx:e}};n=new zt({props:a}),e[94](n),n.$on("deselect",e[49]),n.$on("keydown",e[51]),n.$on("paste",e[52]),n.$on("consider",e[53]),n.$on("finalize",e[53]),n.$on("blur",e[95]);let c={renderer:e[41],disableHighlight:e[10],creatable:e[17],maxReached:e[33],alreadyCreated:e[39],virtualList:e[19],vlHeight:e[20],vlItemSize:e[21],lazyDropdown:e[19]||e[18],multiple:e[1],dropdownIndex:e[25],items:e[32],listIndex:e[31],inputValue:e[40],hasDropdownOpened:e[54],listMessage:e[42],disabledField:e[6],createLabel:e[29].createRowLabel,metaKey:e[37]?"⌘":"Ctrl",selection:e[15]&&e[16]?e[30]:null,itemComponent:e[13]};i=new hn({props:c}),e[96](i),i.$on("select",e[48]),i.$on("deselect",e[49]),i.$on("hover",e[50]),i.$on("createoption",e[97]);let u=e[2]&&!e[5]&&Pn(e);return{c(){t=O("div"),_e(n.$$.fragment),l=_(),_e(i.$$.fragment),s=_(),u&&u.c(),M(t,"class",r=m(`svelecte ${e[22]}`)+" svelte-oy0zpa"),M(t,"style",e[23]),U(t,"is-disabled",e[0])},m(e,r){A(e,t,r),Te(n,t,null),S(t,l),Te(i,t,null),S(t,s),u&&u.m(t,null),o=!0},p(e,l){const s={};1024&l[1]&&(s.renderer=e[41]),1&l[0]&&(s.disabled=e[0]),512&l[0]&&(s.clearable=e[9]),256&l[0]&&(s.searchable=e[8]),128&l[0]&&(s.placeholder=e[7]),2&l[0]&&(s.multiple=e[1]),8&l[0]&&(s.inputId=e[3]||e[43]),2048&l[0]&&(s.resetOnBlur=e[11]),536903680&l[0]&&(s.collapseSelection=e[15]?Vn.collapseSelectionFn.bind(e[29]):null),1073741824&l[0]&&(s.selectedOptions=e[30]),268435456&l[0]&&(s.isFetchingData=e[28]),4096&l[0]&&(s.dndzone=e[12]),67108864&l[0]&&(s.currentValueField=e[26]),128&l[1]&&(s.isAndroid=e[38]),65536&l[0]&&(s.alwaysCollapsed=e[16]),16384&l[0]&&(s.itemComponent=e[14]),1073741824&l[0]|8388616&l[1]|32&l[3]&&(s.$$scope={dirty:l,ctx:e}),n.$set(s);const a={};1024&l[1]&&(a.renderer=e[41]),1024&l[0]&&(a.disableHighlight=e[10]),131072&l[0]&&(a.creatable=e[17]),4&l[1]&&(a.maxReached=e[33]),256&l[1]&&(a.alreadyCreated=e[39]),524288&l[0]&&(a.virtualList=e[19]),1048576&l[0]&&(a.vlHeight=e[20]),2097152&l[0]&&(a.vlItemSize=e[21]),786432&l[0]&&(a.lazyDropdown=e[19]||e[18]),2&l[0]&&(a.multiple=e[1]),33554432&l[0]&&(a.dropdownIndex=e[25]),2&l[1]&&(a.items=e[32]),1&l[1]&&(a.listIndex=e[31]),512&l[1]&&(a.inputValue=e[40]),2048&l[1]&&(a.listMessage=e[42]),64&l[0]&&(a.disabledField=e[6]),536870912&l[0]&&(a.createLabel=e[29].createRowLabel),64&l[1]&&(a.metaKey=e[37]?"⌘":"Ctrl"),1073840128&l[0]&&(a.selection=e[15]&&e[16]?e[30]:null),8192&l[0]&&(a.itemComponent=e[13]),i.$set(a),e[2]&&!e[5]?u?u.p(e,l):(u=Pn(e),u.c(),u.m(t,null)):u&&(u.d(1),u=null),(!o||4194304&l[0]&&r!==(r=m(`svelecte ${e[22]}`)+" svelte-oy0zpa"))&&M(t,"class",r),(!o||8388608&l[0])&&M(t,"style",e[23]),(!o||4194305&l[0])&&U(t,"is-disabled",e[0])},i(e){o||(Ae(n.$$.fragment,e),Ae(i.$$.fragment,e),o=!0)},o(e){Ie(n.$$.fragment,e),Ie(i.$$.fragment,e),o=!1},d(l){l&&I(t),e[94](null),De(n),e[96](null),De(i),u&&u.d()}}}const Nn={default(e){return e[this.label]}};function Bn(e,t){if(e instanceof Object)for(let t in e)Nn[t]=e[t];else Nn[e]=t}const Vn=Ze,jn="select-navigate";function qn(e,t,n){let l,i,s,r,o,a,u,d,h,p,f,{$$slots:m={},$$scope:v}=t,{name:b="svelecte"}=t,{inputId:$=null}=t,{required:y=!1}=t,{hasAnchor:x=!1}=t,{disabled:w=Ze.disabled}=t,{options:S=[]}=t,{valueField:C=Ze.valueField}=t,{labelField:k=Ze.labelField}=t,{groupLabelField:A=Ze.groupLabelField}=t,{groupItemsField:I=Ze.groupItemsField}=t,{disabledField:z=Ze.disabledField}=t,{placeholder:O="Select"}=t,{searchable:E=Ze.searchable}=t,{clearable:F=Ze.clearable}=t,{renderer:_=null}=t,{disableHighlight:T=!1}=t,{selectOnTab:D=Ze.selectOnTab}=t,{resetOnBlur:L=Ze.resetOnBlur}=t,{resetOnSelect:M=Ze.resetOnSelect}=t,{closeAfterSelect:P=Ze.closeAfterSelect}=t,{dndzone:H=(()=>({noop:!0,destroy:()=>{}}))}=t,{validatorAction:R=null}=t,{dropdownItem:N=wn}=t,{controlItem:B=wn}=t,{multiple:V=Ze.multiple}=t,{max:j=Ze.max}=t,{collapseSelection:q=Ze.collapseSelection}=t,{alwaysCollapsed:G=Ze.alwaysCollapsed}=t,{creatable:U=Ze.creatable}=t,{creatablePrefix:K=Ze.creatablePrefix}=t,{allowEditing:J=Ze.allowEditing}=t,{keepCreated:Q=Ze.keepCreated}=t,{delimiter:W=Ze.delimiter}=t,{createFilter:X=null}=t,{createTransform:Z=null}=t,{fetch:Y=null}=t,{fetchMode:ee="auto"}=t,{fetchCallback:te=Ze.fetchCallback}=t,{fetchResetOnBlur:ne=!0}=t,{minQuery:le=Ze.minQuery}=t,{lazyDropdown:se=Ze.lazyDropdown}=t,{virtualList:ae=Ze.virtualList}=t,{vlHeight:ue=Ze.vlHeight}=t,{vlItemSize:de=Ze.vlItemSize}=t,{searchField:he=null}=t,{sortField:pe=null}=t,{disableSifter:fe=!1}=t,{class:ge="svelecte-control"}=t,{style:ve=null}=t,{i18n:be=null}=t,{readSelection:$e=null}=t,{value:ye=null}=t,{labelAsValue:xe=!1}=t,{valueAsObject:we=Ze.valueAsObject}=t;const Se=`sv-select-${Math.random()}`.replace(".",""),Ce=re(),ke={optionsWithGroups:!1,isOptionArray:S&&S.length&&"object"!=typeof S[0],optionProps:[],valueField:C,labelField:k,labelAsValue:xe,optLabel:A,optItems:I};Y&&ye&&we&&(!S||S&&0===S.length)&&(S=Array.isArray(ye)?ye:[ye]);let Ae,Ie,ze=!1,Oe=!1,Ee=null,Fe=C||Qe("value",S,ke),_e=k||Qe("label",S,ke),Te=!1,De=!1,Le=R?R.shift():()=>({destroy:()=>{}}),Me=R||[],He=null;ke.valueField=Fe,ke.labelField=_e,ke.optionProps=ye&&we&&(!V||!Array.isArray(ye)||ye.length>0)?lt(V?ye.slice(0,1).shift():ye):[Fe,_e],V=b&&!V?b.endsWith("[]"):V,X||(X=We);const Re=et("");c(e,Re,(e=>n(34,h=e)));const Ne=et(!1);c(e,Ne,(e=>n(106,f=e)));const Be=et(!1);c(e,Be,(e=>n(105,p=e)));let Ve=!1,je="init"===ee||"auto"===ee&&"string"==typeof Y&&-1===Y.indexOf("[query]"),qe=je?ye:null,Ge=null;function Ke(){return ze&&Ve&&(Ue&&![0,4].includes(Ue.readyState)&&Ue.abort(),n(28,Ve=!1)),!0}function Je(e){if(Ge&&(Ge(),Ge=null),!e)return null;Ke(),je&&Ye&&(qe=Ye);const t="string"==typeof e?(l=e,function(e,t){return new Promise(((n,i)=>{Ue=new XMLHttpRequest,Ue.open("GET",`${l.replace("[query]",encodeURIComponent(e))}`),Ue.setRequestHeader("X-Requested-With","XMLHttpRequest"),Ue.send(),Ue.onreadystatechange=function(){if(4===this.readyState)if(200===this.status)try{const e=JSON.parse(this.response);n(t?t(e):e.data||e.items||e.options||e)}catch(e){console.warn("[Svelecte]:Fetch - error handling fetch response",e),i()}else i()}}))}):e;var l;n(90,je="init"===ee||"auto"===ee&&"string"==typeof e&&-1===e.indexOf("[query]"));const i=function(e,t){let n;return function(){const l=this,i=arguments;clearTimeout(n),n=setTimeout((function(){e.apply(l,i)}),t)}}((e=>{!e||h.length?t(e,te).then((e=>{Array.isArray(e)||(console.warn("[Svelecte]:Fetch - array expected, invalid property provided:",e),e=[]),n(55,S=e)})).catch((()=>{n(55,S=[])})).finally((()=>{n(28,Ve=!1),f&&Be.set(!0),n(42,a=it.fetchEmpty),me().then((()=>{je&&qe&&(ut(qe),qe=null),Ce("fetch",S)}))})):n(28,Ve=!1)}),500);return je?("string"==typeof e&&-1!==e.indexOf("[parent]")||(n(28,Ve=!0),n(55,S=[]),i(null)),null):(Ge=Re.subscribe((e=>{Ke(),e?e&&e.length<le||(!je&&Be.set(!1),n(28,Ve=!0),i(e)):ze&&ne&&n(55,S=[])})),i)}let Ye=ye,it=Vn.i18n,st=null!==ye?tt.call(S,ye,we,ke):[],rt=st.reduce(((e,t)=>(e.add(t[Fe]),e)),new Set),ot=[""],at=S;function ct(){me().then((()=>{Ce("change",$e),He&&(He.dispatchEvent(new Event("input")),He.dispatchEvent(new Event("change")))}))}function ut(e){if(ht(),e){let t=Array.isArray(e)?e:[e];const i=ke.labelAsValue?_e:Fe;if(t=t.reduce(((e,t)=>{if(U&&we&&t.$created)return e.push(t),e;const n=l.find((e=>we?e[i]==t[i]:e[i]==t));return n&&e.push(n),e}),[]),!(t.every(dt)&&(V?e.length===t.length:t.length>0)))return console.warn('[Svelecte]: provided "value" property is invalid',e),n(59,ye=V?[]:null),n(60,$e=ye),void Ce("invalidValue",e);n(60,$e=Array.isArray(e)?t:t.shift())}n(91,Ye=e)}function dt(e){if(!e||V&&i)return!1;if(!rt.has(e[Fe])){if("string"==typeof e){if(!U)return;if(e=X(e,S),ot.includes(e))return;!Y&&ot.push(e),(e=Z(e,K,Fe,_e)).$created=!0,Q&&n(55,S=[...S,e]),Ce("createoption",e)}return V?(st.push(e),n(30,st),rt.add(e[Fe])):(n(30,st=[e]),rt.clear(),rt.add(e[Fe]),n(25,Ee=S.indexOf(e))),n(92,l),n(55,S),n(88,ke),n(89,ze),n(111,at),n(61,C),n(26,Fe),n(62,k),n(27,_e),n(24,xe),!0}}function ht(){rt.clear(),n(30,st=[]),n(33,i=!1),n(92,l),n(55,S),n(88,ke),n(89,ze),n(111,at),n(61,C),n(26,Fe),n(62,k),n(27,_e),n(24,xe)}function pt(e,t){t=t||e.detail,w||t[z]||t.$isGroupHeader||(dt(t),(V&&M||!V)&&g(Re,h="",h),!V||P?g(Be,p=!1,p):me().then((()=>{n(25,Ee=i?null:o.next(Ee-1,!0))})),ct())}function ft(e,t){w||((t=t||e.detail)?function(e){e.$created&&mt&&J&&(ot.splice(ot.findIndex((t=>t===e[xe?_e:Fe])),1),n(39,ot),Q&&(S.splice(S.findIndex((t=>t===e)),1),n(55,S)),g(Re,h=e[_e].replace(K,""),h));const t=e[Fe];rt.delete(t),st.splice(st.findIndex((e=>e[Fe]==t)),1),n(30,st),n(92,l),n(55,S),n(88,ke),n(89,ze),n(111,at),n(61,C),n(26,Fe),n(62,k),n(27,_e),n(24,xe)}(t):ht(),me().then(Ie.focusControl),ct())}let mt=!1;return ie((()=>{if(n(89,ze=!0),U){const e=ke.labelAsValue?_e:Fe;n(39,ot=[""].concat(l.map((t=>t[e])).filter((e=>e))))}if(n(25,Ee=o.first),Ye&&!V){const e=xe?_e:Fe,t=we?Ye[e]:Ye;n(25,Ee=l.findIndex((n=>n[e]===t)))}n(37,Te=["iPad Simulator","iPhone Simulator","iPod Simulator","iPad","iPhone","iPod"].includes(navigator.platform)||navigator.userAgent.includes("Mac")&&"ontouchend"in document),n(38,De=navigator.userAgent.toLowerCase().includes("android")),b&&!x&&(He=document.getElementById(Se))})),e.$$set=e=>{"name"in e&&n(2,b=e.name),"inputId"in e&&n(3,$=e.inputId),"required"in e&&n(4,y=e.required),"hasAnchor"in e&&n(5,x=e.hasAnchor),"disabled"in e&&n(0,w=e.disabled),"options"in e&&n(55,S=e.options),"valueField"in e&&n(61,C=e.valueField),"labelField"in e&&n(62,k=e.labelField),"groupLabelField"in e&&n(63,A=e.groupLabelField),"groupItemsField"in e&&n(64,I=e.groupItemsField),"disabledField"in e&&n(6,z=e.disabledField),"placeholder"in e&&n(7,O=e.placeholder),"searchable"in e&&n(8,E=e.searchable),"clearable"in e&&n(9,F=e.clearable),"renderer"in e&&n(65,_=e.renderer),"disableHighlight"in e&&n(10,T=e.disableHighlight),"selectOnTab"in e&&n(66,D=e.selectOnTab),"resetOnBlur"in e&&n(11,L=e.resetOnBlur),"resetOnSelect"in e&&n(67,M=e.resetOnSelect),"closeAfterSelect"in e&&n(68,P=e.closeAfterSelect),"dndzone"in e&&n(12,H=e.dndzone),"validatorAction"in e&&n(69,R=e.validatorAction),"dropdownItem"in e&&n(13,N=e.dropdownItem),"controlItem"in e&&n(14,B=e.controlItem),"multiple"in e&&n(1,V=e.multiple),"max"in e&&n(70,j=e.max),"collapseSelection"in e&&n(15,q=e.collapseSelection),"alwaysCollapsed"in e&&n(16,G=e.alwaysCollapsed),"creatable"in e&&n(17,U=e.creatable),"creatablePrefix"in e&&n(71,K=e.creatablePrefix),"allowEditing"in e&&n(72,J=e.allowEditing),"keepCreated"in e&&n(73,Q=e.keepCreated),"delimiter"in e&&n(74,W=e.delimiter),"createFilter"in e&&n(56,X=e.createFilter),"createTransform"in e&&n(57,Z=e.createTransform),"fetch"in e&&n(58,Y=e.fetch),"fetchMode"in e&&n(75,ee=e.fetchMode),"fetchCallback"in e&&n(76,te=e.fetchCallback),"fetchResetOnBlur"in e&&n(77,ne=e.fetchResetOnBlur),"minQuery"in e&&n(78,le=e.minQuery),"lazyDropdown"in e&&n(18,se=e.lazyDropdown),"virtualList"in e&&n(19,ae=e.virtualList),"vlHeight"in e&&n(20,ue=e.vlHeight),"vlItemSize"in e&&n(21,de=e.vlItemSize),"searchField"in e&&n(79,he=e.searchField),"sortField"in e&&n(80,pe=e.sortField),"disableSifter"in e&&n(81,fe=e.disableSifter),"class"in e&&n(22,ge=e.class),"style"in e&&n(23,ve=e.style),"i18n"in e&&n(82,be=e.i18n),"readSelection"in e&&n(60,$e=e.readSelection),"value"in e&&n(59,ye=e.value),"labelAsValue"in e&&n(24,xe=e.labelAsValue),"valueAsObject"in e&&n(83,we=e.valueAsObject),"$$scope"in e&&n(98,v=e.$$scope)},e.$$.update=()=>{if(67108864&e.$$.dirty[1]&&(Z||n(57,Z=Xe)),134217728&e.$$.dirty[1]&&Je(Y),1&e.$$.dirty[0]&&w&&Be.set(!1),1048576&e.$$.dirty[2]&&be&&"object"==typeof be&&n(29,it=Object.assign({},Vn.i18n,be)),201326592&e.$$.dirty[0]|1090519040&e.$$.dirty[1]|201326593&e.$$.dirty[2]&&ze&&at!==S&&S.length){const e=Qe("value",S||null,ke),t=Qe("label",S||null,ke);C||Fe===e||n(88,ke.valueField=n(26,Fe=e),ke),k||_e===t||n(88,ke.labelField=n(27,_e=t),ke)}if(16777216&e.$$.dirty[0]&&n(88,ke.labelAsValue=xe,ke),16777216&e.$$.dirty[1]|67108864&e.$$.dirty[2]&&n(92,l=nt(S,ke)),1275068418&e.$$.dirty[0]|606076928&e.$$.dirty[2]){const e=st.map((e=>{const{$disabled:t,$isGroupItem:n,...l}=e;return l})),t=V?e:e.length?e[0]:null,l=ke.labelAsValue?_e:Fe;n(91,Ye=we?t:V?t.map((e=>e[l])):st.length?t[l]:null),n(59,ye=Ye),n(60,$e=t)}268435456&e.$$.dirty[1]|536870912&e.$$.dirty[2]&&Ye!==ye&&ut(ye),1073741824&e.$$.dirty[0]|256&e.$$.dirty[2]&&n(33,i=j&&st.length==j),2&e.$$.dirty[0]|12&e.$$.dirty[1]|1141768192&e.$$.dirty[2]&&n(32,s=i?[]:function(e,t,n,l,i,s){if(n&&(e=e.filter((e=>!n.has(e[s.valueField]))).filter(((e,t,n)=>!e.$isGroupHeader||!(n[t+1]&&n[t+1].$isGroupHeader||n.length<=1||n.length-1===t)))),!t)return e;const r=new Pe(e);s.optionsWithGroups&&(r.getSortFunction=()=>null);let o="and";t.startsWith("|| ")&&(o="or",t=t.substr(2));const a=r.search(t,{fields:l||s.optionProps,sort:(c=i||s.labelField,[{field:c,direction:"asc"}]),conjunction:o});var c;return s.optionsWithGroups?a.items.reduce(((t,l)=>{const i=e[l.id];if(n&&i.isSelected)return t;const s=t.push(i);if(i.$isGroupItem){const n=e.slice(0,l.id);let i=null;do{i=n.pop(),i&&i.$isGroupHeader&&!t.includes(i)&&t.splice(s-1,0,i)}while(i&&!i.$isGroupHeader)}return t}),[]):a.items.map((t=>e[t.id]))}(l,fe?null:h,!!V&&rt,he,pe,ke)),131072&e.$$.dirty[0]|10&e.$$.dirty[1]&&(r=U&&h?s.length:s.length-1),131072&e.$$.dirty[0]|10&e.$$.dirty[1]|67108864&e.$$.dirty[2]&&n(31,o=function(e,t,n){const l=n.optionsWithGroups?e.reduce(((e,t,n)=>(e.push(t.$isGroupHeader?"":n),e)),[]):Object.keys(e);return{map:l,first:""!==l[0]?0:1,last:l.length?l.length-(t?0:1):0,hasCreateRow:!!t,next(e,t){const n=this.map[++e];return this.hasCreateRow&&e===this.last?this.last:""===n?this.next(e):void 0===n?this.map.length?(e>this.map.length&&(e=this.first-1),!0===t?this.prev(e):this.next(e)):0:n},prev(e){const t=this.map[--e];return this.hasCreateRow&&e===this.first?this.first:""===t?this.prev(e):t||this.last}}}(s,U&&h,ke)),33554432&e.$$.dirty[0]|1&e.$$.dirty[1]&&(null===Ee?n(25,Ee=o.first):Ee>o.last?n(25,Ee=o.last):Ee<o.first&&n(25,Ee=o.first)),805306368&e.$$.dirty[0]|134217742&e.$$.dirty[1]|268501248&e.$$.dirty[2]&&n(42,a=i?it.max(j):h.length&&0===s.length&&le<=1?it.nomatch:Y?le<=1?je?Ve?it.fetchInit:it.empty:it.fetchBefore:it.fetchQuery(le,h.length):it.empty),134217728&e.$$.dirty[0]|8&e.$$.dirty[2]&&n(41,u="function"==typeof _?_:Nn[_]||Nn.default.bind({label:_e})),50331656&e.$$.dirty[1]&&n(40,d=X(h,S))},[w,V,b,$,y,x,z,O,E,F,T,L,H,N,B,q,G,U,se,ae,ue,de,ge,ve,xe,Ee,Fe,_e,Ve,it,st,o,s,i,h,Ae,Ie,Te,De,ot,d,u,a,Se,Le,Me,Re,Ne,pt,ft,function(e){Oe?Oe=!1:n(25,Ee=e.detail)},function(e){if(e=e.detail,U&&W.indexOf(e.key)>-1)return h.length>0&&pt(null,h),void e.preventDefault();const t=D&&p&&!e.shiftKey?"Tab":"No-tab";let l=Te?e.metaKey:e.ctrlKey,i=["PageUp","PageDown"].includes(e.key);switch(e.key){case"End":if(0!==h.length)return;n(25,Ee=o.first);case"PageDown":if(i){const[e,t]=Ae.getDimensions();n(25,Ee=Math.ceil((t*Ee+e)/t))}case"ArrowUp":if(e.preventDefault(),!p)return void g(Be,p=!0,p);n(25,Ee=o.prev(Ee)),me().then(Ae.scrollIntoView),Oe=!0;break;case"Home":if(0!==h.length||0===h.length&&0===s.length)return;n(25,Ee=o.last);case"PageUp":if(i){const[e,t]=Ae.getDimensions();n(25,Ee=Math.floor((t*Ee-e)/t))}case"ArrowDown":if(e.preventDefault(),!p)return void g(Be,p=!0,p);n(25,Ee=o.next(Ee)),me().then(Ae.scrollIntoView),Oe=!0;break;case"Escape":p&&(e.preventDefault(),e.stopPropagation()),h||g(Be,p=!1,p),Ke(),g(Re,h="",h);break;case t:case"Enter":if(!p)return void(e.key!==t&&Ce("enterKey",e));let a=l?null:s[Ee];if(U&&h&&(a=!a||l?h:a,l=!1),!l&&a&&pt(null,a),s.length<=Ee&&n(25,Ee=r>0?r:o.first),!a&&st.length)return g(Be,p=!1,p),void(e.key!==t&&Ce("enterKey",e));(e.key!==t||e.key===t&&D!==jn)&&e.preventDefault();break;case" ":Y||p||(g(Be,p=!0,p),e.preventDefault()),!V&&st.length&&e.preventDefault();break;case"Backspace":mt=!0;case"Delete":""===h&&st.length&&(l?ft({}):ft(null,st[st.length-1]),e.preventDefault()),mt=!1;default:l||["Tab","Shift"].includes(e.key)||p||Ve||g(Be,p=!0,p),!V&&st.length&&"Tab"!==e.key&&(e.preventDefault(),e.stopPropagation())}},function(e){if(U){e.preventDefault();const t=new RegExp("([^"+W+"\\n]+)","g"),n=e.clipboardData.getData("text/plain").replace(/\//g,"/").replace(/\t/g," "),l=n.match(t);1===l.length&&-1===n.indexOf(",")&&g(Re,h=l.pop().trim(),h),l.forEach((e=>pt(null,e.trim())))}},function(e){n(30,st=e.detail.items)},Be,S,X,Z,Y,ye,$e,C,k,A,I,_,D,M,P,R,j,K,J,Q,W,ee,te,ne,le,he,pe,fe,be,we,e=>{Ie.focusControl(e)},e=>{if(!st.length)return V?[]:null;const t=st.map((t=>e?t[xe?_e:Fe]:Object.assign({},t)));return V?t:t[0]},(e,t)=>{ut(e),t&&ct()},e=>{ht(),ct(),e&&(n(0,w=!0),n(58,Y=null))},ke,ze,je,Ye,l,m,function(e){ce[e?"unshift":"push"]((()=>{Ie=e,n(36,Ie)}))},function(t){oe.call(this,e,t)},function(e){ce[e?"unshift":"push"]((()=>{Ae=e,n(35,Ae)}))},function(t){oe.call(this,e,t)},v]}class Gn extends Me{constructor(e){super(),Le(this,e,qn,Rn,o,{name:2,inputId:3,required:4,hasAnchor:5,disabled:0,options:55,valueField:61,labelField:62,groupLabelField:63,groupItemsField:64,disabledField:6,placeholder:7,searchable:8,clearable:9,renderer:65,disableHighlight:10,selectOnTab:66,resetOnBlur:11,resetOnSelect:67,closeAfterSelect:68,dndzone:12,validatorAction:69,dropdownItem:13,controlItem:14,multiple:1,max:70,collapseSelection:15,alwaysCollapsed:16,creatable:17,creatablePrefix:71,allowEditing:72,keepCreated:73,delimiter:74,createFilter:56,createTransform:57,fetch:58,fetchMode:75,fetchCallback:76,fetchResetOnBlur:77,minQuery:78,lazyDropdown:18,virtualList:19,vlHeight:20,vlItemSize:21,searchField:79,sortField:80,disableSifter:81,class:22,style:23,i18n:82,readSelection:60,value:59,labelAsValue:24,valueAsObject:83,focus:84,getSelection:85,setSelection:86,clearByParent:87},null,[-1,-1,-1,-1])}get focus(){return this.$$.ctx[84]}get getSelection(){return this.$$.ctx[85]}get setSelection(){return this.$$.ctx[86]}get clearByParent(){return this.$$.ctx[87]}}const Un={countryGroups:()=>[{label:"A",options:[{value:"al",text:"Albania"},{value:"ad",text:"Andorra"},{value:"am",text:"Armenia"},{value:"a",text:"Austria"},{value:"az",text:"Azerbaijan"}]},{label:"B",options:[{value:"by",text:"Belarus"},{value:"be",text:"Belgium"},{value:"ba",text:"Bosnia and Herzegovina"},{value:"bg",text:"Bulgaria"}]},{label:"C",options:[{value:"hr",text:"Croatia"},{value:"cy",text:"Cyprus"},{value:"cz",text:"Czechia"}]}],countries:()=>[{value:"al",text:"Albania"},{value:"ad",text:"Andorra"},{value:"am",text:"Armenia"},{value:"a",text:"Austria"},{value:"az",text:"Azerbaijan"},{value:"by",text:"Belarus"},{value:"be",text:"Belgium"},{value:"ba",text:"Bosnia and Herzegovina"},{value:"bg",text:"Bulgaria"},{value:"hr",text:"Croatia"},{value:"cy",text:"Cyprus"},{value:"cz",text:"Czechia"},{value:"dk",text:"Denmark"},{value:"ee",text:"Estonia"},{value:"fi",text:"Finland"},{value:"fr",text:"France"},{value:"ge",text:"Georgia"},{value:"de",text:"Germany"},{value:"gr",text:"Greece"},{value:"hu",text:"Hungary"},{value:"is",text:"Iceland"},{value:"ie",text:"Ireland"},{value:"it",text:"Italy"},{value:"xk",text:"Kosovo"},{value:"lv",text:"Latvia"},{value:"li",text:"Liechtenstein"},{value:"lt",text:"Lithuania"},{value:"lu",text:"Luxembourg"},{value:"mt",text:"Malta"},{value:"md",text:"Moldova"},{value:"me",text:"Montenegro"},{value:"nl",text:"Netherlands"},{value:"mk",text:"North Macedonia (formerly Macedonia)"},{value:"no",text:"Norway"},{value:"pl",text:"Poland"},{value:"pt",text:"Portugal"},{value:"ro",text:"Romania"},{value:"ru",text:"Russia"},{value:"rs",text:"Serbia"},{value:"sk",text:"Slovakia"},{value:"sl",text:"Slovenia"},{value:"es",text:"Spain"},{value:"se",text:"Sweden"},{value:"ch",text:"Switzerland"},{value:"tr",text:"Turkey"},{value:"ua",text:"Ukraine"},{value:"uk",text:"United Kingdom"}],colors:()=>[{value:"aqua",text:"Aqua",hex:"#00FFFF"},{value:"black",text:"Black",hex:"#000000"},{value:"blue",text:"Blue",hex:"#0000FF"},{value:"gray",text:"Gray",hex:"#808080"},{value:"green",text:"Green",hex:"#008000"},{value:"fuchsia",text:"Fuchsia",hex:"#FF00FF"},{value:"lime",text:"Lime",hex:"#00FF00"},{value:"maroon",text:"Maroon",hex:"#800000"},{value:"navy",text:"Navy",hex:"#000080"},{value:"olive",text:"Olive",hex:"#808000"},{value:"purple",text:"Purple",hex:"#800080"},{value:"red",text:"Red",hex:"#FF0000"},{value:"silver",text:"Silver",hex:"#C0C0C0"},{value:"teal",text:"Teal",hex:"#008080"},{value:"yellow",text:"Yellow",hex:"#FFFF00"},{value:"white",text:"White",hex:"#FFFFFF"}]};function Kn(e){let t,n,l,i,s,r,o,a,c,u,d,h,p,f,m,g,v,b,$,y,x=JSON.stringify(e[0])+"";function w(t){e[3](t)}function C(t){e[4](t)}let k={options:e[2],inputId:"country",placeholder:"Select country"};return void 0!==e[0]&&(k.readSelection=e[0]),void 0!==e[1]&&(k.value=e[1]),l=new Gn({props:k}),ce.push((()=>Fe(l,"readSelection",w))),ce.push((()=>Fe(l,"value",C))),{c(){t=O("label"),t.textContent="Select a country",n=_(),_e(l.$$.fragment),r=_(),o=O("div"),a=F("Current "),c=O("code"),c.textContent="readSelection",u=F(" value: "),d=O("b"),h=F(x),p=_(),f=O("div"),m=F("Current "),g=O("code"),g.textContent="value",v=F(" value: "),b=O("b"),$=F(e[1]),M(t,"for","country")},m(e,i){A(e,t,i),A(e,n,i),Te(l,e,i),A(e,r,i),A(e,o,i),S(o,a),S(o,c),S(o,u),S(o,d),S(d,h),A(e,p,i),A(e,f,i),S(f,m),S(f,g),S(f,v),S(f,b),S(b,$),y=!0},p(e,[t]){const n={};!i&&1&t&&(i=!0,n.readSelection=e[0],ve((()=>i=!1))),!s&&2&t&&(s=!0,n.value=e[1],ve((()=>s=!1))),l.$set(n),(!y||1&t)&&x!==(x=JSON.stringify(e[0])+"")&&R(h,x),(!y||2&t)&&R($,e[1])},i(e){y||(Ae(l.$$.fragment,e),y=!0)},o(e){Ie(l.$$.fragment,e),y=!1},d(e){e&&I(t),e&&I(n),De(l,e),e&&I(r),e&&I(o),e&&I(p),e&&I(f)}}}function Jn(e,t,n){let l=Un.countries(),i=null,s="cz";return setTimeout((()=>{n(1,s="de")}),4e3),[i,s,l,function(e){i=e,n(0,i)},function(e){s=e,n(1,s)}]}function Qn(e){let t,n,l,i,r,o,a,c,u,d,h,p,f,m,g,v,b,$,y,x,w,C,k,z,E,T,L,P,H,N,B,V=JSON.stringify(e[1])+"";function j(t){e[4](t)}function q(t){e[5](t)}let G={options:e[3],labelAsValue:e[0],multiple:!0,placeholder:"Select country"};return void 0!==e[1]&&(G.readSelection=e[1]),void 0!==e[2]&&(G.value=e[2]),t=new Gn({props:G}),ce.push((()=>Fe(t,"readSelection",j))),ce.push((()=>Fe(t,"value",q))),H=function(e){let t;return{p(...n){t=n,t.forEach((t=>e.push(t)))},r(){t.forEach((t=>e.splice(e.indexOf(t),1)))}}}(e[7][0]),{c(){_e(t.$$.fragment),i=_(),r=O("div"),o=F("Pick\r\n  "),a=O("label"),c=O("input"),u=F(" value"),d=_(),h=O("label"),p=O("input"),f=F(" label"),m=_(),g=O("div"),v=F("Current "),b=O("code"),b.textContent="readSelection",$=F(" value: "),y=O("b"),x=F(V),w=_(),C=O("br"),k=F("\r\n  Current "),z=O("code"),z.textContent="value",E=F(" value: "),T=O("b"),L=F(e[2]),M(c,"type","radio"),c.__value=!1,c.value=c.__value,M(p,"type","radio"),M(p,"id",""),p.__value=!0,p.value=p.__value,M(r,"class","float-right"),H.p(c,p)},m(n,l){Te(t,n,l),A(n,i,l),A(n,r,l),S(r,o),S(r,a),S(a,c),c.checked=c.__value===e[0],S(a,u),S(r,d),S(r,h),S(h,p),p.checked=p.__value===e[0],S(h,f),A(n,m,l),A(n,g,l),S(g,v),S(g,b),S(g,$),S(g,y),S(y,x),S(g,w),S(g,C),S(g,k),S(g,z),S(g,E),S(g,T),S(T,L),P=!0,N||(B=[D(c,"change",e[6]),D(p,"change",e[8])],N=!0)},p(e,[i]){const s={};1&i&&(s.labelAsValue=e[0]),!n&&2&i&&(n=!0,s.readSelection=e[1],ve((()=>n=!1))),!l&&4&i&&(l=!0,s.value=e[2],ve((()=>l=!1))),t.$set(s),1&i&&(c.checked=c.__value===e[0]),1&i&&(p.checked=p.__value===e[0]),(!P||2&i)&&V!==(V=JSON.stringify(e[1])+"")&&R(x,V),(!P||4&i)&&R(L,e[2])},i(e){P||(Ae(t.$$.fragment,e),P=!0)},o(e){Ie(t.$$.fragment,e),P=!1},d(e){De(t,e),e&&I(i),e&&I(r),e&&I(m),e&&I(g),H.r(),N=!1,s(B)}}}function Wn(e,t,n){let l=Un.countries().map((e=>e.text)),i=!1,s=[],r=["Czechia","Germany"];return[i,s,r,l,function(e){s=e,n(1,s)},function(e){r=e,n(2,r)},function(){i=this.__value,n(0,i)},[[]],function(){i=this.__value,n(0,i)}]}function Xn(t){let n,l;return n=new Gn({props:{options:t[0],groupLabelField:"groupHeader",groupItemsField:"items"}}),{c(){_e(n.$$.fragment)},m(e,t){Te(n,e,t),l=!0},p:e,i(e){l||(Ae(n.$$.fragment,e),l=!0)},o(e){Ie(n.$$.fragment,e),l=!1},d(e){De(n,e)}}}function Zn(e){return[[{groupHeader:"A",items:[{value:"al",text:"Albania"},{value:"ad",text:"Andorra"},{value:"am",text:"Armenia"},{value:"a",text:"Austria"},{value:"az",text:"Azerbaijan"}]},{groupHeader:"B",items:[{value:"by",text:"Belarus"},{value:"be",text:"Belgium"},{value:"ba",text:"Bosnia and Herzegovina"},{value:"bg",text:"Bulgaria"}]},{groupHeader:"C",items:[{value:"hr",text:"Croatia"},{value:"cy",text:"Cyprus"},{value:"cz",text:"Czechia"}]}]]}function Yn(t){let n,l;return n=new Gn({props:{options:t[0],renderer:"color-blocks",placeholder:"Select color"}}),{c(){_e(n.$$.fragment)},m(e,t){Te(n,e,t),l=!0},p:e,i(e){l||(Ae(n.$$.fragment,e),l=!0)},o(e){Ie(n.$$.fragment,e),l=!1},d(e){De(n,e)}}}function el(e,t){return t?`<div class="color-item" style="background-color: ${e.hex}">\n        Selected color\n      </div>`:`<span class="color-item" style="background-color: ${e.hex};">\n      </span>${e.text}`}function tl(e){let t=Un.colors();return Bn("color-blocks",el),Bn({"color-blocks":el}),[t]}function nl(e){let t,n;return{c(){t=O("b"),n=F(e[1]),M(t,"slot","icon")},m(e,l){A(e,t,l),S(t,n)},p(e,t){2&t&&R(n,e[1])},d(e){e&&I(t)}}}function ll(e){let t,n=e[5].length?"❌":e[6]?"👀":"❓";return{c(){t=F(n)},m(e,n){A(e,t,n)},p(e,l){96&l&&n!==(n=e[5].length?"❌":e[6]?"👀":"❓")&&R(t,n)},d(e){e&&I(t)}}}function il(e){let t,n=e[4]?"😃":"😄";return{c(){t=F(n)},m(e,n){A(e,t,n)},p(e,l){16&l&&n!==(n=e[4]?"😃":"😄")&&R(t,n)},d(e){e&&I(t)}}}function sl(e){let t,n,l;function i(t){e[3](t)}let s={options:e[2],clearable:!0,placeholder:"Pick your color, even the black. Try to type to see 'clearable' icon change",$$slots:{"indicator-icon":[il,({hasDropdownOpened:e})=>({4:e}),({hasDropdownOpened:e})=>e?16:0],"clear-icon":[ll,({selectedOptions:e,inputValue:t})=>({5:e,6:t}),({selectedOptions:e,inputValue:t})=>(e?32:0)|(t?64:0)],icon:[nl]},$$scope:{ctx:e}};return void 0!==e[0]&&(s.value=e[0]),t=new Gn({props:s}),ce.push((()=>Fe(t,"value",i))),{c(){_e(t.$$.fragment)},m(e,n){Te(t,e,n),l=!0},p(e,[l]){const i={};242&l&&(i.$$scope={dirty:l,ctx:e}),!n&&1&l&&(n=!0,i.value=e[0],ve((()=>n=!1))),t.$set(i)},i(e){l||(Ae(t.$$.fragment,e),l=!0)},o(e){Ie(t.$$.fragment,e),l=!1},d(e){De(t,e)}}}function rl(e,t,n){let l,i=Un.colors(),s=null;return e.$$.update=()=>{1&e.$$.dirty&&n(1,l=s?"black"===s?"💀":"👍":"👉")},[s,l,i,function(e){s=e,n(0,s)}]}function ol(e){let t,n,l,i,r,o,a,c,u,d,h,p,f,m,g,v,b,$,y,x,w,C,k,z=JSON.stringify(e[2])+"";function E(t){e[4](t)}let T={resetOnBlur:e[0],fetchResetOnBlur:e[1],valueAsObject:!0,minQuery:e[3],multiple:!0,placeholder:"Start typing ('re' for example)",fetch:"https://jsonplaceholder.typicode.com/users/?email_like=[query]"};return void 0!==e[2]&&(T.value=e[2]),t=new Gn({props:T}),ce.push((()=>Fe(t,"value",E))),{c(){_e(t.$$.fragment),l=_(),i=O("div"),r=O("b"),r.textContent="Selected:",o=_(),a=O("span"),c=F("Min. query length:"),u=O("input"),d=_(),h=O("label"),p=O("input"),f=F(" Reset on blur"),m=_(),g=O("label"),v=O("input"),b=F(" Reset search results on empty input"),$=_(),y=O("pre"),x=F(z),M(u,"type","number"),M(u,"min","1"),M(u,"step","1"),M(u,"class","small-input svelte-1go3b6d"),M(p,"type","checkbox"),M(p,"name",""),M(p,"id","rob"),M(h,"for","rob"),M(h,"class","mr-2"),M(v,"type","checkbox"),M(v,"name",""),M(v,"id","frob"),M(g,"for","frob"),M(a,"class","float-right"),M(y,"class","mt-2")},m(n,s){Te(t,n,s),A(n,l,s),A(n,i,s),S(i,r),S(i,o),S(i,a),S(a,c),S(a,u),N(u,e[3]),S(a,d),S(a,h),S(h,p),p.checked=e[0],S(h,f),S(a,m),S(a,g),S(g,v),v.checked=e[1],S(g,b),S(i,$),S(i,y),S(y,x),w=!0,C||(k=[D(u,"input",e[5]),D(p,"change",e[6]),D(v,"change",e[7])],C=!0)},p(e,[l]){const i={};1&l&&(i.resetOnBlur=e[0]),2&l&&(i.fetchResetOnBlur=e[1]),8&l&&(i.minQuery=e[3]),!n&&4&l&&(n=!0,i.value=e[2],ve((()=>n=!1))),t.$set(i),8&l&&H(u.value)!==e[3]&&N(u,e[3]),1&l&&(p.checked=e[0]),2&l&&(v.checked=e[1]),(!w||4&l)&&z!==(z=JSON.stringify(e[2])+"")&&R(x,z)},i(e){w||(Ae(t.$$.fragment,e),w=!0)},o(e){Ie(t.$$.fragment,e),w=!1},d(e){De(t,e),e&&I(l),e&&I(i),C=!1,s(k)}}}function al(e,t,n){let l=!0,i=!0,s=[{id:10,name:"Clementina DuBuque",username:"Moriah.Stanton",email:"Rey.Padberg@karina.biz",address:{street:"Kattie Turnpike",suite:"Suite 198",city:"Lebsackbury",zipcode:"31428-2261",geo:{lat:"-38.2386",lng:"57.2232"}},phone:"024-648-3804",website:"ambrose.net",company:{name:"Hoeger LLC",catchPhrase:"Centralized empowering task-force",bs:"target end-to-end models"}}],r=2;return[l,i,s,r,function(e){s=e,n(2,s)},function(){r=H(this.value),n(3,r)},function(){l=this.checked,n(0,l)},function(){i=this.checked,n(1,i)}]}function cl(e,t,n){const l=e.slice();return l[78]=t[n],l[80]=n,l}function ul(e){let t,n;return{c(){t=O("b"),n=F(e[22]),M(t,"slot","icon")},m(e,l){A(e,t,l),S(t,n)},p(e,t){4194304&t[0]&&R(n,e[22])},d(e){e&&I(t)}}}function dl(e){let t,n,l,i=e[78]+"";return{c(){t=O("option"),n=F(i),t.__value=l=e[78],t.value=t.__value},m(e,l){A(e,t,l),S(t,n)},p(e,s){4&s[0]&&i!==(i=e[78]+"")&&R(n,i),4&s[0]&&l!==(l=e[78])&&(t.__value=l,t.value=t.__value)},d(e){e&&I(t)}}}function hl(e){let t,l,i,r,o,a,c,u,d,h,p,f,m,g,v,b,$,y,x,w,C,k,E,T,L,P,B,j,q,G,K,J,Q,W,X,Z,Y,ee,te,ne,le,ie,se,re,oe,ae,ue,de,he,pe,fe,me,be,$e,ye,xe,we,Se,Ce,ke,ze,Oe,Ee,Le,Me,Pe,He,Re,Ne,Be,Ve,je,qe,Ge,Ue,Ke,Je,Qe,We,Xe,Ze,Ye,et,tt,nt,lt,it,st,rt,ot,at,ct,ut,dt,ht,pt,ft,mt,gt,vt,bt,$t,yt,xt,wt,St,Ct,kt,At,It,zt,Ot,Et,Ft,_t,Tt,Dt,Lt,Mt,Pt,Ht,Rt,Nt,Bt,Vt,jt,qt,Gt,Ut,Kt,Jt,Qt,Wt,Xt,Zt,Yt,en,tn,nn,ln,sn,rn,on,an,cn,un,dn,hn,pn,fn,mn,gn,vn,bn,$n,yn,xn,wn,Sn,Cn=JSON.stringify(e[3])+"";const kn=[e[21],{name:"select"},{valueAsObject:!0}];function An(t){e[31](t)}let In={$$slots:{icon:[ul]},$$scope:{ctx:e}};for(let e=0;e<kn.length;e+=1)In=n(In,kn[e]);function zn(t){e[38](t)}void 0!==e[3]&&(In.value=e[3]),a=new Gn({props:In}),ce.push((()=>Fe(a,"value",An))),e[32](a);let On={options:e[24],style:"width: 195px"};void 0!==e[0]&&(On.readSelection=e[0]),ae=new Gn({props:On}),ce.push((()=>Fe(ae,"readSelection",zn))),ae.$on("change",e[39]);let En=e[23][e[2]]||[],Fn=[];for(let t=0;t<En.length;t+=1)Fn[t]=dl(cl(e,En,t));return{c(){t=O("div"),l=O("div"),i=O("h4"),i.textContent="• Complex playground •",r=_(),o=O("div"),_e(a.$$.fragment),u=F("\n      Current value: "),d=F(Cn),h=_(),p=O("p"),p.textContent="Complete playground with almost options available. Try for example:",f=_(),m=O("ul"),g=O("li"),v=O("button"),v.textContent="collapsible multiselection",b=_(),$=O("li"),y=O("button"),y.textContent="creatable (create your tags)",x=_(),w=O("p"),w.innerHTML="⚠ When searching through items, AND is used as logical operator when space is entered. If you would like\n      to use OR, you have to start your search query by &quot;<code>|| </code>&quot; prefix. The space on 3rd position \n      is also very important here.",C=_(),k=O("div"),E=O("fieldset"),T=O("legend"),T.textContent="Customize",L=_(),P=O("div"),B=O("div"),j=O("fieldset"),q=O("legend"),q.textContent="Control",G=_(),K=O("label"),J=O("input"),Q=F(" Disabled"),W=O("br"),X=_(),Z=O("label"),Y=O("input"),ee=F(" Use virtual list"),te=O("br"),ne=_(),le=O("button"),le.textContent="Clear selection",ie=_(),se=O("fieldset"),re=O("legend"),re.textContent="Options",oe=_(),_e(ae.$$.fragment),de=_(),he=O("p"),he.innerHTML='Options with <small class="label label-primary">API</small> label<br/>\n              to demonstrate AJAX fetch.',pe=_(),fe=O("fieldset"),me=O("legend"),me.textContent="Rendering",be=_(),$e=O("select"),ye=O("option"),ye.textContent="Default";for(let e=0;e<Fn.length;e+=1)Fn[e].c();we=_(),Se=O("div"),Ce=O("fieldset"),ke=O("legend"),ke.textContent="Multiple",ze=_(),Oe=O("label"),Ee=O("input"),Le=F(" Multiple"),Me=_(),Pe=O("span"),He=O("input"),Ne=_(),Be=O("br"),Ve=_(),je=O("label"),qe=O("input"),Ue=F(" Collapse selection"),Ke=_(),Je=O("br"),Qe=_(),We=O("label"),Xe=O("input"),Ye=F(" Always collapsed"),et=_(),tt=O("hr"),nt=_(),lt=O("label"),it=O("input"),st=F(" Inline width"),rt=_(),ot=O("fieldset"),at=O("legend"),at.textContent="Creatable",ct=_(),ut=O("label"),dt=O("input"),ht=F(" Creatable"),pt=O("br"),ft=_(),mt=O("span"),gt=O("input"),bt=_(),$t=O("span"),yt=O("input"),wt=_(),St=O("br"),Ct=_(),kt=O("span"),At=O("label"),It=O("input"),zt=F(" Allow editing"),Ot=O("br"),Et=_(),Ft=O("span"),_t=O("label"),Tt=O("input"),Dt=F(" Keep created options"),Lt=O("br"),Mt=_(),Pt=O("div"),Ht=O("fieldset"),Rt=O("legend"),Rt.textContent="UI",Nt=F("\n            Placeholder "),Bt=O("input"),Vt=O("br"),jt=_(),qt=O("label"),Gt=O("input"),Ut=F(" Searchable"),Kt=O("br"),Jt=_(),Qt=O("label"),Wt=O("input"),Xt=F(" Clearable"),Zt=O("br"),Yt=_(),en=O("label"),tn=O("input"),nn=F(" Select on "),ln=O("kbd"),ln.textContent="Tab",sn=O("br"),rn=_(),on=O("label"),an=O("input"),cn=F(" Select on "),un=O("kbd"),un.textContent="Tab",dn=F(" and navigate to next input"),hn=_(),pn=O("fieldset"),fn=O("legend"),fn.textContent="Styling",mn=_(),gn=O("span"),gn.textContent="CSS class",vn=_(),bn=O("select"),$n=O("option"),$n.textContent="svelecte-control (default)",yn=O("option"),yn.textContent="red style (custom)",M(p,"class","mt-2"),M(v,"class","btn btn-sm"),M(y,"class","btn btn-sm"),M(o,"class","form-row example-wrap svelte-19xmbht"),U(o,"flexible-svelecte",e[6]),M(w,"class","mt-2"),M(l,"class","column col-xl-12 col-5"),M(T,"class","svelte-19xmbht"),M(q,"class","svelte-19xmbht"),M(J,"type","checkbox"),M(Y,"type","checkbox"),M(le,"class","btn mt-2"),M(j,"class","svelte-19xmbht"),M(re,"class","svelte-19xmbht"),M(he,"class","mb-0"),M(se,"class","svelte-19xmbht"),M(me,"class","svelte-19xmbht"),ye.__value="",ye.value=ye.__value,$e.disabled=xe=!e[2]||!e[23][e[2]].length,M(fe,"class","svelte-19xmbht"),M(B,"class","col"),M(ke,"class","svelte-19xmbht"),M(Ee,"type","checkbox"),M(He,"class","input-sm svelte-19xmbht"),M(He,"type","number"),M(He,"placeholder","limit"),He.disabled=Re=!e[21].multiple,M(He,"min","0"),M(Pe,"class","tooltip"),M(Pe,"data-tooltip","Limit selection count"),M(qe,"type","checkbox"),qe.disabled=Ge=!e[21].multiple,M(je,"class","tooltip"),M(je,"data-tooltip","Show only selection sum string"),M(Xe,"type","checkbox"),Xe.disabled=Ze=!e[21].multiple,M(We,"class","tooltip"),M(We,"data-tooltip","Always keep selection collapsed.\nShow selection in dropdown"),M(it,"type","checkbox"),M(Ce,"class","svelte-19xmbht"),M(at,"class","svelte-19xmbht"),M(dt,"type","checkbox"),M(gt,"class","input-sm input-short svelte-19xmbht"),M(gt,"placeholder","Item prefix"),gt.disabled=vt=!e[21].creatable,M(mt,"class","tooltip"),M(mt,"data-tooltip","prefix that is shown\nwhen creating new items"),M(yt,"class","input-sm input-short svelte-19xmbht"),M(yt,"placeholder","Delimiter"),yt.disabled=xt=!e[21].creatable,M($t,"class","tooltip"),M($t,"data-tooltip","Delimiter character for new items\n(when pasting etc.)"),M(It,"type","checkbox"),M(kt,"class","tooltip"),M(kt,"data-tooltip","Edit created item when backspace is pressed\n(normally remove selected item)"),M(Tt,"type","checkbox"),M(Ft,"class","tooltip"),M(Ft,"data-tooltip","Keep created item in options dropdown"),M(ot,"class","svelte-19xmbht"),M(Se,"class","col"),M(Rt,"class","svelte-19xmbht"),M(Bt,"class","input-sm"),M(Gt,"type","checkbox"),M(Wt,"type","checkbox"),M(tn,"type","checkbox"),M(an,"type","checkbox"),M(Ht,"class","svelte-19xmbht"),M(fn,"class","svelte-19xmbht"),$n.__value="svelecte-control",$n.value=$n.__value,yn.__value="svelecte-control custom-css",yn.value=yn.__value,void 0===e[4]&&ge((()=>e[71].call(bn))),M(pn,"class","svelte-19xmbht"),M(Pt,"class","col"),M(P,"class","columns"),M(E,"class","svelte-19xmbht"),M(k,"class","column col-xl-12 col-7"),M(t,"class","columns")},m(n,s){A(n,t,s),S(t,l),S(l,i),S(l,r),S(l,o),Te(a,o,null),S(o,u),S(o,d),S(o,h),S(o,p),S(o,f),S(o,m),S(m,g),S(g,v),S(m,b),S(m,$),S($,y),S(l,x),S(l,w),S(t,C),S(t,k),S(k,E),S(E,T),S(E,L),S(E,P),S(P,B),S(B,j),S(j,q),S(j,G),S(j,K),S(K,J),J.checked=e[14],S(K,Q),S(j,W),S(j,X),S(j,Z),S(Z,Y),Y.checked=e[20],S(Z,ee),S(j,te),S(j,ne),S(j,le),S(B,ie),S(B,se),S(se,re),S(se,oe),Te(ae,se,null),S(se,de),S(se,he),S(B,pe),S(B,fe),S(fe,me),S(fe,be),S(fe,$e),S($e,ye);for(let e=0;e<Fn.length;e+=1)Fn[e]&&Fn[e].m($e,null);S(P,we),S(P,Se),S(Se,Ce),S(Ce,ke),S(Ce,ze),S(Ce,Oe),S(Oe,Ee),Ee.checked=e[1],S(Oe,Le),S(Ce,Me),S(Ce,Pe),S(Pe,He),N(He,e[8]),S(Ce,Ne),S(Ce,Be),S(Ce,Ve),S(Ce,je),S(je,qe),qe.checked=e[9],S(je,Ue),S(Ce,Ke),S(Ce,Je),S(Ce,Qe),S(Ce,We),S(We,Xe),Xe.checked=e[10],S(We,Ye),S(Ce,et),S(Ce,tt),S(Ce,nt),S(Ce,lt),S(lt,it),it.checked=e[6],S(lt,st),S(Se,rt),S(Se,ot),S(ot,at),S(ot,ct),S(ot,ut),S(ut,dt),dt.checked=e[15],S(ut,ht),S(ot,pt),S(ot,ft),S(ot,mt),S(mt,gt),N(gt,e[16]),S(ot,bt),S(ot,$t),S($t,yt),N(yt,e[19]),S($t,wt),S(ot,St),S(ot,Ct),S(ot,kt),S(kt,At),S(At,It),It.checked=e[17],S(At,zt),S(kt,Ot),S(ot,Et),S(ot,Ft),S(Ft,_t),S(_t,Tt),Tt.checked=e[18],S(_t,Dt),S(Ft,Lt),S(P,Mt),S(P,Pt),S(Pt,Ht),S(Ht,Rt),S(Ht,Nt),S(Ht,Bt),N(Bt,e[21].placeholder),S(Ht,Vt),S(Ht,jt),S(Ht,qt),S(qt,Gt),Gt.checked=e[11],S(qt,Ut),S(Ht,Kt),S(Ht,Jt),S(Ht,Qt),S(Qt,Wt),Wt.checked=e[12],S(Qt,Xt),S(Ht,Zt),S(Ht,Yt),S(Ht,en),S(en,tn),tn.checked=e[13],S(en,nn),S(en,ln),S(Ht,sn),S(Ht,rn),S(Ht,on),S(on,an),an.checked=e[7],S(on,cn),S(on,un),S(on,dn),S(Pt,hn),S(Pt,pn),S(pn,fn),S(pn,mn),S(pn,gn),S(pn,vn),S(pn,bn),S(bn,$n),S(bn,yn),V(bn,e[4],!0),xn=!0,wn||(Sn=[D(v,"click",e[26]),D(y,"click",e[27]),D(J,"change",e[33]),D(J,"change",e[34]),D(Y,"change",e[35]),D(Y,"change",e[36]),D(le,"click",e[37]),D($e,"change",e[40]),D($e,"blur",e[30]),D(Ee,"change",e[41]),D(Ee,"change",e[42]),D(He,"input",e[43]),D(He,"input",e[44]),D(qe,"change",e[45]),D(qe,"change",e[46]),D(Xe,"change",e[47]),D(Xe,"change",e[48]),D(it,"change",e[49]),D(dt,"change",e[50]),D(dt,"change",e[51]),D(gt,"input",e[52]),D(gt,"input",e[53]),D(yt,"input",e[54]),D(yt,"input",e[55]),D(It,"change",e[56]),D(It,"change",e[57]),D(Tt,"change",e[58]),D(Tt,"change",e[59]),D(Bt,"input",e[60]),D(Bt,"input",e[61]),D(Gt,"change",e[62]),D(Gt,"change",e[63]),D(Wt,"change",e[64]),D(Wt,"change",e[65]),D(tn,"change",e[66]),D(tn,"change",e[67]),D(an,"change",e[68]),D(an,"change",e[69]),D(bn,"change",e[70]),D(bn,"change",e[71]),D(bn,"blur",e[29])],wn=!0)},p(e,t){const n=2097152&t[0]?function(e,t){const n={},l={},i={$$scope:1};let s=e.length;for(;s--;){const r=e[s],o=t[s];if(o){for(const e in r)e in o||(l[e]=1);for(const e in o)i[e]||(n[e]=o[e],i[e]=1);e[s]=o}else for(const e in r)i[e]=1}for(const e in l)e in n||(n[e]=void 0);return n}(kn,[(l=e[21],"object"==typeof l&&null!==l?l:{}),kn[1],kn[2]]):{};var l;4194304&t[0]|524288&t[2]&&(n.$$scope={dirty:t,ctx:e}),!c&&8&t[0]&&(c=!0,n.value=e[3],ve((()=>c=!1))),a.$set(n),(!xn||8&t[0])&&Cn!==(Cn=JSON.stringify(e[3])+"")&&R(d,Cn),(!xn||64&t[0])&&U(o,"flexible-svelecte",e[6]),16384&t[0]&&(J.checked=e[14]),1048576&t[0]&&(Y.checked=e[20]);const i={};if(!ue&&1&t[0]&&(ue=!0,i.readSelection=e[0],ve((()=>ue=!1))),ae.$set(i),8388612&t[0]){let n;for(En=e[23][e[2]]||[],n=0;n<En.length;n+=1){const l=cl(e,En,n);Fn[n]?Fn[n].p(l,t):(Fn[n]=dl(l),Fn[n].c(),Fn[n].m($e,null))}for(;n<Fn.length;n+=1)Fn[n].d(1);Fn.length=En.length}(!xn||4&t[0]&&xe!==(xe=!e[2]||!e[23][e[2]].length))&&($e.disabled=xe),2&t[0]&&(Ee.checked=e[1]),(!xn||2097152&t[0]&&Re!==(Re=!e[21].multiple))&&(He.disabled=Re),256&t[0]&&H(He.value)!==e[8]&&N(He,e[8]),(!xn||2097152&t[0]&&Ge!==(Ge=!e[21].multiple))&&(qe.disabled=Ge),512&t[0]&&(qe.checked=e[9]),(!xn||2097152&t[0]&&Ze!==(Ze=!e[21].multiple))&&(Xe.disabled=Ze),1024&t[0]&&(Xe.checked=e[10]),64&t[0]&&(it.checked=e[6]),32768&t[0]&&(dt.checked=e[15]),(!xn||2097152&t[0]&&vt!==(vt=!e[21].creatable))&&(gt.disabled=vt),65536&t[0]&&gt.value!==e[16]&&N(gt,e[16]),(!xn||2097152&t[0]&&xt!==(xt=!e[21].creatable))&&(yt.disabled=xt),524288&t[0]&&yt.value!==e[19]&&N(yt,e[19]),131072&t[0]&&(It.checked=e[17]),262144&t[0]&&(Tt.checked=e[18]),2097152&t[0]&&Bt.value!==e[21].placeholder&&N(Bt,e[21].placeholder),2048&t[0]&&(Gt.checked=e[11]),4096&t[0]&&(Wt.checked=e[12]),8192&t[0]&&(tn.checked=e[13]),128&t[0]&&(an.checked=e[7]),16&t[0]&&V(bn,e[4])},i(e){xn||(Ae(a.$$.fragment,e),Ae(ae.$$.fragment,e),xn=!0)},o(e){Ie(a.$$.fragment,e),Ie(ae.$$.fragment,e),xn=!1},d(n){n&&I(t),e[32](null),De(a),De(ae),z(Fn,n),wn=!1,s(Sn)}}}function pl(e){return e.map((e=>({id:e.id,name:e.name,email:e.email,street:`${e.address.street} ${e.address.suite}`,city:e.address.city})))}function fl(e,t){return t?`<figure class="avatar avatar-sm" data-initial="${e.name.split(" ").map((e=>e[0])).slice(0,2).join("")}" style="background-color: #2ed020;"></figure>\n          ${e.name}`:`<div class="avatar-item">\n        <figure class="avatar avatar-bg" data-initial="${e.name.split(" ").map((e=>e[0])).slice(0,2).join("")}" style="background-color: #aaa;"></figure>\n        <div class="ml-2">\n          ${e.name}<br><small>${e.email}</small>\n        </div>\n      </div>`}function ml(e,t,n){let l,i=null,s=null,r="svelecte-control";const o={colors:"https://my-json-server.typicode.com/mskocik/svelecte-docs/colors?value_like=[query]",json:"https://jsonplaceholder.typicode.com/users/"},a={opts:"🎨",countries:"🌍",groups:"🔠",colors:"⚡",json:"🙋",tags:"🔖"};let c,u=!1,d=!1,{multiple:h,max:p,collapseSelection:f,alwaysCollapsed:m,placeholder:g,searchable:v,clearable:b,selectOnTab:$,disabled:y,creatable:x,creatablePrefix:w,allowEditing:S,keepCreated:C,delimiter:k,virtualList:A,style:I,searchField:z}=Vn,O={searchable:!0,placeholder:"Pick some option variant 👉",options:[],disabled:!0},E=[{value:"opts",text:"🎨 Colors"},{value:"countries",text:"🌍 Countries"},{value:"groups",text:"🔠 Country (groups)"},{value:"colors",text:'⚡ Colors <small class="label label-primary">API</small>'},{value:"json",text:'🙋 Users <small class="label label-primary">API</small>'},{value:"tags",text:"🔖 Empty list"}],F=null,_=F;function T(e,t){"selectOnTabNav"===e&&(e="selectOnTab",t=!!t&&jn),n(21,O[e]=null!==t?t:!O[e],O),n(21,O)}Bn("avatar",fl);return e.$$.update=()=>{1&e.$$.dirty[0]&&n(2,F=s?s.value:null),4&e.$$.dirty[0]&&n(22,l=a[F]||"🚫"),268435462&e.$$.dirty[0]&&_!==F&&(n(3,i=h?[]:null),z=null,"opts"===F?n(21,O={multiple:h,max:p,collapseSelection:f,searchable:v,clearable:b,selectOnTab:$,disabled:y,creatable:x,creatablePrefix:w,allowEditing:S,keepCreated:C,delimiter:k,virtualList:A,style:I,class:r,options:Un.colors(),fetch:null,placeholder:"Pick your color"}):F?"countries"===F?n(21,O={multiple:h,max:p,collapseSelection:f,searchable:v,clearable:b,selectOnTab:$,disabled:y,creatable:x,creatablePrefix:w,allowEditing:S,keepCreated:C,delimiter:k,virtualList:A,style:I,class:r,options:Un.countries(),fetch:null,placeholder:"Choose your favourite European country"}):"groups"===F?n(21,O={multiple:h,max:p,collapseSelection:f,searchable:v,clearable:b,selectOnTab:$,disabled:y,creatable:x,creatablePrefix:w,allowEditing:S,keepCreated:C,delimiter:k,virtualList:A,style:I,class:r,options:Un.countryGroups(),fetch:null,placeholder:"Select from country group"}):["json","colors"].includes(F)?n(21,O={multiple:h,max:p,collapseSelection:f,alwaysCollapsed:m,searchable:v,clearable:b,selectOnTab:$,disabled:y,creatable:x,creatablePrefix:w,allowEditing:S,keepCreated:C,delimiter:k,virtualList:A,style:I,searchField:"json"===F?["name","email"]:null,class:r,fetch:o[F],fetchCallback:"json"===F?pl:null,placeholder:"json"===F?"Select from prefetched list":"Search for color",renderer:"json"===F?"avatar":null,options:[]}):"tags"===F&&n(21,O={multiple:h,max:p,collapseSelection:f,alwaysCollapsed:m,searchable:v,clearable:b,selectOnTab:$,placeholder:g,disabled:y,creatable:x,creatablePrefix:w,allowEditing:S,keepCreated:C,delimiter:k,virtualList:A,style:I,class:r,fetch:null,fetchCallback:null,renderer:null,options:[]}):n(21,O={placeholder:"Pick some option variant 👉",options:[],disabled:!0}),n(28,_=F))},[s,h,F,i,r,c,u,d,p,f,m,v,b,$,y,x,w,S,C,k,A,O,l,{opts:["caps","dotted","color-blocks"],countries:["caps"],groups:["caps"],colors:["caps","dotted","color-blocks"],json:[],tags:[]},E,T,function(){n(1,h=!0),n(9,f=!0),n(6,u=!0),n(0,s=E[1]);const e=Un.countries();setTimeout((()=>{n(3,i=[e[2],e[7]])})),setTimeout((()=>{document.querySelector("#example-7 input").focus()}),300)},function(){n(15,x=!0),n(1,h=!0),n(8,p=0),n(6,u=!1),n(0,s=E[E.length-1]),n(14,y=!1),g="Create!",setTimeout((()=>{document.querySelector("#example-7 input").focus()}),300)},_,function(t){oe.call(this,e,t)},function(t){oe.call(this,e,t)},function(e){i=e,n(3,i),n(28,_),n(2,F),n(1,h),n(0,s)},function(e){ce[e?"unshift":"push"]((()=>{c=e,n(5,c)}))},e=>T("disabled",e.target.checked),function(){y=this.checked,n(14,y)},e=>T("virtualList",e.target.checked),function(){A=this.checked,n(20,A)},()=>{n(3,i=O.multiple?[]:null)},function(e){s=e,n(0,s)},()=>{n(3,i=h?[]:null)},e=>T("renderer",e.target.value),e=>T("multiple",e.target.checked),function(){h=this.checked,n(1,h)},e=>T("max",parseInt(e.target.value)),function(){p=H(this.value),n(8,p)},e=>T("collapseSelection",e.target.checked),function(){f=this.checked,n(9,f)},e=>T("alwaysCollapsed",e.target.checked),function(){m=this.checked,n(10,m)},function(){u=this.checked,n(6,u)},e=>T("creatable",e.target.checked),function(){x=this.checked,n(15,x)},e=>T("creatablePrefix",e.target.value),function(){w=this.value,n(16,w)},e=>T("delimiter",e.target.value),function(){k=this.value,n(19,k)},e=>T("allowEditing",e.target.checked),function(){S=this.checked,n(17,S)},e=>T("keepCreated",e.target.checked),function(){C=this.checked,n(18,C)},e=>T("placeholder",e.target.value),function(){O.placeholder=this.value,n(21,O)},e=>T("searchable",e.target.checked),function(){v=this.checked,n(11,v)},e=>T("clearable",e.target.checked),function(){b=this.checked,n(12,b)},e=>T("selectOnTab",e.target.checked),function(){$=this.checked,n(13,$)},e=>T("selectOnTabNav",e.target.checked),function(){d=this.checked,n(7,d)},e=>T("class",e.target.value),function(){r=j(this),n(4,r)}]}const gl=["options","value","name","required","disabled","value-field","label-field","disabled-field","placeholder","searchable","clearable","renderer","disable-highlight","select-on-tab","reset-on-blur","reset-on-select","multiple","max","collapse-selection","creatable","creatable-prefix","allow-editing","keepCreated","delimiter","fetch","fetch-reset-on-blur","min-query","lazy-dropdown","virtual-list","vl-height","vl-item-size","search-field","sort-field","disable-sifter","label-as-value"];function vl(e,t){switch(e){case"options":if(Array.isArray(t))return t;try{t=JSON.parse(t),Array.isArray(t)||(t=[])}catch(e){t=[]}return t;case"renderer":return t||"default";case"required":case"disabled":case"searchable":case"clearable":case"disable-highlight":case"select-on-tab":case"reset-on-blur":case"reset-on-select":case"multiple":case"collapse-selection":case"creatable":case"allow-editing":case"keep-created":case"fetch-reset-on-blur":case"lazy-dropdown":case"virtual-list":case"disable-sifter":case"label-as-value":return null!==t&&"false"!==t;case"max":return isNaN(parseInt(t))?0:parseInt(t);case"min-query":return isNaN(parseInt(t))?Vn.minQuery:parseInt(t)}return t}function bl(e){return e.includes("-")?e.split("-").reduce(((e,t,n)=>(n&&(t=t[0].toUpperCase()+t.substr(1)),e+t)),""):e}let $l=!1;class yl extends HTMLElement{constructor(){super(),this.svelecte=void 0,this.anchorSelect=null,this._fetchOpts=null,this._selfSetValue=!1;const e={name:{get(){this.getAttribute("name")},set(e){this.setAttribute("name",e)}},selection:{get(){return this.svelecte?this.svelecte.getSelection():null}},value:{get(){return this.svelecte?this.svelecte.getSelection(!0):null},set(e){const t=this.getAttribute("value-delimiter")||",";this.setAttribute("value",Array.isArray(e)?e.join(t):e)}},options:{get(){return this.hasAttribute("options")?JSON.parse(this.getAttribute("options")):this._fetchOpts||[]},set(e){this.setAttribute("options",Array.isArray(e)?JSON.stringify(e):e)}},hasAnchor:{get(){return!!this.anchorSelect}},form:{get(){return this.closest("form")}},emitChange:{get(){return $l=!0,this}},valueField:{get(){return this.getAttribute("value-field")||Vn.valueField},set(e){this.setAttribute("value-field",e)}},labelField:{get(){return this.getAttribute("label-field")||Vn.labelField},set(e){this.setAttribute("label-field",e)}},delimiter:{get(){return this.getAttribute("delimiter")||Vn.delimiter},set(e){this.setAttribute("delimiter",e)}},lazyDropdown:{get(){return!!this.hasAttribute("lazy-dropdown")||Vn.lazyDropdown},set(){console.warn("⚠ this setter has no effect after component has been created")}},placeholder:{get(){return this.getAttribute("placeholder")||Vn.placeholder},set(e){this.setAttribute("placeholder",e)}},max:{get(){return this.getAttribute("max")||Vn.max},set(e){try{(e=parseInt(e))<0&&(e=0)}catch(t){e=0}this.setAttribute("max",e)}},minQuery:{get(){return this.getAttribute("min-query")||Vn.minQuery},set(e){try{(e=parseInt(e))<1&&(e=1)}catch(t){e=Vn.minQuery}this.setAttribute("min-query",e)}},creatablePrefix:{get(){return this.getAttribute("creatable-prefix")||Vn.creatablePrefix},set(e){this.setAttribute("creatable-prefix",e)}},renderer:{get(){return this.getAttribute("renderer")||"default"},set(e){e?this.setAttribute("renderer",e):this.removeAttribute("renderer")}}},t=["searchable","clearable","disable-highlight","required","select-on-tab","reset-on-blur","reset-on-select","multiple","collapse-selection","creatable","allow-editing","keep-created","fetch-reset-on-blur","virtual-list","disable-sifter","label-as-value","disabled"].reduce(((e,t)=>{const n=bl(t);return e[n]={get(){const e=this.hasAttribute(t),l=!e||"false"!==this.getAttribute(t);return e?l:Vn[n]},set(e){e?this.setAttribute(t,e=""):this.hasAttribute(t)?this.removeAttribute(t):this.svelecte&&this.svelecte.$set({[n]:e})}},e}),{});Object.defineProperties(this,Object.assign({},e,t))}focus(){!this.disabled&&this.querySelector("input").focus()}static get observedAttributes(){return gl}attributeChangedCallback(e,t,n){if(this.svelecte&&t!==n){if("value"===e)return this._selfSetValue||(n?this.svelecte.setSelection(vl(e,n),$l):this.svelecte.clearByParent(!!this.parent)),this._selfSetValue=!1,$l=!1,void(this.anchorSelect&&setTimeout((()=>{const e=this.svelecte.getSelection(!0);this.anchorSelect.innerHTML=(Array.isArray(e)?e.length?e:[null]:[e]).reduce(((e,t)=>e+=t?`<option value="${t}" selected>${t}</option>`:'<option value="" selected="">Empty</option>'),"")})));this.svelecte.$set({[bl(e)]:vl(e,n)})}}connectedCallback(){setTimeout((()=>{this.render()}))}render(){if(this.svelecte)return;let e={};for(const l of gl)this.hasAttribute(l)&&(e[bl(l)]="value"!==l?vl(l,this.getAttribute(l)):(t=this.getAttribute("value"),n=this.getAttribute("value-delimiter")||",",t?t.split(n).map((e=>{const t=parseInt(e);return isNaN(t)?"null"!==e?e:null:t})):""));var t,n;if(this.hasAttribute("i18n")){const t=JSON.parse(this.getAttribute("i18n"));if(t.createRowLabel){const e=t.createRowLabel;t.createRowLabel=t=>e.replace("#value",t)}e.i18n=t}if(this.hasAttribute("class")&&(e.class=this.getAttribute("class")),this.hasAttribute("parent")){if(this.parent=document.getElementById(this.getAttribute("parent")),!this.parent.value&&this.svelecte)return;const t=this.parent.value||this.parent.getAttribute("value");t?(e.disabled=!1,e.fetch=this.getAttribute("fetch").replace("[parent]",t)):(delete e.fetch,e.disabled=!0),this.parentCallback=e=>{if(!e.target.selection||Array.isArray(e.target.selection)&&!e.target.selection.length)this.svelecte.clearByParent(!0);else if(!this.parent.disabled&&this.removeAttribute("disabled"),this.hasAttribute("fetch")){this.svelecte.clearByParent(!0);const t=this.getAttribute("fetch").replace("[parent]",e.target.value);this.svelecte.$set({fetch:t,disabled:!1})}},this.parent.addEventListener("change",this.parentCallback)}const l=this.querySelector("select");return l&&(e.hasAnchor=!0,l.style="opacity: 0; position: absolute; z-index: -2; top: 0; height: 38px",l.tabIndex=-1,this.anchorSelect=l,this.anchorSelect.multiple=e.multiple||l.name.includes("[]"),(Array.isArray(e.value)?e.value:[e.value||null]).forEach((e=>{this.anchorSelect.innerHTML+=`<option value="${e||""}" selected>${e||"No value"}</option>`}))),this.svelecte=new Gn({target:this,anchor:l,props:e}),this.svelecte.$on("change",(e=>{const t=this.svelecte.getSelection(!0);this._selfSetValue=!0,this.value=t,setTimeout((()=>{this._selfSetValue=!1}),100),this.anchorSelect&&(this.anchorSelect.innerHTML=(Array.isArray(t)?t.length?t:[null]:[t]).reduce(((e,t)=>e+=t?`<option value="${t}" selected>${t}</option>`:'<option value="" selected="">Empty</option>'),""),this.anchorSelect.dispatchEvent(new Event("change"))),this.dispatchEvent(e)})),this.svelecte.$on("fetch",(e=>{this._fetchOpts=e.detail,this.dispatchEvent(e)})),this.svelecte.$on("createoption",(e=>{this.dispatchEvent(e)})),!0}disconnectedCallback(){this.svelecte&&this.svelecte.$destroy(),this.parent&&this.parent.removeEventListener("change",this.parentCallback)}}function xl(t){let n,l,i,r,o,a,c,u,d,h,p,f,m,g,v,b,$,y,x,w;return{c(){n=O("div2"),l=O("form"),i=F("Create new\r\n    "),r=O("select"),o=O("option"),o.textContent="Select options",a=O("option"),a.textContent="Colors",c=O("option"),c.textContent="Countries",u=O("option"),u.textContent="Groups",d=O("option"),d.textContent="Tags (cretable)",h=_(),p=O("select"),f=O("option"),f.textContent="Default renderer",m=O("option"),g=F("Dotted (color only)"),b=O("option"),b.textContent="Caps (all letters uppercase)",$=_(),y=O("button"),y.textContent="Add Svelecte",o.__value="",o.value=o.__value,a.__value="colors",a.value=a.__value,c.__value="countries",c.value=c.__value,u.__value="countryGroups",u.value=u.__value,d.__value="tags",d.value=d.__value,r.required=!0,void 0===t[0]&&ge((()=>t[4].call(r))),f.__value="",f.value=f.__value,m.__value="dotted",m.value=m.__value,m.disabled=v="colors"!==t[0],b.__value="caps",b.value=b.__value,void 0===t[1]&&ge((()=>t[5].call(p))),M(y,"class","btn"),M(y,"type","submit"),M(l,"action","")},m(e,s){A(e,n,s),S(n,l),S(l,i),S(l,r),S(r,o),S(r,a),S(r,c),S(r,u),S(r,d),V(r,t[0],!0),S(l,h),S(l,p),S(p,f),S(p,m),S(m,g),S(p,b),V(p,t[1],!0),S(l,$),S(l,y),t[6](n),x||(w=[D(r,"change",t[4]),D(p,"change",t[5]),D(l,"submit",L(t[3]))],x=!0)},p(e,[t]){1&t&&V(r,e[0]),1&t&&v!==(v="colors"!==e[0])&&(m.disabled=v),2&t&&V(p,e[1])},i:e,o:e,d(e){e&&I(n),t[6](null),x=!1,s(w)}}}function wl(e,t,n){let l,i,s;var r;return Vn.clearable=!0,r="el-svelecte",window.customElements.define(r||"el-svelecte",yl),Bn("dotted",(e=>`<span style="background-color:${e.hex}" class="color"></span> ${e.text}`)),Bn("caps",(e=>e.text.toUpperCase())),e.$$.update=()=>{3&e.$$.dirty&&"colors"!==i&&"dotted"===s&&n(1,s=null)},[i,s,l,function(){const e=document.createElement("el-svelecte");e.options="tags"===i?[]:Un[i](),e.renderer=s,"tags"===i&&(e.creatable=!0,e.multiple=!0),e.onchange=e=>console.log("change event",e),l.insertBefore(e,l.lastElementChild);const t=document.createElement("button");t.className="btn float-right ml-2",t.style="z-index: 1; position: relative",t.textContent="Remove select",t.onclick=()=>{l.removeChild(e),l.removeChild(t)},l.insertBefore(t,l.lastElementChild),l.insertBefore(e,l.lastElementChild),n(0,i=""),n(1,s="")},function(){i=j(this),n(0,i)},function(){s=j(this),n(1,s),n(0,i)},function(e){ce[e?"unshift":"push"]((()=>{l=e,n(2,l)}))}]}function Sl(e){let t,n;return{c(){t=O("pre"),n=F(e[0])},m(e,l){A(e,t,l),S(t,n)},p(e,t){1&t&&R(n,e[0])},d(e){e&&I(t)}}}function Cl(t){let n,l,i,r,o,a,c,u,d,h,p,f,m,g,v,b,$=t[0]&&Sl(t);return{c(){n=O("form"),l=O("el-svelecte"),i=_(),r=O("el-svelecte"),o=_(),a=O("div"),a.textContent="Server-side rendered inner select:",c=_(),u=O("el-svelecte"),d=O("select"),h=_(),p=O("small"),p.innerHTML="This <code>&lt;el-svelecte&gt;</code> has nested (anchored) <code>&lt;select&gt;</code>, when you <em>need</em> to have it rendered server-side. This setup is specific, \n    because inner select needs to have <code>name</code> and <code>required</code> (if applicable) properties specified manually. (They are not inherited from el-svelecte parent)",f=_(),m=O("div"),m.innerHTML='<button type="submit" class="btn btn-success">Send form</button>',g=_(),$&&$.c(),P(l,"name","parent_value"),P(l,"placeholder","Select parent value"),P(l,"options",'[{"value":"posts","text":"Posts"},{"value":"users","text":"Users"},{"value":"comments","text":"Comments"}]'),P(l,"id","is-parent"),P(l,"required","required"),P(r,"name","child_value"),P(r,"parent","is-parent"),P(r,"required","required"),P(r,"placeholder","Pick from child select"),P(r,"fetch","https://jsonplaceholder.typicode.com/[parent]"),M(d,"id","anchored"),M(d,"name","demo"),d.multiple=!0,P(u,"options",'[{"id":"posts","label":"Posts", "prop": "Posts"},{"id":"users","label":"Users", "prop": "Users"},{"id":"comments","label":"Comments", "prop": "Comment"}]'),B(u,"margin-bottom","0"),P(u,"lazy-dropdown","false"),P(u,"multiple",""),P(u,"reset-on-select","false"),M(m,"class","mt-2"),M(n,"action","")},m(e,s){A(e,n,s),S(n,l),S(n,i),S(n,r),S(n,o),S(n,a),S(n,c),S(n,u),S(u,d),S(n,h),S(n,p),S(n,f),S(n,m),S(n,g),$&&$.m(n,null),v||(b=[D(r,"change",t[2]),D(d,"change",t[3]),D(n,"submit",L(t[1]))],v=!0)},p(e,[t]){e[0]?$?$.p(e,t):($=Sl(e),$.c(),$.m(n,null)):$&&($.d(1),$=null)},i:e,o:e,d(e){e&&I(n),$&&$.d(),v=!1,s(b)}}}function kl(e,t,n){let l=null;return[l,function(e){const t={};new FormData(e.target).forEach(((e,n)=>{t[n]?t[n]+=", "+e:t[n]=e})),n(0,l=JSON.stringify(t,null,2))},e=>console.log("D",e.detail),e=>console.log(e.target.selectedOptions)]}function Al(e){let t,n;return{c(){t=O("pre"),n=F(e[0])},m(e,l){A(e,t,l),S(t,n)},p(e,t){1&t&&R(n,e[0])},d(e){e&&I(t)}}}function Il(t){let n,l,i,r,o,a,c,u=t[0]&&Al(t);return{c(){n=O("form"),l=O("el-svelecte"),i=_(),r=O("div"),r.innerHTML='<button type="submit" class="btn btn-success">Send form</button>',o=_(),u&&u.c(),P(l,"name","selection"),P(l,"multiple",""),P(l,"required",""),P(l,"placeholder","Search for color"),P(l,"fetch","https://my-json-server.typicode.com/mskocik/svelecte-docs/colors?value_like=[query]"),M(r,"class","mt-2"),M(n,"action","")},m(e,s){A(e,n,s),S(n,l),S(n,i),S(n,r),S(n,o),u&&u.m(n,null),a||(c=[D(l,"change",t[2]),D(n,"submit",L(t[1]))],a=!0)},p(e,[t]){e[0]?u?u.p(e,t):(u=Al(e),u.c(),u.m(n,null)):u&&(u.d(1),u=null)},i:e,o:e,d(e){e&&I(n),u&&u.d(),a=!1,s(c)}}}function zl(e,t,n){let l=null;return[l,function(e){const t={};new FormData(e.target).forEach(((e,n)=>{t[n]?t[n]+=", "+e:t[n]=e})),n(0,l=JSON.stringify(t,null,2))},function(e){n(0,l=null)}]}function Ol(t){let n;return{c(){n=O("div"),n.innerHTML='<div id="vue"></div>',M(n,"class","example-wrap"),B(n,"border-color","#41b883"),B(n,"box-shadow","0 0 10px #41b883 inset")},m(e,t){A(e,n,t)},p:e,i:e,o:e,d(e){e&&I(n)}}}function El(e){return(e.substr(0,1).toUpperCase()+e.substr(1).toLowerCase()).trim()}function Fl(e){return ie((()=>{me().then((()=>{new Vue({el:"#vue",data:{placeholder:"Select or create color",selected:[],opts:JSON.stringify(Un.colors())},methods:{onChange(e){this.selected=e.target.value},show(e){console.log(e.detail)}},mounted(){setTimeout((()=>{this.$refs.el.svelecte.$$set({createFilter:El})}),500)},template:'<div>\n          <h6>Vue 2 example</h6>\n          <div>\n            <el-svelecte :options="opts"  @change="onChange" @createoption="show"\n              :value="selected"\n              :placeholder="placeholder"\n              renderer="color-blocks"\n              multiple creatable\n              label-as-value\n              ref="el"\n            ></el-svelecte>\n          </div>\n          <div>Selection: {{ selected }}</div>\n        </div> '})}))})),[]}[class extends Me{constructor(e){super(),Le(this,e,Jn,Kn,o,{})}},class extends Me{constructor(e){super(),Le(this,e,Wn,Qn,o,{})}},class extends Me{constructor(e){super(),Le(this,e,Zn,Xn,o,{})}},class extends Me{constructor(e){super(),Le(this,e,tl,Yn,o,{})}},class extends Me{constructor(e){super(),Le(this,e,rl,sl,o,{})}},class extends Me{constructor(e){super(),Le(this,e,al,ol,o,{})}},class extends Me{constructor(e){super(),Le(this,e,ml,hl,o,{},null,[-1,-1,-1])}},class extends Me{constructor(e){super(),Le(this,e,wl,xl,o,{})}},class extends Me{constructor(e){super(),Le(this,e,kl,Cl,o,{})}},class extends Me{constructor(e){super(),Le(this,e,zl,Il,o,{})}},class extends Me{constructor(e){super(),Le(this,e,Fl,Ol,o,{})}}].forEach(((e,t)=>new e({target:document.getElementById(`example-${t+1}`)})));const _l=[];document.querySelectorAll("pre[data-src]").forEach((e=>_l.push(fetch(`src/${e.dataset.src}.svelte`).then((e=>e.text())).then((t=>{const n=document.createElement("code");n.className="svelte",n.innerText=t.replaceAll(/(<\/?script>)/g,"\x3c!-- $1 --\x3e"),e.appendChild(n)}))))),Promise.all(_l).then((()=>hljs.highlightAll()))}();
+
+(function(l, r) { if (!l || l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' + (self.location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.getElementsByTagName('head')[0].appendChild(r) })(self.document);
+(function () {
+    'use strict';
+
+    function noop() { }
+    const identity = x => x;
+    function assign(tar, src) {
+        // @ts-ignore
+        for (const k in src)
+            tar[k] = src[k];
+        return tar;
+    }
+    function run(fn) {
+        return fn();
+    }
+    function blank_object() {
+        return Object.create(null);
+    }
+    function run_all(fns) {
+        fns.forEach(run);
+    }
+    function is_function(thing) {
+        return typeof thing === 'function';
+    }
+    function safe_not_equal(a, b) {
+        return a != a ? b == b : a !== b || ((a && typeof a === 'object') || typeof a === 'function');
+    }
+    function is_empty(obj) {
+        return Object.keys(obj).length === 0;
+    }
+    function subscribe(store, ...callbacks) {
+        if (store == null) {
+            return noop;
+        }
+        const unsub = store.subscribe(...callbacks);
+        return unsub.unsubscribe ? () => unsub.unsubscribe() : unsub;
+    }
+    function component_subscribe(component, store, callback) {
+        component.$$.on_destroy.push(subscribe(store, callback));
+    }
+    function create_slot(definition, ctx, $$scope, fn) {
+        if (definition) {
+            const slot_ctx = get_slot_context(definition, ctx, $$scope, fn);
+            return definition[0](slot_ctx);
+        }
+    }
+    function get_slot_context(definition, ctx, $$scope, fn) {
+        return definition[1] && fn
+            ? assign($$scope.ctx.slice(), definition[1](fn(ctx)))
+            : $$scope.ctx;
+    }
+    function get_slot_changes(definition, $$scope, dirty, fn) {
+        if (definition[2] && fn) {
+            const lets = definition[2](fn(dirty));
+            if ($$scope.dirty === undefined) {
+                return lets;
+            }
+            if (typeof lets === 'object') {
+                const merged = [];
+                const len = Math.max($$scope.dirty.length, lets.length);
+                for (let i = 0; i < len; i += 1) {
+                    merged[i] = $$scope.dirty[i] | lets[i];
+                }
+                return merged;
+            }
+            return $$scope.dirty | lets;
+        }
+        return $$scope.dirty;
+    }
+    function update_slot_base(slot, slot_definition, ctx, $$scope, slot_changes, get_slot_context_fn) {
+        if (slot_changes) {
+            const slot_context = get_slot_context(slot_definition, ctx, $$scope, get_slot_context_fn);
+            slot.p(slot_context, slot_changes);
+        }
+    }
+    function get_all_dirty_from_scope($$scope) {
+        if ($$scope.ctx.length > 32) {
+            const dirty = [];
+            const length = $$scope.ctx.length / 32;
+            for (let i = 0; i < length; i++) {
+                dirty[i] = -1;
+            }
+            return dirty;
+        }
+        return -1;
+    }
+    function null_to_empty(value) {
+        return value == null ? '' : value;
+    }
+    function set_store_value(store, ret, value) {
+        store.set(value);
+        return ret;
+    }
+    function action_destroyer(action_result) {
+        return action_result && is_function(action_result.destroy) ? action_result.destroy : noop;
+    }
+
+    const is_client = typeof window !== 'undefined';
+    let now = is_client
+        ? () => window.performance.now()
+        : () => Date.now();
+    let raf = is_client ? cb => requestAnimationFrame(cb) : noop;
+
+    const tasks = new Set();
+    function run_tasks(now) {
+        tasks.forEach(task => {
+            if (!task.c(now)) {
+                tasks.delete(task);
+                task.f();
+            }
+        });
+        if (tasks.size !== 0)
+            raf(run_tasks);
+    }
+    /**
+     * Creates a new task that runs on each raf frame
+     * until it returns a falsy value or is aborted
+     */
+    function loop(callback) {
+        let task;
+        if (tasks.size === 0)
+            raf(run_tasks);
+        return {
+            promise: new Promise(fulfill => {
+                tasks.add(task = { c: callback, f: fulfill });
+            }),
+            abort() {
+                tasks.delete(task);
+            }
+        };
+    }
+    function append(target, node) {
+        target.appendChild(node);
+    }
+    function get_root_for_style(node) {
+        if (!node)
+            return document;
+        const root = node.getRootNode ? node.getRootNode() : node.ownerDocument;
+        if (root && root.host) {
+            return root;
+        }
+        return node.ownerDocument;
+    }
+    function append_empty_stylesheet(node) {
+        const style_element = element('style');
+        append_stylesheet(get_root_for_style(node), style_element);
+        return style_element.sheet;
+    }
+    function append_stylesheet(node, style) {
+        append(node.head || node, style);
+        return style.sheet;
+    }
+    function insert(target, node, anchor) {
+        target.insertBefore(node, anchor || null);
+    }
+    function detach(node) {
+        if (node.parentNode) {
+            node.parentNode.removeChild(node);
+        }
+    }
+    function destroy_each(iterations, detaching) {
+        for (let i = 0; i < iterations.length; i += 1) {
+            if (iterations[i])
+                iterations[i].d(detaching);
+        }
+    }
+    function element(name) {
+        return document.createElement(name);
+    }
+    function svg_element(name) {
+        return document.createElementNS('http://www.w3.org/2000/svg', name);
+    }
+    function text(data) {
+        return document.createTextNode(data);
+    }
+    function space() {
+        return text(' ');
+    }
+    function empty() {
+        return text('');
+    }
+    function listen(node, event, handler, options) {
+        node.addEventListener(event, handler, options);
+        return () => node.removeEventListener(event, handler, options);
+    }
+    function prevent_default(fn) {
+        return function (event) {
+            event.preventDefault();
+            // @ts-ignore
+            return fn.call(this, event);
+        };
+    }
+    function stop_propagation(fn) {
+        return function (event) {
+            event.stopPropagation();
+            // @ts-ignore
+            return fn.call(this, event);
+        };
+    }
+    function attr(node, attribute, value) {
+        if (value == null)
+            node.removeAttribute(attribute);
+        else if (node.getAttribute(attribute) !== value)
+            node.setAttribute(attribute, value);
+    }
+    function children(element) {
+        return Array.from(element.childNodes);
+    }
+    function set_data(text, data) {
+        data = '' + data;
+        if (text.wholeText !== data)
+            text.data = data;
+    }
+    function set_input_value(input, value) {
+        input.value = value == null ? '' : value;
+    }
+    // unfortunately this can't be a constant as that wouldn't be tree-shakeable
+    // so we cache the result instead
+    let crossorigin;
+    function is_crossorigin() {
+        if (crossorigin === undefined) {
+            crossorigin = false;
+            try {
+                if (typeof window !== 'undefined' && window.parent) {
+                    void window.parent.document;
+                }
+            }
+            catch (error) {
+                crossorigin = true;
+            }
+        }
+        return crossorigin;
+    }
+    function add_resize_listener(node, fn) {
+        const computed_style = getComputedStyle(node);
+        if (computed_style.position === 'static') {
+            node.style.position = 'relative';
+        }
+        const iframe = element('iframe');
+        iframe.setAttribute('style', 'display: block; position: absolute; top: 0; left: 0; width: 100%; height: 100%; ' +
+            'overflow: hidden; border: 0; opacity: 0; pointer-events: none; z-index: -1;');
+        iframe.setAttribute('aria-hidden', 'true');
+        iframe.tabIndex = -1;
+        const crossorigin = is_crossorigin();
+        let unsubscribe;
+        if (crossorigin) {
+            iframe.src = "data:text/html,<script>onresize=function(){parent.postMessage(0,'*')}</script>";
+            unsubscribe = listen(window, 'message', (event) => {
+                if (event.source === iframe.contentWindow)
+                    fn();
+            });
+        }
+        else {
+            iframe.src = 'about:blank';
+            iframe.onload = () => {
+                unsubscribe = listen(iframe.contentWindow, 'resize', fn);
+                // make sure an initial resize event is fired _after_ the iframe is loaded (which is asynchronous)
+                // see https://github.com/sveltejs/svelte/issues/4233
+                fn();
+            };
+        }
+        append(node, iframe);
+        return () => {
+            if (crossorigin) {
+                unsubscribe();
+            }
+            else if (unsubscribe && iframe.contentWindow) {
+                unsubscribe();
+            }
+            detach(iframe);
+        };
+    }
+    function toggle_class(element, name, toggle) {
+        element.classList[toggle ? 'add' : 'remove'](name);
+    }
+    function custom_event(type, detail, { bubbles = false, cancelable = false } = {}) {
+        const e = document.createEvent('CustomEvent');
+        e.initCustomEvent(type, bubbles, cancelable, detail);
+        return e;
+    }
+    class HtmlTag {
+        constructor(is_svg = false) {
+            this.is_svg = false;
+            this.is_svg = is_svg;
+            this.e = this.n = null;
+        }
+        c(html) {
+            this.h(html);
+        }
+        m(html, target, anchor = null) {
+            if (!this.e) {
+                if (this.is_svg)
+                    this.e = svg_element(target.nodeName);
+                /** #7364  target for <template> may be provided as #document-fragment(11) */
+                else
+                    this.e = element((target.nodeType === 11 ? 'TEMPLATE' : target.nodeName));
+                this.t = target.tagName !== 'TEMPLATE' ? target : target.content;
+                this.c(html);
+            }
+            this.i(anchor);
+        }
+        h(html) {
+            this.e.innerHTML = html;
+            this.n = Array.from(this.e.nodeName === 'TEMPLATE' ? this.e.content.childNodes : this.e.childNodes);
+        }
+        i(anchor) {
+            for (let i = 0; i < this.n.length; i += 1) {
+                insert(this.t, this.n[i], anchor);
+            }
+        }
+        p(html) {
+            this.d();
+            this.h(html);
+            this.i(this.a);
+        }
+        d() {
+            this.n.forEach(detach);
+        }
+    }
+    function construct_svelte_component(component, props) {
+        return new component(props);
+    }
+
+    // we need to store the information for multiple documents because a Svelte application could also contain iframes
+    // https://github.com/sveltejs/svelte/issues/3624
+    const managed_styles = new Map();
+    let active = 0;
+    // https://github.com/darkskyapp/string-hash/blob/master/index.js
+    function hash(str) {
+        let hash = 5381;
+        let i = str.length;
+        while (i--)
+            hash = ((hash << 5) - hash) ^ str.charCodeAt(i);
+        return hash >>> 0;
+    }
+    function create_style_information(doc, node) {
+        const info = { stylesheet: append_empty_stylesheet(node), rules: {} };
+        managed_styles.set(doc, info);
+        return info;
+    }
+    function create_rule(node, a, b, duration, delay, ease, fn, uid = 0) {
+        const step = 16.666 / duration;
+        let keyframes = '{\n';
+        for (let p = 0; p <= 1; p += step) {
+            const t = a + (b - a) * ease(p);
+            keyframes += p * 100 + `%{${fn(t, 1 - t)}}\n`;
+        }
+        const rule = keyframes + `100% {${fn(b, 1 - b)}}\n}`;
+        const name = `__svelte_${hash(rule)}_${uid}`;
+        const doc = get_root_for_style(node);
+        const { stylesheet, rules } = managed_styles.get(doc) || create_style_information(doc, node);
+        if (!rules[name]) {
+            rules[name] = true;
+            stylesheet.insertRule(`@keyframes ${name} ${rule}`, stylesheet.cssRules.length);
+        }
+        const animation = node.style.animation || '';
+        node.style.animation = `${animation ? `${animation}, ` : ''}${name} ${duration}ms linear ${delay}ms 1 both`;
+        active += 1;
+        return name;
+    }
+    function delete_rule(node, name) {
+        const previous = (node.style.animation || '').split(', ');
+        const next = previous.filter(name
+            ? anim => anim.indexOf(name) < 0 // remove specific animation
+            : anim => anim.indexOf('__svelte') === -1 // remove all Svelte animations
+        );
+        const deleted = previous.length - next.length;
+        if (deleted) {
+            node.style.animation = next.join(', ');
+            active -= deleted;
+            if (!active)
+                clear_rules();
+        }
+    }
+    function clear_rules() {
+        raf(() => {
+            if (active)
+                return;
+            managed_styles.forEach(info => {
+                const { ownerNode } = info.stylesheet;
+                // there is no ownerNode if it runs on jsdom.
+                if (ownerNode)
+                    detach(ownerNode);
+            });
+            managed_styles.clear();
+        });
+    }
+
+    function create_animation(node, from, fn, params) {
+        if (!from)
+            return noop;
+        const to = node.getBoundingClientRect();
+        if (from.left === to.left && from.right === to.right && from.top === to.top && from.bottom === to.bottom)
+            return noop;
+        const { delay = 0, duration = 300, easing = identity, 
+        // @ts-ignore todo: should this be separated from destructuring? Or start/end added to public api and documentation?
+        start: start_time = now() + delay, 
+        // @ts-ignore todo:
+        end = start_time + duration, tick = noop, css } = fn(node, { from, to }, params);
+        let running = true;
+        let started = false;
+        let name;
+        function start() {
+            if (css) {
+                name = create_rule(node, 0, 1, duration, delay, easing, css);
+            }
+            if (!delay) {
+                started = true;
+            }
+        }
+        function stop() {
+            if (css)
+                delete_rule(node, name);
+            running = false;
+        }
+        loop(now => {
+            if (!started && now >= start_time) {
+                started = true;
+            }
+            if (started && now >= end) {
+                tick(1, 0);
+                stop();
+            }
+            if (!running) {
+                return false;
+            }
+            if (started) {
+                const p = now - start_time;
+                const t = 0 + 1 * easing(p / duration);
+                tick(t, 1 - t);
+            }
+            return true;
+        });
+        start();
+        tick(0, 1);
+        return stop;
+    }
+    function fix_position(node) {
+        const style = getComputedStyle(node);
+        if (style.position !== 'absolute' && style.position !== 'fixed') {
+            const { width, height } = style;
+            const a = node.getBoundingClientRect();
+            node.style.position = 'absolute';
+            node.style.width = width;
+            node.style.height = height;
+            add_transform(node, a);
+        }
+    }
+    function add_transform(node, a) {
+        const b = node.getBoundingClientRect();
+        if (a.left !== b.left || a.top !== b.top) {
+            const style = getComputedStyle(node);
+            const transform = style.transform === 'none' ? '' : style.transform;
+            node.style.transform = `${transform} translate(${a.left - b.left}px, ${a.top - b.top}px)`;
+        }
+    }
+
+    let current_component;
+    function set_current_component(component) {
+        current_component = component;
+    }
+    function get_current_component() {
+        if (!current_component)
+            throw new Error('Function called outside component initialization');
+        return current_component;
+    }
+    /**
+     * The `onMount` function schedules a callback to run as soon as the component has been mounted to the DOM.
+     * It must be called during the component's initialisation (but doesn't need to live *inside* the component;
+     * it can be called from an external module).
+     *
+     * `onMount` does not run inside a [server-side component](/docs#run-time-server-side-component-api).
+     *
+     * https://svelte.dev/docs#run-time-svelte-onmount
+     */
+    function onMount(fn) {
+        get_current_component().$$.on_mount.push(fn);
+    }
+    /**
+     * Schedules a callback to run immediately before the component is unmounted.
+     *
+     * Out of `onMount`, `beforeUpdate`, `afterUpdate` and `onDestroy`, this is the
+     * only one that runs inside a server-side component.
+     *
+     * https://svelte.dev/docs#run-time-svelte-ondestroy
+     */
+    function onDestroy(fn) {
+        get_current_component().$$.on_destroy.push(fn);
+    }
+    /**
+     * Creates an event dispatcher that can be used to dispatch [component events](/docs#template-syntax-component-directives-on-eventname).
+     * Event dispatchers are functions that can take two arguments: `name` and `detail`.
+     *
+     * Component events created with `createEventDispatcher` create a
+     * [CustomEvent](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent).
+     * These events do not [bubble](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events#Event_bubbling_and_capture).
+     * The `detail` argument corresponds to the [CustomEvent.detail](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/detail)
+     * property and can contain any type of data.
+     *
+     * https://svelte.dev/docs#run-time-svelte-createeventdispatcher
+     */
+    function createEventDispatcher() {
+        const component = get_current_component();
+        return (type, detail, { cancelable = false } = {}) => {
+            const callbacks = component.$$.callbacks[type];
+            if (callbacks) {
+                // TODO are there situations where events could be dispatched
+                // in a server (non-DOM) environment?
+                const event = custom_event(type, detail, { cancelable });
+                callbacks.slice().forEach(fn => {
+                    fn.call(component, event);
+                });
+                return !event.defaultPrevented;
+            }
+            return true;
+        };
+    }
+    // TODO figure out if we still want to support
+    // shorthand events, or if we want to implement
+    // a real bubbling mechanism
+    function bubble(component, event) {
+        const callbacks = component.$$.callbacks[event.type];
+        if (callbacks) {
+            // @ts-ignore
+            callbacks.slice().forEach(fn => fn.call(this, event));
+        }
+    }
+
+    const dirty_components = [];
+    const binding_callbacks = [];
+    let render_callbacks = [];
+    const flush_callbacks = [];
+    const resolved_promise = /* @__PURE__ */ Promise.resolve();
+    let update_scheduled = false;
+    function schedule_update() {
+        if (!update_scheduled) {
+            update_scheduled = true;
+            resolved_promise.then(flush);
+        }
+    }
+    function tick() {
+        schedule_update();
+        return resolved_promise;
+    }
+    function add_render_callback(fn) {
+        render_callbacks.push(fn);
+    }
+    function add_flush_callback(fn) {
+        flush_callbacks.push(fn);
+    }
+    // flush() calls callbacks in this order:
+    // 1. All beforeUpdate callbacks, in order: parents before children
+    // 2. All bind:this callbacks, in reverse order: children before parents.
+    // 3. All afterUpdate callbacks, in order: parents before children. EXCEPT
+    //    for afterUpdates called during the initial onMount, which are called in
+    //    reverse order: children before parents.
+    // Since callbacks might update component values, which could trigger another
+    // call to flush(), the following steps guard against this:
+    // 1. During beforeUpdate, any updated components will be added to the
+    //    dirty_components array and will cause a reentrant call to flush(). Because
+    //    the flush index is kept outside the function, the reentrant call will pick
+    //    up where the earlier call left off and go through all dirty components. The
+    //    current_component value is saved and restored so that the reentrant call will
+    //    not interfere with the "parent" flush() call.
+    // 2. bind:this callbacks cannot trigger new flush() calls.
+    // 3. During afterUpdate, any updated components will NOT have their afterUpdate
+    //    callback called a second time; the seen_callbacks set, outside the flush()
+    //    function, guarantees this behavior.
+    const seen_callbacks = new Set();
+    let flushidx = 0; // Do *not* move this inside the flush() function
+    function flush() {
+        // Do not reenter flush while dirty components are updated, as this can
+        // result in an infinite loop. Instead, let the inner flush handle it.
+        // Reentrancy is ok afterwards for bindings etc.
+        if (flushidx !== 0) {
+            return;
+        }
+        const saved_component = current_component;
+        do {
+            // first, call beforeUpdate functions
+            // and update components
+            try {
+                while (flushidx < dirty_components.length) {
+                    const component = dirty_components[flushidx];
+                    flushidx++;
+                    set_current_component(component);
+                    update(component.$$);
+                }
+            }
+            catch (e) {
+                // reset dirty state to not end up in a deadlocked state and then rethrow
+                dirty_components.length = 0;
+                flushidx = 0;
+                throw e;
+            }
+            set_current_component(null);
+            dirty_components.length = 0;
+            flushidx = 0;
+            while (binding_callbacks.length)
+                binding_callbacks.pop()();
+            // then, once components are updated, call
+            // afterUpdate functions. This may cause
+            // subsequent updates...
+            for (let i = 0; i < render_callbacks.length; i += 1) {
+                const callback = render_callbacks[i];
+                if (!seen_callbacks.has(callback)) {
+                    // ...so guard against infinite loops
+                    seen_callbacks.add(callback);
+                    callback();
+                }
+            }
+            render_callbacks.length = 0;
+        } while (dirty_components.length);
+        while (flush_callbacks.length) {
+            flush_callbacks.pop()();
+        }
+        update_scheduled = false;
+        seen_callbacks.clear();
+        set_current_component(saved_component);
+    }
+    function update($$) {
+        if ($$.fragment !== null) {
+            $$.update();
+            run_all($$.before_update);
+            const dirty = $$.dirty;
+            $$.dirty = [-1];
+            $$.fragment && $$.fragment.p($$.ctx, dirty);
+            $$.after_update.forEach(add_render_callback);
+        }
+    }
+    /**
+     * Useful for example to execute remaining `afterUpdate` callbacks before executing `destroy`.
+     */
+    function flush_render_callbacks(fns) {
+        const filtered = [];
+        const targets = [];
+        render_callbacks.forEach((c) => fns.indexOf(c) === -1 ? filtered.push(c) : targets.push(c));
+        targets.forEach((c) => c());
+        render_callbacks = filtered;
+    }
+    const outroing = new Set();
+    let outros;
+    function group_outros() {
+        outros = {
+            r: 0,
+            c: [],
+            p: outros // parent group
+        };
+    }
+    function check_outros() {
+        if (!outros.r) {
+            run_all(outros.c);
+        }
+        outros = outros.p;
+    }
+    function transition_in(block, local) {
+        if (block && block.i) {
+            outroing.delete(block);
+            block.i(local);
+        }
+    }
+    function transition_out(block, local, detach, callback) {
+        if (block && block.o) {
+            if (outroing.has(block))
+                return;
+            outroing.add(block);
+            outros.c.push(() => {
+                outroing.delete(block);
+                if (callback) {
+                    if (detach)
+                        block.d(1);
+                    callback();
+                }
+            });
+            block.o(local);
+        }
+        else if (callback) {
+            callback();
+        }
+    }
+    function outro_and_destroy_block(block, lookup) {
+        transition_out(block, 1, 1, () => {
+            lookup.delete(block.key);
+        });
+    }
+    function fix_and_outro_and_destroy_block(block, lookup) {
+        block.f();
+        outro_and_destroy_block(block, lookup);
+    }
+    function update_keyed_each(old_blocks, dirty, get_key, dynamic, ctx, list, lookup, node, destroy, create_each_block, next, get_context) {
+        let o = old_blocks.length;
+        let n = list.length;
+        let i = o;
+        const old_indexes = {};
+        while (i--)
+            old_indexes[old_blocks[i].key] = i;
+        const new_blocks = [];
+        const new_lookup = new Map();
+        const deltas = new Map();
+        const updates = [];
+        i = n;
+        while (i--) {
+            const child_ctx = get_context(ctx, list, i);
+            const key = get_key(child_ctx);
+            let block = lookup.get(key);
+            if (!block) {
+                block = create_each_block(key, child_ctx);
+                block.c();
+            }
+            else if (dynamic) {
+                // defer updates until all the DOM shuffling is done
+                updates.push(() => block.p(child_ctx, dirty));
+            }
+            new_lookup.set(key, new_blocks[i] = block);
+            if (key in old_indexes)
+                deltas.set(key, Math.abs(i - old_indexes[key]));
+        }
+        const will_move = new Set();
+        const did_move = new Set();
+        function insert(block) {
+            transition_in(block, 1);
+            block.m(node, next);
+            lookup.set(block.key, block);
+            next = block.first;
+            n--;
+        }
+        while (o && n) {
+            const new_block = new_blocks[n - 1];
+            const old_block = old_blocks[o - 1];
+            const new_key = new_block.key;
+            const old_key = old_block.key;
+            if (new_block === old_block) {
+                // do nothing
+                next = new_block.first;
+                o--;
+                n--;
+            }
+            else if (!new_lookup.has(old_key)) {
+                // remove old block
+                destroy(old_block, lookup);
+                o--;
+            }
+            else if (!lookup.has(new_key) || will_move.has(new_key)) {
+                insert(new_block);
+            }
+            else if (did_move.has(old_key)) {
+                o--;
+            }
+            else if (deltas.get(new_key) > deltas.get(old_key)) {
+                did_move.add(new_key);
+                insert(new_block);
+            }
+            else {
+                will_move.add(old_key);
+                o--;
+            }
+        }
+        while (o--) {
+            const old_block = old_blocks[o];
+            if (!new_lookup.has(old_block.key))
+                destroy(old_block, lookup);
+        }
+        while (n)
+            insert(new_blocks[n - 1]);
+        run_all(updates);
+        return new_blocks;
+    }
+
+    function bind(component, name, callback) {
+        const index = component.$$.props[name];
+        if (index !== undefined) {
+            component.$$.bound[index] = callback;
+            callback(component.$$.ctx[index]);
+        }
+    }
+    function create_component(block) {
+        block && block.c();
+    }
+    function mount_component(component, target, anchor, customElement) {
+        const { fragment, after_update } = component.$$;
+        fragment && fragment.m(target, anchor);
+        if (!customElement) {
+            // onMount happens before the initial afterUpdate
+            add_render_callback(() => {
+                const new_on_destroy = component.$$.on_mount.map(run).filter(is_function);
+                // if the component was destroyed immediately
+                // it will update the `$$.on_destroy` reference to `null`.
+                // the destructured on_destroy may still reference to the old array
+                if (component.$$.on_destroy) {
+                    component.$$.on_destroy.push(...new_on_destroy);
+                }
+                else {
+                    // Edge case - component was destroyed immediately,
+                    // most likely as a result of a binding initialising
+                    run_all(new_on_destroy);
+                }
+                component.$$.on_mount = [];
+            });
+        }
+        after_update.forEach(add_render_callback);
+    }
+    function destroy_component(component, detaching) {
+        const $$ = component.$$;
+        if ($$.fragment !== null) {
+            flush_render_callbacks($$.after_update);
+            run_all($$.on_destroy);
+            $$.fragment && $$.fragment.d(detaching);
+            // TODO null out other refs, including component.$$ (but need to
+            // preserve final state?)
+            $$.on_destroy = $$.fragment = null;
+            $$.ctx = [];
+        }
+    }
+    function make_dirty(component, i) {
+        if (component.$$.dirty[0] === -1) {
+            dirty_components.push(component);
+            schedule_update();
+            component.$$.dirty.fill(0);
+        }
+        component.$$.dirty[(i / 31) | 0] |= (1 << (i % 31));
+    }
+    function init(component, options, instance, create_fragment, not_equal, props, append_styles, dirty = [-1]) {
+        const parent_component = current_component;
+        set_current_component(component);
+        const $$ = component.$$ = {
+            fragment: null,
+            ctx: [],
+            // state
+            props,
+            update: noop,
+            not_equal,
+            bound: blank_object(),
+            // lifecycle
+            on_mount: [],
+            on_destroy: [],
+            on_disconnect: [],
+            before_update: [],
+            after_update: [],
+            context: new Map(options.context || (parent_component ? parent_component.$$.context : [])),
+            // everything else
+            callbacks: blank_object(),
+            dirty,
+            skip_bound: false,
+            root: options.target || parent_component.$$.root
+        };
+        append_styles && append_styles($$.root);
+        let ready = false;
+        $$.ctx = instance
+            ? instance(component, options.props || {}, (i, ret, ...rest) => {
+                const value = rest.length ? rest[0] : ret;
+                if ($$.ctx && not_equal($$.ctx[i], $$.ctx[i] = value)) {
+                    if (!$$.skip_bound && $$.bound[i])
+                        $$.bound[i](value);
+                    if (ready)
+                        make_dirty(component, i);
+                }
+                return ret;
+            })
+            : [];
+        $$.update();
+        ready = true;
+        run_all($$.before_update);
+        // `false` as a special case of no DOM component
+        $$.fragment = create_fragment ? create_fragment($$.ctx) : false;
+        if (options.target) {
+            if (options.hydrate) {
+                const nodes = children(options.target);
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                $$.fragment && $$.fragment.l(nodes);
+                nodes.forEach(detach);
+            }
+            else {
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                $$.fragment && $$.fragment.c();
+            }
+            if (options.intro)
+                transition_in(component.$$.fragment);
+            mount_component(component, options.target, options.anchor, options.customElement);
+            flush();
+        }
+        set_current_component(parent_component);
+    }
+    /**
+     * Base class for Svelte components. Used when dev=false.
+     */
+    class SvelteComponent {
+        $destroy() {
+            destroy_component(this, 1);
+            this.$destroy = noop;
+        }
+        $on(type, callback) {
+            if (!is_function(callback)) {
+                return noop;
+            }
+            const callbacks = (this.$$.callbacks[type] || (this.$$.callbacks[type] = []));
+            callbacks.push(callback);
+            return () => {
+                const index = callbacks.indexOf(callback);
+                if (index !== -1)
+                    callbacks.splice(index, 1);
+            };
+        }
+        $set($$props) {
+            if (this.$$set && !is_empty($$props)) {
+                this.$$.skip_bound = true;
+                this.$$set($$props);
+                this.$$.skip_bound = false;
+            }
+        }
+    }
+
+    /**
+     * sifter.js
+     * Copyright (c) 2013–2020 Brian Reavis & contributors
+     *
+     * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this
+     * file except in compliance with the License. You may obtain a copy of the License at:
+     * http://www.apache.org/licenses/LICENSE-2.0
+     *
+     * Unless required by applicable law or agreed to in writing, software distributed under
+     * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF
+     * ANY KIND, either express or implied. See the License for the specific language
+     * governing permissions and limitations under the License.
+     *
+     * @author Brian Reavis <brian@thirdroute.com>
+     */
+
+    /**
+     * Textually searches arrays and hashes of objects
+     * by property (or multiple properties). Designed
+     * specifically for autocomplete.
+     *
+     * @constructor
+     * @param {array|object} items
+     * @param {object} items
+     */
+    var Sifter = function(items, settings) {
+        this.items = items;
+        this.settings = settings || {diacritics: true};
+    };
+
+    /**
+     * Splits a search string into an array of individual
+     * regexps to be used to match results.
+     *
+     * @param {string} query
+     * @returns {array}
+     */
+    Sifter.prototype.tokenize = function(query, respect_word_boundaries) {
+        query = trim(String(query || '').toLowerCase());
+        if (!query || !query.length) return [];
+
+        var i, n, regex, letter;
+        var tokens = [];
+        var words = query.split(/ +/);
+
+        for (i = 0, n = words.length; i < n; i++) {
+            regex = escape_regex(words[i]);
+            if (this.settings.diacritics) {
+                for (letter in DIACRITICS) {
+                    if (DIACRITICS.hasOwnProperty(letter)) {
+                        regex = regex.replace(new RegExp(letter, 'g'), DIACRITICS[letter]);
+                    }
+                }
+            }
+            if (respect_word_boundaries) regex = "\\b"+regex;
+            tokens.push({
+                string : words[i],
+                regex  : new RegExp(regex, 'i')
+            });
+        }
+
+        return tokens;
+    };
+
+    /**
+     * Iterates over arrays and hashes.
+     *
+     * ```
+     * this.iterator(this.items, function(item, id) {
+     *    // invoked for each item
+     * });
+     * ```
+     *
+     * @param {array|object} object
+     */
+    Sifter.prototype.iterator = function(object, callback) {
+        var iterator;
+        if (Array.isArray(object)) {
+            iterator = Array.prototype.forEach || function(callback) {
+                for (var i = 0, n = this.length; i < n; i++) {
+                    callback(this[i], i, this);
+                }
+            };
+        } else {
+            iterator = function(callback) {
+                for (var key in this) {
+                    if (this.hasOwnProperty(key)) {
+                        callback(this[key], key, this);
+                    }
+                }
+            };
+        }
+
+        iterator.apply(object, [callback]);
+    };
+
+    /**
+     * Returns a function to be used to score individual results.
+     *
+     * Good matches will have a higher score than poor matches.
+     * If an item is not a match, 0 will be returned by the function.
+     *
+     * @param {object|string} search
+     * @param {object} options (optional)
+     * @returns {function}
+     */
+    Sifter.prototype.getScoreFunction = function(search, options) {
+        var self, fields, tokens, token_count, nesting;
+
+        self        = this;
+        search      = self.prepareSearch(search, options);
+        tokens      = search.tokens;
+        fields      = search.options.fields;
+        token_count = tokens.length;
+        nesting     = search.options.nesting;
+
+        /**
+         * Calculates how close of a match the
+         * given value is against a search token.
+         *
+         * @param {string | number} value
+         * @param {object} token
+         * @return {number}
+         */
+        var scoreValue = function(value, token) {
+            var score, pos;
+
+            if (!value) return 0;
+            value = String(value || '');
+            pos = value.search(token.regex);
+            if (pos === -1) return 0;
+            score = token.string.length / value.length;
+            if (pos === 0) score += 0.5;
+            return score;
+        };
+
+        /**
+         * Calculates the score of an object
+         * against the search query.
+         *
+         * @param {object} token
+         * @param {object} data
+         * @return {number}
+         */
+        var scoreObject = (function() {
+            var field_count = fields.length;
+            if (!field_count) {
+                return function() { return 0; };
+            }
+            if (field_count === 1) {
+                return function(token, data) {
+                    return scoreValue(getattr(data, fields[0], nesting), token);
+                };
+            }
+            return function(token, data) {
+                for (var i = 0, sum = 0; i < field_count; i++) {
+                    sum += scoreValue(getattr(data, fields[i], nesting), token);
+                }
+                return sum / field_count;
+            };
+        })();
+
+        if (!token_count) {
+            return function() { return 0; };
+        }
+        if (token_count === 1) {
+            return function(data) {
+                return scoreObject(tokens[0], data);
+            };
+        }
+
+        if (search.options.conjunction === 'and') {
+            return function(data) {
+                var score;
+                for (var i = 0, sum = 0; i < token_count; i++) {
+                    score = scoreObject(tokens[i], data);
+                    if (score <= 0) return 0;
+                    sum += score;
+                }
+                return sum / token_count;
+            };
+        } else {
+            return function(data) {
+                for (var i = 0, sum = 0; i < token_count; i++) {
+                    sum += scoreObject(tokens[i], data);
+                }
+                return sum / token_count;
+            };
+        }
+    };
+
+    /**
+     * Returns a function that can be used to compare two
+     * results, for sorting purposes. If no sorting should
+     * be performed, `null` will be returned.
+     *
+     * @param {string|object} search
+     * @param {object} options
+     * @return function(a,b)
+     */
+    Sifter.prototype.getSortFunction = function(search, options) {
+        var i, n, self, field, fields, fields_count, multiplier, multipliers, get_field, implicit_score, sort;
+
+        self   = this;
+        search = self.prepareSearch(search, options);
+        sort   = (!search.query && options.sort_empty) || options.sort;
+
+        /**
+         * Fetches the specified sort field value
+         * from a search result item.
+         *
+         * @param  {string} name
+         * @param  {object} result
+         */
+        get_field = function(name, result) {
+            if (name === '$score') return result.score;
+            return getattr(self.items[result.id], name, options.nesting);
+        };
+
+        // parse options
+        fields = [];
+        if (sort) {
+            for (i = 0, n = sort.length; i < n; i++) {
+                if (search.query || sort[i].field !== '$score') {
+                    fields.push(sort[i]);
+                }
+            }
+        }
+
+        // the "$score" field is implied to be the primary
+        // sort field, unless it's manually specified
+        if (search.query) {
+            implicit_score = true;
+            for (i = 0, n = fields.length; i < n; i++) {
+                if (fields[i].field === '$score') {
+                    implicit_score = false;
+                    break;
+                }
+            }
+            if (implicit_score) {
+                fields.unshift({field: '$score', direction: 'desc'});
+            }
+        } else {
+            for (i = 0, n = fields.length; i < n; i++) {
+                if (fields[i].field === '$score') {
+                    fields.splice(i, 1);
+                    break;
+                }
+            }
+        }
+
+        multipliers = [];
+        for (i = 0, n = fields.length; i < n; i++) {
+            multipliers.push(fields[i].direction === 'desc' ? -1 : 1);
+        }
+
+        // build function
+        fields_count = fields.length;
+        if (!fields_count) {
+            return null;
+        } else if (fields_count === 1) {
+            field = fields[0].field;
+            multiplier = multipliers[0];
+            return function(a, b) {
+                return multiplier * cmp(
+                    get_field(field, a),
+                    get_field(field, b)
+                );
+            };
+        } else {
+            return function(a, b) {
+                var i, result, field;
+                for (i = 0; i < fields_count; i++) {
+                    field = fields[i].field;
+                    result = multipliers[i] * cmp(
+                        get_field(field, a),
+                        get_field(field, b)
+                    );
+                    if (result) return result;
+                }
+                return 0;
+            };
+        }
+    };
+
+    /**
+     * Parses a search query and returns an object
+     * with tokens and fields ready to be populated
+     * with results.
+     *
+     * @param {string} query
+     * @param {object} options
+     * @returns {object}
+     */
+    Sifter.prototype.prepareSearch = function(query, options) {
+        if (typeof query === 'object') return query;
+
+        options = extend({}, options);
+
+        var option_fields     = options.fields;
+        var option_sort       = options.sort;
+        var option_sort_empty = options.sort_empty;
+
+        if (option_fields && !Array.isArray(option_fields)) options.fields = [option_fields];
+        if (option_sort && !Array.isArray(option_sort)) options.sort = [option_sort];
+        if (option_sort_empty && !Array.isArray(option_sort_empty)) options.sort_empty = [option_sort_empty];
+
+        return {
+            options : options,
+            query   : String(query || '').toLowerCase(),
+            tokens  : this.tokenize(query, options.respect_word_boundaries),
+            total   : 0,
+            items   : []
+        };
+    };
+
+    /**
+     * Searches through all items and returns a sorted array of matches.
+     *
+     * The `options` parameter can contain:
+     *
+     *   - fields {string|array}
+     *   - sort {array}
+     *   - score {function}
+     *   - filter {bool}
+     *   - limit {integer}
+     *
+     * Returns an object containing:
+     *
+     *   - options {object}
+     *   - query {string}
+     *   - tokens {array}
+     *   - total {int}
+     *   - items {array}
+     *
+     * @param {string} query
+     * @param {object} options
+     * @returns {object}
+     */
+    Sifter.prototype.search = function(query, options) {
+        var self = this, score, search;
+        var fn_sort;
+        var fn_score;
+
+        search  = this.prepareSearch(query, options);
+        options = search.options;
+        query   = search.query;
+
+        // generate result scoring function
+        fn_score = options.score || self.getScoreFunction(search);
+
+        // perform search and sort
+        if (query.length) {
+            self.iterator(self.items, function(item, id) {
+                score = fn_score(item);
+                if (options.filter === false || score > 0) {
+                    search.items.push({'score': score, 'id': id});
+                }
+            });
+        } else {
+            self.iterator(self.items, function(item, id) {
+                search.items.push({'score': 1, 'id': id});
+            });
+        }
+
+        fn_sort = self.getSortFunction(search, options);
+        if (fn_sort) search.items.sort(fn_sort);
+
+        // apply limits
+        search.total = search.items.length;
+        if (typeof options.limit === 'number') {
+            search.items = search.items.slice(0, options.limit);
+        }
+
+        return search;
+    };
+
+    // utilities
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    var cmp = function(a, b) {
+        if (typeof a === 'number' && typeof b === 'number') {
+            return a > b ? 1 : (a < b ? -1 : 0);
+        }
+        a = asciifold(String(a || ''));
+        b = asciifold(String(b || ''));
+        if (a > b) return 1;
+        if (b > a) return -1;
+        return 0;
+    };
+
+    var extend = function(a, b) {
+        var i, n, k, object;
+        for (i = 1, n = arguments.length; i < n; i++) {
+            object = arguments[i];
+            if (!object) continue;
+            for (k in object) {
+                if (object.hasOwnProperty(k)) {
+                    a[k] = object[k];
+                }
+            }
+        }
+        return a;
+    };
+
+    /**
+     * A property getter resolving dot-notation
+     * @param  {Object}  obj     The root object to fetch property on
+     * @param  {String}  name    The optionally dotted property name to fetch
+     * @param  {Boolean} nesting Handle nesting or not
+     * @return {Object}          The resolved property value
+     */
+    var getattr = function(obj, name, nesting) {
+        if (!obj || !name) return;
+        if (!nesting) return obj[name];
+        var names = name.split(".");
+        while(names.length && (obj = obj[names.shift()]));
+        return obj;
+    };
+
+    var trim = function(str) {
+        return (str + '').replace(/^\s+|\s+$|/g, '');
+    };
+
+    var escape_regex = function(str) {
+        return (str + '').replace(/([.?*+^$[\]\\(){}|-])/g, '\\$1');
+    };
+
+    var DIACRITICS = {
+        'a': '[aḀḁĂăÂâǍǎȺⱥȦȧẠạÄäÀàÁáĀāÃãÅåąĄÃąĄ]',
+        'b': '[b␢βΒB฿𐌁ᛒ]',
+        'c': '[cĆćĈĉČčĊċC̄c̄ÇçḈḉȻȼƇƈɕᴄＣｃ]',
+        'd': '[dĎďḊḋḐḑḌḍḒḓḎḏĐđD̦d̦ƉɖƊɗƋƌᵭᶁᶑȡᴅＤｄð]',
+        'e': '[eÉéÈèÊêḘḙĚěĔĕẼẽḚḛẺẻĖėËëĒēȨȩĘęᶒɆɇȄȅẾếỀềỄễỂểḜḝḖḗḔḕȆȇẸẹỆệⱸᴇＥｅɘǝƏƐε]',
+        'f': '[fƑƒḞḟ]',
+        'g': '[gɢ₲ǤǥĜĝĞğĢģƓɠĠġ]',
+        'h': '[hĤĥĦħḨḩẖẖḤḥḢḣɦʰǶƕ]',
+        'i': '[iÍíÌìĬĭÎîǏǐÏïḮḯĨĩĮįĪīỈỉȈȉȊȋỊịḬḭƗɨɨ̆ᵻᶖİiIıɪＩｉ]',
+        'j': '[jȷĴĵɈɉʝɟʲ]',
+        'k': '[kƘƙꝀꝁḰḱǨǩḲḳḴḵκϰ₭]',
+        'l': '[lŁłĽľĻļĹĺḶḷḸḹḼḽḺḻĿŀȽƚⱠⱡⱢɫɬᶅɭȴʟＬｌ]',
+        'n': '[nŃńǸǹŇňÑñṄṅŅņṆṇṊṋṈṉN̈n̈ƝɲȠƞᵰᶇɳȵɴＮｎŊŋ]',
+        'o': '[oØøÖöÓóÒòÔôǑǒŐőŎŏȮȯỌọƟɵƠơỎỏŌōÕõǪǫȌȍՕօ]',
+        'p': '[pṔṕṖṗⱣᵽƤƥᵱ]',
+        'q': '[qꝖꝗʠɊɋꝘꝙq̃]',
+        'r': '[rŔŕɌɍŘřŖŗṘṙȐȑȒȓṚṛⱤɽ]',
+        's': '[sŚśṠṡṢṣꞨꞩŜŝŠšŞşȘșS̈s̈]',
+        't': '[tŤťṪṫŢţṬṭƮʈȚțṰṱṮṯƬƭ]',
+        'u': '[uŬŭɄʉỤụÜüÚúÙùÛûǓǔŰűŬŭƯưỦủŪūŨũŲųȔȕ∪]',
+        'v': '[vṼṽṾṿƲʋꝞꝟⱱʋ]',
+        'w': '[wẂẃẀẁŴŵẄẅẆẇẈẉ]',
+        'x': '[xẌẍẊẋχ]',
+        'y': '[yÝýỲỳŶŷŸÿỸỹẎẏỴỵɎɏƳƴ]',
+        'z': '[zŹźẐẑŽžŻżẒẓẔẕƵƶ]'
+    };
+
+    const asciifold = (function() {
+        var i, n, k, chunk;
+        var foreignletters = '';
+        var lookup = {};
+        for (k in DIACRITICS) {
+            if (DIACRITICS.hasOwnProperty(k)) {
+                chunk = DIACRITICS[k].substring(2, DIACRITICS[k].length - 1);
+                foreignletters += chunk;
+                for (i = 0, n = chunk.length; i < n; i++) {
+                    lookup[chunk.charAt(i)] = k;
+                }
+            }
+        }
+        var regexp = new RegExp('[' +  foreignletters + ']', 'g');
+        return function(str) {
+            return str.replace(regexp, function(foreignletter) {
+                return lookup[foreignletter];
+            }).toLowerCase();
+        };
+    })();
+
+    let xhr = null;
+
+    function fetchRemote(url) {
+      return function(query, cb) {
+        return new Promise((resolve, reject) => {
+          xhr = new XMLHttpRequest();
+          xhr.open('GET', `${url.replace('[query]', encodeURIComponent(query))}`);
+          xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+          xhr.send();
+          
+          xhr.onreadystatechange = function() {
+            if (this.readyState === 4) {
+              if (this.status === 200) {
+                try {
+                  const resp = JSON.parse(this.response);
+                  resolve(cb ? cb(resp) : (resp.data || resp.items || resp.options || resp));
+                } catch (e) {
+                  console.warn('[Svelecte]:Fetch - error handling fetch response', e);
+                  reject();
+                }
+              } else {
+                reject();
+              }
+            } 
+          };
+        });
+      }
+    }
+
+    function debounce(fn, delay) {
+      let timeout;
+    	return function() {
+    		const self = this;
+    		const args = arguments;
+    		clearTimeout(timeout);
+    		timeout = setTimeout(function() {
+          fn.apply(self, args);
+    		}, delay);
+    	};
+    }
+    let itemHtml;
+
+    function highlightSearch(item, isSelected, $inputValue, formatter, disableHighlight) {
+      const itemHtmlText = formatter ? formatter(item, isSelected, $inputValue) : item;
+      
+      if ($inputValue == '' || item.isSelected || disableHighlight) {
+        return '<div class="sv-item-content">' + itemHtmlText + '</div>';
+      }
+
+      if (!itemHtml) {
+        itemHtml = document.createElement('div');
+        itemHtml.className = 'sv-item-content';
+      }
+      itemHtml.innerHTML = itemHtmlText;
+
+      // const regex = new RegExp(`(${asciifold($inputValue)})`, 'ig');
+      const pattern = asciifold($inputValue);
+      pattern.split(' ').filter(e => e).forEach(pat => {
+        highlight(itemHtml, pat);
+      });
+      
+      return itemHtml.outerHTML;
+    }
+
+    /**
+     * highlight function code from selectize itself. We pass raw html through @html svelte tag
+     * base from https://github.com/selectize/selectize.js/blob/master/src/contrib/highlight.js & edited
+     */
+    const highlight = function(node, regex) {
+      let skip = 0;
+      // Wrap matching part of text node with highlighting <span>, e.g.
+      // Soccer  ->  <span class="highlight">Soc</span>cer for pattern 'soc'
+      if (node.nodeType === 3) {
+        const folded = asciifold(node.data);
+        let pos = folded.indexOf(regex);
+        pos -= (folded.substr(0, pos).toUpperCase().length - folded.substr(0, pos).length);
+        if (pos >= 0 ) {
+          const spannode = document.createElement('span');
+          spannode.className = 'highlight';
+          const middlebit = node.splitText(pos);
+          middlebit.splitText(regex.length);
+          const middleclone = middlebit.cloneNode(true);
+          spannode.appendChild(middleclone);
+          middlebit.parentNode.replaceChild(spannode, middlebit);
+          skip = 1;
+        }
+      } 
+      // Recurse element node, looking for child text nodes to highlight, unless element 
+      // is childless, <script>, <style>, or already highlighted: <span class="hightlight">
+      else if (node.nodeType === 1 && node.childNodes && !/(script|style)/i.test(node.tagName) && ( node.className !== 'highlight' || node.tagName !== 'SPAN' )) {
+        for (var i = 0; i < node.childNodes.length; ++i) {
+          i += highlight(node.childNodes[i], regex);
+        }
+      }
+      return skip;
+    };
+
+    /**
+     * Automatic setter for 'valueField' or 'labelField' when they are not set
+     */
+    function fieldInit(type, options, config) {
+      const isValue = type === 'value';
+      if (config.isOptionArray) return isValue ? 'value' : 'label';
+      let val = isValue  ? 'value' : 'text';              // selectize style defaults
+      if (options && options.length) {
+        const firstItem = options[0][config.optItems] ? options[0][config.optItems][0] : options[0];
+        if (!firstItem) return val;
+        const autoAddItem = isValue ? 0 : 1;
+        const guessList = isValue
+          ? ['id', 'value', 'ID']
+          : ['name', 'title', 'label'];
+        val = Object.keys(firstItem).filter(prop => guessList.includes(prop))
+          .concat([Object.keys(firstItem)[autoAddItem]])  // auto add field (used as fallback)
+          .shift();  
+      }
+      return val;
+    }
+
+    /**
+     * Detect Mac device
+     * 
+     * @returns {bool}
+     */
+    function iOS() {
+      return [
+        'iPad Simulator',
+        'iPhone Simulator',
+        'iPod Simulator',
+        'iPad',
+        'iPhone',
+        'iPod'
+      ].includes(navigator.platform)
+      // iPad on iOS 13 detection
+      || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
+    }
+
+    /**
+     * Detects if on android device
+     * 
+     * @returns {bool}
+     */
+    function android() {
+      return navigator.userAgent.toLowerCase().includes('android');
+    }
+
+    /**
+     * Formatter of newly created items. When `''` is returned, it means new option cannot be created.
+     * 
+     * @param {string} val 
+     * @param {array} options 
+     * @returns {string}
+     */
+    function defaultCreateFilter(val, options) {  
+      return (val || '').replace(/\t/g, ' ').trim().split(' ').filter(ch => ch).join(' ');
+    }
+
+    /**
+     * Default create function
+     * 
+     * @param {string} inputValue 
+     * @param {string} creatablePrefix 
+     * @returns {object} newly created option
+     */
+    function defaultCreateTransform(inputValue, creatablePrefix, valueField, labelField) {
+      return {
+        [valueField]: inputValue,
+        [labelField]: creatablePrefix + inputValue,
+      }
+    }
+
+    const settings = {
+      // html
+      disabled: false,
+      // basic
+      valueField: null,
+      labelField: null,
+      groupLabelField: 'label',
+      groupItemsField: 'options',
+      disabledField: '$disabled',
+      placeholder: 'Select',
+      valueAsObject: false,
+      // ui
+      searchable: true,
+      clearable: false,
+      selectOnTab: null,        // recognize values: null, truthy, 'select-navigate'
+      resetOnBlur: true,
+      resetOnSelect: true,
+      fetchResetOnBlur: true,
+      // multi
+      multiple: false,
+      closeAfterSelect: false,
+      max: 0,
+      collapseSelection: false, // enable collapsible multiple selection
+      alwaysCollapsed: false,
+      // create
+      creatable: false,
+      creatablePrefix: '*',
+      keepCreated: true,
+      allowEditing: false,
+      delimiter: ',',
+      // remote
+      fetchCallback: null,
+      minQuery: 1,
+      // performance
+      lazyDropdown: true,
+      // virtual list
+      virtualList: false,
+      vlItemSize: null,
+      vlHeight: null,
+      // i18n
+      i18n: {
+        empty: 'No options',
+        nomatch: 'No matching options',    
+        max: num => `Maximum items ${num} selected`,
+        fetchBefore: 'Type to start searching',
+        fetchQuery: (minQuery, inputLength) => `Type ${minQuery > 1 && minQuery > inputLength 
+      ? `at least ${minQuery - inputLength} characters `
+      : '' }to start searching`,
+        fetchInit: 'Fetching data, please wait...',
+        fetchEmpty: 'No data related to your search',
+        collapsedSelection: count => `${count} selected`,
+        createRowLabel: value => `Create '${value}'`
+      },
+      // bound to 'i18n'
+      collapseSelectionFn: function(selectionCount, selection) {
+        return this.collapsedSelection(selectionCount);
+      },
+    };
+
+    const subscriber_queue = [];
+    /**
+     * Create a `Writable` store that allows both updating and reading by subscription.
+     * @param {*=}value initial value
+     * @param {StartStopNotifier=}start start and stop notifications for subscriptions
+     */
+    function writable(value, start = noop) {
+        let stop;
+        const subscribers = new Set();
+        function set(new_value) {
+            if (safe_not_equal(value, new_value)) {
+                value = new_value;
+                if (stop) { // store is ready
+                    const run_queue = !subscriber_queue.length;
+                    for (const subscriber of subscribers) {
+                        subscriber[1]();
+                        subscriber_queue.push(subscriber, value);
+                    }
+                    if (run_queue) {
+                        for (let i = 0; i < subscriber_queue.length; i += 2) {
+                            subscriber_queue[i][0](subscriber_queue[i + 1]);
+                        }
+                        subscriber_queue.length = 0;
+                    }
+                }
+            }
+        }
+        function update(fn) {
+            set(fn(value));
+        }
+        function subscribe(run, invalidate = noop) {
+            const subscriber = [run, invalidate];
+            subscribers.add(subscriber);
+            if (subscribers.size === 1) {
+                stop = start(set) || noop;
+            }
+            run(value);
+            return () => {
+                subscribers.delete(subscriber);
+                if (subscribers.size === 0 && stop) {
+                    stop();
+                    stop = null;
+                }
+            };
+        }
+        return { set, update, subscribe };
+    }
+
+    function initSelection(initialValue, valueAsObject, config) {
+      if (valueAsObject) return Array.isArray(initialValue) ? initialValue : [initialValue];
+
+      const _initialValue = Array.isArray(initialValue) ? initialValue : [initialValue];
+      const valueField = config.labelAsValue ? config.labelField : config.valueField;
+
+      const initialSelection = this/** options */.reduce((res, val, i) => {
+        if (val[config.optItems] && val[config.optItems].length) {  // handle groups
+          const selected = val[config.optItems].reduce((res, groupVal) => {
+            if (_initialValue.includes(groupVal[valueField])) res.push(groupVal);
+            return res;
+          }, []);
+          if (selected.length) {
+            res.push(...selected);
+            return res;
+          }
+        }
+        if (_initialValue.includes(typeof val === 'object' ? val[valueField] : (config.labelAsValue ? val : i))) {
+          if (config.isOptionArray) {
+            // initial options are not transformed, therefore we need to create object from given option
+            val = {
+              [config.valueField]: i,
+              [config.labelField]: val
+            };
+          }
+          res.push(val);
+        }    return res;
+      }, []);
+
+      return initialSelection
+        .sort((a, b) => _initialValue.indexOf(a[valueField]) < _initialValue.indexOf(b[valueField]) ? -1 : 1)
+    }
+
+    function flatList(options, config) {
+      const flatOpts = options.reduce((res, opt, i) => {
+        if (config.isOptionArray) {
+          res.push({
+            [config.valueField]: i,
+            [config.labelField]: opt
+          });
+          return res;
+        }
+        if (opt[config.optItems] && opt[config.optItems].length) {
+          config.optionsWithGroups = true;
+          res.push({ label: opt[config.optLabel], $isGroupHeader: true });
+          res.push(...opt[config.optItems].map(_opt => {
+            _opt.$isGroupItem = true;
+            return _opt;
+          }));
+          return res;
+        }
+        res.push(opt);
+        return res;
+      }, []);
+      updateOptionProps(flatOpts, config);
+      return flatOpts;
+    }
+
+    function updateOptionProps(options, config) {
+      if (config.isOptionArray) {
+        if (!config.optionProps) {
+          config.optionProps = ['value', 'label'];
+        }
+      }
+      options.some(opt => {
+        if (opt.$isGroupHeader) return false;
+        config.optionProps = getFilterProps(opt);
+        return true;
+      });
+    }
+
+    function getFilterProps(object) {
+      if (object.options) object = object.options[0];
+      const exclude = ['$disabled', '$isGroupHeader', '$isGroupItem'];
+      return Object.keys(object).filter(prop => !exclude.includes(prop));
+    }
+
+    function filterList(options, inputValue, excludeSelected, sifterSearchField, sifterSortField, config) {
+      if (excludeSelected) {
+        options = options
+          .filter(opt => !excludeSelected.has(opt[config.valueField]))
+          .filter((opt, idx, self) => {
+            if (opt.$isGroupHeader &&
+              (
+                (self[idx + 1] && self[idx + 1].$isGroupHeader) 
+              || self.length <= 1
+              || self.length - 1 === idx
+              )
+            ) return false;
+            return true;
+          });
+      }
+      if (!inputValue) return options;
+
+      const sifter = new Sifter(options);
+      /**
+       * Sifter is used for searching to provide rich filter functionality.
+       * But it degradate nicely, when optgroups are present
+      */
+      if (config.optionsWithGroups) {  // disable sorting 
+        sifter.getSortFunction = () => null;
+      }
+      let conjunction = 'and';
+      if (inputValue.startsWith('|| ')) {
+        conjunction = 'or';
+        inputValue = inputValue.substr(2);
+      }
+
+      const result = sifter.search(inputValue, {
+        fields: sifterSearchField || config.optionProps,
+        sort: createSifterSortField(sifterSortField || config.labelField),
+        conjunction: conjunction
+      });
+
+      const mapped = config.optionsWithGroups
+        ? result.items.reduce((res, item) => {
+            const opt = options[item.id];
+            if (excludeSelected && opt.isSelected) return res;
+            const lastPos = res.push(opt);
+            if (opt.$isGroupItem) {
+              const prevItems = options.slice(0, item.id);
+              let prev = null;
+              do {
+                prev = prevItems.pop();
+                prev && prev.$isGroupHeader && !res.includes(prev) && res.splice(lastPos - 1, 0, prev);
+              } while (prev && !prev.$isGroupHeader);
+            }
+            return res;
+          }, [])
+        : result.items.map(item => options[item.id]);
+      return mapped;
+    }
+
+    function createSifterSortField(prop) {
+      return [{ field: prop, direction: 'asc'}];
+    }
+
+    function indexList(options, includeCreateRow, config)  {
+      const map = config.optionsWithGroups
+        ? options.reduce((res, opt, index) => {
+          res.push(opt.$isGroupHeader ? '' : index);
+          return res;
+        }, [])
+        : Object.keys(options);
+
+      return {
+        map: map,
+        first:  map[0] !== '' ? 0 : 1,
+        last: map.length ? map.length - (includeCreateRow ? 0 : 1) : 0,
+        hasCreateRow: !!includeCreateRow,
+        next(curr, prevOnUndefined) {
+          const val = this.map[++curr];
+          if (this.hasCreateRow && curr === this.last) return this.last;
+          if (val === '') return this.next(curr);
+          if (val === undefined) {
+            if (!this.map.length) return 0;   // ref #26
+            if (curr > this.map.length) curr = this.first - 1;
+            return prevOnUndefined === true ? this.prev(curr) : this.next(curr);
+          }
+          return val;
+        },
+        prev(curr) {
+          const val = this.map[--curr];
+          if (this.hasCreateRow && curr === this.first) return this.first;
+          if (val === '') return this.prev(curr);
+          if (!val) return this.last;
+          return val;
+        }
+      };
+    }
+
+    function cubicOut(t) {
+        const f = t - 1.0;
+        return f * f * f + 1.0;
+    }
+
+    function flip(node, { from, to }, params = {}) {
+        const style = getComputedStyle(node);
+        const transform = style.transform === 'none' ? '' : style.transform;
+        const [ox, oy] = style.transformOrigin.split(' ').map(parseFloat);
+        const dx = (from.left + from.width * ox / to.width) - (to.left + ox);
+        const dy = (from.top + from.height * oy / to.height) - (to.top + oy);
+        const { delay = 0, duration = (d) => Math.sqrt(d) * 120, easing = cubicOut } = params;
+        return {
+            delay,
+            duration: is_function(duration) ? duration(Math.sqrt(dx * dx + dy * dy)) : duration,
+            easing,
+            css: (t, u) => {
+                const x = u * dx;
+                const y = u * dy;
+                const sx = t + u * from.width / to.width;
+                const sy = t + u * from.height / to.height;
+                return `transform: ${transform} translate(${x}px, ${y}px) scale(${sx}, ${sy});`;
+            }
+        };
+    }
+
+    /* src/components/Input.svelte generated by Svelte v3.57.0 */
+
+    function create_fragment$7(ctx) {
+    	let input;
+    	let input_readonly_value;
+    	let t0;
+    	let div;
+    	let t1;
+    	let div_resize_listener;
+    	let mounted;
+    	let dispose;
+
+    	return {
+    		c() {
+    			input = element("input");
+    			t0 = space();
+    			div = element("div");
+    			t1 = text(/*shadowText*/ ctx[11]);
+    			attr(input, "type", "text");
+    			attr(input, "class", "inputBox svelte-x1t6fd");
+    			input.disabled = /*disabled*/ ctx[2];
+    			input.readOnly = input_readonly_value = !/*searchable*/ ctx[1];
+    			attr(input, "id", /*inputId*/ ctx[0]);
+    			attr(input, "style", /*inputStyle*/ ctx[10]);
+    			attr(input, "placeholder", /*placeholderText*/ ctx[6]);
+    			attr(input, "enterkeyhint", /*enterHint*/ ctx[9]);
+    			attr(div, "class", "shadow-text svelte-x1t6fd");
+    			add_render_callback(() => /*div_elementresize_handler*/ ctx[28].call(div));
+    		},
+    		m(target, anchor) {
+    			insert(target, input, anchor);
+    			/*input_binding*/ ctx[26](input);
+    			set_input_value(input, /*$inputValue*/ ctx[7]);
+    			insert(target, t0, anchor);
+    			insert(target, div, anchor);
+    			append(div, t1);
+    			div_resize_listener = add_resize_listener(div, /*div_elementresize_handler*/ ctx[28].bind(div));
+
+    			if (!mounted) {
+    				dispose = [
+    					listen(input, "input", /*input_input_handler*/ ctx[27]),
+    					listen(input, "focus", /*focus_handler*/ ctx[22]),
+    					listen(input, "blur", /*blur_handler*/ ctx[23]),
+    					listen(input, "input", /*onInput*/ ctx[14]),
+    					listen(input, "keydown", /*onKeyDown*/ ctx[12]),
+    					listen(input, "keyup", /*onKeyUp*/ ctx[13]),
+    					listen(input, "paste", /*paste_handler*/ ctx[24]),
+    					listen(input, "change", stop_propagation(/*change_handler*/ ctx[25]))
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p(ctx, dirty) {
+    			if (dirty[0] & /*disabled*/ 4) {
+    				input.disabled = /*disabled*/ ctx[2];
+    			}
+
+    			if (dirty[0] & /*searchable*/ 2 && input_readonly_value !== (input_readonly_value = !/*searchable*/ ctx[1])) {
+    				input.readOnly = input_readonly_value;
+    			}
+
+    			if (dirty[0] & /*inputId*/ 1) {
+    				attr(input, "id", /*inputId*/ ctx[0]);
+    			}
+
+    			if (dirty[0] & /*inputStyle*/ 1024) {
+    				attr(input, "style", /*inputStyle*/ ctx[10]);
+    			}
+
+    			if (dirty[0] & /*placeholderText*/ 64) {
+    				attr(input, "placeholder", /*placeholderText*/ ctx[6]);
+    			}
+
+    			if (dirty[0] & /*enterHint*/ 512) {
+    				attr(input, "enterkeyhint", /*enterHint*/ ctx[9]);
+    			}
+
+    			if (dirty[0] & /*$inputValue*/ 128 && input.value !== /*$inputValue*/ ctx[7]) {
+    				set_input_value(input, /*$inputValue*/ ctx[7]);
+    			}
+
+    			if (dirty[0] & /*shadowText*/ 2048) set_data(t1, /*shadowText*/ ctx[11]);
+    		},
+    		i: noop,
+    		o: noop,
+    		d(detaching) {
+    			if (detaching) detach(input);
+    			/*input_binding*/ ctx[26](null);
+    			if (detaching) detach(t0);
+    			if (detaching) detach(div);
+    			div_resize_listener();
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+    }
+
+    function instance$6($$self, $$props, $$invalidate) {
+    	let isSingleFilled;
+    	let placeholderText;
+    	let shadowText;
+    	let widthAddition;
+    	let inputStyle;
+    	let enterHint;
+
+    	let $inputValue,
+    		$$unsubscribe_inputValue = noop,
+    		$$subscribe_inputValue = () => ($$unsubscribe_inputValue(), $$unsubscribe_inputValue = subscribe(inputValue, $$value => $$invalidate(7, $inputValue = $$value)), inputValue);
+
+    	let $hasDropdownOpened,
+    		$$unsubscribe_hasDropdownOpened = noop,
+    		$$subscribe_hasDropdownOpened = () => ($$unsubscribe_hasDropdownOpened(), $$unsubscribe_hasDropdownOpened = subscribe(hasDropdownOpened, $$value => $$invalidate(30, $hasDropdownOpened = $$value)), hasDropdownOpened);
+
+    	$$self.$$.on_destroy.push(() => $$unsubscribe_inputValue());
+    	$$self.$$.on_destroy.push(() => $$unsubscribe_hasDropdownOpened());
+    	const focus = () => inputRef.focus();
+    	let { inputId } = $$props;
+    	let { placeholder } = $$props;
+    	let { searchable } = $$props;
+    	let { disabled } = $$props;
+    	let { multiple } = $$props;
+    	let { inputValue } = $$props;
+    	$$subscribe_inputValue();
+    	let { hasDropdownOpened } = $$props;
+    	$$subscribe_hasDropdownOpened();
+    	let { selectedOptions } = $$props;
+    	let { isAndroid } = $$props;
+    	let inputRef = null;
+    	let shadowWidth = 0;
+    	const dispatch = createEventDispatcher();
+    	let disableEventBubble = false;
+
+    	function onKeyDown(e) {
+    		if (isAndroid && !enterHint && e.key === 'Enter') return true;
+    		disableEventBubble = ['Enter', 'Escape'].includes(e.key) && $hasDropdownOpened;
+    		dispatch('keydown', e);
+    	}
+
+    	/** Stop event propagation on keyup, when dropdown is opened. Typically this will prevent form submit */
+    	function onKeyUp(e) {
+    		if (disableEventBubble) {
+    			e.stopImmediatePropagation();
+    			e.preventDefault();
+    		}
+
+    		disableEventBubble = false;
+    	}
+
+    	function onInput(e) {
+    		if (selectedOptions.length === 1 && !multiple) {
+    			set_store_value(inputValue, $inputValue = '', $inputValue);
+    		}
+    	}
+
+    	function focus_handler(event) {
+    		bubble.call(this, $$self, event);
+    	}
+
+    	function blur_handler(event) {
+    		bubble.call(this, $$self, event);
+    	}
+
+    	function paste_handler(event) {
+    		bubble.call(this, $$self, event);
+    	}
+
+    	function change_handler(event) {
+    		bubble.call(this, $$self, event);
+    	}
+
+    	function input_binding($$value) {
+    		binding_callbacks[$$value ? 'unshift' : 'push'](() => {
+    			inputRef = $$value;
+    			$$invalidate(8, inputRef);
+    		});
+    	}
+
+    	function input_input_handler() {
+    		$inputValue = this.value;
+    		inputValue.set($inputValue);
+    	}
+
+    	function div_elementresize_handler() {
+    		shadowWidth = this.clientWidth;
+    		$$invalidate(5, shadowWidth);
+    	}
+
+    	$$self.$$set = $$props => {
+    		if ('inputId' in $$props) $$invalidate(0, inputId = $$props.inputId);
+    		if ('placeholder' in $$props) $$invalidate(16, placeholder = $$props.placeholder);
+    		if ('searchable' in $$props) $$invalidate(1, searchable = $$props.searchable);
+    		if ('disabled' in $$props) $$invalidate(2, disabled = $$props.disabled);
+    		if ('multiple' in $$props) $$invalidate(17, multiple = $$props.multiple);
+    		if ('inputValue' in $$props) $$subscribe_inputValue($$invalidate(3, inputValue = $$props.inputValue));
+    		if ('hasDropdownOpened' in $$props) $$subscribe_hasDropdownOpened($$invalidate(4, hasDropdownOpened = $$props.hasDropdownOpened));
+    		if ('selectedOptions' in $$props) $$invalidate(18, selectedOptions = $$props.selectedOptions);
+    		if ('isAndroid' in $$props) $$invalidate(19, isAndroid = $$props.isAndroid);
+    	};
+
+    	$$self.$$.update = () => {
+    		if ($$self.$$.dirty[0] & /*selectedOptions, multiple*/ 393216) {
+    			$$invalidate(20, isSingleFilled = selectedOptions.length > 0 && multiple === false);
+    		}
+
+    		if ($$self.$$.dirty[0] & /*selectedOptions, placeholder*/ 327680) {
+    			$$invalidate(6, placeholderText = selectedOptions.length > 0 ? '' : placeholder);
+    		}
+
+    		if ($$self.$$.dirty[0] & /*$inputValue, placeholderText*/ 192) {
+    			$$invalidate(11, shadowText = $inputValue || placeholderText);
+    		}
+
+    		if ($$self.$$.dirty[0] & /*selectedOptions*/ 262144) {
+    			$$invalidate(21, widthAddition = selectedOptions.length === 0 ? 19 : 12);
+    		}
+
+    		if ($$self.$$.dirty[0] & /*isSingleFilled, shadowWidth, widthAddition*/ 3145760) {
+    			$$invalidate(10, inputStyle = `width: ${isSingleFilled ? 2 : shadowWidth + widthAddition}px`);
+    		}
+
+    		if ($$self.$$.dirty[0] & /*isSingleFilled*/ 1048576) {
+    			$$invalidate(9, enterHint = isSingleFilled ? null : 'enter');
+    		}
+    	};
+
+    	return [
+    		inputId,
+    		searchable,
+    		disabled,
+    		inputValue,
+    		hasDropdownOpened,
+    		shadowWidth,
+    		placeholderText,
+    		$inputValue,
+    		inputRef,
+    		enterHint,
+    		inputStyle,
+    		shadowText,
+    		onKeyDown,
+    		onKeyUp,
+    		onInput,
+    		focus,
+    		placeholder,
+    		multiple,
+    		selectedOptions,
+    		isAndroid,
+    		isSingleFilled,
+    		widthAddition,
+    		focus_handler,
+    		blur_handler,
+    		paste_handler,
+    		change_handler,
+    		input_binding,
+    		input_input_handler,
+    		div_elementresize_handler
+    	];
+    }
+
+    class Input extends SvelteComponent {
+    	constructor(options) {
+    		super();
+
+    		init(
+    			this,
+    			options,
+    			instance$6,
+    			create_fragment$7,
+    			safe_not_equal,
+    			{
+    				focus: 15,
+    				inputId: 0,
+    				placeholder: 16,
+    				searchable: 1,
+    				disabled: 2,
+    				multiple: 17,
+    				inputValue: 3,
+    				hasDropdownOpened: 4,
+    				selectedOptions: 18,
+    				isAndroid: 19
+    			},
+    			null,
+    			[-1, -1]
+    		);
+    	}
+
+    	get focus() {
+    		return this.$$.ctx[15];
+    	}
+    }
+
+    /* src/components/Control.svelte generated by Svelte v3.57.0 */
+    const get_control_end_slot_changes$1 = dirty => ({});
+    const get_control_end_slot_context$1 = ctx => ({});
+    const get_indicator_icon_slot_changes$1 = dirty => ({});
+    const get_indicator_icon_slot_context$1 = ctx => ({});
+    const get_clear_icon_slot_changes$1 = dirty => ({});
+    const get_clear_icon_slot_context$1 = ctx => ({});
+
+    function get_each_context$3(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[40] = list[i];
+    	return child_ctx;
+    }
+
+    const get_icon_slot_changes$1 = dirty => ({});
+    const get_icon_slot_context$1 = ctx => ({});
+
+    // (77:4) {#if selectedOptions.length }
+    function create_if_block_2$1(ctx) {
+    	let current_block_type_index;
+    	let if_block;
+    	let if_block_anchor;
+    	let current;
+    	const if_block_creators = [create_if_block_3$1, create_else_block$2];
+    	const if_blocks = [];
+
+    	function select_block_type(ctx, dirty) {
+    		if (/*multiple*/ ctx[5] && /*collapseSelection*/ ctx[6] && /*doCollapse*/ ctx[18]) return 0;
+    		return 1;
+    	}
+
+    	current_block_type_index = select_block_type(ctx);
+    	if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+
+    	return {
+    		c() {
+    			if_block.c();
+    			if_block_anchor = empty();
+    		},
+    		m(target, anchor) {
+    			if_blocks[current_block_type_index].m(target, anchor);
+    			insert(target, if_block_anchor, anchor);
+    			current = true;
+    		},
+    		p(ctx, dirty) {
+    			let previous_block_index = current_block_type_index;
+    			current_block_type_index = select_block_type(ctx);
+
+    			if (current_block_type_index === previous_block_index) {
+    				if_blocks[current_block_type_index].p(ctx, dirty);
+    			} else {
+    				group_outros();
+
+    				transition_out(if_blocks[previous_block_index], 1, 1, () => {
+    					if_blocks[previous_block_index] = null;
+    				});
+
+    				check_outros();
+    				if_block = if_blocks[current_block_type_index];
+
+    				if (!if_block) {
+    					if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+    					if_block.c();
+    				} else {
+    					if_block.p(ctx, dirty);
+    				}
+
+    				transition_in(if_block, 1);
+    				if_block.m(if_block_anchor.parentNode, if_block_anchor);
+    			}
+    		},
+    		i(local) {
+    			if (current) return;
+    			transition_in(if_block);
+    			current = true;
+    		},
+    		o(local) {
+    			transition_out(if_block);
+    			current = false;
+    		},
+    		d(detaching) {
+    			if_blocks[current_block_type_index].d(detaching);
+    			if (detaching) detach(if_block_anchor);
+    		}
+    	};
+    }
+
+    // (80:6) {:else}
+    function create_else_block$2(ctx) {
+    	let each_blocks = [];
+    	let each_1_lookup = new Map();
+    	let each_1_anchor;
+    	let current;
+    	let each_value = /*selectedOptions*/ ctx[11];
+    	const get_key = ctx => /*opt*/ ctx[40][/*currentValueField*/ ctx[14]];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		let child_ctx = get_each_context$3(ctx, each_value, i);
+    		let key = get_key(child_ctx);
+    		each_1_lookup.set(key, each_blocks[i] = create_each_block$3(key, child_ctx));
+    	}
+
+    	return {
+    		c() {
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			each_1_anchor = empty();
+    		},
+    		m(target, anchor) {
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				if (each_blocks[i]) {
+    					each_blocks[i].m(target, anchor);
+    				}
+    			}
+
+    			insert(target, each_1_anchor, anchor);
+    			current = true;
+    		},
+    		p(ctx, dirty) {
+    			if (dirty[0] & /*itemComponent, renderer, selectedOptions, multiple, $inputValue, currentValueField*/ 1099812) {
+    				each_value = /*selectedOptions*/ ctx[11];
+    				group_outros();
+    				for (let i = 0; i < each_blocks.length; i += 1) each_blocks[i].r();
+    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, each_1_anchor.parentNode, fix_and_outro_and_destroy_block, create_each_block$3, each_1_anchor, get_each_context$3);
+    				for (let i = 0; i < each_blocks.length; i += 1) each_blocks[i].a();
+    				check_outros();
+    			}
+    		},
+    		i(local) {
+    			if (current) return;
+
+    			for (let i = 0; i < each_value.length; i += 1) {
+    				transition_in(each_blocks[i]);
+    			}
+
+    			current = true;
+    		},
+    		o(local) {
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				transition_out(each_blocks[i]);
+    			}
+
+    			current = false;
+    		},
+    		d(detaching) {
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].d(detaching);
+    			}
+
+    			if (detaching) detach(each_1_anchor);
+    		}
+    	};
+    }
+
+    // (78:6) {#if multiple && collapseSelection && doCollapse}
+    function create_if_block_3$1(ctx) {
+    	let html_tag;
+    	let raw_value = /*collapseSelection*/ ctx[6](/*selectedOptions*/ ctx[11].length, /*selectedOptions*/ ctx[11]) + "";
+    	let html_anchor;
+
+    	return {
+    		c() {
+    			html_tag = new HtmlTag(false);
+    			html_anchor = empty();
+    			html_tag.a = html_anchor;
+    		},
+    		m(target, anchor) {
+    			html_tag.m(raw_value, target, anchor);
+    			insert(target, html_anchor, anchor);
+    		},
+    		p(ctx, dirty) {
+    			if (dirty[0] & /*collapseSelection, selectedOptions*/ 2112 && raw_value !== (raw_value = /*collapseSelection*/ ctx[6](/*selectedOptions*/ ctx[11].length, /*selectedOptions*/ ctx[11]) + "")) html_tag.p(raw_value);
+    		},
+    		i: noop,
+    		o: noop,
+    		d(detaching) {
+    			if (detaching) detach(html_anchor);
+    			if (detaching) html_tag.d();
+    		}
+    	};
+    }
+
+    // (81:8) {#each selectedOptions as opt (opt[currentValueField])}
+    function create_each_block$3(key_1, ctx) {
+    	let div;
+    	let switch_instance;
+    	let t;
+    	let rect;
+    	let stop_animation = noop;
+    	let current;
+    	var switch_value = /*itemComponent*/ ctx[15];
+
+    	function switch_props(ctx) {
+    		return {
+    			props: {
+    				formatter: /*renderer*/ ctx[2],
+    				item: /*opt*/ ctx[40],
+    				isSelected: true,
+    				isMultiple: /*multiple*/ ctx[5],
+    				inputValue: /*$inputValue*/ ctx[20]
+    			}
+    		};
+    	}
+
+    	if (switch_value) {
+    		switch_instance = construct_svelte_component(switch_value, switch_props(ctx));
+    		switch_instance.$on("deselect", /*deselect_handler*/ ctx[34]);
+    	}
+
+    	return {
+    		key: key_1,
+    		first: null,
+    		c() {
+    			div = element("div");
+    			if (switch_instance) create_component(switch_instance.$$.fragment);
+    			t = space();
+    			this.first = div;
+    		},
+    		m(target, anchor) {
+    			insert(target, div, anchor);
+    			if (switch_instance) mount_component(switch_instance, div, null);
+    			append(div, t);
+    			current = true;
+    		},
+    		p(new_ctx, dirty) {
+    			ctx = new_ctx;
+    			const switch_instance_changes = {};
+    			if (dirty[0] & /*renderer*/ 4) switch_instance_changes.formatter = /*renderer*/ ctx[2];
+    			if (dirty[0] & /*selectedOptions*/ 2048) switch_instance_changes.item = /*opt*/ ctx[40];
+    			if (dirty[0] & /*multiple*/ 32) switch_instance_changes.isMultiple = /*multiple*/ ctx[5];
+    			if (dirty[0] & /*$inputValue*/ 1048576) switch_instance_changes.inputValue = /*$inputValue*/ ctx[20];
+
+    			if (dirty[0] & /*itemComponent*/ 32768 && switch_value !== (switch_value = /*itemComponent*/ ctx[15])) {
+    				if (switch_instance) {
+    					group_outros();
+    					const old_component = switch_instance;
+
+    					transition_out(old_component.$$.fragment, 1, 0, () => {
+    						destroy_component(old_component, 1);
+    					});
+
+    					check_outros();
+    				}
+
+    				if (switch_value) {
+    					switch_instance = construct_svelte_component(switch_value, switch_props(ctx));
+    					switch_instance.$on("deselect", /*deselect_handler*/ ctx[34]);
+    					create_component(switch_instance.$$.fragment);
+    					transition_in(switch_instance.$$.fragment, 1);
+    					mount_component(switch_instance, div, t);
+    				} else {
+    					switch_instance = null;
+    				}
+    			} else if (switch_value) {
+    				switch_instance.$set(switch_instance_changes);
+    			}
+    		},
+    		r() {
+    			rect = div.getBoundingClientRect();
+    		},
+    		f() {
+    			fix_position(div);
+    			stop_animation();
+    		},
+    		a() {
+    			stop_animation();
+    			stop_animation = create_animation(div, rect, flip, { duration: flipDurationMs });
+    		},
+    		i(local) {
+    			if (current) return;
+    			if (switch_instance) transition_in(switch_instance.$$.fragment, local);
+    			current = true;
+    		},
+    		o(local) {
+    			if (switch_instance) transition_out(switch_instance.$$.fragment, local);
+    			current = false;
+    		},
+    		d(detaching) {
+    			if (detaching) detach(div);
+    			if (switch_instance) destroy_component(switch_instance);
+    		}
+    	};
+    }
+
+    // (101:4) {#if clearable && !disabled}
+    function create_if_block_1$3(ctx) {
+    	let div;
+    	let current;
+    	let mounted;
+    	let dispose;
+    	const clear_icon_slot_template = /*#slots*/ ctx[28]["clear-icon"];
+    	const clear_icon_slot = create_slot(clear_icon_slot_template, ctx, /*$$scope*/ ctx[27], get_clear_icon_slot_context$1);
+
+    	return {
+    		c() {
+    			div = element("div");
+    			if (clear_icon_slot) clear_icon_slot.c();
+    			attr(div, "aria-hidden", "true");
+    			attr(div, "class", "indicator-container close-icon svelte-1l8hgl2");
+    		},
+    		m(target, anchor) {
+    			insert(target, div, anchor);
+
+    			if (clear_icon_slot) {
+    				clear_icon_slot.m(div, null);
+    			}
+
+    			current = true;
+
+    			if (!mounted) {
+    				dispose = [
+    					listen(div, "mousedown", prevent_default(/*mousedown_handler_1*/ ctx[31])),
+    					listen(div, "click", /*click_handler*/ ctx[38])
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p(ctx, dirty) {
+    			if (clear_icon_slot) {
+    				if (clear_icon_slot.p && (!current || dirty[0] & /*$$scope*/ 134217728)) {
+    					update_slot_base(
+    						clear_icon_slot,
+    						clear_icon_slot_template,
+    						ctx,
+    						/*$$scope*/ ctx[27],
+    						!current
+    						? get_all_dirty_from_scope(/*$$scope*/ ctx[27])
+    						: get_slot_changes(clear_icon_slot_template, /*$$scope*/ ctx[27], dirty, get_clear_icon_slot_changes$1),
+    						get_clear_icon_slot_context$1
+    					);
+    				}
+    			}
+    		},
+    		i(local) {
+    			if (current) return;
+    			transition_in(clear_icon_slot, local);
+    			current = true;
+    		},
+    		o(local) {
+    			transition_out(clear_icon_slot, local);
+    			current = false;
+    		},
+    		d(detaching) {
+    			if (detaching) detach(div);
+    			if (clear_icon_slot) clear_icon_slot.d(detaching);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+    }
+
+    // (109:4) {#if clearable}
+    function create_if_block$3(ctx) {
+    	let span;
+
+    	return {
+    		c() {
+    			span = element("span");
+    			attr(span, "class", "indicator-separator svelte-1l8hgl2");
+    		},
+    		m(target, anchor) {
+    			insert(target, span, anchor);
+    		},
+    		d(detaching) {
+    			if (detaching) detach(span);
+    		}
+    	};
+    }
+
+    function create_fragment$6(ctx) {
+    	let div3;
+    	let t0;
+    	let div0;
+    	let t1;
+    	let input;
+    	let dndzone_action;
+    	let t2;
+    	let div2;
+    	let t3;
+    	let t4;
+    	let div1;
+    	let t5;
+    	let current;
+    	let mounted;
+    	let dispose;
+    	const icon_slot_template = /*#slots*/ ctx[28].icon;
+    	const icon_slot = create_slot(icon_slot_template, ctx, /*$$scope*/ ctx[27], get_icon_slot_context$1);
+    	let if_block0 = /*selectedOptions*/ ctx[11].length && create_if_block_2$1(ctx);
+
+    	let input_props = {
+    		disabled: /*disabled*/ ctx[3],
+    		searchable: /*searchable*/ ctx[1],
+    		placeholder: /*placeholder*/ ctx[4],
+    		multiple: /*multiple*/ ctx[5],
+    		inputId: /*inputId*/ ctx[7],
+    		inputValue: /*inputValue*/ ctx[8],
+    		hasDropdownOpened: /*hasDropdownOpened*/ ctx[10],
+    		selectedOptions: /*selectedOptions*/ ctx[11],
+    		isAndroid: /*isAndroid*/ ctx[16]
+    	};
+
+    	input = new Input({ props: input_props });
+    	/*input_binding*/ ctx[35](input);
+    	input.$on("focus", /*onFocus*/ ctx[23]);
+    	input.$on("blur", /*onBlur*/ ctx[24]);
+    	input.$on("keydown", /*keydown_handler*/ ctx[36]);
+    	input.$on("paste", /*paste_handler*/ ctx[37]);
+    	let if_block1 = /*clearable*/ ctx[0] && !/*disabled*/ ctx[3] && create_if_block_1$3(ctx);
+    	let if_block2 = /*clearable*/ ctx[0] && create_if_block$3();
+    	const indicator_icon_slot_template = /*#slots*/ ctx[28]["indicator-icon"];
+    	const indicator_icon_slot = create_slot(indicator_icon_slot_template, ctx, /*$$scope*/ ctx[27], get_indicator_icon_slot_context$1);
+    	const control_end_slot_template = /*#slots*/ ctx[28]["control-end"];
+    	const control_end_slot = create_slot(control_end_slot_template, ctx, /*$$scope*/ ctx[27], get_control_end_slot_context$1);
+
+    	return {
+    		c() {
+    			div3 = element("div");
+    			if (icon_slot) icon_slot.c();
+    			t0 = space();
+    			div0 = element("div");
+    			if (if_block0) if_block0.c();
+    			t1 = space();
+    			create_component(input.$$.fragment);
+    			t2 = space();
+    			div2 = element("div");
+    			if (if_block1) if_block1.c();
+    			t3 = space();
+    			if (if_block2) if_block2.c();
+    			t4 = space();
+    			div1 = element("div");
+    			if (indicator_icon_slot) indicator_icon_slot.c();
+    			t5 = space();
+    			if (control_end_slot) control_end_slot.c();
+    			attr(div0, "class", "sv-content sv-input-row svelte-1l8hgl2");
+    			toggle_class(div0, "has-multiSelection", /*multiple*/ ctx[5]);
+    			attr(div1, "aria-hidden", "true");
+    			attr(div1, "class", "indicator-container svelte-1l8hgl2");
+    			attr(div2, "class", "indicator svelte-1l8hgl2");
+    			toggle_class(div2, "is-loading", /*isFetchingData*/ ctx[12]);
+    			attr(div3, "class", "sv-control svelte-1l8hgl2");
+    			toggle_class(div3, "is-active", /*$hasFocus*/ ctx[21]);
+    			toggle_class(div3, "is-disabled", /*disabled*/ ctx[3]);
+    		},
+    		m(target, anchor) {
+    			insert(target, div3, anchor);
+
+    			if (icon_slot) {
+    				icon_slot.m(div3, null);
+    			}
+
+    			append(div3, t0);
+    			append(div3, div0);
+    			if (if_block0) if_block0.m(div0, null);
+    			append(div0, t1);
+    			mount_component(input, div0, null);
+    			append(div3, t2);
+    			append(div3, div2);
+    			if (if_block1) if_block1.m(div2, null);
+    			append(div2, t3);
+    			if (if_block2) if_block2.m(div2, null);
+    			append(div2, t4);
+    			append(div2, div1);
+
+    			if (indicator_icon_slot) {
+    				indicator_icon_slot.m(div1, null);
+    			}
+
+    			append(div3, t5);
+
+    			if (control_end_slot) {
+    				control_end_slot.m(div3, null);
+    			}
+
+    			current = true;
+
+    			if (!mounted) {
+    				dispose = [
+    					action_destroyer(dndzone_action = /*dndzone*/ ctx[13].call(null, div0, {
+    						items: /*selectedOptions*/ ctx[11],
+    						flipDurationMs,
+    						type: /*inputId*/ ctx[7]
+    					})),
+    					listen(div0, "consider", /*consider_handler*/ ctx[32]),
+    					listen(div0, "finalize", /*finalize_handler*/ ctx[33]),
+    					listen(div1, "mousedown", prevent_default(/*mousedown_handler_2*/ ctx[30])),
+    					listen(div3, "mousedown", prevent_default(/*mousedown_handler*/ ctx[29])),
+    					listen(div3, "click", prevent_default(/*focusControl*/ ctx[17])),
+    					listen(div3, "keypress", keypress_handler$1)
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p(ctx, dirty) {
+    			if (icon_slot) {
+    				if (icon_slot.p && (!current || dirty[0] & /*$$scope*/ 134217728)) {
+    					update_slot_base(
+    						icon_slot,
+    						icon_slot_template,
+    						ctx,
+    						/*$$scope*/ ctx[27],
+    						!current
+    						? get_all_dirty_from_scope(/*$$scope*/ ctx[27])
+    						: get_slot_changes(icon_slot_template, /*$$scope*/ ctx[27], dirty, get_icon_slot_changes$1),
+    						get_icon_slot_context$1
+    					);
+    				}
+    			}
+
+    			if (/*selectedOptions*/ ctx[11].length) {
+    				if (if_block0) {
+    					if_block0.p(ctx, dirty);
+
+    					if (dirty[0] & /*selectedOptions*/ 2048) {
+    						transition_in(if_block0, 1);
+    					}
+    				} else {
+    					if_block0 = create_if_block_2$1(ctx);
+    					if_block0.c();
+    					transition_in(if_block0, 1);
+    					if_block0.m(div0, t1);
+    				}
+    			} else if (if_block0) {
+    				group_outros();
+
+    				transition_out(if_block0, 1, 1, () => {
+    					if_block0 = null;
+    				});
+
+    				check_outros();
+    			}
+
+    			const input_changes = {};
+    			if (dirty[0] & /*disabled*/ 8) input_changes.disabled = /*disabled*/ ctx[3];
+    			if (dirty[0] & /*searchable*/ 2) input_changes.searchable = /*searchable*/ ctx[1];
+    			if (dirty[0] & /*placeholder*/ 16) input_changes.placeholder = /*placeholder*/ ctx[4];
+    			if (dirty[0] & /*multiple*/ 32) input_changes.multiple = /*multiple*/ ctx[5];
+    			if (dirty[0] & /*inputId*/ 128) input_changes.inputId = /*inputId*/ ctx[7];
+    			if (dirty[0] & /*inputValue*/ 256) input_changes.inputValue = /*inputValue*/ ctx[8];
+    			if (dirty[0] & /*hasDropdownOpened*/ 1024) input_changes.hasDropdownOpened = /*hasDropdownOpened*/ ctx[10];
+    			if (dirty[0] & /*selectedOptions*/ 2048) input_changes.selectedOptions = /*selectedOptions*/ ctx[11];
+    			if (dirty[0] & /*isAndroid*/ 65536) input_changes.isAndroid = /*isAndroid*/ ctx[16];
+    			input.$set(input_changes);
+
+    			if (dndzone_action && is_function(dndzone_action.update) && dirty[0] & /*selectedOptions, inputId*/ 2176) dndzone_action.update.call(null, {
+    				items: /*selectedOptions*/ ctx[11],
+    				flipDurationMs,
+    				type: /*inputId*/ ctx[7]
+    			});
+
+    			if (!current || dirty[0] & /*multiple*/ 32) {
+    				toggle_class(div0, "has-multiSelection", /*multiple*/ ctx[5]);
+    			}
+
+    			if (/*clearable*/ ctx[0] && !/*disabled*/ ctx[3]) {
+    				if (if_block1) {
+    					if_block1.p(ctx, dirty);
+
+    					if (dirty[0] & /*clearable, disabled*/ 9) {
+    						transition_in(if_block1, 1);
+    					}
+    				} else {
+    					if_block1 = create_if_block_1$3(ctx);
+    					if_block1.c();
+    					transition_in(if_block1, 1);
+    					if_block1.m(div2, t3);
+    				}
+    			} else if (if_block1) {
+    				group_outros();
+
+    				transition_out(if_block1, 1, 1, () => {
+    					if_block1 = null;
+    				});
+
+    				check_outros();
+    			}
+
+    			if (/*clearable*/ ctx[0]) {
+    				if (if_block2) ; else {
+    					if_block2 = create_if_block$3();
+    					if_block2.c();
+    					if_block2.m(div2, t4);
+    				}
+    			} else if (if_block2) {
+    				if_block2.d(1);
+    				if_block2 = null;
+    			}
+
+    			if (indicator_icon_slot) {
+    				if (indicator_icon_slot.p && (!current || dirty[0] & /*$$scope*/ 134217728)) {
+    					update_slot_base(
+    						indicator_icon_slot,
+    						indicator_icon_slot_template,
+    						ctx,
+    						/*$$scope*/ ctx[27],
+    						!current
+    						? get_all_dirty_from_scope(/*$$scope*/ ctx[27])
+    						: get_slot_changes(indicator_icon_slot_template, /*$$scope*/ ctx[27], dirty, get_indicator_icon_slot_changes$1),
+    						get_indicator_icon_slot_context$1
+    					);
+    				}
+    			}
+
+    			if (!current || dirty[0] & /*isFetchingData*/ 4096) {
+    				toggle_class(div2, "is-loading", /*isFetchingData*/ ctx[12]);
+    			}
+
+    			if (control_end_slot) {
+    				if (control_end_slot.p && (!current || dirty[0] & /*$$scope*/ 134217728)) {
+    					update_slot_base(
+    						control_end_slot,
+    						control_end_slot_template,
+    						ctx,
+    						/*$$scope*/ ctx[27],
+    						!current
+    						? get_all_dirty_from_scope(/*$$scope*/ ctx[27])
+    						: get_slot_changes(control_end_slot_template, /*$$scope*/ ctx[27], dirty, get_control_end_slot_changes$1),
+    						get_control_end_slot_context$1
+    					);
+    				}
+    			}
+
+    			if (!current || dirty[0] & /*$hasFocus*/ 2097152) {
+    				toggle_class(div3, "is-active", /*$hasFocus*/ ctx[21]);
+    			}
+
+    			if (!current || dirty[0] & /*disabled*/ 8) {
+    				toggle_class(div3, "is-disabled", /*disabled*/ ctx[3]);
+    			}
+    		},
+    		i(local) {
+    			if (current) return;
+    			transition_in(icon_slot, local);
+    			transition_in(if_block0);
+    			transition_in(input.$$.fragment, local);
+    			transition_in(if_block1);
+    			transition_in(indicator_icon_slot, local);
+    			transition_in(control_end_slot, local);
+    			current = true;
+    		},
+    		o(local) {
+    			transition_out(icon_slot, local);
+    			transition_out(if_block0);
+    			transition_out(input.$$.fragment, local);
+    			transition_out(if_block1);
+    			transition_out(indicator_icon_slot, local);
+    			transition_out(control_end_slot, local);
+    			current = false;
+    		},
+    		d(detaching) {
+    			if (detaching) detach(div3);
+    			if (icon_slot) icon_slot.d(detaching);
+    			if (if_block0) if_block0.d();
+    			/*input_binding*/ ctx[35](null);
+    			destroy_component(input);
+    			if (if_block1) if_block1.d();
+    			if (if_block2) if_block2.d();
+    			if (indicator_icon_slot) indicator_icon_slot.d(detaching);
+    			if (control_end_slot) control_end_slot.d(detaching);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+    }
+
+    const flipDurationMs = 100;
+
+    const keypress_handler$1 = () => {
+    	
+    };
+
+    function instance$5($$self, $$props, $$invalidate) {
+    	let $inputValue,
+    		$$unsubscribe_inputValue = noop,
+    		$$subscribe_inputValue = () => ($$unsubscribe_inputValue(), $$unsubscribe_inputValue = subscribe(inputValue, $$value => $$invalidate(20, $inputValue = $$value)), inputValue);
+
+    	let $hasDropdownOpened,
+    		$$unsubscribe_hasDropdownOpened = noop,
+    		$$subscribe_hasDropdownOpened = () => ($$unsubscribe_hasDropdownOpened(), $$unsubscribe_hasDropdownOpened = subscribe(hasDropdownOpened, $$value => $$invalidate(39, $hasDropdownOpened = $$value)), hasDropdownOpened);
+
+    	let $hasFocus,
+    		$$unsubscribe_hasFocus = noop,
+    		$$subscribe_hasFocus = () => ($$unsubscribe_hasFocus(), $$unsubscribe_hasFocus = subscribe(hasFocus, $$value => $$invalidate(21, $hasFocus = $$value)), hasFocus);
+
+    	$$self.$$.on_destroy.push(() => $$unsubscribe_inputValue());
+    	$$self.$$.on_destroy.push(() => $$unsubscribe_hasDropdownOpened());
+    	$$self.$$.on_destroy.push(() => $$unsubscribe_hasFocus());
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	let { clearable } = $$props;
+    	let { searchable } = $$props;
+    	let { renderer } = $$props;
+    	let { disabled } = $$props;
+    	let { placeholder } = $$props;
+    	let { multiple } = $$props;
+    	let { resetOnBlur } = $$props;
+    	let { collapseSelection } = $$props;
+    	let { alwaysCollapsed } = $$props;
+    	let { inputId } = $$props;
+    	let { inputValue } = $$props;
+    	$$subscribe_inputValue();
+    	let { hasFocus } = $$props;
+    	$$subscribe_hasFocus();
+    	let { hasDropdownOpened } = $$props;
+    	$$subscribe_hasDropdownOpened();
+    	let { selectedOptions } = $$props;
+    	let { isFetchingData } = $$props;
+    	let { dndzone } = $$props;
+    	let { currentValueField } = $$props;
+    	let { itemComponent } = $$props;
+    	let { isAndroid } = $$props;
+
+    	function focusControl(event) {
+    		if (disabled) return;
+
+    		if (!event) {
+    			!$hasFocus && refInput.focus();
+    			set_store_value(hasDropdownOpened, $hasDropdownOpened = true, $hasDropdownOpened);
+    			return;
+    		}
+
+    		if (!$hasFocus) {
+    			refInput.focus();
+    		} else {
+    			set_store_value(hasDropdownOpened, $hasDropdownOpened = !$hasDropdownOpened, $hasDropdownOpened);
+    		}
+    	}
+
+    	/** ************************************ context */
+    	const dispatch = createEventDispatcher();
+
+    	let doCollapse = true;
+    	let refInput = undefined;
+
+    	function onFocus() {
+    		set_store_value(hasFocus, $hasFocus = true, $hasFocus);
+    		set_store_value(hasDropdownOpened, $hasDropdownOpened = true, $hasDropdownOpened);
+
+    		!alwaysCollapsed && setTimeout(
+    			() => {
+    				$$invalidate(18, doCollapse = false);
+    			},
+    			150
+    		);
+    	}
+
+    	function onBlur() {
+    		set_store_value(hasFocus, $hasFocus = false, $hasFocus);
+    		set_store_value(hasDropdownOpened, $hasDropdownOpened = false, $hasDropdownOpened);
+    		if (resetOnBlur) set_store_value(inputValue, $inputValue = '', $inputValue); // reset
+
+    		!alwaysCollapsed && setTimeout(
+    			() => {
+    				$$invalidate(18, doCollapse = true);
+    			},
+    			100
+    		);
+
+    		dispatch('blur');
+    	}
+
+    	function mousedown_handler(event) {
+    		bubble.call(this, $$self, event);
+    	}
+
+    	function mousedown_handler_2(event) {
+    		bubble.call(this, $$self, event);
+    	}
+
+    	function mousedown_handler_1(event) {
+    		bubble.call(this, $$self, event);
+    	}
+
+    	function consider_handler(event) {
+    		bubble.call(this, $$self, event);
+    	}
+
+    	function finalize_handler(event) {
+    		bubble.call(this, $$self, event);
+    	}
+
+    	function deselect_handler(event) {
+    		bubble.call(this, $$self, event);
+    	}
+
+    	function input_binding($$value) {
+    		binding_callbacks[$$value ? 'unshift' : 'push'](() => {
+    			refInput = $$value;
+    			$$invalidate(19, refInput);
+    		});
+    	}
+
+    	function keydown_handler(event) {
+    		bubble.call(this, $$self, event);
+    	}
+
+    	function paste_handler(event) {
+    		bubble.call(this, $$self, event);
+    	}
+
+    	const click_handler = () => dispatch('deselect');
+
+    	$$self.$$set = $$props => {
+    		if ('clearable' in $$props) $$invalidate(0, clearable = $$props.clearable);
+    		if ('searchable' in $$props) $$invalidate(1, searchable = $$props.searchable);
+    		if ('renderer' in $$props) $$invalidate(2, renderer = $$props.renderer);
+    		if ('disabled' in $$props) $$invalidate(3, disabled = $$props.disabled);
+    		if ('placeholder' in $$props) $$invalidate(4, placeholder = $$props.placeholder);
+    		if ('multiple' in $$props) $$invalidate(5, multiple = $$props.multiple);
+    		if ('resetOnBlur' in $$props) $$invalidate(25, resetOnBlur = $$props.resetOnBlur);
+    		if ('collapseSelection' in $$props) $$invalidate(6, collapseSelection = $$props.collapseSelection);
+    		if ('alwaysCollapsed' in $$props) $$invalidate(26, alwaysCollapsed = $$props.alwaysCollapsed);
+    		if ('inputId' in $$props) $$invalidate(7, inputId = $$props.inputId);
+    		if ('inputValue' in $$props) $$subscribe_inputValue($$invalidate(8, inputValue = $$props.inputValue));
+    		if ('hasFocus' in $$props) $$subscribe_hasFocus($$invalidate(9, hasFocus = $$props.hasFocus));
+    		if ('hasDropdownOpened' in $$props) $$subscribe_hasDropdownOpened($$invalidate(10, hasDropdownOpened = $$props.hasDropdownOpened));
+    		if ('selectedOptions' in $$props) $$invalidate(11, selectedOptions = $$props.selectedOptions);
+    		if ('isFetchingData' in $$props) $$invalidate(12, isFetchingData = $$props.isFetchingData);
+    		if ('dndzone' in $$props) $$invalidate(13, dndzone = $$props.dndzone);
+    		if ('currentValueField' in $$props) $$invalidate(14, currentValueField = $$props.currentValueField);
+    		if ('itemComponent' in $$props) $$invalidate(15, itemComponent = $$props.itemComponent);
+    		if ('isAndroid' in $$props) $$invalidate(16, isAndroid = $$props.isAndroid);
+    		if ('$$scope' in $$props) $$invalidate(27, $$scope = $$props.$$scope);
+    	};
+
+    	return [
+    		clearable,
+    		searchable,
+    		renderer,
+    		disabled,
+    		placeholder,
+    		multiple,
+    		collapseSelection,
+    		inputId,
+    		inputValue,
+    		hasFocus,
+    		hasDropdownOpened,
+    		selectedOptions,
+    		isFetchingData,
+    		dndzone,
+    		currentValueField,
+    		itemComponent,
+    		isAndroid,
+    		focusControl,
+    		doCollapse,
+    		refInput,
+    		$inputValue,
+    		$hasFocus,
+    		dispatch,
+    		onFocus,
+    		onBlur,
+    		resetOnBlur,
+    		alwaysCollapsed,
+    		$$scope,
+    		slots,
+    		mousedown_handler,
+    		mousedown_handler_2,
+    		mousedown_handler_1,
+    		consider_handler,
+    		finalize_handler,
+    		deselect_handler,
+    		input_binding,
+    		keydown_handler,
+    		paste_handler,
+    		click_handler
+    	];
+    }
+
+    class Control extends SvelteComponent {
+    	constructor(options) {
+    		super();
+
+    		init(
+    			this,
+    			options,
+    			instance$5,
+    			create_fragment$6,
+    			safe_not_equal,
+    			{
+    				clearable: 0,
+    				searchable: 1,
+    				renderer: 2,
+    				disabled: 3,
+    				placeholder: 4,
+    				multiple: 5,
+    				resetOnBlur: 25,
+    				collapseSelection: 6,
+    				alwaysCollapsed: 26,
+    				inputId: 7,
+    				inputValue: 8,
+    				hasFocus: 9,
+    				hasDropdownOpened: 10,
+    				selectedOptions: 11,
+    				isFetchingData: 12,
+    				dndzone: 13,
+    				currentValueField: 14,
+    				itemComponent: 15,
+    				isAndroid: 16,
+    				focusControl: 17
+    			},
+    			null,
+    			[-1, -1]
+    		);
+    	}
+
+    	get focusControl() {
+    		return this.$$.ctx[17];
+    	}
+    }
+
+    const ALIGNMENT = {
+    	AUTO:   'auto',
+    	START:  'start',
+    	CENTER: 'center',
+    	END:    'end',
+    };
+
+    const DIRECTION = {
+    	HORIZONTAL: 'horizontal',
+    	VERTICAL:   'vertical',
+    };
+
+    const SCROLL_CHANGE_REASON = {
+    	OBSERVED:  0,
+    	REQUESTED: 1,
+    };
+
+    const SCROLL_PROP = {
+    	[DIRECTION.VERTICAL]:   'top',
+    	[DIRECTION.HORIZONTAL]: 'left',
+    };
+
+    const SCROLL_PROP_LEGACY = {
+    	[DIRECTION.VERTICAL]:   'scrollTop',
+    	[DIRECTION.HORIZONTAL]: 'scrollLeft',
+    };
+
+    /* Forked from react-virtualized 💖 */
+
+    /**
+     * @callback ItemSizeGetter
+     * @param {number} index
+     * @return {number}
+     */
+
+    /**
+     * @typedef ItemSize
+     * @type {number | number[] | ItemSizeGetter}
+     */
+
+    /**
+     * @typedef SizeAndPosition
+     * @type {object}
+     * @property {number} size
+     * @property {number} offset
+     */
+
+    /**
+     * @typedef SizeAndPositionData
+     * @type {Object.<number, SizeAndPosition>}
+     */
+
+    /**
+     * @typedef Options
+     * @type {object}
+     * @property {number} itemCount
+     * @property {ItemSize} itemSize
+     * @property {number} estimatedItemSize
+     */
+
+    class SizeAndPositionManager {
+
+    	/**
+    	 * @param {Options} options
+    	 */
+    	constructor({ itemSize, itemCount, estimatedItemSize }) {
+    		/**
+    		 * @private
+    		 * @type {ItemSize}
+    		 */
+    		this.itemSize = itemSize;
+
+    		/**
+    		 * @private
+    		 * @type {number}
+    		 */
+    		this.itemCount = itemCount;
+
+    		/**
+    		 * @private
+    		 * @type {number}
+    		 */
+    		this.estimatedItemSize = estimatedItemSize;
+
+    		/**
+    		 * Cache of size and position data for items, mapped by item index.
+    		 *
+    		 * @private
+    		 * @type {SizeAndPositionData}
+    		 */
+    		this.itemSizeAndPositionData = {};
+
+    		/**
+    		 * Measurements for items up to this index can be trusted; items afterward should be estimated.
+    		 *
+    		 * @private
+    		 * @type {number}
+    		 */
+    		this.lastMeasuredIndex = -1;
+
+    		this.checkForMismatchItemSizeAndItemCount();
+
+    		if (!this.justInTime) this.computeTotalSizeAndPositionData();
+    	}
+
+    	get justInTime() {
+    		return typeof this.itemSize === 'function';
+    	}
+
+    	/**
+    	 * @param {Options} options
+    	 */
+    	updateConfig({ itemSize, itemCount, estimatedItemSize }) {
+    		if (itemCount != null) {
+    			this.itemCount = itemCount;
+    		}
+
+    		if (estimatedItemSize != null) {
+    			this.estimatedItemSize = estimatedItemSize;
+    		}
+
+    		if (itemSize != null) {
+    			this.itemSize = itemSize;
+    		}
+
+    		this.checkForMismatchItemSizeAndItemCount();
+
+    		if (this.justInTime && this.totalSize != null) {
+    			this.totalSize = undefined;
+    		} else {
+    			this.computeTotalSizeAndPositionData();
+    		}
+    	}
+
+    	checkForMismatchItemSizeAndItemCount() {
+    		if (Array.isArray(this.itemSize) && this.itemSize.length < this.itemCount) {
+    			throw Error(
+    				`When itemSize is an array, itemSize.length can't be smaller than itemCount`,
+    			);
+    		}
+    	}
+
+    	/**
+    	 * @param {number} index
+    	 */
+    	getSize(index) {
+    		const { itemSize } = this;
+
+    		if (typeof itemSize === 'function') {
+    			return itemSize(index);
+    		}
+
+    		return Array.isArray(itemSize) ? itemSize[index] : itemSize;
+    	}
+
+    	/**
+    	 * Compute the totalSize and itemSizeAndPositionData at the start,
+    	 * only when itemSize is a number or an array.
+    	 */
+    	computeTotalSizeAndPositionData() {
+    		let totalSize = 0;
+    		for (let i = 0; i < this.itemCount; i++) {
+    			const size = this.getSize(i);
+    			const offset = totalSize;
+    			totalSize += size;
+
+    			this.itemSizeAndPositionData[i] = {
+    				offset,
+    				size,
+    			};
+    		}
+
+    		this.totalSize = totalSize;
+    	}
+
+    	getLastMeasuredIndex() {
+    		return this.lastMeasuredIndex;
+    	}
+
+
+    	/**
+    	 * This method returns the size and position for the item at the specified index.
+    	 *
+    	 * @param {number} index
+    	 */
+    	getSizeAndPositionForIndex(index) {
+    		if (index < 0 || index >= this.itemCount) {
+    			throw Error(
+    				`Requested index ${index} is outside of range 0..${this.itemCount}`,
+    			);
+    		}
+
+    		return this.justInTime
+    			? this.getJustInTimeSizeAndPositionForIndex(index)
+    			: this.itemSizeAndPositionData[index];
+    	}
+
+    	/**
+    	 * This is used when itemSize is a function.
+    	 * just-in-time calculates (or used cached values) for items leading up to the index.
+    	 *
+    	 * @param {number} index
+    	 */
+    	getJustInTimeSizeAndPositionForIndex(index) {
+    		if (index > this.lastMeasuredIndex) {
+    			const lastMeasuredSizeAndPosition = this.getSizeAndPositionOfLastMeasuredItem();
+    			let offset =
+    				    lastMeasuredSizeAndPosition.offset + lastMeasuredSizeAndPosition.size;
+
+    			for (let i = this.lastMeasuredIndex + 1; i <= index; i++) {
+    				const size = this.getSize(i);
+
+    				if (size == null || isNaN(size)) {
+    					throw Error(`Invalid size returned for index ${i} of value ${size}`);
+    				}
+
+    				this.itemSizeAndPositionData[i] = {
+    					offset,
+    					size,
+    				};
+
+    				offset += size;
+    			}
+
+    			this.lastMeasuredIndex = index;
+    		}
+
+    		return this.itemSizeAndPositionData[index];
+    	}
+
+    	getSizeAndPositionOfLastMeasuredItem() {
+    		return this.lastMeasuredIndex >= 0
+    			? this.itemSizeAndPositionData[this.lastMeasuredIndex]
+    			: { offset: 0, size: 0 };
+    	}
+
+    	/**
+    	 * Total size of all items being measured.
+    	 *
+    	 * @return {number}
+    	 */
+    	getTotalSize() {
+    		// Return the pre computed totalSize when itemSize is number or array.
+    		if (this.totalSize) return this.totalSize;
+
+    		/**
+    		 * When itemSize is a function,
+    		 * This value will be completedly estimated initially.
+    		 * As items as measured the estimate will be updated.
+    		 */
+    		const lastMeasuredSizeAndPosition = this.getSizeAndPositionOfLastMeasuredItem();
+
+    		return (
+    			lastMeasuredSizeAndPosition.offset +
+    			lastMeasuredSizeAndPosition.size +
+    			(this.itemCount - this.lastMeasuredIndex - 1) * this.estimatedItemSize
+    		);
+    	}
+
+    	/**
+    	 * Determines a new offset that ensures a certain item is visible, given the alignment.
+    	 *
+    	 * @param {'auto' | 'start' | 'center' | 'end'} align Desired alignment within container
+    	 * @param {number | undefined} containerSize Size (width or height) of the container viewport
+    	 * @param {number | undefined} currentOffset
+    	 * @param {number | undefined} targetIndex
+    	 * @return {number} Offset to use to ensure the specified item is visible
+    	 */
+    	getUpdatedOffsetForIndex({ align = ALIGNMENT.START, containerSize, currentOffset, targetIndex }) {
+    		if (containerSize <= 0) {
+    			return 0;
+    		}
+
+    		const datum = this.getSizeAndPositionForIndex(targetIndex);
+    		const maxOffset = datum.offset;
+    		const minOffset = maxOffset - containerSize + datum.size;
+
+    		let idealOffset;
+
+    		switch (align) {
+    			case ALIGNMENT.END:
+    				idealOffset = minOffset;
+    				break;
+    			case ALIGNMENT.CENTER:
+    				idealOffset = maxOffset - (containerSize - datum.size) / 2;
+    				break;
+    			case ALIGNMENT.START:
+    				idealOffset = maxOffset;
+    				break;
+    			default:
+    				idealOffset = Math.max(minOffset, Math.min(maxOffset, currentOffset));
+    		}
+
+    		const totalSize = this.getTotalSize();
+
+    		return Math.max(0, Math.min(totalSize - containerSize, idealOffset));
+    	}
+
+    	/**
+    	 * @param {number} containerSize
+    	 * @param {number} offset
+    	 * @param {number} overscanCount
+    	 * @return {{stop: number|undefined, start: number|undefined}}
+    	 */
+    	getVisibleRange({ containerSize = 0, offset, overscanCount }) {
+    		const totalSize = this.getTotalSize();
+
+    		if (totalSize === 0) {
+    			return {};
+    		}
+
+    		const maxOffset = offset + containerSize;
+    		let start = this.findNearestItem(offset);
+
+    		if (start === undefined) {
+    			throw Error(`Invalid offset ${offset} specified`);
+    		}
+
+    		const datum = this.getSizeAndPositionForIndex(start);
+    		offset = datum.offset + datum.size;
+
+    		let stop = start;
+
+    		while (offset < maxOffset && stop < this.itemCount - 1) {
+    			stop++;
+    			offset += this.getSizeAndPositionForIndex(stop).size;
+    		}
+
+    		if (overscanCount) {
+    			start = Math.max(0, start - overscanCount);
+    			stop = Math.min(stop + overscanCount, this.itemCount - 1);
+    		}
+
+    		return {
+    			start,
+    			stop,
+    		};
+    	}
+
+    	/**
+    	 * Clear all cached values for items after the specified index.
+    	 * This method should be called for any item that has changed its size.
+    	 * It will not immediately perform any calculations; they'll be performed the next time getSizeAndPositionForIndex() is called.
+    	 *
+    	 * @param {number} index
+    	 */
+    	resetItem(index) {
+    		this.lastMeasuredIndex = Math.min(this.lastMeasuredIndex, index - 1);
+    	}
+
+    	/**
+    	 * Searches for the item (index) nearest the specified offset.
+    	 *
+    	 * If no exact match is found the next lowest item index will be returned.
+    	 * This allows partially visible items (with offsets just before/above the fold) to be visible.
+    	 *
+    	 * @param {number} offset
+    	 */
+    	findNearestItem(offset) {
+    		if (isNaN(offset)) {
+    			throw Error(`Invalid offset ${offset} specified`);
+    		}
+
+    		// Our search algorithms find the nearest match at or below the specified offset.
+    		// So make sure the offset is at least 0 or no match will be found.
+    		offset = Math.max(0, offset);
+
+    		const lastMeasuredSizeAndPosition = this.getSizeAndPositionOfLastMeasuredItem();
+    		const lastMeasuredIndex = Math.max(0, this.lastMeasuredIndex);
+
+    		if (lastMeasuredSizeAndPosition.offset >= offset) {
+    			// If we've already measured items within this range just use a binary search as it's faster.
+    			return this.binarySearch({
+    				high: lastMeasuredIndex,
+    				low:  0,
+    				offset,
+    			});
+    		} else {
+    			// If we haven't yet measured this high, fallback to an exponential search with an inner binary search.
+    			// The exponential search avoids pre-computing sizes for the full set of items as a binary search would.
+    			// The overall complexity for this approach is O(log n).
+    			return this.exponentialSearch({
+    				index: lastMeasuredIndex,
+    				offset,
+    			});
+    		}
+    	}
+
+    	/**
+    	 * @private
+    	 * @param {number} low
+    	 * @param {number} high
+    	 * @param {number} offset
+    	 */
+    	binarySearch({ low, high, offset }) {
+    		let middle = 0;
+    		let currentOffset = 0;
+
+    		while (low <= high) {
+    			middle = low + Math.floor((high - low) / 2);
+    			currentOffset = this.getSizeAndPositionForIndex(middle).offset;
+
+    			if (currentOffset === offset) {
+    				return middle;
+    			} else if (currentOffset < offset) {
+    				low = middle + 1;
+    			} else if (currentOffset > offset) {
+    				high = middle - 1;
+    			}
+    		}
+
+    		if (low > 0) {
+    			return low - 1;
+    		}
+
+    		return 0;
+    	}
+
+    	/**
+    	 * @private
+    	 * @param {number} index
+    	 * @param {number} offset
+    	 */
+    	exponentialSearch({ index, offset }) {
+    		let interval = 1;
+
+    		while (
+    			index < this.itemCount &&
+    			this.getSizeAndPositionForIndex(index).offset < offset
+    			) {
+    			index += interval;
+    			interval *= 2;
+    		}
+
+    		return this.binarySearch({
+    			high: Math.min(index, this.itemCount - 1),
+    			low:  Math.floor(index / 2),
+    			offset,
+    		});
+    	}
+    }
+
+    /* node_modules/svelte-tiny-virtual-list/src/VirtualList.svelte generated by Svelte v3.57.0 */
+
+    const get_footer_slot_changes = dirty => ({});
+    const get_footer_slot_context = ctx => ({});
+
+    function get_each_context$2(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[37] = list[i];
+    	return child_ctx;
+    }
+
+    const get_item_slot_changes = dirty => ({
+    	style: dirty[0] & /*items*/ 4,
+    	index: dirty[0] & /*items*/ 4
+    });
+
+    const get_item_slot_context = ctx => ({
+    	style: /*item*/ ctx[37].style,
+    	index: /*item*/ ctx[37].index
+    });
+
+    const get_header_slot_changes = dirty => ({});
+    const get_header_slot_context = ctx => ({});
+
+    // (331:2) {#each items as item (getKey ? getKey(item.index) : item.index)}
+    function create_each_block$2(key_1, ctx) {
+    	let first;
+    	let current;
+    	const item_slot_template = /*#slots*/ ctx[21].item;
+    	const item_slot = create_slot(item_slot_template, ctx, /*$$scope*/ ctx[20], get_item_slot_context);
+
+    	return {
+    		key: key_1,
+    		first: null,
+    		c() {
+    			first = empty();
+    			if (item_slot) item_slot.c();
+    			this.first = first;
+    		},
+    		m(target, anchor) {
+    			insert(target, first, anchor);
+
+    			if (item_slot) {
+    				item_slot.m(target, anchor);
+    			}
+
+    			current = true;
+    		},
+    		p(new_ctx, dirty) {
+    			ctx = new_ctx;
+
+    			if (item_slot) {
+    				if (item_slot.p && (!current || dirty[0] & /*$$scope, items*/ 1048580)) {
+    					update_slot_base(
+    						item_slot,
+    						item_slot_template,
+    						ctx,
+    						/*$$scope*/ ctx[20],
+    						!current
+    						? get_all_dirty_from_scope(/*$$scope*/ ctx[20])
+    						: get_slot_changes(item_slot_template, /*$$scope*/ ctx[20], dirty, get_item_slot_changes),
+    						get_item_slot_context
+    					);
+    				}
+    			}
+    		},
+    		i(local) {
+    			if (current) return;
+    			transition_in(item_slot, local);
+    			current = true;
+    		},
+    		o(local) {
+    			transition_out(item_slot, local);
+    			current = false;
+    		},
+    		d(detaching) {
+    			if (detaching) detach(first);
+    			if (item_slot) item_slot.d(detaching);
+    		}
+    	};
+    }
+
+    function create_fragment$5(ctx) {
+    	let div1;
+    	let t0;
+    	let div0;
+    	let each_blocks = [];
+    	let each_1_lookup = new Map();
+    	let t1;
+    	let current;
+    	const header_slot_template = /*#slots*/ ctx[21].header;
+    	const header_slot = create_slot(header_slot_template, ctx, /*$$scope*/ ctx[20], get_header_slot_context);
+    	let each_value = /*items*/ ctx[2];
+
+    	const get_key = ctx => /*getKey*/ ctx[0]
+    	? /*getKey*/ ctx[0](/*item*/ ctx[37].index)
+    	: /*item*/ ctx[37].index;
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		let child_ctx = get_each_context$2(ctx, each_value, i);
+    		let key = get_key(child_ctx);
+    		each_1_lookup.set(key, each_blocks[i] = create_each_block$2(key, child_ctx));
+    	}
+
+    	const footer_slot_template = /*#slots*/ ctx[21].footer;
+    	const footer_slot = create_slot(footer_slot_template, ctx, /*$$scope*/ ctx[20], get_footer_slot_context);
+
+    	return {
+    		c() {
+    			div1 = element("div");
+    			if (header_slot) header_slot.c();
+    			t0 = space();
+    			div0 = element("div");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			t1 = space();
+    			if (footer_slot) footer_slot.c();
+    			attr(div0, "class", "virtual-list-inner svelte-dwpad5");
+    			attr(div0, "style", /*innerStyle*/ ctx[4]);
+    			attr(div1, "class", "virtual-list-wrapper svelte-dwpad5");
+    			attr(div1, "style", /*wrapperStyle*/ ctx[3]);
+    		},
+    		m(target, anchor) {
+    			insert(target, div1, anchor);
+
+    			if (header_slot) {
+    				header_slot.m(div1, null);
+    			}
+
+    			append(div1, t0);
+    			append(div1, div0);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				if (each_blocks[i]) {
+    					each_blocks[i].m(div0, null);
+    				}
+    			}
+
+    			append(div1, t1);
+
+    			if (footer_slot) {
+    				footer_slot.m(div1, null);
+    			}
+
+    			/*div1_binding*/ ctx[22](div1);
+    			current = true;
+    		},
+    		p(ctx, dirty) {
+    			if (header_slot) {
+    				if (header_slot.p && (!current || dirty[0] & /*$$scope*/ 1048576)) {
+    					update_slot_base(
+    						header_slot,
+    						header_slot_template,
+    						ctx,
+    						/*$$scope*/ ctx[20],
+    						!current
+    						? get_all_dirty_from_scope(/*$$scope*/ ctx[20])
+    						: get_slot_changes(header_slot_template, /*$$scope*/ ctx[20], dirty, get_header_slot_changes),
+    						get_header_slot_context
+    					);
+    				}
+    			}
+
+    			if (dirty[0] & /*$$scope, items, getKey*/ 1048581) {
+    				each_value = /*items*/ ctx[2];
+    				group_outros();
+    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, div0, outro_and_destroy_block, create_each_block$2, null, get_each_context$2);
+    				check_outros();
+    			}
+
+    			if (!current || dirty[0] & /*innerStyle*/ 16) {
+    				attr(div0, "style", /*innerStyle*/ ctx[4]);
+    			}
+
+    			if (footer_slot) {
+    				if (footer_slot.p && (!current || dirty[0] & /*$$scope*/ 1048576)) {
+    					update_slot_base(
+    						footer_slot,
+    						footer_slot_template,
+    						ctx,
+    						/*$$scope*/ ctx[20],
+    						!current
+    						? get_all_dirty_from_scope(/*$$scope*/ ctx[20])
+    						: get_slot_changes(footer_slot_template, /*$$scope*/ ctx[20], dirty, get_footer_slot_changes),
+    						get_footer_slot_context
+    					);
+    				}
+    			}
+
+    			if (!current || dirty[0] & /*wrapperStyle*/ 8) {
+    				attr(div1, "style", /*wrapperStyle*/ ctx[3]);
+    			}
+    		},
+    		i(local) {
+    			if (current) return;
+    			transition_in(header_slot, local);
+
+    			for (let i = 0; i < each_value.length; i += 1) {
+    				transition_in(each_blocks[i]);
+    			}
+
+    			transition_in(footer_slot, local);
+    			current = true;
+    		},
+    		o(local) {
+    			transition_out(header_slot, local);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				transition_out(each_blocks[i]);
+    			}
+
+    			transition_out(footer_slot, local);
+    			current = false;
+    		},
+    		d(detaching) {
+    			if (detaching) detach(div1);
+    			if (header_slot) header_slot.d(detaching);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].d();
+    			}
+
+    			if (footer_slot) footer_slot.d(detaching);
+    			/*div1_binding*/ ctx[22](null);
+    		}
+    	};
+    }
+
+    const thirdEventArg = (() => {
+    	let result = false;
+
+    	try {
+    		const arg = Object.defineProperty({}, 'passive', {
+    			get() {
+    				result = { passive: true };
+    				return true;
+    			}
+    		});
+
+    		window.addEventListener('testpassive', arg, arg);
+    		window.remove('testpassive', arg, arg);
+    	} catch(e) {
+    		
+    	} /* */
+
+    	return result;
+    })();
+
+    function instance$4($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	let { height } = $$props;
+    	let { width = '100%' } = $$props;
+    	let { itemCount } = $$props;
+    	let { itemSize } = $$props;
+    	let { estimatedItemSize = null } = $$props;
+    	let { stickyIndices = null } = $$props;
+    	let { getKey = null } = $$props;
+    	let { scrollDirection = DIRECTION.VERTICAL } = $$props;
+    	let { scrollOffset = null } = $$props;
+    	let { scrollToIndex = null } = $$props;
+    	let { scrollToAlignment = null } = $$props;
+    	let { scrollToBehaviour = 'instant' } = $$props;
+    	let { overscanCount = 3 } = $$props;
+    	const dispatchEvent = createEventDispatcher();
+
+    	const sizeAndPositionManager = new SizeAndPositionManager({
+    			itemCount,
+    			itemSize,
+    			estimatedItemSize: getEstimatedItemSize()
+    		});
+
+    	let mounted = false;
+    	let wrapper;
+    	let items = [];
+
+    	let state = {
+    		offset: scrollOffset || scrollToIndex != null && items.length && getOffsetForIndex(scrollToIndex) || 0,
+    		scrollChangeReason: SCROLL_CHANGE_REASON.REQUESTED
+    	};
+
+    	let prevState = state;
+
+    	let prevProps = {
+    		scrollToIndex,
+    		scrollToAlignment,
+    		scrollOffset,
+    		itemCount,
+    		itemSize,
+    		estimatedItemSize
+    	};
+
+    	let styleCache = {};
+    	let wrapperStyle = '';
+    	let innerStyle = '';
+    	refresh(); // Initial Load
+
+    	onMount(() => {
+    		$$invalidate(18, mounted = true);
+    		wrapper.addEventListener('scroll', handleScroll, thirdEventArg);
+
+    		if (scrollOffset != null) {
+    			scrollTo(scrollOffset);
+    		} else if (scrollToIndex != null) {
+    			scrollTo(getOffsetForIndex(scrollToIndex));
+    		}
+    	});
+
+    	onDestroy(() => {
+    		if (mounted) wrapper.removeEventListener('scroll', handleScroll);
+    	});
+
+    	function propsUpdated() {
+    		if (!mounted) return;
+    		const scrollPropsHaveChanged = prevProps.scrollToIndex !== scrollToIndex || prevProps.scrollToAlignment !== scrollToAlignment;
+    		const itemPropsHaveChanged = prevProps.itemCount !== itemCount || prevProps.itemSize !== itemSize || prevProps.estimatedItemSize !== estimatedItemSize;
+
+    		if (itemPropsHaveChanged) {
+    			sizeAndPositionManager.updateConfig({
+    				itemSize,
+    				itemCount,
+    				estimatedItemSize: getEstimatedItemSize()
+    			});
+
+    			recomputeSizes();
+    		}
+
+    		if (prevProps.scrollOffset !== scrollOffset) {
+    			$$invalidate(19, state = {
+    				offset: scrollOffset || 0,
+    				scrollChangeReason: SCROLL_CHANGE_REASON.REQUESTED
+    			});
+    		} else if (typeof scrollToIndex === 'number' && (scrollPropsHaveChanged || itemPropsHaveChanged)) {
+    			$$invalidate(19, state = {
+    				offset: getOffsetForIndex(scrollToIndex, scrollToAlignment, itemCount),
+    				scrollChangeReason: SCROLL_CHANGE_REASON.REQUESTED
+    			});
+    		}
+
+    		prevProps = {
+    			scrollToIndex,
+    			scrollToAlignment,
+    			scrollOffset,
+    			itemCount,
+    			itemSize,
+    			estimatedItemSize
+    		};
+    	}
+
+    	function stateUpdated() {
+    		if (!mounted) return;
+    		const { offset, scrollChangeReason } = state;
+
+    		if (prevState.offset !== offset || prevState.scrollChangeReason !== scrollChangeReason) {
+    			refresh();
+    		}
+
+    		if (prevState.offset !== offset && scrollChangeReason === SCROLL_CHANGE_REASON.REQUESTED) {
+    			scrollTo(offset);
+    		}
+
+    		prevState = state;
+    	}
+
+    	function refresh() {
+    		const { offset } = state;
+
+    		const { start, stop } = sizeAndPositionManager.getVisibleRange({
+    			containerSize: scrollDirection === DIRECTION.VERTICAL ? height : width,
+    			offset,
+    			overscanCount
+    		});
+
+    		let updatedItems = [];
+    		const totalSize = sizeAndPositionManager.getTotalSize();
+
+    		if (scrollDirection === DIRECTION.VERTICAL) {
+    			$$invalidate(3, wrapperStyle = `height:${height}px;width:${width};`);
+    			$$invalidate(4, innerStyle = `flex-direction:column;height:${totalSize}px;`);
+    		} else {
+    			$$invalidate(3, wrapperStyle = `height:${height};width:${width}px`);
+    			$$invalidate(4, innerStyle = `min-height:100%;width:${totalSize}px;`);
+    		}
+
+    		const hasStickyIndices = stickyIndices != null && stickyIndices.length !== 0;
+
+    		if (hasStickyIndices) {
+    			for (let i = 0; i < stickyIndices.length; i++) {
+    				const index = stickyIndices[i];
+    				updatedItems.push({ index, style: getStyle(index, true) });
+    			}
+    		}
+
+    		if (start !== undefined && stop !== undefined) {
+    			for (let index = start; index <= stop; index++) {
+    				if (hasStickyIndices && stickyIndices.includes(index)) {
+    					continue;
+    				}
+
+    				updatedItems.push({ index, style: getStyle(index, false) });
+    			}
+
+    			dispatchEvent('itemsUpdated', { start, end: stop });
+    		}
+
+    		$$invalidate(2, items = updatedItems);
+    	}
+
+    	function scrollTo(value) {
+    		if ('scroll' in wrapper) {
+    			wrapper.scroll({
+    				[SCROLL_PROP[scrollDirection]]: value,
+    				behavior: scrollToBehaviour
+    			});
+    		} else {
+    			$$invalidate(1, wrapper[SCROLL_PROP_LEGACY[scrollDirection]] = value, wrapper);
+    		}
+    	}
+
+    	function recomputeSizes(startIndex = 0) {
+    		styleCache = {};
+    		sizeAndPositionManager.resetItem(startIndex);
+    		refresh();
+    	}
+
+    	function getOffsetForIndex(index, align = scrollToAlignment, _itemCount = itemCount) {
+    		if (index < 0 || index >= _itemCount) {
+    			index = 0;
+    		}
+
+    		return sizeAndPositionManager.getUpdatedOffsetForIndex({
+    			align,
+    			containerSize: scrollDirection === DIRECTION.VERTICAL ? height : width,
+    			currentOffset: state.offset || 0,
+    			targetIndex: index
+    		});
+    	}
+
+    	function handleScroll(event) {
+    		const offset = getWrapperOffset();
+    		if (offset < 0 || state.offset === offset || event.target !== wrapper) return;
+
+    		$$invalidate(19, state = {
+    			offset,
+    			scrollChangeReason: SCROLL_CHANGE_REASON.OBSERVED
+    		});
+
+    		dispatchEvent('afterScroll', { offset, event });
+    	}
+
+    	function getWrapperOffset() {
+    		return wrapper[SCROLL_PROP_LEGACY[scrollDirection]];
+    	}
+
+    	function getEstimatedItemSize() {
+    		return estimatedItemSize || typeof itemSize === 'number' && itemSize || 50;
+    	}
+
+    	function getStyle(index, sticky) {
+    		if (styleCache[index]) return styleCache[index];
+    		const { size, offset } = sizeAndPositionManager.getSizeAndPositionForIndex(index);
+    		let style;
+
+    		if (scrollDirection === DIRECTION.VERTICAL) {
+    			style = `left:0;width:100%;height:${size}px;`;
+
+    			if (sticky) {
+    				style += `position:sticky;flex-grow:0;z-index:1;top:0;margin-top:${offset}px;margin-bottom:${-(offset + size)}px;`;
+    			} else {
+    				style += `position:absolute;top:${offset}px;`;
+    			}
+    		} else {
+    			style = `top:0;width:${size}px;`;
+
+    			if (sticky) {
+    				style += `position:sticky;z-index:1;left:0;margin-left:${offset}px;margin-right:${-(offset + size)}px;`;
+    			} else {
+    				style += `position:absolute;height:100%;left:${offset}px;`;
+    			}
+    		}
+
+    		return styleCache[index] = style;
+    	}
+
+    	function div1_binding($$value) {
+    		binding_callbacks[$$value ? 'unshift' : 'push'](() => {
+    			wrapper = $$value;
+    			$$invalidate(1, wrapper);
+    		});
+    	}
+
+    	$$self.$$set = $$props => {
+    		if ('height' in $$props) $$invalidate(5, height = $$props.height);
+    		if ('width' in $$props) $$invalidate(6, width = $$props.width);
+    		if ('itemCount' in $$props) $$invalidate(7, itemCount = $$props.itemCount);
+    		if ('itemSize' in $$props) $$invalidate(8, itemSize = $$props.itemSize);
+    		if ('estimatedItemSize' in $$props) $$invalidate(9, estimatedItemSize = $$props.estimatedItemSize);
+    		if ('stickyIndices' in $$props) $$invalidate(10, stickyIndices = $$props.stickyIndices);
+    		if ('getKey' in $$props) $$invalidate(0, getKey = $$props.getKey);
+    		if ('scrollDirection' in $$props) $$invalidate(11, scrollDirection = $$props.scrollDirection);
+    		if ('scrollOffset' in $$props) $$invalidate(12, scrollOffset = $$props.scrollOffset);
+    		if ('scrollToIndex' in $$props) $$invalidate(13, scrollToIndex = $$props.scrollToIndex);
+    		if ('scrollToAlignment' in $$props) $$invalidate(14, scrollToAlignment = $$props.scrollToAlignment);
+    		if ('scrollToBehaviour' in $$props) $$invalidate(15, scrollToBehaviour = $$props.scrollToBehaviour);
+    		if ('overscanCount' in $$props) $$invalidate(16, overscanCount = $$props.overscanCount);
+    		if ('$$scope' in $$props) $$invalidate(20, $$scope = $$props.$$scope);
+    	};
+
+    	$$self.$$.update = () => {
+    		if ($$self.$$.dirty[0] & /*scrollToIndex, scrollToAlignment, scrollOffset, itemCount, itemSize, estimatedItemSize*/ 29568) {
+    			{
+
+    				propsUpdated();
+    			}
+    		}
+
+    		if ($$self.$$.dirty[0] & /*state*/ 524288) {
+    			{
+
+    				stateUpdated();
+    			}
+    		}
+
+    		if ($$self.$$.dirty[0] & /*height, width, stickyIndices, mounted*/ 263264) {
+    			{
+
+    				if (mounted) recomputeSizes(0); // call scroll.reset;
+    			}
+    		}
+    	};
+
+    	return [
+    		getKey,
+    		wrapper,
+    		items,
+    		wrapperStyle,
+    		innerStyle,
+    		height,
+    		width,
+    		itemCount,
+    		itemSize,
+    		estimatedItemSize,
+    		stickyIndices,
+    		scrollDirection,
+    		scrollOffset,
+    		scrollToIndex,
+    		scrollToAlignment,
+    		scrollToBehaviour,
+    		overscanCount,
+    		recomputeSizes,
+    		mounted,
+    		state,
+    		$$scope,
+    		slots,
+    		div1_binding
+    	];
+    }
+
+    class VirtualList extends SvelteComponent {
+    	constructor(options) {
+    		super();
+
+    		init(
+    			this,
+    			options,
+    			instance$4,
+    			create_fragment$5,
+    			safe_not_equal,
+    			{
+    				height: 5,
+    				width: 6,
+    				itemCount: 7,
+    				itemSize: 8,
+    				estimatedItemSize: 9,
+    				stickyIndices: 10,
+    				getKey: 0,
+    				scrollDirection: 11,
+    				scrollOffset: 12,
+    				scrollToIndex: 13,
+    				scrollToAlignment: 14,
+    				scrollToBehaviour: 15,
+    				overscanCount: 16,
+    				recomputeSizes: 17
+    			},
+    			null,
+    			[-1, -1]
+    		);
+    	}
+
+    	get recomputeSizes() {
+    		return this.$$.ctx[17];
+    	}
+    }
+
+    /* src/components/Dropdown.svelte generated by Svelte v3.57.0 */
+
+    function get_each_context$1(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[56] = list[i];
+    	child_ctx[58] = i;
+    	return child_ctx;
+    }
+
+    function get_each_context_1(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[56] = list[i];
+    	child_ctx[58] = i;
+    	return child_ctx;
+    }
+
+    // (182:0) {#if isMounted && renderDropdown}
+    function create_if_block$2(ctx) {
+    	let div2;
+    	let t0;
+    	let div1;
+    	let div0;
+    	let t1;
+    	let t2;
+    	let current;
+    	let mounted;
+    	let dispose;
+    	let if_block0 = /*selection*/ ctx[17] && create_if_block_6(ctx);
+    	let if_block1 = /*items*/ ctx[5].length && create_if_block_4(ctx);
+    	let if_block2 = (/*hasEmptyList*/ ctx[19] || /*maxReached*/ ctx[2]) && create_if_block_3(ctx);
+    	let if_block3 = /*inputValue*/ ctx[8] && /*creatable*/ ctx[1] && !/*maxReached*/ ctx[2] && create_if_block_1$2(ctx);
+
+    	return {
+    		c() {
+    			div2 = element("div");
+    			if (if_block0) if_block0.c();
+    			t0 = space();
+    			div1 = element("div");
+    			div0 = element("div");
+    			if (if_block1) if_block1.c();
+    			t1 = space();
+    			if (if_block2) if_block2.c();
+    			t2 = space();
+    			if (if_block3) if_block3.c();
+    			attr(div0, "class", "sv-dropdown-content svelte-gvgdfq");
+    			toggle_class(div0, "max-reached", /*maxReached*/ ctx[2]);
+    			attr(div1, "class", "sv-dropdown-scroll svelte-gvgdfq");
+    			attr(div1, "tabindex", "-1");
+    			toggle_class(div1, "is-empty", !/*items*/ ctx[5].length);
+    			attr(div2, "class", "sv-dropdown svelte-gvgdfq");
+    			attr(div2, "aria-expanded", /*$hasDropdownOpened*/ ctx[28]);
+    			toggle_class(div2, "is-virtual", /*virtualList*/ ctx[7]);
+    		},
+    		m(target, anchor) {
+    			insert(target, div2, anchor);
+    			if (if_block0) if_block0.m(div2, null);
+    			append(div2, t0);
+    			append(div2, div1);
+    			append(div1, div0);
+    			if (if_block1) if_block1.m(div0, null);
+    			append(div0, t1);
+    			if (if_block2) if_block2.m(div0, null);
+    			/*div0_binding*/ ctx[43](div0);
+    			/*div1_binding*/ ctx[44](div1);
+    			append(div2, t2);
+    			if (if_block3) if_block3.m(div2, null);
+    			/*div2_binding*/ ctx[45](div2);
+    			current = true;
+
+    			if (!mounted) {
+    				dispose = listen(div2, "mousedown", prevent_default(/*mousedown_handler*/ ctx[36]));
+    				mounted = true;
+    			}
+    		},
+    		p(ctx, dirty) {
+    			if (/*selection*/ ctx[17]) {
+    				if (if_block0) {
+    					if_block0.p(ctx, dirty);
+
+    					if (dirty[0] & /*selection*/ 131072) {
+    						transition_in(if_block0, 1);
+    					}
+    				} else {
+    					if_block0 = create_if_block_6(ctx);
+    					if_block0.c();
+    					transition_in(if_block0, 1);
+    					if_block0.m(div2, t0);
+    				}
+    			} else if (if_block0) {
+    				group_outros();
+
+    				transition_out(if_block0, 1, 1, () => {
+    					if_block0 = null;
+    				});
+
+    				check_outros();
+    			}
+
+    			if (/*items*/ ctx[5].length) {
+    				if (if_block1) {
+    					if_block1.p(ctx, dirty);
+
+    					if (dirty[0] & /*items*/ 32) {
+    						transition_in(if_block1, 1);
+    					}
+    				} else {
+    					if_block1 = create_if_block_4(ctx);
+    					if_block1.c();
+    					transition_in(if_block1, 1);
+    					if_block1.m(div0, t1);
+    				}
+    			} else if (if_block1) {
+    				group_outros();
+
+    				transition_out(if_block1, 1, 1, () => {
+    					if_block1 = null;
+    				});
+
+    				check_outros();
+    			}
+
+    			if (/*hasEmptyList*/ ctx[19] || /*maxReached*/ ctx[2]) {
+    				if (if_block2) {
+    					if_block2.p(ctx, dirty);
+    				} else {
+    					if_block2 = create_if_block_3(ctx);
+    					if_block2.c();
+    					if_block2.m(div0, null);
+    				}
+    			} else if (if_block2) {
+    				if_block2.d(1);
+    				if_block2 = null;
+    			}
+
+    			if (!current || dirty[0] & /*maxReached*/ 4) {
+    				toggle_class(div0, "max-reached", /*maxReached*/ ctx[2]);
+    			}
+
+    			if (!current || dirty[0] & /*items*/ 32) {
+    				toggle_class(div1, "is-empty", !/*items*/ ctx[5].length);
+    			}
+
+    			if (/*inputValue*/ ctx[8] && /*creatable*/ ctx[1] && !/*maxReached*/ ctx[2]) {
+    				if (if_block3) {
+    					if_block3.p(ctx, dirty);
+    				} else {
+    					if_block3 = create_if_block_1$2(ctx);
+    					if_block3.c();
+    					if_block3.m(div2, null);
+    				}
+    			} else if (if_block3) {
+    				if_block3.d(1);
+    				if_block3 = null;
+    			}
+
+    			if (!current || dirty[0] & /*$hasDropdownOpened*/ 268435456) {
+    				attr(div2, "aria-expanded", /*$hasDropdownOpened*/ ctx[28]);
+    			}
+
+    			if (!current || dirty[0] & /*virtualList*/ 128) {
+    				toggle_class(div2, "is-virtual", /*virtualList*/ ctx[7]);
+    			}
+    		},
+    		i(local) {
+    			if (current) return;
+    			transition_in(if_block0);
+    			transition_in(if_block1);
+    			current = true;
+    		},
+    		o(local) {
+    			transition_out(if_block0);
+    			transition_out(if_block1);
+    			current = false;
+    		},
+    		d(detaching) {
+    			if (detaching) detach(div2);
+    			if (if_block0) if_block0.d();
+    			if (if_block1) if_block1.d();
+    			if (if_block2) if_block2.d();
+    			/*div0_binding*/ ctx[43](null);
+    			/*div1_binding*/ ctx[44](null);
+    			if (if_block3) if_block3.d();
+    			/*div2_binding*/ ctx[45](null);
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+    }
+
+    // (186:2) {#if selection}
+    function create_if_block_6(ctx) {
+    	let div;
+    	let each_blocks = [];
+    	let each_1_lookup = new Map();
+    	let current;
+    	let each_value_1 = /*selection*/ ctx[17];
+    	const get_key = ctx => /*i*/ ctx[58];
+
+    	for (let i = 0; i < each_value_1.length; i += 1) {
+    		let child_ctx = get_each_context_1(ctx, each_value_1, i);
+    		let key = get_key(child_ctx);
+    		each_1_lookup.set(key, each_blocks[i] = create_each_block_1(key, child_ctx));
+    	}
+
+    	return {
+    		c() {
+    			div = element("div");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			attr(div, "class", "sv-content has-multiSelection alwaysCollapsed-selection svelte-gvgdfq");
+    		},
+    		m(target, anchor) {
+    			insert(target, div, anchor);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				if (each_blocks[i]) {
+    					each_blocks[i].m(div, null);
+    				}
+    			}
+
+    			current = true;
+    		},
+    		p(ctx, dirty) {
+    			if (dirty[0] & /*itemComponent, renderer, selection, multiple, inputValue*/ 197384) {
+    				each_value_1 = /*selection*/ ctx[17];
+    				group_outros();
+    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value_1, each_1_lookup, div, outro_and_destroy_block, create_each_block_1, null, get_each_context_1);
+    				check_outros();
+    			}
+    		},
+    		i(local) {
+    			if (current) return;
+
+    			for (let i = 0; i < each_value_1.length; i += 1) {
+    				transition_in(each_blocks[i]);
+    			}
+
+    			current = true;
+    		},
+    		o(local) {
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				transition_out(each_blocks[i]);
+    			}
+
+    			current = false;
+    		},
+    		d(detaching) {
+    			if (detaching) detach(div);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].d();
+    			}
+    		}
+    	};
+    }
+
+    // (188:4) {#each selection as opt, i (i)}
+    function create_each_block_1(key_1, ctx) {
+    	let first;
+    	let switch_instance;
+    	let switch_instance_anchor;
+    	let current;
+    	var switch_value = /*itemComponent*/ ctx[16];
+
+    	function switch_props(ctx) {
+    		return {
+    			props: {
+    				formatter: /*renderer*/ ctx[3],
+    				item: /*opt*/ ctx[56],
+    				isSelected: true,
+    				isMultiple: /*multiple*/ ctx[9],
+    				inputValue: /*inputValue*/ ctx[8]
+    			}
+    		};
+    	}
+
+    	if (switch_value) {
+    		switch_instance = construct_svelte_component(switch_value, switch_props(ctx));
+    		switch_instance.$on("deselect", /*deselect_handler*/ ctx[37]);
+    	}
+
+    	return {
+    		key: key_1,
+    		first: null,
+    		c() {
+    			first = empty();
+    			if (switch_instance) create_component(switch_instance.$$.fragment);
+    			switch_instance_anchor = empty();
+    			this.first = first;
+    		},
+    		m(target, anchor) {
+    			insert(target, first, anchor);
+    			if (switch_instance) mount_component(switch_instance, target, anchor);
+    			insert(target, switch_instance_anchor, anchor);
+    			current = true;
+    		},
+    		p(new_ctx, dirty) {
+    			ctx = new_ctx;
+    			const switch_instance_changes = {};
+    			if (dirty[0] & /*renderer*/ 8) switch_instance_changes.formatter = /*renderer*/ ctx[3];
+    			if (dirty[0] & /*selection*/ 131072) switch_instance_changes.item = /*opt*/ ctx[56];
+    			if (dirty[0] & /*multiple*/ 512) switch_instance_changes.isMultiple = /*multiple*/ ctx[9];
+    			if (dirty[0] & /*inputValue*/ 256) switch_instance_changes.inputValue = /*inputValue*/ ctx[8];
+
+    			if (dirty[0] & /*itemComponent*/ 65536 && switch_value !== (switch_value = /*itemComponent*/ ctx[16])) {
+    				if (switch_instance) {
+    					group_outros();
+    					const old_component = switch_instance;
+
+    					transition_out(old_component.$$.fragment, 1, 0, () => {
+    						destroy_component(old_component, 1);
+    					});
+
+    					check_outros();
+    				}
+
+    				if (switch_value) {
+    					switch_instance = construct_svelte_component(switch_value, switch_props(ctx));
+    					switch_instance.$on("deselect", /*deselect_handler*/ ctx[37]);
+    					create_component(switch_instance.$$.fragment);
+    					transition_in(switch_instance.$$.fragment, 1);
+    					mount_component(switch_instance, switch_instance_anchor.parentNode, switch_instance_anchor);
+    				} else {
+    					switch_instance = null;
+    				}
+    			} else if (switch_value) {
+    				switch_instance.$set(switch_instance_changes);
+    			}
+    		},
+    		i(local) {
+    			if (current) return;
+    			if (switch_instance) transition_in(switch_instance.$$.fragment, local);
+    			current = true;
+    		},
+    		o(local) {
+    			if (switch_instance) transition_out(switch_instance.$$.fragment, local);
+    			current = false;
+    		},
+    		d(detaching) {
+    			if (detaching) detach(first);
+    			if (detaching) detach(switch_instance_anchor);
+    			if (switch_instance) destroy_component(switch_instance, detaching);
+    		}
+    	};
+    }
+
+    // (195:4) {#if items.length}
+    function create_if_block_4(ctx) {
+    	let current_block_type_index;
+    	let if_block;
+    	let if_block_anchor;
+    	let current;
+    	const if_block_creators = [create_if_block_5, create_else_block$1];
+    	const if_blocks = [];
+
+    	function select_block_type(ctx, dirty) {
+    		if (/*virtualList*/ ctx[7]) return 0;
+    		return 1;
+    	}
+
+    	current_block_type_index = select_block_type(ctx);
+    	if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+
+    	return {
+    		c() {
+    			if_block.c();
+    			if_block_anchor = empty();
+    		},
+    		m(target, anchor) {
+    			if_blocks[current_block_type_index].m(target, anchor);
+    			insert(target, if_block_anchor, anchor);
+    			current = true;
+    		},
+    		p(ctx, dirty) {
+    			let previous_block_index = current_block_type_index;
+    			current_block_type_index = select_block_type(ctx);
+
+    			if (current_block_type_index === previous_block_index) {
+    				if_blocks[current_block_type_index].p(ctx, dirty);
+    			} else {
+    				group_outros();
+
+    				transition_out(if_blocks[previous_block_index], 1, 1, () => {
+    					if_blocks[previous_block_index] = null;
+    				});
+
+    				check_outros();
+    				if_block = if_blocks[current_block_type_index];
+
+    				if (!if_block) {
+    					if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+    					if_block.c();
+    				} else {
+    					if_block.p(ctx, dirty);
+    				}
+
+    				transition_in(if_block, 1);
+    				if_block.m(if_block_anchor.parentNode, if_block_anchor);
+    			}
+    		},
+    		i(local) {
+    			if (current) return;
+    			transition_in(if_block);
+    			current = true;
+    		},
+    		o(local) {
+    			transition_out(if_block);
+    			current = false;
+    		},
+    		d(detaching) {
+    			if_blocks[current_block_type_index].d(detaching);
+    			if (detaching) detach(if_block_anchor);
+    		}
+    	};
+    }
+
+    // (221:6) {:else}
+    function create_else_block$1(ctx) {
+    	let each_1_anchor;
+    	let current;
+    	let each_value = /*items*/ ctx[5];
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block$1(get_each_context$1(ctx, each_value, i));
+    	}
+
+    	const out = i => transition_out(each_blocks[i], 1, 1, () => {
+    		each_blocks[i] = null;
+    	});
+
+    	return {
+    		c() {
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			each_1_anchor = empty();
+    		},
+    		m(target, anchor) {
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				if (each_blocks[i]) {
+    					each_blocks[i].m(target, anchor);
+    				}
+    			}
+
+    			insert(target, each_1_anchor, anchor);
+    			current = true;
+    		},
+    		p(ctx, dirty) {
+    			if (dirty[0] & /*listIndex, dropdownIndex, items, itemComponent, renderer, disabledField, inputValue, disableHighlight*/ 75065) {
+    				each_value = /*items*/ ctx[5];
+    				let i;
+
+    				for (i = 0; i < each_value.length; i += 1) {
+    					const child_ctx = get_each_context$1(ctx, each_value, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    						transition_in(each_blocks[i], 1);
+    					} else {
+    						each_blocks[i] = create_each_block$1(child_ctx);
+    						each_blocks[i].c();
+    						transition_in(each_blocks[i], 1);
+    						each_blocks[i].m(each_1_anchor.parentNode, each_1_anchor);
+    					}
+    				}
+
+    				group_outros();
+
+    				for (i = each_value.length; i < each_blocks.length; i += 1) {
+    					out(i);
+    				}
+
+    				check_outros();
+    			}
+    		},
+    		i(local) {
+    			if (current) return;
+
+    			for (let i = 0; i < each_value.length; i += 1) {
+    				transition_in(each_blocks[i]);
+    			}
+
+    			current = true;
+    		},
+    		o(local) {
+    			each_blocks = each_blocks.filter(Boolean);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				transition_out(each_blocks[i]);
+    			}
+
+    			current = false;
+    		},
+    		d(detaching) {
+    			destroy_each(each_blocks, detaching);
+    			if (detaching) detach(each_1_anchor);
+    		}
+    	};
+    }
+
+    // (196:6) {#if virtualList}
+    function create_if_block_5(ctx) {
+    	let virtuallist;
+    	let current;
+
+    	let virtuallist_props = {
+    		width: "100%",
+    		height: /*vl_listHeight*/ ctx[26],
+    		itemCount: /*items*/ ctx[5].length,
+    		itemSize: /*vl_itemSize*/ ctx[21],
+    		scrollToAlignment: "auto",
+    		scrollToIndex: !/*multiple*/ ctx[9] && /*dropdownIndex*/ ctx[0]
+    		? parseInt(/*dropdownIndex*/ ctx[0])
+    		: null,
+    		$$slots: {
+    			item: [
+    				create_item_slot,
+    				({ style, index }) => ({ 54: style, 55: index }),
+    				({ style, index }) => [0, (style ? 8388608 : 0) | (index ? 16777216 : 0)]
+    			]
+    		},
+    		$$scope: { ctx }
+    	};
+
+    	virtuallist = new VirtualList({ props: virtuallist_props });
+    	/*virtuallist_binding*/ ctx[40](virtuallist);
+
+    	return {
+    		c() {
+    			create_component(virtuallist.$$.fragment);
+    		},
+    		m(target, anchor) {
+    			mount_component(virtuallist, target, anchor);
+    			current = true;
+    		},
+    		p(ctx, dirty) {
+    			const virtuallist_changes = {};
+    			if (dirty[0] & /*vl_listHeight*/ 67108864) virtuallist_changes.height = /*vl_listHeight*/ ctx[26];
+    			if (dirty[0] & /*items*/ 32) virtuallist_changes.itemCount = /*items*/ ctx[5].length;
+    			if (dirty[0] & /*vl_itemSize*/ 2097152) virtuallist_changes.itemSize = /*vl_itemSize*/ ctx[21];
+
+    			if (dirty[0] & /*multiple, dropdownIndex*/ 513) virtuallist_changes.scrollToIndex = !/*multiple*/ ctx[9] && /*dropdownIndex*/ ctx[0]
+    			? parseInt(/*dropdownIndex*/ ctx[0])
+    			: null;
+
+    			if (dirty[0] & /*dropdownIndex, items, itemComponent, renderer, listIndex, disabledField, inputValue, disableHighlight*/ 75065 | dirty[1] & /*$$scope, style, index*/ 562036736) {
+    				virtuallist_changes.$$scope = { dirty, ctx };
+    			}
+
+    			virtuallist.$set(virtuallist_changes);
+    		},
+    		i(local) {
+    			if (current) return;
+    			transition_in(virtuallist.$$.fragment, local);
+    			current = true;
+    		},
+    		o(local) {
+    			transition_out(virtuallist.$$.fragment, local);
+    			current = false;
+    		},
+    		d(detaching) {
+    			/*virtuallist_binding*/ ctx[40](null);
+    			destroy_component(virtuallist, detaching);
+    		}
+    	};
+    }
+
+    // (222:8) {#each items as opt, i}
+    function create_each_block$1(ctx) {
+    	let div;
+    	let switch_instance;
+    	let t;
+    	let div_data_pos_value;
+    	let current;
+    	var switch_value = /*itemComponent*/ ctx[16];
+
+    	function switch_props(ctx) {
+    		return {
+    			props: {
+    				formatter: /*renderer*/ ctx[3],
+    				index: /*listIndex*/ ctx[10].map[/*i*/ ctx[58]],
+    				isDisabled: /*opt*/ ctx[56][/*disabledField*/ ctx[13]],
+    				item: /*opt*/ ctx[56],
+    				inputValue: /*inputValue*/ ctx[8],
+    				disableHighlight: /*disableHighlight*/ ctx[4]
+    			}
+    		};
+    	}
+
+    	if (switch_value) {
+    		switch_instance = construct_svelte_component(switch_value, switch_props(ctx));
+    		switch_instance.$on("hover", /*hover_handler_1*/ ctx[41]);
+    		switch_instance.$on("select", /*select_handler_1*/ ctx[42]);
+    	}
+
+    	return {
+    		c() {
+    			div = element("div");
+    			if (switch_instance) create_component(switch_instance.$$.fragment);
+    			t = space();
+    			attr(div, "data-pos", div_data_pos_value = /*listIndex*/ ctx[10].map[/*i*/ ctx[58]]);
+    			attr(div, "class", "sv-dd-item");
+    			toggle_class(div, "sv-dd-item-active", /*listIndex*/ ctx[10].map[/*i*/ ctx[58]] == /*dropdownIndex*/ ctx[0]);
+    			toggle_class(div, "sv-group-item", /*opt*/ ctx[56].$isGroupItem);
+    			toggle_class(div, "sv-group-header", /*opt*/ ctx[56].$isGroupHeader);
+    		},
+    		m(target, anchor) {
+    			insert(target, div, anchor);
+    			if (switch_instance) mount_component(switch_instance, div, null);
+    			append(div, t);
+    			current = true;
+    		},
+    		p(ctx, dirty) {
+    			const switch_instance_changes = {};
+    			if (dirty[0] & /*renderer*/ 8) switch_instance_changes.formatter = /*renderer*/ ctx[3];
+    			if (dirty[0] & /*listIndex*/ 1024) switch_instance_changes.index = /*listIndex*/ ctx[10].map[/*i*/ ctx[58]];
+    			if (dirty[0] & /*items, disabledField*/ 8224) switch_instance_changes.isDisabled = /*opt*/ ctx[56][/*disabledField*/ ctx[13]];
+    			if (dirty[0] & /*items*/ 32) switch_instance_changes.item = /*opt*/ ctx[56];
+    			if (dirty[0] & /*inputValue*/ 256) switch_instance_changes.inputValue = /*inputValue*/ ctx[8];
+    			if (dirty[0] & /*disableHighlight*/ 16) switch_instance_changes.disableHighlight = /*disableHighlight*/ ctx[4];
+
+    			if (dirty[0] & /*itemComponent*/ 65536 && switch_value !== (switch_value = /*itemComponent*/ ctx[16])) {
+    				if (switch_instance) {
+    					group_outros();
+    					const old_component = switch_instance;
+
+    					transition_out(old_component.$$.fragment, 1, 0, () => {
+    						destroy_component(old_component, 1);
+    					});
+
+    					check_outros();
+    				}
+
+    				if (switch_value) {
+    					switch_instance = construct_svelte_component(switch_value, switch_props(ctx));
+    					switch_instance.$on("hover", /*hover_handler_1*/ ctx[41]);
+    					switch_instance.$on("select", /*select_handler_1*/ ctx[42]);
+    					create_component(switch_instance.$$.fragment);
+    					transition_in(switch_instance.$$.fragment, 1);
+    					mount_component(switch_instance, div, t);
+    				} else {
+    					switch_instance = null;
+    				}
+    			} else if (switch_value) {
+    				switch_instance.$set(switch_instance_changes);
+    			}
+
+    			if (!current || dirty[0] & /*listIndex*/ 1024 && div_data_pos_value !== (div_data_pos_value = /*listIndex*/ ctx[10].map[/*i*/ ctx[58]])) {
+    				attr(div, "data-pos", div_data_pos_value);
+    			}
+
+    			if (!current || dirty[0] & /*listIndex, dropdownIndex*/ 1025) {
+    				toggle_class(div, "sv-dd-item-active", /*listIndex*/ ctx[10].map[/*i*/ ctx[58]] == /*dropdownIndex*/ ctx[0]);
+    			}
+
+    			if (!current || dirty[0] & /*items*/ 32) {
+    				toggle_class(div, "sv-group-item", /*opt*/ ctx[56].$isGroupItem);
+    			}
+
+    			if (!current || dirty[0] & /*items*/ 32) {
+    				toggle_class(div, "sv-group-header", /*opt*/ ctx[56].$isGroupHeader);
+    			}
+    		},
+    		i(local) {
+    			if (current) return;
+    			if (switch_instance) transition_in(switch_instance.$$.fragment, local);
+    			current = true;
+    		},
+    		o(local) {
+    			if (switch_instance) transition_out(switch_instance.$$.fragment, local);
+    			current = false;
+    		},
+    		d(detaching) {
+    			if (detaching) detach(div);
+    			if (switch_instance) destroy_component(switch_instance);
+    		}
+    	};
+    }
+
+    // (205:10) 
+    function create_item_slot(ctx) {
+    	let div;
+    	let switch_instance;
+    	let div_style_value;
+    	let current;
+    	var switch_value = /*itemComponent*/ ctx[16];
+
+    	function switch_props(ctx) {
+    		return {
+    			props: {
+    				formatter: /*renderer*/ ctx[3],
+    				index: /*listIndex*/ ctx[10].map[/*index*/ ctx[55]],
+    				isDisabled: /*items*/ ctx[5][/*index*/ ctx[55]][/*disabledField*/ ctx[13]],
+    				item: /*items*/ ctx[5][/*index*/ ctx[55]],
+    				inputValue: /*inputValue*/ ctx[8],
+    				disableHighlight: /*disableHighlight*/ ctx[4]
+    			}
+    		};
+    	}
+
+    	if (switch_value) {
+    		switch_instance = construct_svelte_component(switch_value, switch_props(ctx));
+    		switch_instance.$on("hover", /*hover_handler*/ ctx[38]);
+    		switch_instance.$on("select", /*select_handler*/ ctx[39]);
+    	}
+
+    	return {
+    		c() {
+    			div = element("div");
+    			if (switch_instance) create_component(switch_instance.$$.fragment);
+    			attr(div, "slot", "item");
+    			attr(div, "style", div_style_value = /*style*/ ctx[54]);
+    			attr(div, "class", "sv-dd-item");
+    			toggle_class(div, "sv-dd-item-active", /*index*/ ctx[55] == /*dropdownIndex*/ ctx[0]);
+    			toggle_class(div, "sv-group-item", /*items*/ ctx[5][/*index*/ ctx[55]].$isGroupItem);
+    			toggle_class(div, "sv-group-header", /*items*/ ctx[5][/*index*/ ctx[55]].$isGroupHeader);
+    		},
+    		m(target, anchor) {
+    			insert(target, div, anchor);
+    			if (switch_instance) mount_component(switch_instance, div, null);
+    			current = true;
+    		},
+    		p(ctx, dirty) {
+    			const switch_instance_changes = {};
+    			if (dirty[0] & /*renderer*/ 8) switch_instance_changes.formatter = /*renderer*/ ctx[3];
+    			if (dirty[0] & /*listIndex*/ 1024 | dirty[1] & /*index*/ 16777216) switch_instance_changes.index = /*listIndex*/ ctx[10].map[/*index*/ ctx[55]];
+    			if (dirty[0] & /*items, disabledField*/ 8224 | dirty[1] & /*index*/ 16777216) switch_instance_changes.isDisabled = /*items*/ ctx[5][/*index*/ ctx[55]][/*disabledField*/ ctx[13]];
+    			if (dirty[0] & /*items*/ 32 | dirty[1] & /*index*/ 16777216) switch_instance_changes.item = /*items*/ ctx[5][/*index*/ ctx[55]];
+    			if (dirty[0] & /*inputValue*/ 256) switch_instance_changes.inputValue = /*inputValue*/ ctx[8];
+    			if (dirty[0] & /*disableHighlight*/ 16) switch_instance_changes.disableHighlight = /*disableHighlight*/ ctx[4];
+
+    			if (dirty[0] & /*itemComponent*/ 65536 && switch_value !== (switch_value = /*itemComponent*/ ctx[16])) {
+    				if (switch_instance) {
+    					group_outros();
+    					const old_component = switch_instance;
+
+    					transition_out(old_component.$$.fragment, 1, 0, () => {
+    						destroy_component(old_component, 1);
+    					});
+
+    					check_outros();
+    				}
+
+    				if (switch_value) {
+    					switch_instance = construct_svelte_component(switch_value, switch_props(ctx));
+    					switch_instance.$on("hover", /*hover_handler*/ ctx[38]);
+    					switch_instance.$on("select", /*select_handler*/ ctx[39]);
+    					create_component(switch_instance.$$.fragment);
+    					transition_in(switch_instance.$$.fragment, 1);
+    					mount_component(switch_instance, div, null);
+    				} else {
+    					switch_instance = null;
+    				}
+    			} else if (switch_value) {
+    				switch_instance.$set(switch_instance_changes);
+    			}
+
+    			if (!current || dirty[1] & /*style*/ 8388608 && div_style_value !== (div_style_value = /*style*/ ctx[54])) {
+    				attr(div, "style", div_style_value);
+    			}
+
+    			if (!current || dirty[0] & /*dropdownIndex*/ 1 | dirty[1] & /*index*/ 16777216) {
+    				toggle_class(div, "sv-dd-item-active", /*index*/ ctx[55] == /*dropdownIndex*/ ctx[0]);
+    			}
+
+    			if (!current || dirty[0] & /*items*/ 32 | dirty[1] & /*index*/ 16777216) {
+    				toggle_class(div, "sv-group-item", /*items*/ ctx[5][/*index*/ ctx[55]].$isGroupItem);
+    			}
+
+    			if (!current || dirty[0] & /*items*/ 32 | dirty[1] & /*index*/ 16777216) {
+    				toggle_class(div, "sv-group-header", /*items*/ ctx[5][/*index*/ ctx[55]].$isGroupHeader);
+    			}
+    		},
+    		i(local) {
+    			if (current) return;
+    			if (switch_instance) transition_in(switch_instance.$$.fragment, local);
+    			current = true;
+    		},
+    		o(local) {
+    			if (switch_instance) transition_out(switch_instance.$$.fragment, local);
+    			current = false;
+    		},
+    		d(detaching) {
+    			if (detaching) detach(div);
+    			if (switch_instance) destroy_component(switch_instance);
+    		}
+    	};
+    }
+
+    // (241:4) {#if hasEmptyList || maxReached}
+    function create_if_block_3(ctx) {
+    	let div;
+    	let t;
+
+    	return {
+    		c() {
+    			div = element("div");
+    			t = text(/*listMessage*/ ctx[12]);
+    			attr(div, "class", "empty-list-row svelte-gvgdfq");
+    		},
+    		m(target, anchor) {
+    			insert(target, div, anchor);
+    			append(div, t);
+    		},
+    		p(ctx, dirty) {
+    			if (dirty[0] & /*listMessage*/ 4096) set_data(t, /*listMessage*/ ctx[12]);
+    		},
+    		d(detaching) {
+    			if (detaching) detach(div);
+    		}
+    	};
+    }
+
+    // (246:2) {#if inputValue && creatable && !maxReached}
+    function create_if_block_1$2(ctx) {
+    	let div1;
+    	let div0;
+    	let html_tag;
+    	let raw_value = /*createLabel*/ ctx[14](/*inputValue*/ ctx[8]) + "";
+    	let t;
+    	let mounted;
+    	let dispose;
+    	let if_block = /*currentListLength*/ ctx[27] != /*dropdownIndex*/ ctx[0] && create_if_block_2(ctx);
+
+    	return {
+    		c() {
+    			div1 = element("div");
+    			div0 = element("div");
+    			html_tag = new HtmlTag(false);
+    			t = space();
+    			if (if_block) if_block.c();
+    			html_tag.a = t;
+    			attr(div0, "class", "creatable-row svelte-gvgdfq");
+    			toggle_class(div0, "active", /*currentListLength*/ ctx[27] == /*dropdownIndex*/ ctx[0]);
+    			toggle_class(div0, "is-disabled", /*alreadyCreated*/ ctx[6].includes(/*inputValue*/ ctx[8]));
+    			attr(div1, "class", "creatable-row-wrap svelte-gvgdfq");
+    		},
+    		m(target, anchor) {
+    			insert(target, div1, anchor);
+    			append(div1, div0);
+    			html_tag.m(raw_value, div0);
+    			append(div0, t);
+    			if (if_block) if_block.m(div0, null);
+
+    			if (!mounted) {
+    				dispose = [
+    					listen(div0, "click", function () {
+    						if (is_function(/*dispatch*/ ctx[29]('select', /*inputValue*/ ctx[8]))) /*dispatch*/ ctx[29]('select', /*inputValue*/ ctx[8]).apply(this, arguments);
+    					}),
+    					listen(div0, "mouseenter", function () {
+    						if (is_function(/*dispatch*/ ctx[29]('hover', /*listIndex*/ ctx[10].last))) /*dispatch*/ ctx[29]('hover', /*listIndex*/ ctx[10].last).apply(this, arguments);
+    					}),
+    					listen(div0, "keypress", keypress_handler)
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p(new_ctx, dirty) {
+    			ctx = new_ctx;
+    			if (dirty[0] & /*createLabel, inputValue*/ 16640 && raw_value !== (raw_value = /*createLabel*/ ctx[14](/*inputValue*/ ctx[8]) + "")) html_tag.p(raw_value);
+
+    			if (/*currentListLength*/ ctx[27] != /*dropdownIndex*/ ctx[0]) {
+    				if (if_block) {
+    					if_block.p(ctx, dirty);
+    				} else {
+    					if_block = create_if_block_2(ctx);
+    					if_block.c();
+    					if_block.m(div0, null);
+    				}
+    			} else if (if_block) {
+    				if_block.d(1);
+    				if_block = null;
+    			}
+
+    			if (dirty[0] & /*currentListLength, dropdownIndex*/ 134217729) {
+    				toggle_class(div0, "active", /*currentListLength*/ ctx[27] == /*dropdownIndex*/ ctx[0]);
+    			}
+
+    			if (dirty[0] & /*alreadyCreated, inputValue*/ 320) {
+    				toggle_class(div0, "is-disabled", /*alreadyCreated*/ ctx[6].includes(/*inputValue*/ ctx[8]));
+    			}
+    		},
+    		d(detaching) {
+    			if (detaching) detach(div1);
+    			if (if_block) if_block.d();
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+    }
+
+    // (254:6) {#if currentListLength != dropdownIndex}
+    function create_if_block_2(ctx) {
+    	let span;
+    	let kbd0;
+    	let t0;
+    	let t1;
+    	let kbd1;
+
+    	return {
+    		c() {
+    			span = element("span");
+    			kbd0 = element("kbd");
+    			t0 = text(/*metaKey*/ ctx[15]);
+    			t1 = text("+");
+    			kbd1 = element("kbd");
+    			kbd1.textContent = "Enter";
+    			attr(kbd0, "class", "svelte-gvgdfq");
+    			attr(kbd1, "class", "svelte-gvgdfq");
+    			attr(span, "class", "shortcut svelte-gvgdfq");
+    		},
+    		m(target, anchor) {
+    			insert(target, span, anchor);
+    			append(span, kbd0);
+    			append(kbd0, t0);
+    			append(span, t1);
+    			append(span, kbd1);
+    		},
+    		p(ctx, dirty) {
+    			if (dirty[0] & /*metaKey*/ 32768) set_data(t0, /*metaKey*/ ctx[15]);
+    		},
+    		d(detaching) {
+    			if (detaching) detach(span);
+    		}
+    	};
+    }
+
+    function create_fragment$4(ctx) {
+    	let if_block_anchor;
+    	let current;
+    	let if_block = /*isMounted*/ ctx[18] && /*renderDropdown*/ ctx[20] && create_if_block$2(ctx);
+
+    	return {
+    		c() {
+    			if (if_block) if_block.c();
+    			if_block_anchor = empty();
+    		},
+    		m(target, anchor) {
+    			if (if_block) if_block.m(target, anchor);
+    			insert(target, if_block_anchor, anchor);
+    			current = true;
+    		},
+    		p(ctx, dirty) {
+    			if (/*isMounted*/ ctx[18] && /*renderDropdown*/ ctx[20]) {
+    				if (if_block) {
+    					if_block.p(ctx, dirty);
+
+    					if (dirty[0] & /*isMounted, renderDropdown*/ 1310720) {
+    						transition_in(if_block, 1);
+    					}
+    				} else {
+    					if_block = create_if_block$2(ctx);
+    					if_block.c();
+    					transition_in(if_block, 1);
+    					if_block.m(if_block_anchor.parentNode, if_block_anchor);
+    				}
+    			} else if (if_block) {
+    				group_outros();
+
+    				transition_out(if_block, 1, 1, () => {
+    					if_block = null;
+    				});
+
+    				check_outros();
+    			}
+    		},
+    		i(local) {
+    			if (current) return;
+    			transition_in(if_block);
+    			current = true;
+    		},
+    		o(local) {
+    			transition_out(if_block);
+    			current = false;
+    		},
+    		d(detaching) {
+    			if (if_block) if_block.d(detaching);
+    			if (detaching) detach(if_block_anchor);
+    		}
+    	};
+    }
+
+    const keypress_handler = () => {
+    	
+    };
+
+    function instance$3($$self, $$props, $$invalidate) {
+    	let currentListLength;
+    	let vl_listHeight;
+
+    	let $hasDropdownOpened,
+    		$$unsubscribe_hasDropdownOpened = noop,
+    		$$subscribe_hasDropdownOpened = () => ($$unsubscribe_hasDropdownOpened(), $$unsubscribe_hasDropdownOpened = subscribe(hasDropdownOpened, $$value => $$invalidate(28, $hasDropdownOpened = $$value)), hasDropdownOpened);
+
+    	$$self.$$.on_destroy.push(() => $$unsubscribe_hasDropdownOpened());
+    	let { lazyDropdown } = $$props;
+    	let { creatable } = $$props;
+    	let { maxReached = false } = $$props;
+    	let { dropdownIndex = 0 } = $$props;
+    	let { renderer } = $$props;
+    	let { disableHighlight } = $$props;
+    	let { items = [] } = $$props;
+    	let { alreadyCreated } = $$props;
+    	let { virtualList } = $$props;
+    	let { vlItemSize } = $$props;
+    	let { vlHeight } = $$props;
+    	let { inputValue } = $$props;
+    	let { multiple } = $$props;
+    	let { listIndex } = $$props;
+    	let { hasDropdownOpened } = $$props;
+    	$$subscribe_hasDropdownOpened();
+    	let { listMessage } = $$props;
+    	let { disabledField } = $$props;
+    	let { createLabel } = $$props;
+    	let { metaKey } = $$props;
+    	let { itemComponent } = $$props;
+    	let { selection = null } = $$props;
+    	let { control } = $$props;
+
+    	function getDimensions() {
+    		if (virtualList) {
+    			return [scrollContainer.offsetHeight, vl_itemSize];
+    		}
+
+    		return [scrollContainer.offsetHeight, container.firstElementChild.offsetHeight];
+    	}
+
+    	const dispatch = createEventDispatcher();
+    	let dropdown;
+    	let outOfViewport;
+    	let container;
+    	let scrollContainer;
+    	let isMounted = false;
+    	let hasEmptyList = false;
+    	let renderDropdown = !lazyDropdown;
+    	let vl_height = vlHeight;
+    	let vl_itemSize = vlItemSize;
+    	let vl_autoMode = vlHeight === null && vlItemSize === null;
+    	let refVirtualList;
+
+    	function positionDropdown() {
+    		if (!document.body.contains(dropdown) || !control) return;
+    		const controlBounds = control.getBoundingClientRect();
+    		const dropdownBounds = dropdown.getBoundingClientRect();
+
+    		if (outOfViewport === undefined) {
+    			outOfViewport = controlBounds.bottom + dropdownBounds.height > window.innerHeight;
+    		}
+
+    		dropdown.setAttribute("style", `
+      top: ${controlBounds.bottom - (outOfViewport
+		? controlBounds.height + dropdownBounds.height
+		: 0)}px;
+      left: ${controlBounds.left}px;
+      width: ${controlBounds.width}px;`);
+    	}
+
+    	function virtualListDimensionsResolver() {
+    		if (!refVirtualList) return;
+
+    		const pixelGetter = (el, prop) => {
+    			const styles = window.getComputedStyle(el);
+    			let { groups: { value, unit } } = styles[prop].match(/(?<value>\d+)(?<unit>[a-zA-Z]+)/);
+    			value = parseFloat(value);
+
+    			if (unit !== 'px') {
+    				const el = unit === 'rem'
+    				? document.documentElement
+    				: scrollContainer.parentElement.parentElement;
+
+    				const multipler = parseFloat(window.getComputedStyle(el).fontSize.match(/\d+/).shift());
+    				value = multipler * value;
+    			}
+
+    			return value;
+    		};
+
+    		$$invalidate(35, vl_height = pixelGetter(scrollContainer, 'maxHeight') - pixelGetter(scrollContainer, 'paddingTop') - pixelGetter(scrollContainer, 'paddingBottom'));
+
+    		// get item size (hacky style)
+    		$$invalidate(24, scrollContainer.parentElement.style = 'opacity: 0; display: block', scrollContainer);
+
+    		const firstItem = refVirtualList.$$.ctx[1].firstElementChild.firstElementChild;
+
+    		if (firstItem) {
+    			firstItem.style = '';
+    			const firstSize = firstItem.getBoundingClientRect().height;
+    			const secondItem = refVirtualList.$$.ctx[1].firstElementChild.firstElementChild.nextElementSibling;
+    			let secondSize;
+
+    			if (secondItem) {
+    				secondItem.style = '';
+    				secondSize = secondItem.getBoundingClientRect().height;
+    			}
+
+    			if (firstSize !== secondSize) {
+    				const groupHeaderSize = items[0].$isGroupHeader ? firstSize : secondSize;
+    				const regularItemSize = items[0].$isGroupHeader ? secondSize : firstSize;
+    				$$invalidate(21, vl_itemSize = items.map(opt => opt.$isGroupHeader ? groupHeaderSize : regularItemSize));
+    			} else {
+    				$$invalidate(21, vl_itemSize = firstSize);
+    			}
+    		}
+
+    		$$invalidate(24, scrollContainer.parentElement.style = '', scrollContainer);
+    	}
+
+    	const scrollHandler = e => {
+    		if (!dropdown?.contains) return;
+    		if (!dropdown.contains(e.target)) positionDropdown();
+    	};
+
+    	const appendDropdown = () => {
+    		if (!control) $$invalidate(30, control = dropdown.parentElement);
+
+    		if (document?.body) {
+    			// control.scrollIntoView({ block: "nearest", inline: "nearest" });
+    			document.body.appendChild(dropdown);
+    		}
+    	};
+
+    	const removeDropdown = () => {
+    		if (document?.body.contains(dropdown)) document.body.removeChild(dropdown);
+    	};
+
+    	let dropdownStateSubscription = () => {
+    		
+    	};
+
+    	onMount(() => {
+    		dropdownStateSubscription = hasDropdownOpened.subscribe(val => {
+    			if (!renderDropdown && val) $$invalidate(20, renderDropdown = true);
+    			document.removeEventListener('scroll', scrollHandler, { capture: true });
+
+    			tick().then(() => {
+    				if (val) {
+    					appendDropdown();
+    					positionDropdown();
+    					document.addEventListener('scroll', scrollHandler, { capture: true });
+    				} else {
+    					outOfViewport = undefined;
+    					removeDropdown();
+    				}
+    			});
+    		});
+
+    		$$invalidate(18, isMounted = true);
+    	});
+
+    	onDestroy(() => {
+    		dropdownStateSubscription();
+    		removeDropdown();
+    	});
+
+    	function mousedown_handler(event) {
+    		bubble.call(this, $$self, event);
+    	}
+
+    	function deselect_handler(event) {
+    		bubble.call(this, $$self, event);
+    	}
+
+    	function hover_handler(event) {
+    		bubble.call(this, $$self, event);
+    	}
+
+    	function select_handler(event) {
+    		bubble.call(this, $$self, event);
+    	}
+
+    	function virtuallist_binding($$value) {
+    		binding_callbacks[$$value ? 'unshift' : 'push'](() => {
+    			refVirtualList = $$value;
+    			$$invalidate(25, refVirtualList);
+    		});
+    	}
+
+    	function hover_handler_1(event) {
+    		bubble.call(this, $$self, event);
+    	}
+
+    	function select_handler_1(event) {
+    		bubble.call(this, $$self, event);
+    	}
+
+    	function div0_binding($$value) {
+    		binding_callbacks[$$value ? 'unshift' : 'push'](() => {
+    			container = $$value;
+    			$$invalidate(23, container);
+    		});
+    	}
+
+    	function div1_binding($$value) {
+    		binding_callbacks[$$value ? 'unshift' : 'push'](() => {
+    			scrollContainer = $$value;
+    			$$invalidate(24, scrollContainer);
+    		});
+    	}
+
+    	function div2_binding($$value) {
+    		binding_callbacks[$$value ? 'unshift' : 'push'](() => {
+    			dropdown = $$value;
+    			$$invalidate(22, dropdown);
+    		});
+    	}
+
+    	$$self.$$set = $$props => {
+    		if ('lazyDropdown' in $$props) $$invalidate(31, lazyDropdown = $$props.lazyDropdown);
+    		if ('creatable' in $$props) $$invalidate(1, creatable = $$props.creatable);
+    		if ('maxReached' in $$props) $$invalidate(2, maxReached = $$props.maxReached);
+    		if ('dropdownIndex' in $$props) $$invalidate(0, dropdownIndex = $$props.dropdownIndex);
+    		if ('renderer' in $$props) $$invalidate(3, renderer = $$props.renderer);
+    		if ('disableHighlight' in $$props) $$invalidate(4, disableHighlight = $$props.disableHighlight);
+    		if ('items' in $$props) $$invalidate(5, items = $$props.items);
+    		if ('alreadyCreated' in $$props) $$invalidate(6, alreadyCreated = $$props.alreadyCreated);
+    		if ('virtualList' in $$props) $$invalidate(7, virtualList = $$props.virtualList);
+    		if ('vlItemSize' in $$props) $$invalidate(32, vlItemSize = $$props.vlItemSize);
+    		if ('vlHeight' in $$props) $$invalidate(33, vlHeight = $$props.vlHeight);
+    		if ('inputValue' in $$props) $$invalidate(8, inputValue = $$props.inputValue);
+    		if ('multiple' in $$props) $$invalidate(9, multiple = $$props.multiple);
+    		if ('listIndex' in $$props) $$invalidate(10, listIndex = $$props.listIndex);
+    		if ('hasDropdownOpened' in $$props) $$subscribe_hasDropdownOpened($$invalidate(11, hasDropdownOpened = $$props.hasDropdownOpened));
+    		if ('listMessage' in $$props) $$invalidate(12, listMessage = $$props.listMessage);
+    		if ('disabledField' in $$props) $$invalidate(13, disabledField = $$props.disabledField);
+    		if ('createLabel' in $$props) $$invalidate(14, createLabel = $$props.createLabel);
+    		if ('metaKey' in $$props) $$invalidate(15, metaKey = $$props.metaKey);
+    		if ('itemComponent' in $$props) $$invalidate(16, itemComponent = $$props.itemComponent);
+    		if ('selection' in $$props) $$invalidate(17, selection = $$props.selection);
+    		if ('control' in $$props) $$invalidate(30, control = $$props.control);
+    	};
+
+    	$$self.$$.update = () => {
+    		if ($$self.$$.dirty[0] & /*items*/ 32) {
+    			$$invalidate(27, currentListLength = items.length);
+    		}
+
+    		if ($$self.$$.dirty[0] & /*items, creatable, inputValue, virtualList, isMounted, renderDropdown, hasEmptyList*/ 1835426) {
+    			{
+    				$$invalidate(19, hasEmptyList = items.length < 1 && (creatable ? !inputValue : true));
+
+    				// required when changing item list 'on-the-fly' for VL
+    				if (virtualList && vl_autoMode && isMounted && renderDropdown) {
+    					if (hasEmptyList) $$invalidate(0, dropdownIndex = null);
+    					$$invalidate(21, vl_itemSize = 0);
+    					tick().then(virtualListDimensionsResolver).then(positionDropdown);
+    				}
+    			}
+    		}
+
+    		if ($$self.$$.dirty[0] & /*vl_itemSize, items*/ 2097184 | $$self.$$.dirty[1] & /*vl_height*/ 16) {
+    			$$invalidate(26, vl_listHeight = Math.min(vl_height, Array.isArray(vl_itemSize)
+    			? vl_itemSize.reduce(
+    					(res, num) => {
+    						res += num;
+    						return res;
+    					},
+    					0
+    				)
+    			: items.length * vl_itemSize));
+    		}
+    	};
+
+    	return [
+    		dropdownIndex,
+    		creatable,
+    		maxReached,
+    		renderer,
+    		disableHighlight,
+    		items,
+    		alreadyCreated,
+    		virtualList,
+    		inputValue,
+    		multiple,
+    		listIndex,
+    		hasDropdownOpened,
+    		listMessage,
+    		disabledField,
+    		createLabel,
+    		metaKey,
+    		itemComponent,
+    		selection,
+    		isMounted,
+    		hasEmptyList,
+    		renderDropdown,
+    		vl_itemSize,
+    		dropdown,
+    		container,
+    		scrollContainer,
+    		refVirtualList,
+    		vl_listHeight,
+    		currentListLength,
+    		$hasDropdownOpened,
+    		dispatch,
+    		control,
+    		lazyDropdown,
+    		vlItemSize,
+    		vlHeight,
+    		getDimensions,
+    		vl_height,
+    		mousedown_handler,
+    		deselect_handler,
+    		hover_handler,
+    		select_handler,
+    		virtuallist_binding,
+    		hover_handler_1,
+    		select_handler_1,
+    		div0_binding,
+    		div1_binding,
+    		div2_binding
+    	];
+    }
+
+    class Dropdown extends SvelteComponent {
+    	constructor(options) {
+    		super();
+
+    		init(
+    			this,
+    			options,
+    			instance$3,
+    			create_fragment$4,
+    			safe_not_equal,
+    			{
+    				lazyDropdown: 31,
+    				creatable: 1,
+    				maxReached: 2,
+    				dropdownIndex: 0,
+    				renderer: 3,
+    				disableHighlight: 4,
+    				items: 5,
+    				alreadyCreated: 6,
+    				virtualList: 7,
+    				vlItemSize: 32,
+    				vlHeight: 33,
+    				inputValue: 8,
+    				multiple: 9,
+    				listIndex: 10,
+    				hasDropdownOpened: 11,
+    				listMessage: 12,
+    				disabledField: 13,
+    				createLabel: 14,
+    				metaKey: 15,
+    				itemComponent: 16,
+    				selection: 17,
+    				control: 30,
+    				getDimensions: 34
+    			},
+    			null,
+    			[-1, -1]
+    		);
+    	}
+
+    	get getDimensions() {
+    		return this.$$.ctx[34];
+    	}
+    }
+
+    /* src/components/ItemClose.svelte generated by Svelte v3.57.0 */
+
+    function create_fragment$3(ctx) {
+    	let button;
+
+    	return {
+    		c() {
+    			button = element("button");
+    			button.innerHTML = `<svg height="16" width="16" viewBox="0 0 20 20" aria-hidden="true" focusable="false" class="svelte-w7c5vi"><path d="M14.348 14.849c-0.469 0.469-1.229 0.469-1.697 0l-2.651-3.030-2.651 3.029c-0.469 0.469-1.229 0.469-1.697 0-0.469-0.469-0.469-1.229 0-1.697l2.758-3.15-2.759-3.152c-0.469-0.469-0.469-1.228 0-1.697s1.228-0.469 1.697 0l2.652 3.031 2.651-3.031c0.469-0.469 1.228-0.469 1.697 0s0.469 1.229 0 1.697l-2.758 3.152 2.758 3.15c0.469 0.469 0.469 1.229 0 1.698z"></path></svg>`;
+    			attr(button, "class", "sv-item-btn svelte-w7c5vi");
+    			attr(button, "tabindex", "-1");
+    			attr(button, "data-action", "deselect");
+    			attr(button, "type", "button");
+    		},
+    		m(target, anchor) {
+    			insert(target, button, anchor);
+    		},
+    		p: noop,
+    		i: noop,
+    		o: noop,
+    		d(detaching) {
+    			if (detaching) detach(button);
+    		}
+    	};
+    }
+
+    class ItemClose extends SvelteComponent {
+    	constructor(options) {
+    		super();
+    		init(this, options, null, create_fragment$3, safe_not_equal, {});
+    	}
+    }
+
+    const mouseDownAction = e => e.preventDefault();
+
+    function itemActions(node, {item, index}) {
+
+      function selectAction(e) {
+        const eventType = e.target.closest('[data-action="deselect"]') ? 'deselect' : 'select';
+        node.dispatchEvent(new CustomEvent(eventType, {
+          bubble: true,
+          detail: item
+        }));
+      }
+
+      function hoverAction() {
+        node.dispatchEvent(new CustomEvent('hover', {
+          detail: index
+        }));
+      }
+      node.onmousedown = mouseDownAction;
+      node.onclick = selectAction;
+      // !item.isSelected && 
+      node.addEventListener('mouseenter', hoverAction);
+
+      return {
+        update(updated) {
+          item = updated.item;
+          index = updated.index;
+        },
+        destroy() {
+          node.removeEventListener('mousedown', mouseDownAction);
+          node.removeEventListener('click', selectAction);
+          // !item.isSelected && 
+          node.removeEventListener('mouseenter', hoverAction);
+        }
+      }
+    }
+
+    /* src/components/Item.svelte generated by Svelte v3.57.0 */
+
+    function create_else_block(ctx) {
+    	let div;
+    	let html_tag;
+
+    	let raw_value = (/*isSelected*/ ctx[3]
+    	? `<div class="sv-item-content">${/*formatter*/ ctx[6](/*item*/ ctx[2], /*isSelected*/ ctx[3], /*inputValue*/ ctx[0])}</div>`
+    	: highlightSearch(/*item*/ ctx[2], /*isSelected*/ ctx[3], /*inputValue*/ ctx[0], /*formatter*/ ctx[6], /*disableHighlight*/ ctx[7])) + "";
+
+    	let t;
+    	let div_title_value;
+    	let itemActions_action;
+    	let current;
+    	let mounted;
+    	let dispose;
+    	let if_block = /*isSelected*/ ctx[3] && /*isMultiple*/ ctx[5] && create_if_block_1$1();
+
+    	return {
+    		c() {
+    			div = element("div");
+    			html_tag = new HtmlTag(false);
+    			t = space();
+    			if (if_block) if_block.c();
+    			html_tag.a = t;
+    			attr(div, "class", "sv-item");
+    			attr(div, "title", div_title_value = /*item*/ ctx[2].$created ? 'Created item' : '');
+    			toggle_class(div, "is-disabled", /*isDisabled*/ ctx[4]);
+    		},
+    		m(target, anchor) {
+    			insert(target, div, anchor);
+    			html_tag.m(raw_value, div);
+    			append(div, t);
+    			if (if_block) if_block.m(div, null);
+    			current = true;
+
+    			if (!mounted) {
+    				dispose = [
+    					action_destroyer(itemActions_action = itemActions.call(null, div, {
+    						item: /*item*/ ctx[2],
+    						index: /*index*/ ctx[1]
+    					})),
+    					listen(div, "select", /*select_handler*/ ctx[9]),
+    					listen(div, "deselect", /*deselect_handler*/ ctx[10]),
+    					listen(div, "hover", /*hover_handler*/ ctx[11])
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p(ctx, dirty) {
+    			if ((!current || dirty & /*isSelected, formatter, item, inputValue, disableHighlight*/ 205) && raw_value !== (raw_value = (/*isSelected*/ ctx[3]
+    			? `<div class="sv-item-content">${/*formatter*/ ctx[6](/*item*/ ctx[2], /*isSelected*/ ctx[3], /*inputValue*/ ctx[0])}</div>`
+    			: highlightSearch(/*item*/ ctx[2], /*isSelected*/ ctx[3], /*inputValue*/ ctx[0], /*formatter*/ ctx[6], /*disableHighlight*/ ctx[7])) + "")) html_tag.p(raw_value);
+
+    			if (/*isSelected*/ ctx[3] && /*isMultiple*/ ctx[5]) {
+    				if (if_block) {
+    					if (dirty & /*isSelected, isMultiple*/ 40) {
+    						transition_in(if_block, 1);
+    					}
+    				} else {
+    					if_block = create_if_block_1$1();
+    					if_block.c();
+    					transition_in(if_block, 1);
+    					if_block.m(div, null);
+    				}
+    			} else if (if_block) {
+    				group_outros();
+
+    				transition_out(if_block, 1, 1, () => {
+    					if_block = null;
+    				});
+
+    				check_outros();
+    			}
+
+    			if (!current || dirty & /*item*/ 4 && div_title_value !== (div_title_value = /*item*/ ctx[2].$created ? 'Created item' : '')) {
+    				attr(div, "title", div_title_value);
+    			}
+
+    			if (itemActions_action && is_function(itemActions_action.update) && dirty & /*item, index*/ 6) itemActions_action.update.call(null, {
+    				item: /*item*/ ctx[2],
+    				index: /*index*/ ctx[1]
+    			});
+
+    			if (!current || dirty & /*isDisabled*/ 16) {
+    				toggle_class(div, "is-disabled", /*isDisabled*/ ctx[4]);
+    			}
+    		},
+    		i(local) {
+    			if (current) return;
+    			transition_in(if_block);
+    			current = true;
+    		},
+    		o(local) {
+    			transition_out(if_block);
+    			current = false;
+    		},
+    		d(detaching) {
+    			if (detaching) detach(div);
+    			if (if_block) if_block.d();
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+    }
+
+    // (18:0) {#if item.$isGroupHeader}
+    function create_if_block$1(ctx) {
+    	let div;
+    	let b;
+    	let t_value = /*item*/ ctx[2].label + "";
+    	let t;
+    	let mounted;
+    	let dispose;
+
+    	return {
+    		c() {
+    			div = element("div");
+    			b = element("b");
+    			t = text(t_value);
+    			attr(div, "class", "optgroup-header svelte-1e087o6");
+    		},
+    		m(target, anchor) {
+    			insert(target, div, anchor);
+    			append(div, b);
+    			append(b, t);
+
+    			if (!mounted) {
+    				dispose = listen(div, "mousedown", prevent_default(/*mousedown_handler*/ ctx[8]));
+    				mounted = true;
+    			}
+    		},
+    		p(ctx, dirty) {
+    			if (dirty & /*item*/ 4 && t_value !== (t_value = /*item*/ ctx[2].label + "")) set_data(t, t_value);
+    		},
+    		i: noop,
+    		o: noop,
+    		d(detaching) {
+    			if (detaching) detach(div);
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+    }
+
+    // (33:2) {#if isSelected && isMultiple}
+    function create_if_block_1$1(ctx) {
+    	let itemclose;
+    	let current;
+    	itemclose = new ItemClose({});
+
+    	return {
+    		c() {
+    			create_component(itemclose.$$.fragment);
+    		},
+    		m(target, anchor) {
+    			mount_component(itemclose, target, anchor);
+    			current = true;
+    		},
+    		i(local) {
+    			if (current) return;
+    			transition_in(itemclose.$$.fragment, local);
+    			current = true;
+    		},
+    		o(local) {
+    			transition_out(itemclose.$$.fragment, local);
+    			current = false;
+    		},
+    		d(detaching) {
+    			destroy_component(itemclose, detaching);
+    		}
+    	};
+    }
+
+    function create_fragment$2(ctx) {
+    	let current_block_type_index;
+    	let if_block;
+    	let if_block_anchor;
+    	let current;
+    	const if_block_creators = [create_if_block$1, create_else_block];
+    	const if_blocks = [];
+
+    	function select_block_type(ctx, dirty) {
+    		if (/*item*/ ctx[2].$isGroupHeader) return 0;
+    		return 1;
+    	}
+
+    	current_block_type_index = select_block_type(ctx);
+    	if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+
+    	return {
+    		c() {
+    			if_block.c();
+    			if_block_anchor = empty();
+    		},
+    		m(target, anchor) {
+    			if_blocks[current_block_type_index].m(target, anchor);
+    			insert(target, if_block_anchor, anchor);
+    			current = true;
+    		},
+    		p(ctx, [dirty]) {
+    			let previous_block_index = current_block_type_index;
+    			current_block_type_index = select_block_type(ctx);
+
+    			if (current_block_type_index === previous_block_index) {
+    				if_blocks[current_block_type_index].p(ctx, dirty);
+    			} else {
+    				group_outros();
+
+    				transition_out(if_blocks[previous_block_index], 1, 1, () => {
+    					if_blocks[previous_block_index] = null;
+    				});
+
+    				check_outros();
+    				if_block = if_blocks[current_block_type_index];
+
+    				if (!if_block) {
+    					if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+    					if_block.c();
+    				} else {
+    					if_block.p(ctx, dirty);
+    				}
+
+    				transition_in(if_block, 1);
+    				if_block.m(if_block_anchor.parentNode, if_block_anchor);
+    			}
+    		},
+    		i(local) {
+    			if (current) return;
+    			transition_in(if_block);
+    			current = true;
+    		},
+    		o(local) {
+    			transition_out(if_block);
+    			current = false;
+    		},
+    		d(detaching) {
+    			if_blocks[current_block_type_index].d(detaching);
+    			if (detaching) detach(if_block_anchor);
+    		}
+    	};
+    }
+
+    function instance$2($$self, $$props, $$invalidate) {
+    	let { inputValue } = $$props;
+    	let { index = -1 } = $$props;
+    	let { item = {} } = $$props;
+    	let { isSelected = false } = $$props;
+    	let { isDisabled = false } = $$props;
+    	let { isMultiple = false } = $$props;
+    	let { formatter = null } = $$props;
+    	let { disableHighlight = false } = $$props;
+
+    	function mousedown_handler(event) {
+    		bubble.call(this, $$self, event);
+    	}
+
+    	function select_handler(event) {
+    		bubble.call(this, $$self, event);
+    	}
+
+    	function deselect_handler(event) {
+    		bubble.call(this, $$self, event);
+    	}
+
+    	function hover_handler(event) {
+    		bubble.call(this, $$self, event);
+    	}
+
+    	$$self.$$set = $$props => {
+    		if ('inputValue' in $$props) $$invalidate(0, inputValue = $$props.inputValue);
+    		if ('index' in $$props) $$invalidate(1, index = $$props.index);
+    		if ('item' in $$props) $$invalidate(2, item = $$props.item);
+    		if ('isSelected' in $$props) $$invalidate(3, isSelected = $$props.isSelected);
+    		if ('isDisabled' in $$props) $$invalidate(4, isDisabled = $$props.isDisabled);
+    		if ('isMultiple' in $$props) $$invalidate(5, isMultiple = $$props.isMultiple);
+    		if ('formatter' in $$props) $$invalidate(6, formatter = $$props.formatter);
+    		if ('disableHighlight' in $$props) $$invalidate(7, disableHighlight = $$props.disableHighlight);
+    	};
+
+    	return [
+    		inputValue,
+    		index,
+    		item,
+    		isSelected,
+    		isDisabled,
+    		isMultiple,
+    		formatter,
+    		disableHighlight,
+    		mousedown_handler,
+    		select_handler,
+    		deselect_handler,
+    		hover_handler
+    	];
+    }
+
+    class Item extends SvelteComponent {
+    	constructor(options) {
+    		super();
+
+    		init(this, options, instance$2, create_fragment$2, safe_not_equal, {
+    			inputValue: 0,
+    			index: 1,
+    			item: 2,
+    			isSelected: 3,
+    			isDisabled: 4,
+    			isMultiple: 5,
+    			formatter: 6,
+    			disableHighlight: 7
+    		});
+    	}
+    }
+
+    /* src/Svelecte.svelte generated by Svelte v3.57.0 */
+
+    function get_each_context(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[118] = list[i];
+    	return child_ctx;
+    }
+
+    const get_icon_slot_changes = dirty => ({});
+    const get_icon_slot_context = ctx => ({});
+    const get_control_end_slot_changes = dirty => ({});
+    const get_control_end_slot_context = ctx => ({});
+
+    const get_indicator_icon_slot_changes = dirty => ({
+    	hasDropdownOpened: dirty[1] & /*hasDropdownOpened*/ 8388608
+    });
+
+    const get_indicator_icon_slot_context = ctx => ({
+    	slot: "indicator-icon",
+    	hasDropdownOpened: /*hasDropdownOpened*/ ctx[54]
+    });
+
+    const get_clear_icon_slot_changes = dirty => ({
+    	selectedOptions: dirty[0] & /*selectedOptions*/ 1073741824,
+    	inputValue: dirty[1] & /*$inputValue*/ 8
+    });
+
+    const get_clear_icon_slot_context = ctx => ({
+    	slot: "clear-icon",
+    	selectedOptions: /*selectedOptions*/ ctx[30],
+    	inputValue: /*$inputValue*/ ctx[34]
+    });
+
+    // (680:4) 
+    function create_icon_slot(ctx) {
+    	let div;
+    	let current;
+    	const icon_slot_template = /*#slots*/ ctx[93].icon;
+    	const icon_slot = create_slot(icon_slot_template, ctx, /*$$scope*/ ctx[98], get_icon_slot_context);
+
+    	return {
+    		c() {
+    			div = element("div");
+    			if (icon_slot) icon_slot.c();
+    			attr(div, "slot", "icon");
+    			attr(div, "class", "icon-slot svelte-1s1r1y8");
+    		},
+    		m(target, anchor) {
+    			insert(target, div, anchor);
+
+    			if (icon_slot) {
+    				icon_slot.m(div, null);
+    			}
+
+    			current = true;
+    		},
+    		p(ctx, dirty) {
+    			if (icon_slot) {
+    				if (icon_slot.p && (!current || dirty[3] & /*$$scope*/ 32)) {
+    					update_slot_base(
+    						icon_slot,
+    						icon_slot_template,
+    						ctx,
+    						/*$$scope*/ ctx[98],
+    						!current
+    						? get_all_dirty_from_scope(/*$$scope*/ ctx[98])
+    						: get_slot_changes(icon_slot_template, /*$$scope*/ ctx[98], dirty, get_icon_slot_changes),
+    						get_icon_slot_context
+    					);
+    				}
+    			}
+    		},
+    		i(local) {
+    			if (current) return;
+    			transition_in(icon_slot, local);
+    			current = true;
+    		},
+    		o(local) {
+    			transition_out(icon_slot, local);
+    			current = false;
+    		},
+    		d(detaching) {
+    			if (detaching) detach(div);
+    			if (icon_slot) icon_slot.d(detaching);
+    		}
+    	};
+    }
+
+    // (681:4) 
+    function create_control_end_slot(ctx) {
+    	let div;
+    	let current;
+    	const control_end_slot_template = /*#slots*/ ctx[93]["control-end"];
+    	const control_end_slot = create_slot(control_end_slot_template, ctx, /*$$scope*/ ctx[98], get_control_end_slot_context);
+
+    	return {
+    		c() {
+    			div = element("div");
+    			if (control_end_slot) control_end_slot.c();
+    			attr(div, "slot", "control-end");
+    		},
+    		m(target, anchor) {
+    			insert(target, div, anchor);
+
+    			if (control_end_slot) {
+    				control_end_slot.m(div, null);
+    			}
+
+    			current = true;
+    		},
+    		p(ctx, dirty) {
+    			if (control_end_slot) {
+    				if (control_end_slot.p && (!current || dirty[3] & /*$$scope*/ 32)) {
+    					update_slot_base(
+    						control_end_slot,
+    						control_end_slot_template,
+    						ctx,
+    						/*$$scope*/ ctx[98],
+    						!current
+    						? get_all_dirty_from_scope(/*$$scope*/ ctx[98])
+    						: get_slot_changes(control_end_slot_template, /*$$scope*/ ctx[98], dirty, get_control_end_slot_changes),
+    						get_control_end_slot_context
+    					);
+    				}
+    			}
+    		},
+    		i(local) {
+    			if (current) return;
+    			transition_in(control_end_slot, local);
+    			current = true;
+    		},
+    		o(local) {
+    			transition_out(control_end_slot, local);
+    			current = false;
+    		},
+    		d(detaching) {
+    			if (detaching) detach(div);
+    			if (control_end_slot) control_end_slot.d(detaching);
+    		}
+    	};
+    }
+
+    // (682:96)         
+    function fallback_block_1(ctx) {
+    	let svg;
+    	let path;
+
+    	return {
+    		c() {
+    			svg = svg_element("svg");
+    			path = svg_element("path");
+    			attr(path, "d", "M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z");
+    			attr(svg, "width", "20");
+    			attr(svg, "height", "20");
+    			attr(svg, "class", "indicator-icon svelte-1s1r1y8");
+    			attr(svg, "viewBox", "0 0 20 20");
+    			attr(svg, "aria-hidden", "true");
+    			attr(svg, "focusable", "false");
+    		},
+    		m(target, anchor) {
+    			insert(target, svg, anchor);
+    			append(svg, path);
+    		},
+    		p: noop,
+    		d(detaching) {
+    			if (detaching) detach(svg);
+    		}
+    	};
+    }
+
+    // (682:4) 
+    function create_indicator_icon_slot(ctx) {
+    	let current;
+    	const indicator_icon_slot_template = /*#slots*/ ctx[93]["indicator-icon"];
+    	const indicator_icon_slot = create_slot(indicator_icon_slot_template, ctx, /*$$scope*/ ctx[98], get_indicator_icon_slot_context);
+    	const indicator_icon_slot_or_fallback = indicator_icon_slot || fallback_block_1();
+
+    	return {
+    		c() {
+    			if (indicator_icon_slot_or_fallback) indicator_icon_slot_or_fallback.c();
+    		},
+    		m(target, anchor) {
+    			if (indicator_icon_slot_or_fallback) {
+    				indicator_icon_slot_or_fallback.m(target, anchor);
+    			}
+
+    			current = true;
+    		},
+    		p(ctx, dirty) {
+    			if (indicator_icon_slot) {
+    				if (indicator_icon_slot.p && (!current || dirty[1] & /*hasDropdownOpened*/ 8388608 | dirty[3] & /*$$scope*/ 32)) {
+    					update_slot_base(
+    						indicator_icon_slot,
+    						indicator_icon_slot_template,
+    						ctx,
+    						/*$$scope*/ ctx[98],
+    						!current
+    						? get_all_dirty_from_scope(/*$$scope*/ ctx[98])
+    						: get_slot_changes(indicator_icon_slot_template, /*$$scope*/ ctx[98], dirty, get_indicator_icon_slot_changes),
+    						get_indicator_icon_slot_context
+    					);
+    				}
+    			}
+    		},
+    		i(local) {
+    			if (current) return;
+    			transition_in(indicator_icon_slot_or_fallback, local);
+    			current = true;
+    		},
+    		o(local) {
+    			transition_out(indicator_icon_slot_or_fallback, local);
+    			current = false;
+    		},
+    		d(detaching) {
+    			if (indicator_icon_slot_or_fallback) indicator_icon_slot_or_fallback.d(detaching);
+    		}
+    	};
+    }
+
+    // (688:6) {#if selectedOptions.length}
+    function create_if_block_1(ctx) {
+    	let svg;
+    	let path;
+
+    	return {
+    		c() {
+    			svg = svg_element("svg");
+    			path = svg_element("path");
+    			attr(path, "d", "M14.348 14.849c-0.469 0.469-1.229 0.469-1.697 0l-2.651-3.030-2.651 3.029c-0.469 0.469-1.229 0.469-1.697 0-0.469-0.469-0.469-1.229 0-1.697l2.758-3.15-2.759-3.152c-0.469-0.469-0.469-1.228 0-1.697s1.228-0.469 1.697 0l2.652 3.031 2.651-3.031c0.469-0.469 1.228-0.469 1.697 0s0.469 1.229 0 1.697l-2.758 3.152 2.758 3.15c0.469 0.469 0.469 1.229 0 1.698z");
+    			attr(svg, "class", "indicator-icon svelte-1s1r1y8");
+    			attr(svg, "height", "20");
+    			attr(svg, "width", "20");
+    			attr(svg, "viewBox", "0 0 20 20");
+    			attr(svg, "aria-hidden", "true");
+    			attr(svg, "focusable", "false");
+    		},
+    		m(target, anchor) {
+    			insert(target, svg, anchor);
+    			append(svg, path);
+    		},
+    		d(detaching) {
+    			if (detaching) detach(svg);
+    		}
+    	};
+    }
+
+    // (687:89)         
+    function fallback_block(ctx) {
+    	let if_block_anchor;
+    	let if_block = /*selectedOptions*/ ctx[30].length && create_if_block_1();
+
+    	return {
+    		c() {
+    			if (if_block) if_block.c();
+    			if_block_anchor = empty();
+    		},
+    		m(target, anchor) {
+    			if (if_block) if_block.m(target, anchor);
+    			insert(target, if_block_anchor, anchor);
+    		},
+    		p(ctx, dirty) {
+    			if (/*selectedOptions*/ ctx[30].length) {
+    				if (if_block) ; else {
+    					if_block = create_if_block_1();
+    					if_block.c();
+    					if_block.m(if_block_anchor.parentNode, if_block_anchor);
+    				}
+    			} else if (if_block) {
+    				if_block.d(1);
+    				if_block = null;
+    			}
+    		},
+    		d(detaching) {
+    			if (if_block) if_block.d(detaching);
+    			if (detaching) detach(if_block_anchor);
+    		}
+    	};
+    }
+
+    // (687:4) 
+    function create_clear_icon_slot(ctx) {
+    	let current;
+    	const clear_icon_slot_template = /*#slots*/ ctx[93]["clear-icon"];
+    	const clear_icon_slot = create_slot(clear_icon_slot_template, ctx, /*$$scope*/ ctx[98], get_clear_icon_slot_context);
+    	const clear_icon_slot_or_fallback = clear_icon_slot || fallback_block(ctx);
+
+    	return {
+    		c() {
+    			if (clear_icon_slot_or_fallback) clear_icon_slot_or_fallback.c();
+    		},
+    		m(target, anchor) {
+    			if (clear_icon_slot_or_fallback) {
+    				clear_icon_slot_or_fallback.m(target, anchor);
+    			}
+
+    			current = true;
+    		},
+    		p(ctx, dirty) {
+    			if (clear_icon_slot) {
+    				if (clear_icon_slot.p && (!current || dirty[0] & /*selectedOptions*/ 1073741824 | dirty[1] & /*$inputValue*/ 8 | dirty[3] & /*$$scope*/ 32)) {
+    					update_slot_base(
+    						clear_icon_slot,
+    						clear_icon_slot_template,
+    						ctx,
+    						/*$$scope*/ ctx[98],
+    						!current
+    						? get_all_dirty_from_scope(/*$$scope*/ ctx[98])
+    						: get_slot_changes(clear_icon_slot_template, /*$$scope*/ ctx[98], dirty, get_clear_icon_slot_changes),
+    						get_clear_icon_slot_context
+    					);
+    				}
+    			} else {
+    				if (clear_icon_slot_or_fallback && clear_icon_slot_or_fallback.p && (!current || dirty[0] & /*selectedOptions*/ 1073741824)) {
+    					clear_icon_slot_or_fallback.p(ctx, !current ? [-1, -1, -1, -1] : dirty);
+    				}
+    			}
+    		},
+    		i(local) {
+    			if (current) return;
+    			transition_in(clear_icon_slot_or_fallback, local);
+    			current = true;
+    		},
+    		o(local) {
+    			transition_out(clear_icon_slot_or_fallback, local);
+    			current = false;
+    		},
+    		d(detaching) {
+    			if (clear_icon_slot_or_fallback) clear_icon_slot_or_fallback.d(detaching);
+    		}
+    	};
+    }
+
+    // (707:2) {#if name && !hasAnchor}
+    function create_if_block(ctx) {
+    	let select;
+    	let mounted;
+    	let dispose;
+    	let each_value = /*selectedOptions*/ ctx[30];
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
+    	}
+
+    	return {
+    		c() {
+    			select = element("select");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			attr(select, "id", /*__id*/ ctx[43]);
+    			attr(select, "name", /*name*/ ctx[2]);
+    			select.multiple = /*multiple*/ ctx[1];
+    			attr(select, "class", "is-hidden svelte-1s1r1y8");
+    			attr(select, "tabindex", "-1");
+    			select.required = /*required*/ ctx[4];
+    			select.disabled = /*disabled*/ ctx[0];
+    		},
+    		m(target, anchor) {
+    			insert(target, select, anchor);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				if (each_blocks[i]) {
+    					each_blocks[i].m(select, null);
+    				}
+    			}
+
+    			if (!mounted) {
+    				dispose = action_destroyer(/*refSelectAction*/ ctx[44].call(null, select, /*refSelectActionParams*/ ctx[45]));
+    				mounted = true;
+    			}
+    		},
+    		p(ctx, dirty) {
+    			if (dirty[0] & /*selectedOptions, labelAsValue, currentLabelField, currentValueField*/ 1291845632) {
+    				each_value = /*selectedOptions*/ ctx[30];
+    				let i;
+
+    				for (i = 0; i < each_value.length; i += 1) {
+    					const child_ctx = get_each_context(ctx, each_value, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks[i] = create_each_block(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(select, null);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+
+    				each_blocks.length = each_value.length;
+    			}
+
+    			if (dirty[0] & /*name*/ 4) {
+    				attr(select, "name", /*name*/ ctx[2]);
+    			}
+
+    			if (dirty[0] & /*multiple*/ 2) {
+    				select.multiple = /*multiple*/ ctx[1];
+    			}
+
+    			if (dirty[0] & /*required*/ 16) {
+    				select.required = /*required*/ ctx[4];
+    			}
+
+    			if (dirty[0] & /*disabled*/ 1) {
+    				select.disabled = /*disabled*/ ctx[0];
+    			}
+    		},
+    		d(detaching) {
+    			if (detaching) detach(select);
+    			destroy_each(each_blocks, detaching);
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+    }
+
+    // (709:4) {#each selectedOptions as opt}
+    function create_each_block(ctx) {
+    	let option;
+    	let t_value = /*opt*/ ctx[118][/*currentLabelField*/ ctx[27]] + "";
+    	let t;
+    	let option_value_value;
+
+    	return {
+    		c() {
+    			option = element("option");
+    			t = text(t_value);
+
+    			option.__value = option_value_value = /*opt*/ ctx[118][/*labelAsValue*/ ctx[24]
+    			? /*currentLabelField*/ ctx[27]
+    			: /*currentValueField*/ ctx[26]];
+
+    			option.value = option.__value;
+    			option.selected = true;
+    		},
+    		m(target, anchor) {
+    			insert(target, option, anchor);
+    			append(option, t);
+    		},
+    		p(ctx, dirty) {
+    			if (dirty[0] & /*selectedOptions, currentLabelField*/ 1207959552 && t_value !== (t_value = /*opt*/ ctx[118][/*currentLabelField*/ ctx[27]] + "")) set_data(t, t_value);
+
+    			if (dirty[0] & /*selectedOptions, labelAsValue, currentLabelField, currentValueField*/ 1291845632 && option_value_value !== (option_value_value = /*opt*/ ctx[118][/*labelAsValue*/ ctx[24]
+    			? /*currentLabelField*/ ctx[27]
+    			: /*currentValueField*/ ctx[26]])) {
+    				option.__value = option_value_value;
+    				option.value = option.__value;
+    			}
+    		},
+    		d(detaching) {
+    			if (detaching) detach(option);
+    		}
+    	};
+    }
+
+    function create_fragment$1(ctx) {
+    	let div;
+    	let control;
+    	let t0;
+    	let dropdown;
+    	let t1;
+    	let div_class_value;
+    	let current;
+
+    	let control_props = {
+    		renderer: /*itemRenderer*/ ctx[41],
+    		disabled: /*disabled*/ ctx[0],
+    		clearable: /*clearable*/ ctx[9],
+    		searchable: /*searchable*/ ctx[8],
+    		placeholder: /*placeholder*/ ctx[7],
+    		multiple: /*multiple*/ ctx[1],
+    		inputId: /*inputId*/ ctx[3] || /*__id*/ ctx[43],
+    		resetOnBlur: /*resetOnBlur*/ ctx[11],
+    		collapseSelection: /*collapseSelection*/ ctx[15]
+    		? config.collapseSelectionFn.bind(/*_i18n*/ ctx[29])
+    		: null,
+    		inputValue: /*inputValue*/ ctx[46],
+    		hasFocus: /*hasFocus*/ ctx[47],
+    		hasDropdownOpened: /*hasDropdownOpened*/ ctx[54],
+    		selectedOptions: /*selectedOptions*/ ctx[30],
+    		isFetchingData: /*isFetchingData*/ ctx[28],
+    		dndzone: /*dndzone*/ ctx[12],
+    		currentValueField: /*currentValueField*/ ctx[26],
+    		isAndroid: /*isAndroid*/ ctx[38],
+    		alwaysCollapsed: /*alwaysCollapsed*/ ctx[16],
+    		itemComponent: /*controlItem*/ ctx[14],
+    		$$slots: {
+    			"clear-icon": [create_clear_icon_slot],
+    			"indicator-icon": [
+    				create_indicator_icon_slot,
+    				({ hasDropdownOpened }) => ({ 54: hasDropdownOpened }),
+    				({ hasDropdownOpened }) => [0, hasDropdownOpened ? 8388608 : 0]
+    			],
+    			"control-end": [create_control_end_slot],
+    			icon: [create_icon_slot]
+    		},
+    		$$scope: { ctx }
+    	};
+
+    	control = new Control({ props: control_props });
+    	/*control_binding*/ ctx[94](control);
+    	control.$on("deselect", /*onDeselect*/ ctx[49]);
+    	control.$on("keydown", /*onKeyDown*/ ctx[51]);
+    	control.$on("paste", /*onPaste*/ ctx[52]);
+    	control.$on("consider", /*onDndEvent*/ ctx[53]);
+    	control.$on("finalize", /*onDndEvent*/ ctx[53]);
+    	control.$on("blur", /*blur_handler*/ ctx[95]);
+
+    	let dropdown_props = {
+    		renderer: /*itemRenderer*/ ctx[41],
+    		disableHighlight: /*disableHighlight*/ ctx[10],
+    		creatable: /*creatable*/ ctx[17],
+    		maxReached: /*maxReached*/ ctx[33],
+    		alreadyCreated: /*alreadyCreated*/ ctx[39],
+    		virtualList: /*virtualList*/ ctx[19],
+    		vlHeight: /*vlHeight*/ ctx[20],
+    		vlItemSize: /*vlItemSize*/ ctx[21],
+    		lazyDropdown: /*virtualList*/ ctx[19] || /*lazyDropdown*/ ctx[18],
+    		multiple: /*multiple*/ ctx[1],
+    		dropdownIndex: /*dropdownActiveIndex*/ ctx[25],
+    		items: /*availableItems*/ ctx[32],
+    		listIndex: /*listIndex*/ ctx[31],
+    		inputValue: /*dropdownInputValue*/ ctx[40],
+    		hasDropdownOpened: /*hasDropdownOpened*/ ctx[54],
+    		listMessage: /*listMessage*/ ctx[42],
+    		disabledField: /*disabledField*/ ctx[6],
+    		createLabel: /*_i18n*/ ctx[29].createRowLabel,
+    		metaKey: /*isIOS*/ ctx[37] ? '⌘' : 'Ctrl',
+    		selection: /*collapseSelection*/ ctx[15] && /*alwaysCollapsed*/ ctx[16]
+    		? /*selectedOptions*/ ctx[30]
+    		: null,
+    		itemComponent: /*dropdownItem*/ ctx[13]
+    	};
+
+    	dropdown = new Dropdown({ props: dropdown_props });
+    	/*dropdown_binding*/ ctx[96](dropdown);
+    	dropdown.$on("select", /*onSelect*/ ctx[48]);
+    	dropdown.$on("deselect", /*onDeselect*/ ctx[49]);
+    	dropdown.$on("hover", /*onHover*/ ctx[50]);
+    	dropdown.$on("createoption", /*createoption_handler*/ ctx[97]);
+    	let if_block = /*name*/ ctx[2] && !/*hasAnchor*/ ctx[5] && create_if_block(ctx);
+
+    	return {
+    		c() {
+    			div = element("div");
+    			create_component(control.$$.fragment);
+    			t0 = space();
+    			create_component(dropdown.$$.fragment);
+    			t1 = space();
+    			if (if_block) if_block.c();
+    			attr(div, "class", div_class_value = "" + (null_to_empty(`svelecte ${/*className*/ ctx[22]}`) + " svelte-1s1r1y8"));
+    			attr(div, "style", /*style*/ ctx[23]);
+    			toggle_class(div, "is-disabled", /*disabled*/ ctx[0]);
+    		},
+    		m(target, anchor) {
+    			insert(target, div, anchor);
+    			mount_component(control, div, null);
+    			append(div, t0);
+    			mount_component(dropdown, div, null);
+    			append(div, t1);
+    			if (if_block) if_block.m(div, null);
+    			current = true;
+    		},
+    		p(ctx, dirty) {
+    			const control_changes = {};
+    			if (dirty[1] & /*itemRenderer*/ 1024) control_changes.renderer = /*itemRenderer*/ ctx[41];
+    			if (dirty[0] & /*disabled*/ 1) control_changes.disabled = /*disabled*/ ctx[0];
+    			if (dirty[0] & /*clearable*/ 512) control_changes.clearable = /*clearable*/ ctx[9];
+    			if (dirty[0] & /*searchable*/ 256) control_changes.searchable = /*searchable*/ ctx[8];
+    			if (dirty[0] & /*placeholder*/ 128) control_changes.placeholder = /*placeholder*/ ctx[7];
+    			if (dirty[0] & /*multiple*/ 2) control_changes.multiple = /*multiple*/ ctx[1];
+    			if (dirty[0] & /*inputId*/ 8) control_changes.inputId = /*inputId*/ ctx[3] || /*__id*/ ctx[43];
+    			if (dirty[0] & /*resetOnBlur*/ 2048) control_changes.resetOnBlur = /*resetOnBlur*/ ctx[11];
+
+    			if (dirty[0] & /*collapseSelection, _i18n*/ 536903680) control_changes.collapseSelection = /*collapseSelection*/ ctx[15]
+    			? config.collapseSelectionFn.bind(/*_i18n*/ ctx[29])
+    			: null;
+
+    			if (dirty[0] & /*selectedOptions*/ 1073741824) control_changes.selectedOptions = /*selectedOptions*/ ctx[30];
+    			if (dirty[0] & /*isFetchingData*/ 268435456) control_changes.isFetchingData = /*isFetchingData*/ ctx[28];
+    			if (dirty[0] & /*dndzone*/ 4096) control_changes.dndzone = /*dndzone*/ ctx[12];
+    			if (dirty[0] & /*currentValueField*/ 67108864) control_changes.currentValueField = /*currentValueField*/ ctx[26];
+    			if (dirty[1] & /*isAndroid*/ 128) control_changes.isAndroid = /*isAndroid*/ ctx[38];
+    			if (dirty[0] & /*alwaysCollapsed*/ 65536) control_changes.alwaysCollapsed = /*alwaysCollapsed*/ ctx[16];
+    			if (dirty[0] & /*controlItem*/ 16384) control_changes.itemComponent = /*controlItem*/ ctx[14];
+
+    			if (dirty[0] & /*selectedOptions*/ 1073741824 | dirty[1] & /*$inputValue, hasDropdownOpened*/ 8388616 | dirty[3] & /*$$scope*/ 32) {
+    				control_changes.$$scope = { dirty, ctx };
+    			}
+
+    			control.$set(control_changes);
+    			const dropdown_changes = {};
+    			if (dirty[1] & /*itemRenderer*/ 1024) dropdown_changes.renderer = /*itemRenderer*/ ctx[41];
+    			if (dirty[0] & /*disableHighlight*/ 1024) dropdown_changes.disableHighlight = /*disableHighlight*/ ctx[10];
+    			if (dirty[0] & /*creatable*/ 131072) dropdown_changes.creatable = /*creatable*/ ctx[17];
+    			if (dirty[1] & /*maxReached*/ 4) dropdown_changes.maxReached = /*maxReached*/ ctx[33];
+    			if (dirty[1] & /*alreadyCreated*/ 256) dropdown_changes.alreadyCreated = /*alreadyCreated*/ ctx[39];
+    			if (dirty[0] & /*virtualList*/ 524288) dropdown_changes.virtualList = /*virtualList*/ ctx[19];
+    			if (dirty[0] & /*vlHeight*/ 1048576) dropdown_changes.vlHeight = /*vlHeight*/ ctx[20];
+    			if (dirty[0] & /*vlItemSize*/ 2097152) dropdown_changes.vlItemSize = /*vlItemSize*/ ctx[21];
+    			if (dirty[0] & /*virtualList, lazyDropdown*/ 786432) dropdown_changes.lazyDropdown = /*virtualList*/ ctx[19] || /*lazyDropdown*/ ctx[18];
+    			if (dirty[0] & /*multiple*/ 2) dropdown_changes.multiple = /*multiple*/ ctx[1];
+    			if (dirty[0] & /*dropdownActiveIndex*/ 33554432) dropdown_changes.dropdownIndex = /*dropdownActiveIndex*/ ctx[25];
+    			if (dirty[1] & /*availableItems*/ 2) dropdown_changes.items = /*availableItems*/ ctx[32];
+    			if (dirty[1] & /*listIndex*/ 1) dropdown_changes.listIndex = /*listIndex*/ ctx[31];
+    			if (dirty[1] & /*dropdownInputValue*/ 512) dropdown_changes.inputValue = /*dropdownInputValue*/ ctx[40];
+    			if (dirty[1] & /*listMessage*/ 2048) dropdown_changes.listMessage = /*listMessage*/ ctx[42];
+    			if (dirty[0] & /*disabledField*/ 64) dropdown_changes.disabledField = /*disabledField*/ ctx[6];
+    			if (dirty[0] & /*_i18n*/ 536870912) dropdown_changes.createLabel = /*_i18n*/ ctx[29].createRowLabel;
+    			if (dirty[1] & /*isIOS*/ 64) dropdown_changes.metaKey = /*isIOS*/ ctx[37] ? '⌘' : 'Ctrl';
+
+    			if (dirty[0] & /*collapseSelection, alwaysCollapsed, selectedOptions*/ 1073840128) dropdown_changes.selection = /*collapseSelection*/ ctx[15] && /*alwaysCollapsed*/ ctx[16]
+    			? /*selectedOptions*/ ctx[30]
+    			: null;
+
+    			if (dirty[0] & /*dropdownItem*/ 8192) dropdown_changes.itemComponent = /*dropdownItem*/ ctx[13];
+    			dropdown.$set(dropdown_changes);
+
+    			if (/*name*/ ctx[2] && !/*hasAnchor*/ ctx[5]) {
+    				if (if_block) {
+    					if_block.p(ctx, dirty);
+    				} else {
+    					if_block = create_if_block(ctx);
+    					if_block.c();
+    					if_block.m(div, null);
+    				}
+    			} else if (if_block) {
+    				if_block.d(1);
+    				if_block = null;
+    			}
+
+    			if (!current || dirty[0] & /*className*/ 4194304 && div_class_value !== (div_class_value = "" + (null_to_empty(`svelecte ${/*className*/ ctx[22]}`) + " svelte-1s1r1y8"))) {
+    				attr(div, "class", div_class_value);
+    			}
+
+    			if (!current || dirty[0] & /*style*/ 8388608) {
+    				attr(div, "style", /*style*/ ctx[23]);
+    			}
+
+    			if (!current || dirty[0] & /*className, disabled*/ 4194305) {
+    				toggle_class(div, "is-disabled", /*disabled*/ ctx[0]);
+    			}
+    		},
+    		i(local) {
+    			if (current) return;
+    			transition_in(control.$$.fragment, local);
+    			transition_in(dropdown.$$.fragment, local);
+    			current = true;
+    		},
+    		o(local) {
+    			transition_out(control.$$.fragment, local);
+    			transition_out(dropdown.$$.fragment, local);
+    			current = false;
+    		},
+    		d(detaching) {
+    			if (detaching) detach(div);
+    			/*control_binding*/ ctx[94](null);
+    			destroy_component(control);
+    			/*dropdown_binding*/ ctx[96](null);
+    			destroy_component(dropdown);
+    			if (if_block) if_block.d();
+    		}
+    	};
+    }
+
+    const formatterList = {
+    	default(item) {
+    		return item[this.label];
+    	}
+    };
+    const config = settings;
+    const TAB_SELECT_NAVIGATE = 'select-navigate';
+
+    function instance$1($$self, $$props, $$invalidate) {
+    	let flatItems;
+    	let maxReached;
+    	let availableItems;
+    	let currentListLength;
+    	let listIndex;
+    	let listMessage;
+    	let itemRenderer;
+    	let dropdownInputValue;
+    	let $inputValue;
+    	let $hasDropdownOpened;
+    	let $hasFocus;
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	let { name = 'svelecte' } = $$props;
+    	let { inputId = null } = $$props;
+    	let { required = false } = $$props;
+    	let { hasAnchor = false } = $$props;
+    	let { disabled = settings.disabled } = $$props;
+    	let { options = [] } = $$props;
+    	let { valueField = settings.valueField } = $$props;
+    	let { labelField = settings.labelField } = $$props;
+    	let { groupLabelField = settings.groupLabelField } = $$props;
+    	let { groupItemsField = settings.groupItemsField } = $$props;
+    	let { disabledField = settings.disabledField } = $$props;
+    	let { placeholder = 'Select' } = $$props;
+    	let { searchable = settings.searchable } = $$props;
+    	let { clearable = settings.clearable } = $$props;
+    	let { renderer = null } = $$props;
+    	let { disableHighlight = false } = $$props;
+    	let { selectOnTab = settings.selectOnTab } = $$props;
+    	let { resetOnBlur = settings.resetOnBlur } = $$props;
+    	let { resetOnSelect = settings.resetOnSelect } = $$props;
+    	let { closeAfterSelect = settings.closeAfterSelect } = $$props;
+
+    	let { dndzone = () => ({
+    		noop: true,
+    		destroy: () => {
+    			
+    		}
+    	}) } = $$props;
+
+    	let { validatorAction = null } = $$props;
+    	let { dropdownItem = Item } = $$props;
+    	let { controlItem = Item } = $$props;
+    	let { multiple = settings.multiple } = $$props;
+    	let { max = settings.max } = $$props;
+    	let { collapseSelection = settings.collapseSelection } = $$props;
+    	let { alwaysCollapsed = settings.alwaysCollapsed } = $$props;
+    	let { creatable = settings.creatable } = $$props;
+    	let { creatablePrefix = settings.creatablePrefix } = $$props;
+    	let { allowEditing = settings.allowEditing } = $$props;
+    	let { keepCreated = settings.keepCreated } = $$props;
+    	let { delimiter = settings.delimiter } = $$props;
+    	let { createFilter = null } = $$props;
+    	let { createTransform = null } = $$props;
+    	let { fetch = null } = $$props;
+    	let { fetchMode = 'auto' } = $$props;
+    	let { fetchCallback = settings.fetchCallback } = $$props;
+    	let { fetchResetOnBlur = true } = $$props;
+    	let { minQuery = settings.minQuery } = $$props;
+    	let { lazyDropdown = settings.lazyDropdown } = $$props;
+    	let { virtualList = settings.virtualList } = $$props;
+    	let { vlHeight = settings.vlHeight } = $$props;
+    	let { vlItemSize = settings.vlItemSize } = $$props;
+    	let { searchField = null } = $$props;
+    	let { sortField = null } = $$props;
+    	let { disableSifter = false } = $$props;
+    	let { class: className = 'svelecte-control' } = $$props;
+    	let { style = null } = $$props;
+    	let { i18n = null } = $$props;
+    	let { readSelection = null } = $$props;
+    	let { value = null } = $$props;
+    	let { labelAsValue = false } = $$props;
+    	let { valueAsObject = settings.valueAsObject } = $$props;
+
+    	const focus = event => {
+    		refControl.focusControl(event);
+    	};
+
+    	const getSelection = onlyValues => {
+    		if (!selectedOptions.length) return multiple ? [] : null;
+
+    		const _selection = selectedOptions.map(opt => onlyValues
+    		? opt[labelAsValue ? currentLabelField : currentValueField]
+    		: Object.assign({}, opt));
+
+    		return multiple ? _selection : _selection[0];
+    	};
+
+    	const setSelection = (selection, triggerChangeEvent) => {
+    		handleValueUpdate(selection);
+    		triggerChangeEvent && emitChangeEvent();
+    	};
+
+    	const clearByParent = doDisable => {
+    		clearSelection();
+    		emitChangeEvent();
+
+    		if (doDisable) {
+    			$$invalidate(0, disabled = true);
+    			$$invalidate(58, fetch = null);
+    		}
+    	};
+
+    	const __id = `sv-select-${Math.random()}`.replace('.', '');
+    	const dispatch = createEventDispatcher();
+
+    	const itemConfig = {
+    		optionsWithGroups: false,
+    		isOptionArray: options && options.length && typeof options[0] !== 'object',
+    		optionProps: [],
+    		valueField,
+    		labelField,
+    		labelAsValue,
+    		optLabel: groupLabelField,
+    		optItems: groupItemsField
+    	};
+
+    	/* possibility to provide initial (selected) values in `fetch` mode **/
+    	if (fetch && value && valueAsObject && (!options || options && options.length === 0)) {
+    		options = Array.isArray(value) ? value : [value];
+    	}
+
+    	let isInitialized = false;
+    	let refDropdown;
+    	let refControl;
+    	let ignoreHover = false;
+    	let dropdownActiveIndex = null;
+    	let currentValueField = valueField || fieldInit('value', options, itemConfig);
+    	let currentLabelField = labelField || fieldInit('label', options, itemConfig);
+    	let isIOS = false;
+    	let isAndroid = false;
+
+    	let refSelectAction = validatorAction
+    	? validatorAction.shift()
+    	: () => ({
+    			destroy: () => {
+    				
+    			}
+    		});
+
+    	let refSelectActionParams = validatorAction || [];
+    	let refSelectElement = null;
+    	itemConfig.valueField = currentValueField;
+    	itemConfig.labelField = currentLabelField;
+
+    	itemConfig.optionProps = value && valueAsObject && (multiple && Array.isArray(value)
+    	? value.length > 0
+    	: true)
+    	? getFilterProps(multiple ? value.slice(0, 1).shift() : value)
+    	: [currentValueField, currentLabelField];
+
+    	/** ************************************ automatic init */
+    	multiple = name && !multiple ? name.endsWith('[]') : multiple;
+
+    	if (!createFilter) createFilter = defaultCreateFilter;
+
+    	/** ************************************ Context definition */
+    	const inputValue = writable('');
+
+    	component_subscribe($$self, inputValue, value => $$invalidate(34, $inputValue = value));
+    	const hasFocus = writable(false);
+    	component_subscribe($$self, hasFocus, value => $$invalidate(106, $hasFocus = value));
+    	const hasDropdownOpened = writable(false);
+    	component_subscribe($$self, hasDropdownOpened, value => $$invalidate(105, $hasDropdownOpened = value));
+
+    	/** ************************************ remote source */
+    	let isFetchingData = false;
+
+    	let initFetchOnly = fetchMode === 'init' || fetchMode === 'auto' && typeof fetch === 'string' && fetch.indexOf('[query]') === -1;
+    	let fetchInitValue = initFetchOnly ? value : null;
+    	let fetchUnsubscribe = null;
+
+    	function cancelXhr() {
+    		if (isInitialized && isFetchingData) {
+    			xhr && ![0, 4].includes(xhr.readyState) && xhr.abort();
+    			$$invalidate(28, isFetchingData = false);
+    		}
+
+    		return true;
+    	}
+
+    	function createFetch(fetch) {
+    		if (fetchUnsubscribe) {
+    			fetchUnsubscribe();
+    			fetchUnsubscribe = null;
+    		}
+
+    		if (!fetch) return null;
+    		cancelXhr();
+
+    		// update fetchInitValue when fetch is changed, but we are in 'init' mode, ref #113
+    		if (initFetchOnly && prevValue) fetchInitValue = prevValue;
+
+    		const fetchSource = typeof fetch === 'string' ? fetchRemote(fetch) : fetch;
+
+    		// reinit this if `fetch` property changes
+    		$$invalidate(90, initFetchOnly = fetchMode === 'init' || fetchMode === 'auto' && typeof fetch === 'string' && fetch.indexOf('[query]') === -1);
+
+    		const debouncedFetch = debounce(
+    			query => {
+    				if (query && !$inputValue.length) {
+    					$$invalidate(28, isFetchingData = false);
+    					return;
+    				}
+
+    				fetchSource(query, fetchCallback).then(data => {
+    					if (!Array.isArray(data)) {
+    						console.warn('[Svelecte]:Fetch - array expected, invalid property provided:', data);
+    						data = [];
+    					}
+
+    					$$invalidate(55, options = data);
+    				}).catch(() => {
+    					$$invalidate(55, options = []);
+    				}).finally(() => {
+    					$$invalidate(28, isFetchingData = false);
+    					$hasFocus && hasDropdownOpened.set(true);
+    					$$invalidate(42, listMessage = _i18n.fetchEmpty);
+
+    					tick().then(() => {
+    						if (initFetchOnly && fetchInitValue) {
+    							handleValueUpdate(fetchInitValue);
+    							fetchInitValue = null;
+    						}
+
+    						dispatch('fetch', options);
+    					});
+    				});
+    			},
+    			500
+    		);
+
+    		if (initFetchOnly) {
+    			if (typeof fetch === 'string' && fetch.indexOf('[parent]') !== -1) return null;
+    			$$invalidate(28, isFetchingData = true);
+    			$$invalidate(55, options = []);
+    			debouncedFetch(null);
+    			return null;
+    		}
+
+    		fetchUnsubscribe = inputValue.subscribe(value => {
+    			cancelXhr(); // cancel previous run
+
+    			if (!value) {
+    				if (isInitialized && fetchResetOnBlur) {
+    					$$invalidate(55, options = []);
+    				}
+
+    				return;
+    			}
+
+    			if (value && value.length < minQuery) return;
+    			!initFetchOnly && hasDropdownOpened.set(false);
+    			$$invalidate(28, isFetchingData = true);
+    			debouncedFetch(value);
+    		});
+
+    		return debouncedFetch;
+    	}
+
+    	/** ************************************ component logic */
+    	let prevValue = value;
+
+    	let _i18n = config.i18n;
+
+    	/** - - - - - - - - - - STORE - - - - - - - - - - - - - -*/
+    	let selectedOptions = value !== null
+    	? initSelection.call(options, value, valueAsObject, itemConfig)
+    	: [];
+
+    	let selectedKeys = selectedOptions.reduce(
+    		(set, opt) => {
+    			set.add(opt[currentValueField]);
+    			return set;
+    		},
+    		new Set()
+    	);
+
+    	let alreadyCreated = [''];
+    	let prevOptions = options;
+
+    	/**
+     * Dispatch change event on add options/remove selected items
+     */
+    	function emitChangeEvent() {
+    		tick().then(() => {
+    			dispatch('change', readSelection);
+
+    			if (refSelectElement) {
+    				refSelectElement.dispatchEvent(new Event('input')); // required for svelte-use-form
+    				refSelectElement.dispatchEvent(new Event('change')); // typically you expect change event to be fired
+    			}
+    		});
+    	}
+
+    	/**
+     * Dispatch createoption event when user creates a new entry (with 'creatable' feature)
+     */
+    	function emitCreateEvent(createdOpt) {
+    		dispatch('createoption', createdOpt);
+    	}
+
+    	/**
+     * update inner selection, when 'value' property is changed
+     * 
+     * @internal before 3.9.1 it was possible when `valueAsObject` was set to set value OUTSIDE defined options. Fix at
+     * 3.9.1 broke manual value setter. Which has been resolved now through #128. Which disables pre 3.9.1 behavior
+     *
+     * FUTURE: to enable this behavior add property for it. Could be useful is some edge cases I would say.
+     */
+    	function handleValueUpdate(passedVal) {
+    		clearSelection();
+
+    		if (passedVal) {
+    			let _selection = Array.isArray(passedVal) ? passedVal : [passedVal];
+
+    			const valueProp = itemConfig.labelAsValue
+    			? currentLabelField
+    			: currentValueField;
+
+    			_selection = _selection.reduce(
+    				(res, val) => {
+    					if (creatable && valueAsObject && val.$created) {
+    						res.push(val);
+    						return res;
+    					}
+
+    					const opt = flatItems.find(item => valueAsObject
+    					? item[valueProp] == val[valueProp]
+    					: item[valueProp] == val);
+
+    					opt && res.push(opt);
+    					return res;
+    				},
+    				[]
+    			);
+
+    			let success = _selection.every(selectOption) && (multiple
+    			? passedVal.length === _selection.length
+    			: _selection.length > 0);
+
+    			if (!success) {
+    				// this is run only when invalid 'value' is provided, like out of option array
+    				console.warn('[Svelecte]: provided "value" property is invalid', passedVal);
+
+    				$$invalidate(59, value = multiple ? [] : null);
+    				$$invalidate(60, readSelection = value);
+    				dispatch('invalidValue', passedVal);
+    				return;
+    			}
+
+    			$$invalidate(60, readSelection = Array.isArray(passedVal)
+    			? _selection
+    			: _selection.shift());
+    		}
+
+    		$$invalidate(91, prevValue = passedVal);
+    	}
+
+    	/** 
+     * Add given option to selection pool
+     * Check if not already selected or max item selection reached
+     * 
+     * @returns bool
+     */
+    	function selectOption(opt) {
+    		if (!opt || multiple && maxReached) return false;
+    		if (selectedKeys.has(opt[currentValueField])) return;
+
+    		if (typeof opt === 'string') {
+    			if (!creatable) return;
+    			opt = createFilter(opt, options);
+    			if (alreadyCreated.includes(opt)) return;
+    			!fetch && alreadyCreated.push(opt);
+    			opt = createTransform(opt, creatablePrefix, currentValueField, currentLabelField);
+    			opt.$created = true; // internal setter
+    			if (keepCreated) $$invalidate(55, options = [...options, opt]);
+    			emitCreateEvent(opt);
+    		}
+
+    		if (multiple) {
+    			selectedOptions.push(opt);
+    			$$invalidate(30, selectedOptions);
+    			selectedKeys.add(opt[currentValueField]);
+    		} else {
+    			$$invalidate(30, selectedOptions = [opt]);
+    			selectedKeys.clear();
+    			selectedKeys.add(opt[currentValueField]);
+    			$$invalidate(25, dropdownActiveIndex = options.indexOf(opt));
+    		}
+
+    		((((((((($$invalidate(92, flatItems), $$invalidate(55, options)), $$invalidate(88, itemConfig)), $$invalidate(89, isInitialized)), $$invalidate(111, prevOptions)), $$invalidate(61, valueField)), $$invalidate(26, currentValueField)), $$invalidate(62, labelField)), $$invalidate(27, currentLabelField)), $$invalidate(24, labelAsValue));
+    		return true;
+    	}
+
+    	/**
+     * Remove option/all options from selection pool
+     */
+    	function deselectOption(opt) {
+    		if (opt.$created && backspacePressed && allowEditing) {
+    			alreadyCreated.splice(alreadyCreated.findIndex(o => o === opt[labelAsValue ? currentLabelField : currentValueField]), 1);
+    			$$invalidate(39, alreadyCreated);
+
+    			if (keepCreated) {
+    				options.splice(options.findIndex(o => o === opt), 1);
+    				$$invalidate(55, options);
+    			}
+
+    			set_store_value(inputValue, $inputValue = opt[currentLabelField].replace(creatablePrefix, ''), $inputValue);
+    		}
+
+    		const id = opt[currentValueField];
+    		selectedKeys.delete(id);
+    		selectedOptions.splice(selectedOptions.findIndex(o => o[currentValueField] == id), 1);
+    		$$invalidate(30, selectedOptions);
+    		((((((((($$invalidate(92, flatItems), $$invalidate(55, options)), $$invalidate(88, itemConfig)), $$invalidate(89, isInitialized)), $$invalidate(111, prevOptions)), $$invalidate(61, valueField)), $$invalidate(26, currentValueField)), $$invalidate(62, labelField)), $$invalidate(27, currentLabelField)), $$invalidate(24, labelAsValue));
+    	}
+
+    	function clearSelection() {
+    		selectedKeys.clear();
+    		$$invalidate(30, selectedOptions = []);
+    		$$invalidate(33, maxReached = false); // reset forcefully, related to #145
+    		((((((((($$invalidate(92, flatItems), $$invalidate(55, options)), $$invalidate(88, itemConfig)), $$invalidate(89, isInitialized)), $$invalidate(111, prevOptions)), $$invalidate(61, valueField)), $$invalidate(26, currentValueField)), $$invalidate(62, labelField)), $$invalidate(27, currentLabelField)), $$invalidate(24, labelAsValue));
+    	}
+
+    	/**
+     * Handle user action on select
+     */
+    	function onSelect(event, opt) {
+    		opt = opt || event.detail;
+    		if (disabled || opt[disabledField] || opt.$isGroupHeader) return;
+    		selectOption(opt);
+    		if (multiple && resetOnSelect || !multiple) set_store_value(inputValue, $inputValue = '', $inputValue);
+
+    		if (!multiple || closeAfterSelect) {
+    			set_store_value(hasDropdownOpened, $hasDropdownOpened = false, $hasDropdownOpened);
+    		} else {
+    			tick().then(() => {
+    				$$invalidate(25, dropdownActiveIndex = maxReached
+    				? null
+    				: listIndex.next(dropdownActiveIndex - 1, true));
+    			});
+    		}
+
+    		emitChangeEvent();
+    	}
+
+    	function onDeselect(event, opt) {
+    		if (disabled) return;
+    		opt = opt || event.detail;
+
+    		if (opt) {
+    			deselectOption(opt);
+    		} else {
+    			// apply for 'x' when clearable:true || ctrl+backspace || ctrl+delete
+    			clearSelection();
+    		}
+
+    		tick().then(refControl.focusControl);
+    		emitChangeEvent();
+    	}
+
+    	/**
+     * Dropdown hover handler - update active item
+     */
+    	function onHover(event) {
+    		if (ignoreHover) {
+    			ignoreHover = false;
+    			return;
+    		}
+
+    		$$invalidate(25, dropdownActiveIndex = event.detail);
+    	}
+
+    	/** keyboard related props */
+    	let backspacePressed = false;
+
+    	/**
+     * Keyboard navigation
+     */
+    	function onKeyDown(event) {
+    		event = event.detail; // from dispatched event
+
+    		if (creatable && delimiter.indexOf(event.key) > -1) {
+    			$inputValue.length > 0 && onSelect(null, $inputValue); // prevent creating item with delimiter itself
+    			event.preventDefault();
+    			return;
+    		}
+
+    		const Tab = selectOnTab && $hasDropdownOpened && !event.shiftKey
+    		? 'Tab'
+    		: 'No-tab';
+
+    		let ctrlKey = isIOS ? event.metaKey : event.ctrlKey;
+    		let isPageEvent = ['PageUp', 'PageDown'].includes(event.key);
+
+    		switch (event.key) {
+    			case 'End':
+    				if ($inputValue.length !== 0) return;
+    				$$invalidate(25, dropdownActiveIndex = listIndex.first);
+    			case 'PageDown':
+    				if (isPageEvent) {
+    					const [wrap, item] = refDropdown.getDimensions();
+    					$$invalidate(25, dropdownActiveIndex = Math.ceil((item * dropdownActiveIndex + wrap) / item));
+    				}
+    			case 'ArrowUp':
+    				event.preventDefault();
+    				if (!$hasDropdownOpened) {
+    					set_store_value(hasDropdownOpened, $hasDropdownOpened = true, $hasDropdownOpened);
+    					return;
+    				}
+    				$$invalidate(25, dropdownActiveIndex = listIndex.prev(dropdownActiveIndex));
+    				tick().then(refDropdown.scrollIntoView);
+    				ignoreHover = true;
+    				break;
+    			case 'Home':
+    				if ($inputValue.length !== 0 || $inputValue.length === 0 && availableItems.length === 0) return;
+    				$$invalidate(25, dropdownActiveIndex = listIndex.last);
+    			case 'PageUp':
+    				if (isPageEvent) {
+    					const [wrap, item] = refDropdown.getDimensions(); // ref #26
+    					$$invalidate(25, dropdownActiveIndex = Math.floor((item * dropdownActiveIndex - wrap) / item));
+    				}
+    			case 'ArrowDown':
+    				event.preventDefault();
+    				if (!$hasDropdownOpened) {
+    					set_store_value(hasDropdownOpened, $hasDropdownOpened = true, $hasDropdownOpened);
+    					return;
+    				}
+    				$$invalidate(25, dropdownActiveIndex = listIndex.next(dropdownActiveIndex));
+    				tick().then(refDropdown.scrollIntoView);
+    				ignoreHover = true;
+    				break;
+    			case 'Escape':
+    				if ($hasDropdownOpened) {
+    					// prevent ESC bubble in this case (interfering with modal closing etc. (bootstrap))
+    					event.preventDefault();
+
+    					event.stopPropagation();
+    				}
+    				if (!$inputValue) {
+    					set_store_value(hasDropdownOpened, $hasDropdownOpened = false, $hasDropdownOpened);
+    				}
+    				cancelXhr();
+    				set_store_value(inputValue, $inputValue = '', $inputValue);
+    				break;
+    			case Tab:
+    			case 'Enter':
+    				if (!$hasDropdownOpened) {
+    					event.key !== Tab && dispatch('enterKey', event); // ref #125
+    					return;
+    				}
+    				let activeDropdownItem = !ctrlKey ? availableItems[dropdownActiveIndex] : null;
+    				if (creatable && $inputValue) {
+    					activeDropdownItem = !activeDropdownItem || ctrlKey
+    					? $inputValue
+    					: activeDropdownItem;
+
+    					ctrlKey = false;
+    				}
+    				!ctrlKey && activeDropdownItem && onSelect(null, activeDropdownItem);
+    				if (availableItems.length <= dropdownActiveIndex) {
+    					$$invalidate(25, dropdownActiveIndex = currentListLength > 0
+    					? currentListLength
+    					: listIndex.first);
+    				}
+    				if (!activeDropdownItem && selectedOptions.length) {
+    					set_store_value(hasDropdownOpened, $hasDropdownOpened = false, $hasDropdownOpened);
+    					event.key !== Tab && dispatch('enterKey', event); // ref #125
+    					return;
+    				}
+    				(event.key !== Tab || event.key === Tab && selectOnTab !== TAB_SELECT_NAVIGATE) && event.preventDefault();
+    				break;
+    			case ' ':
+    				if (!fetch && !$hasDropdownOpened) {
+    					set_store_value(hasDropdownOpened, $hasDropdownOpened = true, $hasDropdownOpened); // prevent form submit
+    					event.preventDefault();
+    				}
+    				if (!multiple && selectedOptions.length) event.preventDefault();
+    				break;
+    			case 'Backspace':
+    				backspacePressed = true;
+    			case 'Delete':
+    				if ($inputValue === '' && selectedOptions.length) {
+    					ctrlKey
+    					? onDeselect({})
+    					: onDeselect(null, selectedOptions[selectedOptions.length - 1]); /** no detail prop */
+
+    					event.preventDefault();
+    				}
+    				backspacePressed = false;
+    			default:
+    				if (!ctrlKey && !['Tab', 'Shift'].includes(event.key) && !$hasDropdownOpened && !isFetchingData) {
+    					set_store_value(hasDropdownOpened, $hasDropdownOpened = true, $hasDropdownOpened);
+    				}
+    				if (!multiple && selectedOptions.length && event.key !== 'Tab') {
+    					event.preventDefault();
+    					event.stopPropagation();
+    				}
+    		}
+    	}
+
+    	/**
+     * Enable create items by pasting
+     */
+    	function onPaste(event) {
+    		if (creatable) {
+    			event.preventDefault();
+    			const rx = new RegExp('([^' + delimiter + '\\n]+)', 'g');
+    			const pasted = event.clipboardData.getData('text/plain').replace(/\//g, '\/').replace(/\t/g, ' ');
+    			const matches = pasted.match(rx);
+
+    			if (matches.length === 1 && pasted.indexOf(',') === -1) {
+    				set_store_value(inputValue, $inputValue = matches.pop().trim(), $inputValue);
+    			}
+
+    			matches.forEach(opt => onSelect(null, opt.trim()));
+    		}
+    	} // do nothing otherwise
+
+    	function onDndEvent(e) {
+    		$$invalidate(30, selectedOptions = e.detail.items);
+    	}
+
+    	/** ************************************ component lifecycle related */
+    	onMount(() => {
+    		$$invalidate(89, isInitialized = true);
+
+    		if (creatable) {
+    			const valueProp = itemConfig.labelAsValue
+    			? currentLabelField
+    			: currentValueField;
+
+    			$$invalidate(39, alreadyCreated = [''].concat(flatItems.map(opt => opt[valueProp]).filter(opt => opt)));
+    		}
+
+    		$$invalidate(25, dropdownActiveIndex = listIndex.first);
+
+    		if (prevValue && !multiple) {
+    			const prop = labelAsValue ? currentLabelField : currentValueField;
+    			const selectedProp = valueAsObject ? prevValue[prop] : prevValue;
+    			$$invalidate(25, dropdownActiveIndex = flatItems.findIndex(opt => opt[prop] === selectedProp));
+    		}
+
+    		$$invalidate(37, isIOS = iOS());
+    		$$invalidate(38, isAndroid = android());
+    		if (name && !hasAnchor) refSelectElement = document.getElementById(__id);
+    	});
+
+    	function control_binding($$value) {
+    		binding_callbacks[$$value ? 'unshift' : 'push'](() => {
+    			refControl = $$value;
+    			$$invalidate(36, refControl);
+    		});
+    	}
+
+    	function blur_handler(event) {
+    		bubble.call(this, $$self, event);
+    	}
+
+    	function dropdown_binding($$value) {
+    		binding_callbacks[$$value ? 'unshift' : 'push'](() => {
+    			refDropdown = $$value;
+    			$$invalidate(35, refDropdown);
+    		});
+    	}
+
+    	function createoption_handler(event) {
+    		bubble.call(this, $$self, event);
+    	}
+
+    	$$self.$$set = $$props => {
+    		if ('name' in $$props) $$invalidate(2, name = $$props.name);
+    		if ('inputId' in $$props) $$invalidate(3, inputId = $$props.inputId);
+    		if ('required' in $$props) $$invalidate(4, required = $$props.required);
+    		if ('hasAnchor' in $$props) $$invalidate(5, hasAnchor = $$props.hasAnchor);
+    		if ('disabled' in $$props) $$invalidate(0, disabled = $$props.disabled);
+    		if ('options' in $$props) $$invalidate(55, options = $$props.options);
+    		if ('valueField' in $$props) $$invalidate(61, valueField = $$props.valueField);
+    		if ('labelField' in $$props) $$invalidate(62, labelField = $$props.labelField);
+    		if ('groupLabelField' in $$props) $$invalidate(63, groupLabelField = $$props.groupLabelField);
+    		if ('groupItemsField' in $$props) $$invalidate(64, groupItemsField = $$props.groupItemsField);
+    		if ('disabledField' in $$props) $$invalidate(6, disabledField = $$props.disabledField);
+    		if ('placeholder' in $$props) $$invalidate(7, placeholder = $$props.placeholder);
+    		if ('searchable' in $$props) $$invalidate(8, searchable = $$props.searchable);
+    		if ('clearable' in $$props) $$invalidate(9, clearable = $$props.clearable);
+    		if ('renderer' in $$props) $$invalidate(65, renderer = $$props.renderer);
+    		if ('disableHighlight' in $$props) $$invalidate(10, disableHighlight = $$props.disableHighlight);
+    		if ('selectOnTab' in $$props) $$invalidate(66, selectOnTab = $$props.selectOnTab);
+    		if ('resetOnBlur' in $$props) $$invalidate(11, resetOnBlur = $$props.resetOnBlur);
+    		if ('resetOnSelect' in $$props) $$invalidate(67, resetOnSelect = $$props.resetOnSelect);
+    		if ('closeAfterSelect' in $$props) $$invalidate(68, closeAfterSelect = $$props.closeAfterSelect);
+    		if ('dndzone' in $$props) $$invalidate(12, dndzone = $$props.dndzone);
+    		if ('validatorAction' in $$props) $$invalidate(69, validatorAction = $$props.validatorAction);
+    		if ('dropdownItem' in $$props) $$invalidate(13, dropdownItem = $$props.dropdownItem);
+    		if ('controlItem' in $$props) $$invalidate(14, controlItem = $$props.controlItem);
+    		if ('multiple' in $$props) $$invalidate(1, multiple = $$props.multiple);
+    		if ('max' in $$props) $$invalidate(70, max = $$props.max);
+    		if ('collapseSelection' in $$props) $$invalidate(15, collapseSelection = $$props.collapseSelection);
+    		if ('alwaysCollapsed' in $$props) $$invalidate(16, alwaysCollapsed = $$props.alwaysCollapsed);
+    		if ('creatable' in $$props) $$invalidate(17, creatable = $$props.creatable);
+    		if ('creatablePrefix' in $$props) $$invalidate(71, creatablePrefix = $$props.creatablePrefix);
+    		if ('allowEditing' in $$props) $$invalidate(72, allowEditing = $$props.allowEditing);
+    		if ('keepCreated' in $$props) $$invalidate(73, keepCreated = $$props.keepCreated);
+    		if ('delimiter' in $$props) $$invalidate(74, delimiter = $$props.delimiter);
+    		if ('createFilter' in $$props) $$invalidate(56, createFilter = $$props.createFilter);
+    		if ('createTransform' in $$props) $$invalidate(57, createTransform = $$props.createTransform);
+    		if ('fetch' in $$props) $$invalidate(58, fetch = $$props.fetch);
+    		if ('fetchMode' in $$props) $$invalidate(75, fetchMode = $$props.fetchMode);
+    		if ('fetchCallback' in $$props) $$invalidate(76, fetchCallback = $$props.fetchCallback);
+    		if ('fetchResetOnBlur' in $$props) $$invalidate(77, fetchResetOnBlur = $$props.fetchResetOnBlur);
+    		if ('minQuery' in $$props) $$invalidate(78, minQuery = $$props.minQuery);
+    		if ('lazyDropdown' in $$props) $$invalidate(18, lazyDropdown = $$props.lazyDropdown);
+    		if ('virtualList' in $$props) $$invalidate(19, virtualList = $$props.virtualList);
+    		if ('vlHeight' in $$props) $$invalidate(20, vlHeight = $$props.vlHeight);
+    		if ('vlItemSize' in $$props) $$invalidate(21, vlItemSize = $$props.vlItemSize);
+    		if ('searchField' in $$props) $$invalidate(79, searchField = $$props.searchField);
+    		if ('sortField' in $$props) $$invalidate(80, sortField = $$props.sortField);
+    		if ('disableSifter' in $$props) $$invalidate(81, disableSifter = $$props.disableSifter);
+    		if ('class' in $$props) $$invalidate(22, className = $$props.class);
+    		if ('style' in $$props) $$invalidate(23, style = $$props.style);
+    		if ('i18n' in $$props) $$invalidate(82, i18n = $$props.i18n);
+    		if ('readSelection' in $$props) $$invalidate(60, readSelection = $$props.readSelection);
+    		if ('value' in $$props) $$invalidate(59, value = $$props.value);
+    		if ('labelAsValue' in $$props) $$invalidate(24, labelAsValue = $$props.labelAsValue);
+    		if ('valueAsObject' in $$props) $$invalidate(83, valueAsObject = $$props.valueAsObject);
+    		if ('$$scope' in $$props) $$invalidate(98, $$scope = $$props.$$scope);
+    	};
+
+    	$$self.$$.update = () => {
+    		if ($$self.$$.dirty[1] & /*createTransform*/ 67108864) {
+    			if (!createTransform) $$invalidate(57, createTransform = defaultCreateTransform);
+    		}
+
+    		if ($$self.$$.dirty[1] & /*fetch*/ 134217728) {
+    			createFetch(fetch);
+    		}
+
+    		if ($$self.$$.dirty[0] & /*disabled*/ 1) {
+    			disabled && hasDropdownOpened.set(false);
+    		}
+
+    		if ($$self.$$.dirty[2] & /*i18n*/ 1048576) {
+    			{
+    				if (i18n && typeof i18n === 'object') {
+    					$$invalidate(29, _i18n = Object.assign({}, config.i18n, i18n));
+    				}
+    			}
+    		}
+
+    		if ($$self.$$.dirty[0] & /*currentValueField, currentLabelField*/ 201326592 | $$self.$$.dirty[1] & /*options, valueField*/ 1090519040 | $$self.$$.dirty[2] & /*isInitialized, itemConfig, labelField*/ 201326593) {
+    			{
+    				if (isInitialized && prevOptions !== options && options.length) {
+    					const ivalue = fieldInit('value', options || null, itemConfig);
+    					const ilabel = fieldInit('label', options || null, itemConfig);
+    					if (!valueField && currentValueField !== ivalue) $$invalidate(88, itemConfig.valueField = $$invalidate(26, currentValueField = ivalue), itemConfig);
+    					if (!labelField && currentLabelField !== ilabel) $$invalidate(88, itemConfig.labelField = $$invalidate(27, currentLabelField = ilabel), itemConfig);
+    				}
+    			}
+    		}
+
+    		if ($$self.$$.dirty[0] & /*labelAsValue*/ 16777216) {
+    			{
+    				$$invalidate(88, itemConfig.labelAsValue = labelAsValue, itemConfig);
+    			}
+    		}
+
+    		if ($$self.$$.dirty[1] & /*options*/ 16777216 | $$self.$$.dirty[2] & /*itemConfig*/ 67108864) {
+    			$$invalidate(92, flatItems = flatList(options, itemConfig));
+    		}
+
+    		if ($$self.$$.dirty[0] & /*selectedOptions, multiple, currentLabelField, currentValueField*/ 1275068418 | $$self.$$.dirty[2] & /*itemConfig, valueAsObject, prevValue*/ 606076928) {
+    			{
+    				const _selectionArray = selectedOptions.map(opt => {
+    					const { '$disabled': unused1, '$isGroupItem': unused2, ...obj } = opt;
+    					return obj;
+    				});
+
+    				const _unifiedSelection = multiple
+    				? _selectionArray
+    				: _selectionArray.length ? _selectionArray[0] : null;
+
+    				const valueProp = itemConfig.labelAsValue
+    				? currentLabelField
+    				: currentValueField;
+
+    				if (!valueAsObject) {
+    					$$invalidate(91, prevValue = multiple
+    					? _unifiedSelection.map(opt => opt[valueProp])
+    					: selectedOptions.length
+    						? _unifiedSelection[valueProp]
+    						: null);
+    				} else {
+    					$$invalidate(91, prevValue = _unifiedSelection);
+    				}
+
+    				$$invalidate(59, value = prevValue);
+    				$$invalidate(60, readSelection = _unifiedSelection);
+    			}
+    		}
+
+    		if ($$self.$$.dirty[1] & /*value*/ 268435456 | $$self.$$.dirty[2] & /*prevValue*/ 536870912) {
+    			prevValue !== value && handleValueUpdate(value);
+    		}
+
+    		if ($$self.$$.dirty[0] & /*selectedOptions*/ 1073741824 | $$self.$$.dirty[2] & /*max*/ 256) {
+    			$$invalidate(33, maxReached = max && selectedOptions.length == max); // == is intentional, if string is provided
+    		}
+
+    		if ($$self.$$.dirty[0] & /*multiple*/ 2 | $$self.$$.dirty[1] & /*maxReached, $inputValue*/ 12 | $$self.$$.dirty[2] & /*flatItems, disableSifter, searchField, sortField, itemConfig*/ 1141768192) {
+    			$$invalidate(32, availableItems = maxReached
+    			? []
+    			: filterList(flatItems, disableSifter ? null : $inputValue, multiple ? selectedKeys : false, searchField, sortField, itemConfig));
+    		}
+
+    		if ($$self.$$.dirty[0] & /*creatable*/ 131072 | $$self.$$.dirty[1] & /*$inputValue, availableItems*/ 10) {
+    			currentListLength = creatable && $inputValue
+    			? availableItems.length
+    			: availableItems.length - 1;
+    		}
+
+    		if ($$self.$$.dirty[0] & /*creatable*/ 131072 | $$self.$$.dirty[1] & /*availableItems, $inputValue*/ 10 | $$self.$$.dirty[2] & /*itemConfig*/ 67108864) {
+    			$$invalidate(31, listIndex = indexList(availableItems, creatable && $inputValue, itemConfig));
+    		}
+
+    		if ($$self.$$.dirty[0] & /*dropdownActiveIndex*/ 33554432 | $$self.$$.dirty[1] & /*listIndex*/ 1) {
+    			{
+    				if (dropdownActiveIndex === null) {
+    					$$invalidate(25, dropdownActiveIndex = listIndex.first);
+    				} else if (dropdownActiveIndex > listIndex.last) {
+    					$$invalidate(25, dropdownActiveIndex = listIndex.last);
+    				} else if (dropdownActiveIndex < listIndex.first) {
+    					$$invalidate(25, dropdownActiveIndex = listIndex.first);
+    				}
+    			}
+    		}
+
+    		if ($$self.$$.dirty[0] & /*_i18n, isFetchingData*/ 805306368 | $$self.$$.dirty[1] & /*maxReached, $inputValue, availableItems, fetch*/ 134217742 | $$self.$$.dirty[2] & /*max, minQuery, initFetchOnly*/ 268501248) {
+    			$$invalidate(42, listMessage = maxReached
+    			? _i18n.max(max)
+    			: $inputValue.length && availableItems.length === 0 && minQuery <= 1
+    				? _i18n.nomatch
+    				: fetch
+    					? minQuery <= 1
+    						? initFetchOnly
+    							? isFetchingData ? _i18n.fetchInit : _i18n.empty
+    							: _i18n.fetchBefore
+    						: _i18n.fetchQuery(minQuery, $inputValue.length)
+    					: _i18n.empty);
+    		}
+
+    		if ($$self.$$.dirty[0] & /*currentLabelField*/ 134217728 | $$self.$$.dirty[2] & /*renderer*/ 8) {
+    			$$invalidate(41, itemRenderer = typeof renderer === 'function'
+    			? renderer
+    			: formatterList[renderer] || formatterList.default.bind({ label: currentLabelField }));
+    		}
+
+    		if ($$self.$$.dirty[1] & /*createFilter, $inputValue, options*/ 50331656) {
+    			$$invalidate(40, dropdownInputValue = createFilter($inputValue, options));
+    		}
+    	};
+
+    	return [
+    		disabled,
+    		multiple,
+    		name,
+    		inputId,
+    		required,
+    		hasAnchor,
+    		disabledField,
+    		placeholder,
+    		searchable,
+    		clearable,
+    		disableHighlight,
+    		resetOnBlur,
+    		dndzone,
+    		dropdownItem,
+    		controlItem,
+    		collapseSelection,
+    		alwaysCollapsed,
+    		creatable,
+    		lazyDropdown,
+    		virtualList,
+    		vlHeight,
+    		vlItemSize,
+    		className,
+    		style,
+    		labelAsValue,
+    		dropdownActiveIndex,
+    		currentValueField,
+    		currentLabelField,
+    		isFetchingData,
+    		_i18n,
+    		selectedOptions,
+    		listIndex,
+    		availableItems,
+    		maxReached,
+    		$inputValue,
+    		refDropdown,
+    		refControl,
+    		isIOS,
+    		isAndroid,
+    		alreadyCreated,
+    		dropdownInputValue,
+    		itemRenderer,
+    		listMessage,
+    		__id,
+    		refSelectAction,
+    		refSelectActionParams,
+    		inputValue,
+    		hasFocus,
+    		onSelect,
+    		onDeselect,
+    		onHover,
+    		onKeyDown,
+    		onPaste,
+    		onDndEvent,
+    		hasDropdownOpened,
+    		options,
+    		createFilter,
+    		createTransform,
+    		fetch,
+    		value,
+    		readSelection,
+    		valueField,
+    		labelField,
+    		groupLabelField,
+    		groupItemsField,
+    		renderer,
+    		selectOnTab,
+    		resetOnSelect,
+    		closeAfterSelect,
+    		validatorAction,
+    		max,
+    		creatablePrefix,
+    		allowEditing,
+    		keepCreated,
+    		delimiter,
+    		fetchMode,
+    		fetchCallback,
+    		fetchResetOnBlur,
+    		minQuery,
+    		searchField,
+    		sortField,
+    		disableSifter,
+    		i18n,
+    		valueAsObject,
+    		focus,
+    		getSelection,
+    		setSelection,
+    		clearByParent,
+    		itemConfig,
+    		isInitialized,
+    		initFetchOnly,
+    		prevValue,
+    		flatItems,
+    		slots,
+    		control_binding,
+    		blur_handler,
+    		dropdown_binding,
+    		createoption_handler,
+    		$$scope
+    	];
+    }
+
+    class Svelecte extends SvelteComponent {
+    	constructor(options) {
+    		super();
+
+    		init(
+    			this,
+    			options,
+    			instance$1,
+    			create_fragment$1,
+    			safe_not_equal,
+    			{
+    				name: 2,
+    				inputId: 3,
+    				required: 4,
+    				hasAnchor: 5,
+    				disabled: 0,
+    				options: 55,
+    				valueField: 61,
+    				labelField: 62,
+    				groupLabelField: 63,
+    				groupItemsField: 64,
+    				disabledField: 6,
+    				placeholder: 7,
+    				searchable: 8,
+    				clearable: 9,
+    				renderer: 65,
+    				disableHighlight: 10,
+    				selectOnTab: 66,
+    				resetOnBlur: 11,
+    				resetOnSelect: 67,
+    				closeAfterSelect: 68,
+    				dndzone: 12,
+    				validatorAction: 69,
+    				dropdownItem: 13,
+    				controlItem: 14,
+    				multiple: 1,
+    				max: 70,
+    				collapseSelection: 15,
+    				alwaysCollapsed: 16,
+    				creatable: 17,
+    				creatablePrefix: 71,
+    				allowEditing: 72,
+    				keepCreated: 73,
+    				delimiter: 74,
+    				createFilter: 56,
+    				createTransform: 57,
+    				fetch: 58,
+    				fetchMode: 75,
+    				fetchCallback: 76,
+    				fetchResetOnBlur: 77,
+    				minQuery: 78,
+    				lazyDropdown: 18,
+    				virtualList: 19,
+    				vlHeight: 20,
+    				vlItemSize: 21,
+    				searchField: 79,
+    				sortField: 80,
+    				disableSifter: 81,
+    				class: 22,
+    				style: 23,
+    				i18n: 82,
+    				readSelection: 60,
+    				value: 59,
+    				labelAsValue: 24,
+    				valueAsObject: 83,
+    				focus: 84,
+    				getSelection: 85,
+    				setSelection: 86,
+    				clearByParent: 87
+    			},
+    			null,
+    			[-1, -1, -1, -1]
+    		);
+    	}
+
+    	get focus() {
+    		return this.$$.ctx[84];
+    	}
+
+    	get getSelection() {
+    		return this.$$.ctx[85];
+    	}
+
+    	get setSelection() {
+    		return this.$$.ctx[86];
+    	}
+
+    	get clearByParent() {
+    		return this.$$.ctx[87];
+    	}
+    }
+
+    const dataset = {
+      countryGroups: () => [
+        {
+          label: 'A',
+          options: [{
+            value: 'al',
+            text: 'Albania'
+          },
+          {
+            value: 'ad',
+            text: 'Andorra'
+          },
+          {
+            value: 'am',
+            text: 'Armenia'
+          },
+          {
+            value: 'a',
+            text: 'Austria'
+          },
+          {
+            value: 'az',
+            text: 'Azerbaijan'
+          }]
+        },
+        {
+          label: 'B',
+          options: [{
+            value: 'by',
+            text: 'Belarus'
+          },
+          {
+            value: 'be',
+            text: 'Belgium'
+          },
+          {
+            value: 'ba',
+            text: 'Bosnia and Herzegovina'
+          },
+          {
+            value: 'bg',
+            text: 'Bulgaria'
+          }]
+        },
+        {
+          label: 'C',
+          options: [{
+            value: 'hr',
+            text: 'Croatia'
+          },
+          {
+            value: 'cy',
+            text: 'Cyprus'
+          },
+          {
+            value: 'cz',
+            text: 'Czechia'
+          }]
+        }
+      ],
+      countries: () => [
+        {
+          value: 'al',
+          text: 'Albania'
+        },
+        {
+          value: 'ad',
+          text: 'Andorra'
+        },
+        {
+          value: 'am',
+          text: 'Armenia'
+        },
+        {
+          value: 'a',
+          text: 'Austria'
+        },
+        {
+          value: 'az',
+          text: 'Azerbaijan'
+        },
+        {
+          value: 'by',
+          text: 'Belarus'
+        },
+        {
+          value: 'be',
+          text: 'Belgium'
+        },
+        {
+          value: 'ba',
+          text: 'Bosnia and Herzegovina'
+        },
+        {
+          value: 'bg',
+          text: 'Bulgaria'
+        },
+        {
+          value: 'hr',
+          text: 'Croatia'
+        },
+        {
+          value: 'cy',
+          text: 'Cyprus'
+        },
+        {
+          value: 'cz',
+          text: 'Czechia'
+        },
+        {
+          value: 'dk',
+          text: 'Denmark'
+        },
+        {
+          value: 'ee',
+          text: 'Estonia'
+        },
+        {
+          value: 'fi',
+          text: 'Finland'
+        },
+        {
+          value: 'fr',
+          text: 'France'
+        },
+        {
+          value: 'ge',
+          text: 'Georgia'
+        },
+        {
+          value: 'de',
+          text: 'Germany'
+        },
+        {
+          value: 'gr',
+          text: 'Greece'
+        },
+        {
+          value: 'hu',
+          text: 'Hungary'
+        },
+        {
+          value: 'is',
+          text: 'Iceland'
+        },
+        {
+          value: 'ie',
+          text: 'Ireland'
+        },
+        {
+          value: 'it',
+          text: 'Italy'
+        },
+        {
+          value: 'xk',
+          text: 'Kosovo'
+        },
+        {
+          value: 'lv',
+          text: 'Latvia'
+        },
+        {
+          value: 'li',
+          text: 'Liechtenstein'
+        },
+        {
+          value: 'lt',
+          text: 'Lithuania'
+        },
+        {
+          value: 'lu',
+          text: 'Luxembourg'
+        },
+        {
+          value: 'mt',
+          text: 'Malta'
+        },
+        {
+          value: 'md',
+          text: 'Moldova'
+        },
+        {
+          value: 'me',
+          text: 'Montenegro'
+        },
+        {
+          value: 'nl',
+          text: 'Netherlands'
+        },
+        {
+          value: 'mk',
+          text: 'North Macedonia (formerly Macedonia)'
+        },
+        {
+          value: 'no',
+          text: 'Norway'
+        },
+        {
+          value: 'pl',
+          text: 'Poland'
+        },
+        {
+          value: 'pt',
+          text: 'Portugal'
+        },
+        {
+          value: 'ro',
+          text: 'Romania'
+        },
+        {
+          value: 'ru',
+          text: 'Russia'
+        },
+        {
+          value: 'rs',
+          text: 'Serbia'
+        },
+        {
+          value: 'sk',
+          text: 'Slovakia'
+        },
+        {
+          value: 'sl',
+          text: 'Slovenia'
+        },
+        {
+          value: 'es',
+          text: 'Spain'
+        },
+        {
+          value: 'se',
+          text: 'Sweden'
+        },
+        {
+          value: 'ch',
+          text: 'Switzerland'
+        },
+        {
+          value: 'tr',
+          text: 'Turkey'
+        },
+        {
+          value: 'ua',
+          text: 'Ukraine'
+        },
+        {
+          value: 'uk',
+          text: 'United Kingdom'
+        },
+      ],
+      colors: () => [
+        {
+          value: 'aqua',
+          text: 'Aqua',
+          hex: '#00FFFF'
+        },
+        {
+          value: 'black',
+          text: 'Black',
+          hex: '#000000'
+        },
+        {
+          value: 'blue',
+          text: 'Blue',
+          hex: '#0000FF'
+        },
+        {
+          value: 'gray',
+          text: 'Gray',
+          hex: '#808080'
+        },
+        {
+          value: 'green',
+          text: 'Green',
+          hex: '#008000'
+        },
+        {
+          value: 'fuchsia',
+          text: 'Fuchsia',
+          hex: '#FF00FF'
+        },
+        {
+          value: 'lime',
+          text: 'Lime',
+          hex: '#00FF00'
+        },
+        {
+          value: 'maroon',
+          text: 'Maroon',
+          hex: '#800000'
+        },
+        {
+          value: 'navy',
+          text: 'Navy',
+          hex: '#000080'
+        },
+        {
+          value: 'olive',
+          text: 'Olive',
+          hex: '#808000'
+        },
+        {
+          value: 'purple',
+          text: 'Purple',
+          hex: '#800080'
+        },
+        {
+          value: 'red',
+          text: 'Red',
+          hex: '#FF0000'
+        },
+        {
+          value: 'silver',
+          text: 'Silver',
+          hex: '#C0C0C0'
+        },
+        {
+          value: 'teal',
+          text: 'Teal',
+          hex: '#008080'
+        },
+        {
+          value: 'yellow',
+          text: 'Yellow',
+          hex: '#FFFF00'
+        },
+        {
+          value: 'white',
+          text: 'White',
+          hex: '#FFFFFF'
+        }
+      ]
+    };
+
+    /* docs/src/01-basic.svelte generated by Svelte v3.57.0 */
+
+    function create_fragment(ctx) {
+    	let div7;
+    	let div6;
+    	let div0;
+    	let t0;
+    	let svelecte0;
+    	let updating_readSelection;
+    	let updating_value;
+    	let t1;
+    	let div1;
+    	let t2;
+    	let svelecte1;
+    	let updating_readSelection_1;
+    	let updating_value_1;
+    	let t3;
+    	let div2;
+    	let t4;
+    	let svelecte2;
+    	let updating_readSelection_2;
+    	let updating_value_2;
+    	let t5;
+    	let div3;
+    	let t6;
+    	let svelecte3;
+    	let updating_readSelection_3;
+    	let updating_value_3;
+    	let t7;
+    	let div4;
+    	let t8;
+    	let svelecte4;
+    	let updating_readSelection_4;
+    	let updating_value_4;
+    	let t9;
+    	let div5;
+    	let t10;
+    	let svelecte5;
+    	let updating_readSelection_5;
+    	let updating_value_5;
+    	let current;
+
+    	function svelecte0_readSelection_binding(value) {
+    		/*svelecte0_readSelection_binding*/ ctx[3](value);
+    	}
+
+    	function svelecte0_value_binding(value) {
+    		/*svelecte0_value_binding*/ ctx[4](value);
+    	}
+
+    	let svelecte0_props = {
+    		inputId: 1,
+    		options: /*options*/ ctx[2],
+    		placeholder: "Select country"
+    	};
+
+    	if (/*selection*/ ctx[0] !== void 0) {
+    		svelecte0_props.readSelection = /*selection*/ ctx[0];
+    	}
+
+    	if (/*value*/ ctx[1] !== void 0) {
+    		svelecte0_props.value = /*value*/ ctx[1];
+    	}
+
+    	svelecte0 = new Svelecte({ props: svelecte0_props });
+    	binding_callbacks.push(() => bind(svelecte0, 'readSelection', svelecte0_readSelection_binding));
+    	binding_callbacks.push(() => bind(svelecte0, 'value', svelecte0_value_binding));
+
+    	function svelecte1_readSelection_binding(value) {
+    		/*svelecte1_readSelection_binding*/ ctx[5](value);
+    	}
+
+    	function svelecte1_value_binding(value) {
+    		/*svelecte1_value_binding*/ ctx[6](value);
+    	}
+
+    	let svelecte1_props = {
+    		inputId: 2,
+    		options: /*options*/ ctx[2],
+    		placeholder: "Select country"
+    	};
+
+    	if (/*selection*/ ctx[0] !== void 0) {
+    		svelecte1_props.readSelection = /*selection*/ ctx[0];
+    	}
+
+    	if (/*value*/ ctx[1] !== void 0) {
+    		svelecte1_props.value = /*value*/ ctx[1];
+    	}
+
+    	svelecte1 = new Svelecte({ props: svelecte1_props });
+    	binding_callbacks.push(() => bind(svelecte1, 'readSelection', svelecte1_readSelection_binding));
+    	binding_callbacks.push(() => bind(svelecte1, 'value', svelecte1_value_binding));
+
+    	function svelecte2_readSelection_binding(value) {
+    		/*svelecte2_readSelection_binding*/ ctx[7](value);
+    	}
+
+    	function svelecte2_value_binding(value) {
+    		/*svelecte2_value_binding*/ ctx[8](value);
+    	}
+
+    	let svelecte2_props = {
+    		inputId: 3,
+    		options: /*options*/ ctx[2],
+    		placeholder: "Select country"
+    	};
+
+    	if (/*selection*/ ctx[0] !== void 0) {
+    		svelecte2_props.readSelection = /*selection*/ ctx[0];
+    	}
+
+    	if (/*value*/ ctx[1] !== void 0) {
+    		svelecte2_props.value = /*value*/ ctx[1];
+    	}
+
+    	svelecte2 = new Svelecte({ props: svelecte2_props });
+    	binding_callbacks.push(() => bind(svelecte2, 'readSelection', svelecte2_readSelection_binding));
+    	binding_callbacks.push(() => bind(svelecte2, 'value', svelecte2_value_binding));
+
+    	function svelecte3_readSelection_binding(value) {
+    		/*svelecte3_readSelection_binding*/ ctx[9](value);
+    	}
+
+    	function svelecte3_value_binding(value) {
+    		/*svelecte3_value_binding*/ ctx[10](value);
+    	}
+
+    	let svelecte3_props = {
+    		inputId: 4,
+    		options: /*options*/ ctx[2],
+    		placeholder: "Select country"
+    	};
+
+    	if (/*selection*/ ctx[0] !== void 0) {
+    		svelecte3_props.readSelection = /*selection*/ ctx[0];
+    	}
+
+    	if (/*value*/ ctx[1] !== void 0) {
+    		svelecte3_props.value = /*value*/ ctx[1];
+    	}
+
+    	svelecte3 = new Svelecte({ props: svelecte3_props });
+    	binding_callbacks.push(() => bind(svelecte3, 'readSelection', svelecte3_readSelection_binding));
+    	binding_callbacks.push(() => bind(svelecte3, 'value', svelecte3_value_binding));
+
+    	function svelecte4_readSelection_binding(value) {
+    		/*svelecte4_readSelection_binding*/ ctx[11](value);
+    	}
+
+    	function svelecte4_value_binding(value) {
+    		/*svelecte4_value_binding*/ ctx[12](value);
+    	}
+
+    	let svelecte4_props = {
+    		inputId: 5,
+    		options: /*options*/ ctx[2],
+    		placeholder: "Select country"
+    	};
+
+    	if (/*selection*/ ctx[0] !== void 0) {
+    		svelecte4_props.readSelection = /*selection*/ ctx[0];
+    	}
+
+    	if (/*value*/ ctx[1] !== void 0) {
+    		svelecte4_props.value = /*value*/ ctx[1];
+    	}
+
+    	svelecte4 = new Svelecte({ props: svelecte4_props });
+    	binding_callbacks.push(() => bind(svelecte4, 'readSelection', svelecte4_readSelection_binding));
+    	binding_callbacks.push(() => bind(svelecte4, 'value', svelecte4_value_binding));
+
+    	function svelecte5_readSelection_binding(value) {
+    		/*svelecte5_readSelection_binding*/ ctx[13](value);
+    	}
+
+    	function svelecte5_value_binding(value) {
+    		/*svelecte5_value_binding*/ ctx[14](value);
+    	}
+
+    	let svelecte5_props = {
+    		inputId: 6,
+    		options: /*options*/ ctx[2],
+    		placeholder: "Select country"
+    	};
+
+    	if (/*selection*/ ctx[0] !== void 0) {
+    		svelecte5_props.readSelection = /*selection*/ ctx[0];
+    	}
+
+    	if (/*value*/ ctx[1] !== void 0) {
+    		svelecte5_props.value = /*value*/ ctx[1];
+    	}
+
+    	svelecte5 = new Svelecte({ props: svelecte5_props });
+    	binding_callbacks.push(() => bind(svelecte5, 'readSelection', svelecte5_readSelection_binding));
+    	binding_callbacks.push(() => bind(svelecte5, 'value', svelecte5_value_binding));
+
+    	return {
+    		c() {
+    			div7 = element("div");
+    			div6 = element("div");
+    			div0 = element("div");
+    			t0 = text("1");
+    			create_component(svelecte0.$$.fragment);
+    			t1 = space();
+    			div1 = element("div");
+    			t2 = text("2");
+    			create_component(svelecte1.$$.fragment);
+    			t3 = space();
+    			div2 = element("div");
+    			t4 = text("3");
+    			create_component(svelecte2.$$.fragment);
+    			t5 = space();
+    			div3 = element("div");
+    			t6 = text("4");
+    			create_component(svelecte3.$$.fragment);
+    			t7 = space();
+    			div4 = element("div");
+    			t8 = text("5");
+    			create_component(svelecte4.$$.fragment);
+    			t9 = space();
+    			div5 = element("div");
+    			t10 = text("6");
+    			create_component(svelecte5.$$.fragment);
+    			attr(div6, "class", "container svelte-rzvm4k");
+    			attr(div7, "class", "outer svelte-rzvm4k");
+    		},
+    		m(target, anchor) {
+    			insert(target, div7, anchor);
+    			append(div7, div6);
+    			append(div6, div0);
+    			append(div0, t0);
+    			mount_component(svelecte0, div0, null);
+    			append(div6, t1);
+    			append(div6, div1);
+    			append(div1, t2);
+    			mount_component(svelecte1, div1, null);
+    			append(div6, t3);
+    			append(div6, div2);
+    			append(div2, t4);
+    			mount_component(svelecte2, div2, null);
+    			append(div6, t5);
+    			append(div6, div3);
+    			append(div3, t6);
+    			mount_component(svelecte3, div3, null);
+    			append(div6, t7);
+    			append(div6, div4);
+    			append(div4, t8);
+    			mount_component(svelecte4, div4, null);
+    			append(div6, t9);
+    			append(div6, div5);
+    			append(div5, t10);
+    			mount_component(svelecte5, div5, null);
+    			current = true;
+    		},
+    		p(ctx, [dirty]) {
+    			const svelecte0_changes = {};
+
+    			if (!updating_readSelection && dirty & /*selection*/ 1) {
+    				updating_readSelection = true;
+    				svelecte0_changes.readSelection = /*selection*/ ctx[0];
+    				add_flush_callback(() => updating_readSelection = false);
+    			}
+
+    			if (!updating_value && dirty & /*value*/ 2) {
+    				updating_value = true;
+    				svelecte0_changes.value = /*value*/ ctx[1];
+    				add_flush_callback(() => updating_value = false);
+    			}
+
+    			svelecte0.$set(svelecte0_changes);
+    			const svelecte1_changes = {};
+
+    			if (!updating_readSelection_1 && dirty & /*selection*/ 1) {
+    				updating_readSelection_1 = true;
+    				svelecte1_changes.readSelection = /*selection*/ ctx[0];
+    				add_flush_callback(() => updating_readSelection_1 = false);
+    			}
+
+    			if (!updating_value_1 && dirty & /*value*/ 2) {
+    				updating_value_1 = true;
+    				svelecte1_changes.value = /*value*/ ctx[1];
+    				add_flush_callback(() => updating_value_1 = false);
+    			}
+
+    			svelecte1.$set(svelecte1_changes);
+    			const svelecte2_changes = {};
+
+    			if (!updating_readSelection_2 && dirty & /*selection*/ 1) {
+    				updating_readSelection_2 = true;
+    				svelecte2_changes.readSelection = /*selection*/ ctx[0];
+    				add_flush_callback(() => updating_readSelection_2 = false);
+    			}
+
+    			if (!updating_value_2 && dirty & /*value*/ 2) {
+    				updating_value_2 = true;
+    				svelecte2_changes.value = /*value*/ ctx[1];
+    				add_flush_callback(() => updating_value_2 = false);
+    			}
+
+    			svelecte2.$set(svelecte2_changes);
+    			const svelecte3_changes = {};
+
+    			if (!updating_readSelection_3 && dirty & /*selection*/ 1) {
+    				updating_readSelection_3 = true;
+    				svelecte3_changes.readSelection = /*selection*/ ctx[0];
+    				add_flush_callback(() => updating_readSelection_3 = false);
+    			}
+
+    			if (!updating_value_3 && dirty & /*value*/ 2) {
+    				updating_value_3 = true;
+    				svelecte3_changes.value = /*value*/ ctx[1];
+    				add_flush_callback(() => updating_value_3 = false);
+    			}
+
+    			svelecte3.$set(svelecte3_changes);
+    			const svelecte4_changes = {};
+
+    			if (!updating_readSelection_4 && dirty & /*selection*/ 1) {
+    				updating_readSelection_4 = true;
+    				svelecte4_changes.readSelection = /*selection*/ ctx[0];
+    				add_flush_callback(() => updating_readSelection_4 = false);
+    			}
+
+    			if (!updating_value_4 && dirty & /*value*/ 2) {
+    				updating_value_4 = true;
+    				svelecte4_changes.value = /*value*/ ctx[1];
+    				add_flush_callback(() => updating_value_4 = false);
+    			}
+
+    			svelecte4.$set(svelecte4_changes);
+    			const svelecte5_changes = {};
+
+    			if (!updating_readSelection_5 && dirty & /*selection*/ 1) {
+    				updating_readSelection_5 = true;
+    				svelecte5_changes.readSelection = /*selection*/ ctx[0];
+    				add_flush_callback(() => updating_readSelection_5 = false);
+    			}
+
+    			if (!updating_value_5 && dirty & /*value*/ 2) {
+    				updating_value_5 = true;
+    				svelecte5_changes.value = /*value*/ ctx[1];
+    				add_flush_callback(() => updating_value_5 = false);
+    			}
+
+    			svelecte5.$set(svelecte5_changes);
+    		},
+    		i(local) {
+    			if (current) return;
+    			transition_in(svelecte0.$$.fragment, local);
+    			transition_in(svelecte1.$$.fragment, local);
+    			transition_in(svelecte2.$$.fragment, local);
+    			transition_in(svelecte3.$$.fragment, local);
+    			transition_in(svelecte4.$$.fragment, local);
+    			transition_in(svelecte5.$$.fragment, local);
+    			current = true;
+    		},
+    		o(local) {
+    			transition_out(svelecte0.$$.fragment, local);
+    			transition_out(svelecte1.$$.fragment, local);
+    			transition_out(svelecte2.$$.fragment, local);
+    			transition_out(svelecte3.$$.fragment, local);
+    			transition_out(svelecte4.$$.fragment, local);
+    			transition_out(svelecte5.$$.fragment, local);
+    			current = false;
+    		},
+    		d(detaching) {
+    			if (detaching) detach(div7);
+    			destroy_component(svelecte0);
+    			destroy_component(svelecte1);
+    			destroy_component(svelecte2);
+    			destroy_component(svelecte3);
+    			destroy_component(svelecte4);
+    			destroy_component(svelecte5);
+    		}
+    	};
+    }
+
+    function instance($$self, $$props, $$invalidate) {
+    	let options = dataset.countries();
+    	let selection = null;
+    	let value = 'cz';
+
+    	setTimeout(
+    		() => {
+    			$$invalidate(1, value = 'de');
+    		},
+    		4000
+    	);
+
+    	function svelecte0_readSelection_binding(value) {
+    		selection = value;
+    		$$invalidate(0, selection);
+    	}
+
+    	function svelecte0_value_binding(value$1) {
+    		value = value$1;
+    		$$invalidate(1, value);
+    	}
+
+    	function svelecte1_readSelection_binding(value) {
+    		selection = value;
+    		$$invalidate(0, selection);
+    	}
+
+    	function svelecte1_value_binding(value$1) {
+    		value = value$1;
+    		$$invalidate(1, value);
+    	}
+
+    	function svelecte2_readSelection_binding(value) {
+    		selection = value;
+    		$$invalidate(0, selection);
+    	}
+
+    	function svelecte2_value_binding(value$1) {
+    		value = value$1;
+    		$$invalidate(1, value);
+    	}
+
+    	function svelecte3_readSelection_binding(value) {
+    		selection = value;
+    		$$invalidate(0, selection);
+    	}
+
+    	function svelecte3_value_binding(value$1) {
+    		value = value$1;
+    		$$invalidate(1, value);
+    	}
+
+    	function svelecte4_readSelection_binding(value) {
+    		selection = value;
+    		$$invalidate(0, selection);
+    	}
+
+    	function svelecte4_value_binding(value$1) {
+    		value = value$1;
+    		$$invalidate(1, value);
+    	}
+
+    	function svelecte5_readSelection_binding(value) {
+    		selection = value;
+    		$$invalidate(0, selection);
+    	}
+
+    	function svelecte5_value_binding(value$1) {
+    		value = value$1;
+    		$$invalidate(1, value);
+    	}
+
+    	return [
+    		selection,
+    		value,
+    		options,
+    		svelecte0_readSelection_binding,
+    		svelecte0_value_binding,
+    		svelecte1_readSelection_binding,
+    		svelecte1_value_binding,
+    		svelecte2_readSelection_binding,
+    		svelecte2_value_binding,
+    		svelecte3_readSelection_binding,
+    		svelecte3_value_binding,
+    		svelecte4_readSelection_binding,
+    		svelecte4_value_binding,
+    		svelecte5_readSelection_binding,
+    		svelecte5_value_binding
+    	];
+    }
+
+    class _01_basic extends SvelteComponent {
+    	constructor(options) {
+    		super();
+    		init(this, options, instance, create_fragment, safe_not_equal, {});
+    	}
+    }
+
+    [_01_basic]
+      .forEach(
+        (component, index) => new component({
+          target: document.getElementById(`example-${index +1}`),
+        })
+      );
+
+    /** FETCH example sources */
+    const promises = [];
+    document.querySelectorAll('pre[data-src]')
+      .forEach(codeBlock => promises.push(
+        fetch(`src/${codeBlock.dataset.src}.svelte`)
+          .then(resp => resp.text())
+          .then(html => {
+            const codeEl = document.createElement('code');
+            codeEl.className = 'svelte';
+            codeEl.innerText = html.replaceAll(/(<\/?script>)/g, '<!-- $1 -->');        codeBlock.appendChild(codeEl);
+          })
+      ));
+    Promise.all(promises).then(() => hljs.highlightAll());
+
+})();

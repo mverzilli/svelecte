@@ -714,7 +714,7 @@
 </div>
 
 <style>
-  .svelecte-control {
+  :root {
     --sv-bg: #fff;
     --sv-color: inherit;
     --sv-min-height: 38px;
@@ -740,23 +740,23 @@
     --sv-highlight-bg: yellow;
     --sv-highlight-color: var(--sv-item-color);
   }
-  .svelecte { position: relative; flex: 1 1 auto; color: var(--sv-color);}
+  .svelecte { position: relative; flex: 1 1 auto; color: var(--sv-color); height: fit-content;}
   .svelecte.is-disabled { pointer-events: none; }
   .icon-slot { display: flex; }
   .is-hidden { opacity: 0; position: absolute; z-index: -2; top: 0; height: 38px}
 
   /** globally available styles for control/dropdown Item components */    
-  :global(.svelecte-control .has-multiSelection .sv-item),
+  :global(.sv-dropdown .has-multiSelection .sv-item),
   :global(#dnd-action-dragged-el .sv-item) {
     background-color: var(--sv-item-selected-bg);
     margin: 2px 4px 2px 0;
   }
-  :global(.svelecte-control .has-multiSelection .sv-item-content),
-  :global(.svelecte-control .sv-dropdown-content .sv-item),
+  :global(.sv-dropdown .has-multiSelection .sv-item-content),
+  :global(.sv-dropdown .sv-dropdown-content .sv-item),
   :global(#dnd-action-dragged-el .sv-item-content) {
     padding: 3px 3px 3px 6px;
   }
-  :global(.svelecte-control .sv-item),
+  :global(.sv-dropdown .sv-item),
   :global(#dnd-action-dragged-el .sv-item) {
     display: flex;
     min-width: 0px;
@@ -764,9 +764,9 @@
     border-radius: 2px;
     cursor: default;
   }
-  :global(.svelecte-control .sv-item.is-disabled) { opacity: 0.5; cursor: not-allowed; }
+  :global(.sv-dropdown .sv-item.is-disabled) { opacity: 0.5; cursor: not-allowed; }
 
-  :global(.svelecte-control .sv-item-content),  
+  :global(.sv-dropdown .sv-item-content),  
   :global(#dnd-action-dragged-el .sv-item-content) {
     color: var(--sv-item-color, var(--sv-color));
     text-overflow: ellipsis;
@@ -776,13 +776,13 @@
     overflow: hidden;
     width: 100%;
   }
-  :global(.svelecte-control .sv-dd-item-active > .sv-item) {
+  :global(.sv-dropdown .sv-dd-item-active > .sv-item) {
     background-color: var(--sv-item-active-bg);
   }
-  :global(.svelecte-control .sv-dd-item-active > .sv-item .sv-item-content) {
+  :global(.sv-dropdown .sv-dd-item-active > .sv-item .sv-item-content) {
     color: var(--sv-item-active-color, var(--sv-item-color));
   }
-  :global(.svelecte-control .highlight) {
+  :global(.sv-dropdown .highlight) {
     background-color: var(--sv-highlight-bg);
     color: var(--sv-highlight-color, var(--sv-color));
   }

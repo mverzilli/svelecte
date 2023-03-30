@@ -159,14 +159,20 @@
     window.onscroll = () => {};
   }
 
+  const resizeHandler = () => {
+    hasDropdownOpened.set(false);
+  }
+
   let dropdownStateSubscription = () => {};
 
   onMount(() => {
     dropdownStateSubscription = hasDropdownOpened.subscribe(val => {
       if (!renderDropdown && val) renderDropdown = true;
+      window.removeEventListener("resize", resizeHandler)
       enableScroll();
       tick().then(() => {
         if(val) {
+          window.addEventListener("resize", resizeHandler)
           disableScroll();
           appendDropdown();
           positionDropdown(true);

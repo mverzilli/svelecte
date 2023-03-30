@@ -41,6 +41,7 @@
 
   const dispatch = createEventDispatcher();
 
+  let dim;
   let dropdown;
   let outOfViewport;
   let container;
@@ -142,12 +143,14 @@
   const appendDropdown = () => {
     if(!control) control = dropdown.parentElement;
     if(document?.body) {
-      // control.scrollIntoView({ block: "nearest", inline: "nearest" });
+      control.scrollIntoView({ block: "nearest", inline: "nearest" });
+      document.body.appendChild(dim);
       document.body.appendChild(dropdown);
     }
   }
 
   const removeDropdown = () => {
+    if(document?.body.contains(dim)) document.body.removeChild(dim);
     if(document?.body.contains(dropdown)) document.body.removeChild(dropdown);
   }
 
@@ -178,6 +181,7 @@
 </script>
 
 {#if isMounted && renderDropdown}
+<div bind:this={dim} class="dim" />
 <div bind:this={dropdown} class="sv-dropdown" class:is-virtual={virtualList} aria-expanded={$hasDropdownOpened}
   on:mousedown|preventDefault
 >
@@ -259,6 +263,16 @@
 {/if}
 
 <style>
+.dim {
+  content: '';
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  background-color: transparent;
+}
 .sv-dropdown {
   box-sizing: border-box;
   position: fixed;
@@ -270,7 +284,7 @@
   border: 1px solid rgba(0,0,0,0.15);
   border-radius: .25rem;
   box-shadow: var(--sv-dropdown-shadow);
-  z-index: 2;
+  z-index: 1000;
 }
 .sv-dropdown.is-virtual .sv-dropdown-scroll {
   overflow-y: hidden;

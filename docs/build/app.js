@@ -4106,19 +4106,19 @@
 
     function get_each_context$1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[58] = list[i];
-    	child_ctx[60] = i;
+    	child_ctx[59] = list[i];
+    	child_ctx[61] = i;
     	return child_ctx;
     }
 
     function get_each_context_1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[58] = list[i];
-    	child_ctx[60] = i;
+    	child_ctx[59] = list[i];
+    	child_ctx[61] = i;
     	return child_ctx;
     }
 
-    // (183:0) {#if isMounted && renderDropdown}
+    // (188:0) {#if isMounted && renderDropdown}
     function create_if_block$2(ctx) {
     	let div0;
     	let t0;
@@ -4302,14 +4302,14 @@
     	};
     }
 
-    // (188:2) {#if selection}
+    // (193:2) {#if selection}
     function create_if_block_6(ctx) {
     	let div;
     	let each_blocks = [];
     	let each_1_lookup = new Map();
     	let current;
     	let each_value_1 = /*selection*/ ctx[17];
-    	const get_key = ctx => /*i*/ ctx[60];
+    	const get_key = ctx => /*i*/ ctx[61];
 
     	for (let i = 0; i < each_value_1.length; i += 1) {
     		let child_ctx = get_each_context_1(ctx, each_value_1, i);
@@ -4372,7 +4372,7 @@
     	};
     }
 
-    // (190:4) {#each selection as opt, i (i)}
+    // (195:4) {#each selection as opt, i (i)}
     function create_each_block_1(key_1, ctx) {
     	let first;
     	let switch_instance;
@@ -4384,7 +4384,7 @@
     		return {
     			props: {
     				formatter: /*renderer*/ ctx[3],
-    				item: /*opt*/ ctx[58],
+    				item: /*opt*/ ctx[59],
     				isSelected: true,
     				isMultiple: /*multiple*/ ctx[9],
     				inputValue: /*inputValue*/ ctx[8]
@@ -4416,7 +4416,7 @@
     			ctx = new_ctx;
     			const switch_instance_changes = {};
     			if (dirty[0] & /*renderer*/ 8) switch_instance_changes.formatter = /*renderer*/ ctx[3];
-    			if (dirty[0] & /*selection*/ 131072) switch_instance_changes.item = /*opt*/ ctx[58];
+    			if (dirty[0] & /*selection*/ 131072) switch_instance_changes.item = /*opt*/ ctx[59];
     			if (dirty[0] & /*multiple*/ 512) switch_instance_changes.isMultiple = /*multiple*/ ctx[9];
     			if (dirty[0] & /*inputValue*/ 256) switch_instance_changes.inputValue = /*inputValue*/ ctx[8];
 
@@ -4462,7 +4462,7 @@
     	};
     }
 
-    // (197:4) {#if items.length}
+    // (202:4) {#if items.length}
     function create_if_block_4(ctx) {
     	let current_block_type_index;
     	let if_block;
@@ -4532,7 +4532,7 @@
     	};
     }
 
-    // (223:6) {:else}
+    // (228:6) {:else}
     function create_else_block$1(ctx) {
     	let each_1_anchor;
     	let current;
@@ -4618,7 +4618,7 @@
     	};
     }
 
-    // (198:6) {#if virtualList}
+    // (203:6) {#if virtualList}
     function create_if_block_5(ctx) {
     	let virtuallist;
     	let current;
@@ -4635,8 +4635,8 @@
     		$$slots: {
     			item: [
     				create_item_slot,
-    				({ style, index }) => ({ 56: style, 57: index }),
-    				({ style, index }) => [0, (style ? 33554432 : 0) | (index ? 67108864 : 0)]
+    				({ style, index }) => ({ 57: style, 58: index }),
+    				({ style, index }) => [0, (style ? 67108864 : 0) | (index ? 134217728 : 0)]
     			]
     		},
     		$$scope: { ctx }
@@ -4663,7 +4663,7 @@
     			? parseInt(/*dropdownIndex*/ ctx[0])
     			: null;
 
-    			if (dirty[0] & /*dropdownIndex, items, itemComponent, renderer, listIndex, disabledField, inputValue, disableHighlight*/ 75065 | dirty[1] & /*style, index*/ 100663296 | dirty[2] & /*$$scope*/ 1) {
+    			if (dirty[0] & /*dropdownIndex, items, itemComponent, renderer, listIndex, disabledField, inputValue, disableHighlight*/ 75065 | dirty[1] & /*style, index*/ 201326592 | dirty[2] & /*$$scope*/ 2) {
     				virtuallist_changes.$$scope = { dirty, ctx };
     			}
 
@@ -4685,7 +4685,7 @@
     	};
     }
 
-    // (224:8) {#each items as opt, i}
+    // (229:8) {#each items as opt, i}
     function create_each_block$1(ctx) {
     	let div;
     	let switch_instance;
@@ -4698,9 +4698,9 @@
     		return {
     			props: {
     				formatter: /*renderer*/ ctx[3],
-    				index: /*listIndex*/ ctx[10].map[/*i*/ ctx[60]],
-    				isDisabled: /*opt*/ ctx[58][/*disabledField*/ ctx[13]],
-    				item: /*opt*/ ctx[58],
+    				index: /*listIndex*/ ctx[10].map[/*i*/ ctx[61]],
+    				isDisabled: /*opt*/ ctx[59][/*disabledField*/ ctx[13]],
+    				item: /*opt*/ ctx[59],
     				inputValue: /*inputValue*/ ctx[8],
     				disableHighlight: /*disableHighlight*/ ctx[4]
     			}
@@ -4718,11 +4718,11 @@
     			div = element("div");
     			if (switch_instance) create_component(switch_instance.$$.fragment);
     			t = space();
-    			attr(div, "data-pos", div_data_pos_value = /*listIndex*/ ctx[10].map[/*i*/ ctx[60]]);
+    			attr(div, "data-pos", div_data_pos_value = /*listIndex*/ ctx[10].map[/*i*/ ctx[61]]);
     			attr(div, "class", "sv-dd-item");
-    			toggle_class(div, "sv-dd-item-active", /*listIndex*/ ctx[10].map[/*i*/ ctx[60]] == /*dropdownIndex*/ ctx[0]);
-    			toggle_class(div, "sv-group-item", /*opt*/ ctx[58].$isGroupItem);
-    			toggle_class(div, "sv-group-header", /*opt*/ ctx[58].$isGroupHeader);
+    			toggle_class(div, "sv-dd-item-active", /*listIndex*/ ctx[10].map[/*i*/ ctx[61]] == /*dropdownIndex*/ ctx[0]);
+    			toggle_class(div, "sv-group-item", /*opt*/ ctx[59].$isGroupItem);
+    			toggle_class(div, "sv-group-header", /*opt*/ ctx[59].$isGroupHeader);
     		},
     		m(target, anchor) {
     			insert(target, div, anchor);
@@ -4733,9 +4733,9 @@
     		p(ctx, dirty) {
     			const switch_instance_changes = {};
     			if (dirty[0] & /*renderer*/ 8) switch_instance_changes.formatter = /*renderer*/ ctx[3];
-    			if (dirty[0] & /*listIndex*/ 1024) switch_instance_changes.index = /*listIndex*/ ctx[10].map[/*i*/ ctx[60]];
-    			if (dirty[0] & /*items, disabledField*/ 8224) switch_instance_changes.isDisabled = /*opt*/ ctx[58][/*disabledField*/ ctx[13]];
-    			if (dirty[0] & /*items*/ 32) switch_instance_changes.item = /*opt*/ ctx[58];
+    			if (dirty[0] & /*listIndex*/ 1024) switch_instance_changes.index = /*listIndex*/ ctx[10].map[/*i*/ ctx[61]];
+    			if (dirty[0] & /*items, disabledField*/ 8224) switch_instance_changes.isDisabled = /*opt*/ ctx[59][/*disabledField*/ ctx[13]];
+    			if (dirty[0] & /*items*/ 32) switch_instance_changes.item = /*opt*/ ctx[59];
     			if (dirty[0] & /*inputValue*/ 256) switch_instance_changes.inputValue = /*inputValue*/ ctx[8];
     			if (dirty[0] & /*disableHighlight*/ 16) switch_instance_changes.disableHighlight = /*disableHighlight*/ ctx[4];
 
@@ -4765,20 +4765,20 @@
     				switch_instance.$set(switch_instance_changes);
     			}
 
-    			if (!current || dirty[0] & /*listIndex*/ 1024 && div_data_pos_value !== (div_data_pos_value = /*listIndex*/ ctx[10].map[/*i*/ ctx[60]])) {
+    			if (!current || dirty[0] & /*listIndex*/ 1024 && div_data_pos_value !== (div_data_pos_value = /*listIndex*/ ctx[10].map[/*i*/ ctx[61]])) {
     				attr(div, "data-pos", div_data_pos_value);
     			}
 
     			if (!current || dirty[0] & /*listIndex, dropdownIndex*/ 1025) {
-    				toggle_class(div, "sv-dd-item-active", /*listIndex*/ ctx[10].map[/*i*/ ctx[60]] == /*dropdownIndex*/ ctx[0]);
+    				toggle_class(div, "sv-dd-item-active", /*listIndex*/ ctx[10].map[/*i*/ ctx[61]] == /*dropdownIndex*/ ctx[0]);
     			}
 
     			if (!current || dirty[0] & /*items*/ 32) {
-    				toggle_class(div, "sv-group-item", /*opt*/ ctx[58].$isGroupItem);
+    				toggle_class(div, "sv-group-item", /*opt*/ ctx[59].$isGroupItem);
     			}
 
     			if (!current || dirty[0] & /*items*/ 32) {
-    				toggle_class(div, "sv-group-header", /*opt*/ ctx[58].$isGroupHeader);
+    				toggle_class(div, "sv-group-header", /*opt*/ ctx[59].$isGroupHeader);
     			}
     		},
     		i(local) {
@@ -4797,7 +4797,7 @@
     	};
     }
 
-    // (207:10) 
+    // (212:10) 
     function create_item_slot(ctx) {
     	let div;
     	let switch_instance;
@@ -4809,9 +4809,9 @@
     		return {
     			props: {
     				formatter: /*renderer*/ ctx[3],
-    				index: /*listIndex*/ ctx[10].map[/*index*/ ctx[57]],
-    				isDisabled: /*items*/ ctx[5][/*index*/ ctx[57]][/*disabledField*/ ctx[13]],
-    				item: /*items*/ ctx[5][/*index*/ ctx[57]],
+    				index: /*listIndex*/ ctx[10].map[/*index*/ ctx[58]],
+    				isDisabled: /*items*/ ctx[5][/*index*/ ctx[58]][/*disabledField*/ ctx[13]],
+    				item: /*items*/ ctx[5][/*index*/ ctx[58]],
     				inputValue: /*inputValue*/ ctx[8],
     				disableHighlight: /*disableHighlight*/ ctx[4]
     			}
@@ -4829,11 +4829,11 @@
     			div = element("div");
     			if (switch_instance) create_component(switch_instance.$$.fragment);
     			attr(div, "slot", "item");
-    			attr(div, "style", div_style_value = /*style*/ ctx[56]);
+    			attr(div, "style", div_style_value = /*style*/ ctx[57]);
     			attr(div, "class", "sv-dd-item");
-    			toggle_class(div, "sv-dd-item-active", /*index*/ ctx[57] == /*dropdownIndex*/ ctx[0]);
-    			toggle_class(div, "sv-group-item", /*items*/ ctx[5][/*index*/ ctx[57]].$isGroupItem);
-    			toggle_class(div, "sv-group-header", /*items*/ ctx[5][/*index*/ ctx[57]].$isGroupHeader);
+    			toggle_class(div, "sv-dd-item-active", /*index*/ ctx[58] == /*dropdownIndex*/ ctx[0]);
+    			toggle_class(div, "sv-group-item", /*items*/ ctx[5][/*index*/ ctx[58]].$isGroupItem);
+    			toggle_class(div, "sv-group-header", /*items*/ ctx[5][/*index*/ ctx[58]].$isGroupHeader);
     		},
     		m(target, anchor) {
     			insert(target, div, anchor);
@@ -4843,9 +4843,9 @@
     		p(ctx, dirty) {
     			const switch_instance_changes = {};
     			if (dirty[0] & /*renderer*/ 8) switch_instance_changes.formatter = /*renderer*/ ctx[3];
-    			if (dirty[0] & /*listIndex*/ 1024 | dirty[1] & /*index*/ 67108864) switch_instance_changes.index = /*listIndex*/ ctx[10].map[/*index*/ ctx[57]];
-    			if (dirty[0] & /*items, disabledField*/ 8224 | dirty[1] & /*index*/ 67108864) switch_instance_changes.isDisabled = /*items*/ ctx[5][/*index*/ ctx[57]][/*disabledField*/ ctx[13]];
-    			if (dirty[0] & /*items*/ 32 | dirty[1] & /*index*/ 67108864) switch_instance_changes.item = /*items*/ ctx[5][/*index*/ ctx[57]];
+    			if (dirty[0] & /*listIndex*/ 1024 | dirty[1] & /*index*/ 134217728) switch_instance_changes.index = /*listIndex*/ ctx[10].map[/*index*/ ctx[58]];
+    			if (dirty[0] & /*items, disabledField*/ 8224 | dirty[1] & /*index*/ 134217728) switch_instance_changes.isDisabled = /*items*/ ctx[5][/*index*/ ctx[58]][/*disabledField*/ ctx[13]];
+    			if (dirty[0] & /*items*/ 32 | dirty[1] & /*index*/ 134217728) switch_instance_changes.item = /*items*/ ctx[5][/*index*/ ctx[58]];
     			if (dirty[0] & /*inputValue*/ 256) switch_instance_changes.inputValue = /*inputValue*/ ctx[8];
     			if (dirty[0] & /*disableHighlight*/ 16) switch_instance_changes.disableHighlight = /*disableHighlight*/ ctx[4];
 
@@ -4875,20 +4875,20 @@
     				switch_instance.$set(switch_instance_changes);
     			}
 
-    			if (!current || dirty[1] & /*style*/ 33554432 && div_style_value !== (div_style_value = /*style*/ ctx[56])) {
+    			if (!current || dirty[1] & /*style*/ 67108864 && div_style_value !== (div_style_value = /*style*/ ctx[57])) {
     				attr(div, "style", div_style_value);
     			}
 
-    			if (!current || dirty[0] & /*dropdownIndex*/ 1 | dirty[1] & /*index*/ 67108864) {
-    				toggle_class(div, "sv-dd-item-active", /*index*/ ctx[57] == /*dropdownIndex*/ ctx[0]);
+    			if (!current || dirty[0] & /*dropdownIndex*/ 1 | dirty[1] & /*index*/ 134217728) {
+    				toggle_class(div, "sv-dd-item-active", /*index*/ ctx[58] == /*dropdownIndex*/ ctx[0]);
     			}
 
-    			if (!current || dirty[0] & /*items*/ 32 | dirty[1] & /*index*/ 67108864) {
-    				toggle_class(div, "sv-group-item", /*items*/ ctx[5][/*index*/ ctx[57]].$isGroupItem);
+    			if (!current || dirty[0] & /*items*/ 32 | dirty[1] & /*index*/ 134217728) {
+    				toggle_class(div, "sv-group-item", /*items*/ ctx[5][/*index*/ ctx[58]].$isGroupItem);
     			}
 
-    			if (!current || dirty[0] & /*items*/ 32 | dirty[1] & /*index*/ 67108864) {
-    				toggle_class(div, "sv-group-header", /*items*/ ctx[5][/*index*/ ctx[57]].$isGroupHeader);
+    			if (!current || dirty[0] & /*items*/ 32 | dirty[1] & /*index*/ 134217728) {
+    				toggle_class(div, "sv-group-header", /*items*/ ctx[5][/*index*/ ctx[58]].$isGroupHeader);
     			}
     		},
     		i(local) {
@@ -4907,7 +4907,7 @@
     	};
     }
 
-    // (243:4) {#if hasEmptyList || maxReached}
+    // (248:4) {#if hasEmptyList || maxReached}
     function create_if_block_3(ctx) {
     	let div;
     	let t;
@@ -4931,7 +4931,7 @@
     	};
     }
 
-    // (248:2) {#if inputValue && creatable && !maxReached}
+    // (253:2) {#if inputValue && creatable && !maxReached}
     function create_if_block_1$2(ctx) {
     	let div1;
     	let div0;
@@ -5010,7 +5010,7 @@
     	};
     }
 
-    // (256:6) {#if currentListLength != dropdownIndex}
+    // (261:6) {#if currentListLength != dropdownIndex}
     function create_if_block_2(ctx) {
     	let span;
     	let kbd0;
@@ -5227,14 +5227,6 @@
     		$$invalidate(25, scrollContainer.parentElement.style = '', scrollContainer);
     	}
 
-    	const scrollHandler = e => {
-    		if (!dropdown?.contains) return;
-
-    		if (!dropdown.contains(e.target)) {
-    			positionDropdown();
-    		}
-    	};
-
     	const appendDropdown = () => {
     		if (!control) $$invalidate(31, control = dropdown.parentElement);
 
@@ -5250,6 +5242,21 @@
     		if (document?.body.contains(dropdown)) document.body.removeChild(dropdown);
     	};
 
+    	const disableScroll = () => {
+    		if (!window) return;
+    		const scrollTop = window.pageYOffset || window.document.documentElement.scrollTop;
+    		const scrollLeft = window.pageXOffset || window.document.documentElement.scrollLeft;
+    		window.onscroll = () => window.scrollTo(scrollLeft, scrollTop);
+    	};
+
+    	const enableScroll = () => {
+    		if (!window) return;
+
+    		window.onscroll = () => {
+    			
+    		};
+    	};
+
     	let dropdownStateSubscription = () => {
     		
     	};
@@ -5257,13 +5264,13 @@
     	onMount(() => {
     		dropdownStateSubscription = hasDropdownOpened.subscribe(val => {
     			if (!renderDropdown && val) $$invalidate(20, renderDropdown = true);
-    			document.removeEventListener('scroll', scrollHandler, { capture: true });
+    			enableScroll();
 
     			tick().then(() => {
     				if (val) {
+    					disableScroll();
     					appendDropdown();
     					positionDropdown();
-    					document.addEventListener('scroll', scrollHandler, { capture: true });
     				} else {
     					outOfViewport = undefined;
     					removeDropdown();

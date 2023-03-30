@@ -133,13 +133,6 @@
     scrollContainer.parentElement.style = '';
   }
 
-  const scrollHandler = (e) => {
-    if(!dropdown?.contains) return;
-    if(!dropdown.contains(e.target)) {
-      positionDropdown();
-    }
-  }
-
   const appendDropdown = () => {
     if(!control) control = dropdown.parentElement;
     if(document?.body) {
@@ -154,17 +147,29 @@
     if(document?.body.contains(dropdown)) document.body.removeChild(dropdown);
   }
 
+  const disableScroll = () => {
+    if (!window) return;
+    const scrollTop = window.pageYOffset || window.document.documentElement.scrollTop;
+    const scrollLeft = window.pageXOffset || window.document.documentElement.scrollLeft;
+    window.onscroll = () => window.scrollTo(scrollLeft, scrollTop);
+  }
+
+  const enableScroll = () => {
+    if (!window) return;
+    window.onscroll = () => {};
+  }
+
   let dropdownStateSubscription = () => {};
 
   onMount(() => {
     dropdownStateSubscription = hasDropdownOpened.subscribe(val => {
       if (!renderDropdown && val) renderDropdown = true;
-      document.removeEventListener('scroll', scrollHandler, { capture: true });
+      enableScroll();
       tick().then(() => {
         if(val) {
+          disableScroll();
           appendDropdown();
           positionDropdown(true);
-          document.addEventListener('scroll', scrollHandler, { capture: true });
         } else {
           outOfViewport = undefined;
           removeDropdown();

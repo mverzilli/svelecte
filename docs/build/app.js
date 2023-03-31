@@ -4106,26 +4106,28 @@
 
     function get_each_context$1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[56] = list[i];
-    	child_ctx[58] = i;
+    	child_ctx[60] = list[i];
+    	child_ctx[62] = i;
     	return child_ctx;
     }
 
     function get_each_context_1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[56] = list[i];
-    	child_ctx[58] = i;
+    	child_ctx[60] = list[i];
+    	child_ctx[62] = i;
     	return child_ctx;
     }
 
-    // (182:0) {#if isMounted && renderDropdown}
+    // (194:0) {#if isMounted && renderDropdown}
     function create_if_block$2(ctx) {
-    	let div2;
-    	let t0;
-    	let div1;
     	let div0;
+    	let t0;
+    	let div3;
     	let t1;
+    	let div2;
+    	let div1;
     	let t2;
+    	let t3;
     	let current;
     	let mounted;
     	let dispose;
@@ -4136,43 +4138,49 @@
 
     	return {
     		c() {
-    			div2 = element("div");
-    			if (if_block0) if_block0.c();
-    			t0 = space();
-    			div1 = element("div");
     			div0 = element("div");
-    			if (if_block1) if_block1.c();
+    			t0 = space();
+    			div3 = element("div");
+    			if (if_block0) if_block0.c();
     			t1 = space();
-    			if (if_block2) if_block2.c();
+    			div2 = element("div");
+    			div1 = element("div");
+    			if (if_block1) if_block1.c();
     			t2 = space();
+    			if (if_block2) if_block2.c();
+    			t3 = space();
     			if (if_block3) if_block3.c();
-    			attr(div0, "class", "sv-dropdown-content svelte-gvgdfq");
-    			toggle_class(div0, "max-reached", /*maxReached*/ ctx[2]);
-    			attr(div1, "class", "sv-dropdown-scroll svelte-gvgdfq");
-    			attr(div1, "tabindex", "-1");
-    			toggle_class(div1, "is-empty", !/*items*/ ctx[5].length);
-    			attr(div2, "class", "sv-dropdown svelte-gvgdfq");
-    			attr(div2, "aria-expanded", /*$hasDropdownOpened*/ ctx[28]);
-    			toggle_class(div2, "is-virtual", /*virtualList*/ ctx[7]);
+    			attr(div0, "class", "dim svelte-jfnw1f");
+    			attr(div1, "class", "sv-dropdown-content svelte-jfnw1f");
+    			toggle_class(div1, "max-reached", /*maxReached*/ ctx[2]);
+    			attr(div2, "class", "sv-dropdown-scroll svelte-jfnw1f");
+    			attr(div2, "tabindex", "-1");
+    			toggle_class(div2, "is-empty", !/*items*/ ctx[5].length);
+    			attr(div3, "class", "sv-dropdown svelte-jfnw1f");
+    			attr(div3, "aria-expanded", /*$hasDropdownOpened*/ ctx[29]);
+    			toggle_class(div3, "is-virtual", /*virtualList*/ ctx[7]);
     		},
     		m(target, anchor) {
-    			insert(target, div2, anchor);
-    			if (if_block0) if_block0.m(div2, null);
-    			append(div2, t0);
+    			insert(target, div0, anchor);
+    			/*div0_binding*/ ctx[38](div0);
+    			insert(target, t0, anchor);
+    			insert(target, div3, anchor);
+    			if (if_block0) if_block0.m(div3, null);
+    			append(div3, t1);
+    			append(div3, div2);
     			append(div2, div1);
-    			append(div1, div0);
-    			if (if_block1) if_block1.m(div0, null);
-    			append(div0, t1);
-    			if (if_block2) if_block2.m(div0, null);
-    			/*div0_binding*/ ctx[43](div0);
-    			/*div1_binding*/ ctx[44](div1);
-    			append(div2, t2);
-    			if (if_block3) if_block3.m(div2, null);
-    			/*div2_binding*/ ctx[45](div2);
+    			if (if_block1) if_block1.m(div1, null);
+    			append(div1, t2);
+    			if (if_block2) if_block2.m(div1, null);
+    			/*div1_binding*/ ctx[45](div1);
+    			/*div2_binding*/ ctx[46](div2);
+    			append(div3, t3);
+    			if (if_block3) if_block3.m(div3, null);
+    			/*div3_binding*/ ctx[47](div3);
     			current = true;
 
     			if (!mounted) {
-    				dispose = listen(div2, "mousedown", prevent_default(/*mousedown_handler*/ ctx[36]));
+    				dispose = listen(div3, "mousedown", prevent_default(/*mousedown_handler*/ ctx[37]));
     				mounted = true;
     			}
     		},
@@ -4188,7 +4196,7 @@
     					if_block0 = create_if_block_6(ctx);
     					if_block0.c();
     					transition_in(if_block0, 1);
-    					if_block0.m(div2, t0);
+    					if_block0.m(div3, t1);
     				}
     			} else if (if_block0) {
     				group_outros();
@@ -4211,7 +4219,7 @@
     					if_block1 = create_if_block_4(ctx);
     					if_block1.c();
     					transition_in(if_block1, 1);
-    					if_block1.m(div0, t1);
+    					if_block1.m(div1, t2);
     				}
     			} else if (if_block1) {
     				group_outros();
@@ -4229,7 +4237,7 @@
     				} else {
     					if_block2 = create_if_block_3(ctx);
     					if_block2.c();
-    					if_block2.m(div0, null);
+    					if_block2.m(div1, null);
     				}
     			} else if (if_block2) {
     				if_block2.d(1);
@@ -4237,11 +4245,11 @@
     			}
 
     			if (!current || dirty[0] & /*maxReached*/ 4) {
-    				toggle_class(div0, "max-reached", /*maxReached*/ ctx[2]);
+    				toggle_class(div1, "max-reached", /*maxReached*/ ctx[2]);
     			}
 
     			if (!current || dirty[0] & /*items*/ 32) {
-    				toggle_class(div1, "is-empty", !/*items*/ ctx[5].length);
+    				toggle_class(div2, "is-empty", !/*items*/ ctx[5].length);
     			}
 
     			if (/*inputValue*/ ctx[8] && /*creatable*/ ctx[1] && !/*maxReached*/ ctx[2]) {
@@ -4250,19 +4258,19 @@
     				} else {
     					if_block3 = create_if_block_1$2(ctx);
     					if_block3.c();
-    					if_block3.m(div2, null);
+    					if_block3.m(div3, null);
     				}
     			} else if (if_block3) {
     				if_block3.d(1);
     				if_block3 = null;
     			}
 
-    			if (!current || dirty[0] & /*$hasDropdownOpened*/ 268435456) {
-    				attr(div2, "aria-expanded", /*$hasDropdownOpened*/ ctx[28]);
+    			if (!current || dirty[0] & /*$hasDropdownOpened*/ 536870912) {
+    				attr(div3, "aria-expanded", /*$hasDropdownOpened*/ ctx[29]);
     			}
 
     			if (!current || dirty[0] & /*virtualList*/ 128) {
-    				toggle_class(div2, "is-virtual", /*virtualList*/ ctx[7]);
+    				toggle_class(div3, "is-virtual", /*virtualList*/ ctx[7]);
     			}
     		},
     		i(local) {
@@ -4277,28 +4285,31 @@
     			current = false;
     		},
     		d(detaching) {
-    			if (detaching) detach(div2);
+    			if (detaching) detach(div0);
+    			/*div0_binding*/ ctx[38](null);
+    			if (detaching) detach(t0);
+    			if (detaching) detach(div3);
     			if (if_block0) if_block0.d();
     			if (if_block1) if_block1.d();
     			if (if_block2) if_block2.d();
-    			/*div0_binding*/ ctx[43](null);
-    			/*div1_binding*/ ctx[44](null);
+    			/*div1_binding*/ ctx[45](null);
+    			/*div2_binding*/ ctx[46](null);
     			if (if_block3) if_block3.d();
-    			/*div2_binding*/ ctx[45](null);
+    			/*div3_binding*/ ctx[47](null);
     			mounted = false;
     			dispose();
     		}
     	};
     }
 
-    // (186:2) {#if selection}
+    // (199:2) {#if selection}
     function create_if_block_6(ctx) {
     	let div;
     	let each_blocks = [];
     	let each_1_lookup = new Map();
     	let current;
     	let each_value_1 = /*selection*/ ctx[17];
-    	const get_key = ctx => /*i*/ ctx[58];
+    	const get_key = ctx => /*i*/ ctx[62];
 
     	for (let i = 0; i < each_value_1.length; i += 1) {
     		let child_ctx = get_each_context_1(ctx, each_value_1, i);
@@ -4314,7 +4325,7 @@
     				each_blocks[i].c();
     			}
 
-    			attr(div, "class", "sv-content has-multiSelection alwaysCollapsed-selection svelte-gvgdfq");
+    			attr(div, "class", "sv-content has-multiSelection alwaysCollapsed-selection svelte-jfnw1f");
     		},
     		m(target, anchor) {
     			insert(target, div, anchor);
@@ -4361,7 +4372,7 @@
     	};
     }
 
-    // (188:4) {#each selection as opt, i (i)}
+    // (201:4) {#each selection as opt, i (i)}
     function create_each_block_1(key_1, ctx) {
     	let first;
     	let switch_instance;
@@ -4373,7 +4384,7 @@
     		return {
     			props: {
     				formatter: /*renderer*/ ctx[3],
-    				item: /*opt*/ ctx[56],
+    				item: /*opt*/ ctx[60],
     				isSelected: true,
     				isMultiple: /*multiple*/ ctx[9],
     				inputValue: /*inputValue*/ ctx[8]
@@ -4383,7 +4394,7 @@
 
     	if (switch_value) {
     		switch_instance = construct_svelte_component(switch_value, switch_props(ctx));
-    		switch_instance.$on("deselect", /*deselect_handler*/ ctx[37]);
+    		switch_instance.$on("deselect", /*deselect_handler*/ ctx[39]);
     	}
 
     	return {
@@ -4405,7 +4416,7 @@
     			ctx = new_ctx;
     			const switch_instance_changes = {};
     			if (dirty[0] & /*renderer*/ 8) switch_instance_changes.formatter = /*renderer*/ ctx[3];
-    			if (dirty[0] & /*selection*/ 131072) switch_instance_changes.item = /*opt*/ ctx[56];
+    			if (dirty[0] & /*selection*/ 131072) switch_instance_changes.item = /*opt*/ ctx[60];
     			if (dirty[0] & /*multiple*/ 512) switch_instance_changes.isMultiple = /*multiple*/ ctx[9];
     			if (dirty[0] & /*inputValue*/ 256) switch_instance_changes.inputValue = /*inputValue*/ ctx[8];
 
@@ -4423,7 +4434,7 @@
 
     				if (switch_value) {
     					switch_instance = construct_svelte_component(switch_value, switch_props(ctx));
-    					switch_instance.$on("deselect", /*deselect_handler*/ ctx[37]);
+    					switch_instance.$on("deselect", /*deselect_handler*/ ctx[39]);
     					create_component(switch_instance.$$.fragment);
     					transition_in(switch_instance.$$.fragment, 1);
     					mount_component(switch_instance, switch_instance_anchor.parentNode, switch_instance_anchor);
@@ -4451,7 +4462,7 @@
     	};
     }
 
-    // (195:4) {#if items.length}
+    // (208:4) {#if items.length}
     function create_if_block_4(ctx) {
     	let current_block_type_index;
     	let if_block;
@@ -4521,7 +4532,7 @@
     	};
     }
 
-    // (221:6) {:else}
+    // (234:6) {:else}
     function create_else_block$1(ctx) {
     	let each_1_anchor;
     	let current;
@@ -4607,14 +4618,14 @@
     	};
     }
 
-    // (196:6) {#if virtualList}
+    // (209:6) {#if virtualList}
     function create_if_block_5(ctx) {
     	let virtuallist;
     	let current;
 
     	let virtuallist_props = {
     		width: "100%",
-    		height: /*vl_listHeight*/ ctx[26],
+    		height: /*vl_listHeight*/ ctx[27],
     		itemCount: /*items*/ ctx[5].length,
     		itemSize: /*vl_itemSize*/ ctx[21],
     		scrollToAlignment: "auto",
@@ -4624,15 +4635,15 @@
     		$$slots: {
     			item: [
     				create_item_slot,
-    				({ style, index }) => ({ 54: style, 55: index }),
-    				({ style, index }) => [0, (style ? 8388608 : 0) | (index ? 16777216 : 0)]
+    				({ style, index }) => ({ 58: style, 59: index }),
+    				({ style, index }) => [0, (style ? 134217728 : 0) | (index ? 268435456 : 0)]
     			]
     		},
     		$$scope: { ctx }
     	};
 
     	virtuallist = new VirtualList({ props: virtuallist_props });
-    	/*virtuallist_binding*/ ctx[40](virtuallist);
+    	/*virtuallist_binding*/ ctx[42](virtuallist);
 
     	return {
     		c() {
@@ -4644,7 +4655,7 @@
     		},
     		p(ctx, dirty) {
     			const virtuallist_changes = {};
-    			if (dirty[0] & /*vl_listHeight*/ 67108864) virtuallist_changes.height = /*vl_listHeight*/ ctx[26];
+    			if (dirty[0] & /*vl_listHeight*/ 134217728) virtuallist_changes.height = /*vl_listHeight*/ ctx[27];
     			if (dirty[0] & /*items*/ 32) virtuallist_changes.itemCount = /*items*/ ctx[5].length;
     			if (dirty[0] & /*vl_itemSize*/ 2097152) virtuallist_changes.itemSize = /*vl_itemSize*/ ctx[21];
 
@@ -4652,7 +4663,7 @@
     			? parseInt(/*dropdownIndex*/ ctx[0])
     			: null;
 
-    			if (dirty[0] & /*dropdownIndex, items, itemComponent, renderer, listIndex, disabledField, inputValue, disableHighlight*/ 75065 | dirty[1] & /*$$scope, style, index*/ 562036736) {
+    			if (dirty[0] & /*dropdownIndex, items, itemComponent, renderer, listIndex, disabledField, inputValue, disableHighlight*/ 75065 | dirty[1] & /*style, index*/ 402653184 | dirty[2] & /*$$scope*/ 4) {
     				virtuallist_changes.$$scope = { dirty, ctx };
     			}
 
@@ -4668,13 +4679,13 @@
     			current = false;
     		},
     		d(detaching) {
-    			/*virtuallist_binding*/ ctx[40](null);
+    			/*virtuallist_binding*/ ctx[42](null);
     			destroy_component(virtuallist, detaching);
     		}
     	};
     }
 
-    // (222:8) {#each items as opt, i}
+    // (235:8) {#each items as opt, i}
     function create_each_block$1(ctx) {
     	let div;
     	let switch_instance;
@@ -4687,9 +4698,9 @@
     		return {
     			props: {
     				formatter: /*renderer*/ ctx[3],
-    				index: /*listIndex*/ ctx[10].map[/*i*/ ctx[58]],
-    				isDisabled: /*opt*/ ctx[56][/*disabledField*/ ctx[13]],
-    				item: /*opt*/ ctx[56],
+    				index: /*listIndex*/ ctx[10].map[/*i*/ ctx[62]],
+    				isDisabled: /*opt*/ ctx[60][/*disabledField*/ ctx[13]],
+    				item: /*opt*/ ctx[60],
     				inputValue: /*inputValue*/ ctx[8],
     				disableHighlight: /*disableHighlight*/ ctx[4]
     			}
@@ -4698,8 +4709,8 @@
 
     	if (switch_value) {
     		switch_instance = construct_svelte_component(switch_value, switch_props(ctx));
-    		switch_instance.$on("hover", /*hover_handler_1*/ ctx[41]);
-    		switch_instance.$on("select", /*select_handler_1*/ ctx[42]);
+    		switch_instance.$on("hover", /*hover_handler_1*/ ctx[43]);
+    		switch_instance.$on("select", /*select_handler_1*/ ctx[44]);
     	}
 
     	return {
@@ -4707,11 +4718,11 @@
     			div = element("div");
     			if (switch_instance) create_component(switch_instance.$$.fragment);
     			t = space();
-    			attr(div, "data-pos", div_data_pos_value = /*listIndex*/ ctx[10].map[/*i*/ ctx[58]]);
+    			attr(div, "data-pos", div_data_pos_value = /*listIndex*/ ctx[10].map[/*i*/ ctx[62]]);
     			attr(div, "class", "sv-dd-item");
-    			toggle_class(div, "sv-dd-item-active", /*listIndex*/ ctx[10].map[/*i*/ ctx[58]] == /*dropdownIndex*/ ctx[0]);
-    			toggle_class(div, "sv-group-item", /*opt*/ ctx[56].$isGroupItem);
-    			toggle_class(div, "sv-group-header", /*opt*/ ctx[56].$isGroupHeader);
+    			toggle_class(div, "sv-dd-item-active", /*listIndex*/ ctx[10].map[/*i*/ ctx[62]] == /*dropdownIndex*/ ctx[0]);
+    			toggle_class(div, "sv-group-item", /*opt*/ ctx[60].$isGroupItem);
+    			toggle_class(div, "sv-group-header", /*opt*/ ctx[60].$isGroupHeader);
     		},
     		m(target, anchor) {
     			insert(target, div, anchor);
@@ -4722,9 +4733,9 @@
     		p(ctx, dirty) {
     			const switch_instance_changes = {};
     			if (dirty[0] & /*renderer*/ 8) switch_instance_changes.formatter = /*renderer*/ ctx[3];
-    			if (dirty[0] & /*listIndex*/ 1024) switch_instance_changes.index = /*listIndex*/ ctx[10].map[/*i*/ ctx[58]];
-    			if (dirty[0] & /*items, disabledField*/ 8224) switch_instance_changes.isDisabled = /*opt*/ ctx[56][/*disabledField*/ ctx[13]];
-    			if (dirty[0] & /*items*/ 32) switch_instance_changes.item = /*opt*/ ctx[56];
+    			if (dirty[0] & /*listIndex*/ 1024) switch_instance_changes.index = /*listIndex*/ ctx[10].map[/*i*/ ctx[62]];
+    			if (dirty[0] & /*items, disabledField*/ 8224) switch_instance_changes.isDisabled = /*opt*/ ctx[60][/*disabledField*/ ctx[13]];
+    			if (dirty[0] & /*items*/ 32) switch_instance_changes.item = /*opt*/ ctx[60];
     			if (dirty[0] & /*inputValue*/ 256) switch_instance_changes.inputValue = /*inputValue*/ ctx[8];
     			if (dirty[0] & /*disableHighlight*/ 16) switch_instance_changes.disableHighlight = /*disableHighlight*/ ctx[4];
 
@@ -4742,8 +4753,8 @@
 
     				if (switch_value) {
     					switch_instance = construct_svelte_component(switch_value, switch_props(ctx));
-    					switch_instance.$on("hover", /*hover_handler_1*/ ctx[41]);
-    					switch_instance.$on("select", /*select_handler_1*/ ctx[42]);
+    					switch_instance.$on("hover", /*hover_handler_1*/ ctx[43]);
+    					switch_instance.$on("select", /*select_handler_1*/ ctx[44]);
     					create_component(switch_instance.$$.fragment);
     					transition_in(switch_instance.$$.fragment, 1);
     					mount_component(switch_instance, div, t);
@@ -4754,20 +4765,20 @@
     				switch_instance.$set(switch_instance_changes);
     			}
 
-    			if (!current || dirty[0] & /*listIndex*/ 1024 && div_data_pos_value !== (div_data_pos_value = /*listIndex*/ ctx[10].map[/*i*/ ctx[58]])) {
+    			if (!current || dirty[0] & /*listIndex*/ 1024 && div_data_pos_value !== (div_data_pos_value = /*listIndex*/ ctx[10].map[/*i*/ ctx[62]])) {
     				attr(div, "data-pos", div_data_pos_value);
     			}
 
     			if (!current || dirty[0] & /*listIndex, dropdownIndex*/ 1025) {
-    				toggle_class(div, "sv-dd-item-active", /*listIndex*/ ctx[10].map[/*i*/ ctx[58]] == /*dropdownIndex*/ ctx[0]);
+    				toggle_class(div, "sv-dd-item-active", /*listIndex*/ ctx[10].map[/*i*/ ctx[62]] == /*dropdownIndex*/ ctx[0]);
     			}
 
     			if (!current || dirty[0] & /*items*/ 32) {
-    				toggle_class(div, "sv-group-item", /*opt*/ ctx[56].$isGroupItem);
+    				toggle_class(div, "sv-group-item", /*opt*/ ctx[60].$isGroupItem);
     			}
 
     			if (!current || dirty[0] & /*items*/ 32) {
-    				toggle_class(div, "sv-group-header", /*opt*/ ctx[56].$isGroupHeader);
+    				toggle_class(div, "sv-group-header", /*opt*/ ctx[60].$isGroupHeader);
     			}
     		},
     		i(local) {
@@ -4786,7 +4797,7 @@
     	};
     }
 
-    // (205:10) 
+    // (218:10) 
     function create_item_slot(ctx) {
     	let div;
     	let switch_instance;
@@ -4798,9 +4809,9 @@
     		return {
     			props: {
     				formatter: /*renderer*/ ctx[3],
-    				index: /*listIndex*/ ctx[10].map[/*index*/ ctx[55]],
-    				isDisabled: /*items*/ ctx[5][/*index*/ ctx[55]][/*disabledField*/ ctx[13]],
-    				item: /*items*/ ctx[5][/*index*/ ctx[55]],
+    				index: /*listIndex*/ ctx[10].map[/*index*/ ctx[59]],
+    				isDisabled: /*items*/ ctx[5][/*index*/ ctx[59]][/*disabledField*/ ctx[13]],
+    				item: /*items*/ ctx[5][/*index*/ ctx[59]],
     				inputValue: /*inputValue*/ ctx[8],
     				disableHighlight: /*disableHighlight*/ ctx[4]
     			}
@@ -4809,8 +4820,8 @@
 
     	if (switch_value) {
     		switch_instance = construct_svelte_component(switch_value, switch_props(ctx));
-    		switch_instance.$on("hover", /*hover_handler*/ ctx[38]);
-    		switch_instance.$on("select", /*select_handler*/ ctx[39]);
+    		switch_instance.$on("hover", /*hover_handler*/ ctx[40]);
+    		switch_instance.$on("select", /*select_handler*/ ctx[41]);
     	}
 
     	return {
@@ -4818,11 +4829,11 @@
     			div = element("div");
     			if (switch_instance) create_component(switch_instance.$$.fragment);
     			attr(div, "slot", "item");
-    			attr(div, "style", div_style_value = /*style*/ ctx[54]);
+    			attr(div, "style", div_style_value = /*style*/ ctx[58]);
     			attr(div, "class", "sv-dd-item");
-    			toggle_class(div, "sv-dd-item-active", /*index*/ ctx[55] == /*dropdownIndex*/ ctx[0]);
-    			toggle_class(div, "sv-group-item", /*items*/ ctx[5][/*index*/ ctx[55]].$isGroupItem);
-    			toggle_class(div, "sv-group-header", /*items*/ ctx[5][/*index*/ ctx[55]].$isGroupHeader);
+    			toggle_class(div, "sv-dd-item-active", /*index*/ ctx[59] == /*dropdownIndex*/ ctx[0]);
+    			toggle_class(div, "sv-group-item", /*items*/ ctx[5][/*index*/ ctx[59]].$isGroupItem);
+    			toggle_class(div, "sv-group-header", /*items*/ ctx[5][/*index*/ ctx[59]].$isGroupHeader);
     		},
     		m(target, anchor) {
     			insert(target, div, anchor);
@@ -4832,9 +4843,9 @@
     		p(ctx, dirty) {
     			const switch_instance_changes = {};
     			if (dirty[0] & /*renderer*/ 8) switch_instance_changes.formatter = /*renderer*/ ctx[3];
-    			if (dirty[0] & /*listIndex*/ 1024 | dirty[1] & /*index*/ 16777216) switch_instance_changes.index = /*listIndex*/ ctx[10].map[/*index*/ ctx[55]];
-    			if (dirty[0] & /*items, disabledField*/ 8224 | dirty[1] & /*index*/ 16777216) switch_instance_changes.isDisabled = /*items*/ ctx[5][/*index*/ ctx[55]][/*disabledField*/ ctx[13]];
-    			if (dirty[0] & /*items*/ 32 | dirty[1] & /*index*/ 16777216) switch_instance_changes.item = /*items*/ ctx[5][/*index*/ ctx[55]];
+    			if (dirty[0] & /*listIndex*/ 1024 | dirty[1] & /*index*/ 268435456) switch_instance_changes.index = /*listIndex*/ ctx[10].map[/*index*/ ctx[59]];
+    			if (dirty[0] & /*items, disabledField*/ 8224 | dirty[1] & /*index*/ 268435456) switch_instance_changes.isDisabled = /*items*/ ctx[5][/*index*/ ctx[59]][/*disabledField*/ ctx[13]];
+    			if (dirty[0] & /*items*/ 32 | dirty[1] & /*index*/ 268435456) switch_instance_changes.item = /*items*/ ctx[5][/*index*/ ctx[59]];
     			if (dirty[0] & /*inputValue*/ 256) switch_instance_changes.inputValue = /*inputValue*/ ctx[8];
     			if (dirty[0] & /*disableHighlight*/ 16) switch_instance_changes.disableHighlight = /*disableHighlight*/ ctx[4];
 
@@ -4852,8 +4863,8 @@
 
     				if (switch_value) {
     					switch_instance = construct_svelte_component(switch_value, switch_props(ctx));
-    					switch_instance.$on("hover", /*hover_handler*/ ctx[38]);
-    					switch_instance.$on("select", /*select_handler*/ ctx[39]);
+    					switch_instance.$on("hover", /*hover_handler*/ ctx[40]);
+    					switch_instance.$on("select", /*select_handler*/ ctx[41]);
     					create_component(switch_instance.$$.fragment);
     					transition_in(switch_instance.$$.fragment, 1);
     					mount_component(switch_instance, div, null);
@@ -4864,20 +4875,20 @@
     				switch_instance.$set(switch_instance_changes);
     			}
 
-    			if (!current || dirty[1] & /*style*/ 8388608 && div_style_value !== (div_style_value = /*style*/ ctx[54])) {
+    			if (!current || dirty[1] & /*style*/ 134217728 && div_style_value !== (div_style_value = /*style*/ ctx[58])) {
     				attr(div, "style", div_style_value);
     			}
 
-    			if (!current || dirty[0] & /*dropdownIndex*/ 1 | dirty[1] & /*index*/ 16777216) {
-    				toggle_class(div, "sv-dd-item-active", /*index*/ ctx[55] == /*dropdownIndex*/ ctx[0]);
+    			if (!current || dirty[0] & /*dropdownIndex*/ 1 | dirty[1] & /*index*/ 268435456) {
+    				toggle_class(div, "sv-dd-item-active", /*index*/ ctx[59] == /*dropdownIndex*/ ctx[0]);
     			}
 
-    			if (!current || dirty[0] & /*items*/ 32 | dirty[1] & /*index*/ 16777216) {
-    				toggle_class(div, "sv-group-item", /*items*/ ctx[5][/*index*/ ctx[55]].$isGroupItem);
+    			if (!current || dirty[0] & /*items*/ 32 | dirty[1] & /*index*/ 268435456) {
+    				toggle_class(div, "sv-group-item", /*items*/ ctx[5][/*index*/ ctx[59]].$isGroupItem);
     			}
 
-    			if (!current || dirty[0] & /*items*/ 32 | dirty[1] & /*index*/ 16777216) {
-    				toggle_class(div, "sv-group-header", /*items*/ ctx[5][/*index*/ ctx[55]].$isGroupHeader);
+    			if (!current || dirty[0] & /*items*/ 32 | dirty[1] & /*index*/ 268435456) {
+    				toggle_class(div, "sv-group-header", /*items*/ ctx[5][/*index*/ ctx[59]].$isGroupHeader);
     			}
     		},
     		i(local) {
@@ -4896,7 +4907,7 @@
     	};
     }
 
-    // (241:4) {#if hasEmptyList || maxReached}
+    // (254:4) {#if hasEmptyList || maxReached}
     function create_if_block_3(ctx) {
     	let div;
     	let t;
@@ -4905,7 +4916,7 @@
     		c() {
     			div = element("div");
     			t = text(/*listMessage*/ ctx[12]);
-    			attr(div, "class", "empty-list-row svelte-gvgdfq");
+    			attr(div, "class", "empty-list-row svelte-jfnw1f");
     		},
     		m(target, anchor) {
     			insert(target, div, anchor);
@@ -4920,7 +4931,7 @@
     	};
     }
 
-    // (246:2) {#if inputValue && creatable && !maxReached}
+    // (259:2) {#if inputValue && creatable && !maxReached}
     function create_if_block_1$2(ctx) {
     	let div1;
     	let div0;
@@ -4929,7 +4940,7 @@
     	let t;
     	let mounted;
     	let dispose;
-    	let if_block = /*currentListLength*/ ctx[27] != /*dropdownIndex*/ ctx[0] && create_if_block_2(ctx);
+    	let if_block = /*currentListLength*/ ctx[28] != /*dropdownIndex*/ ctx[0] && create_if_block_2(ctx);
 
     	return {
     		c() {
@@ -4939,10 +4950,10 @@
     			t = space();
     			if (if_block) if_block.c();
     			html_tag.a = t;
-    			attr(div0, "class", "creatable-row svelte-gvgdfq");
-    			toggle_class(div0, "active", /*currentListLength*/ ctx[27] == /*dropdownIndex*/ ctx[0]);
+    			attr(div0, "class", "creatable-row svelte-jfnw1f");
+    			toggle_class(div0, "active", /*currentListLength*/ ctx[28] == /*dropdownIndex*/ ctx[0]);
     			toggle_class(div0, "is-disabled", /*alreadyCreated*/ ctx[6].includes(/*inputValue*/ ctx[8]));
-    			attr(div1, "class", "creatable-row-wrap svelte-gvgdfq");
+    			attr(div1, "class", "creatable-row-wrap svelte-jfnw1f");
     		},
     		m(target, anchor) {
     			insert(target, div1, anchor);
@@ -4954,10 +4965,10 @@
     			if (!mounted) {
     				dispose = [
     					listen(div0, "click", function () {
-    						if (is_function(/*dispatch*/ ctx[29]('select', /*inputValue*/ ctx[8]))) /*dispatch*/ ctx[29]('select', /*inputValue*/ ctx[8]).apply(this, arguments);
+    						if (is_function(/*dispatch*/ ctx[30]('select', /*inputValue*/ ctx[8]))) /*dispatch*/ ctx[30]('select', /*inputValue*/ ctx[8]).apply(this, arguments);
     					}),
     					listen(div0, "mouseenter", function () {
-    						if (is_function(/*dispatch*/ ctx[29]('hover', /*listIndex*/ ctx[10].last))) /*dispatch*/ ctx[29]('hover', /*listIndex*/ ctx[10].last).apply(this, arguments);
+    						if (is_function(/*dispatch*/ ctx[30]('hover', /*listIndex*/ ctx[10].last))) /*dispatch*/ ctx[30]('hover', /*listIndex*/ ctx[10].last).apply(this, arguments);
     					}),
     					listen(div0, "keypress", keypress_handler)
     				];
@@ -4969,7 +4980,7 @@
     			ctx = new_ctx;
     			if (dirty[0] & /*createLabel, inputValue*/ 16640 && raw_value !== (raw_value = /*createLabel*/ ctx[14](/*inputValue*/ ctx[8]) + "")) html_tag.p(raw_value);
 
-    			if (/*currentListLength*/ ctx[27] != /*dropdownIndex*/ ctx[0]) {
+    			if (/*currentListLength*/ ctx[28] != /*dropdownIndex*/ ctx[0]) {
     				if (if_block) {
     					if_block.p(ctx, dirty);
     				} else {
@@ -4982,8 +4993,8 @@
     				if_block = null;
     			}
 
-    			if (dirty[0] & /*currentListLength, dropdownIndex*/ 134217729) {
-    				toggle_class(div0, "active", /*currentListLength*/ ctx[27] == /*dropdownIndex*/ ctx[0]);
+    			if (dirty[0] & /*currentListLength, dropdownIndex*/ 268435457) {
+    				toggle_class(div0, "active", /*currentListLength*/ ctx[28] == /*dropdownIndex*/ ctx[0]);
     			}
 
     			if (dirty[0] & /*alreadyCreated, inputValue*/ 320) {
@@ -4999,7 +5010,7 @@
     	};
     }
 
-    // (254:6) {#if currentListLength != dropdownIndex}
+    // (267:6) {#if currentListLength != dropdownIndex}
     function create_if_block_2(ctx) {
     	let span;
     	let kbd0;
@@ -5015,9 +5026,9 @@
     			t1 = text("+");
     			kbd1 = element("kbd");
     			kbd1.textContent = "Enter";
-    			attr(kbd0, "class", "svelte-gvgdfq");
-    			attr(kbd1, "class", "svelte-gvgdfq");
-    			attr(span, "class", "shortcut svelte-gvgdfq");
+    			attr(kbd0, "class", "svelte-jfnw1f");
+    			attr(kbd1, "class", "svelte-jfnw1f");
+    			attr(span, "class", "shortcut svelte-jfnw1f");
     		},
     		m(target, anchor) {
     			insert(target, span, anchor);
@@ -5100,7 +5111,7 @@
 
     	let $hasDropdownOpened,
     		$$unsubscribe_hasDropdownOpened = noop,
-    		$$subscribe_hasDropdownOpened = () => ($$unsubscribe_hasDropdownOpened(), $$unsubscribe_hasDropdownOpened = subscribe(hasDropdownOpened, $$value => $$invalidate(28, $hasDropdownOpened = $$value)), hasDropdownOpened);
+    		$$subscribe_hasDropdownOpened = () => ($$unsubscribe_hasDropdownOpened(), $$unsubscribe_hasDropdownOpened = subscribe(hasDropdownOpened, $$value => $$invalidate(29, $hasDropdownOpened = $$value)), hasDropdownOpened);
 
     	$$self.$$.on_destroy.push(() => $$unsubscribe_hasDropdownOpened());
     	let { lazyDropdown } = $$props;
@@ -5136,6 +5147,7 @@
     	}
 
     	const dispatch = createEventDispatcher();
+    	let dim;
     	let dropdown;
     	let outOfViewport;
     	let container;
@@ -5185,10 +5197,10 @@
     			return value;
     		};
 
-    		$$invalidate(35, vl_height = pixelGetter(scrollContainer, 'maxHeight') - pixelGetter(scrollContainer, 'paddingTop') - pixelGetter(scrollContainer, 'paddingBottom'));
+    		$$invalidate(36, vl_height = pixelGetter(scrollContainer, 'maxHeight') - pixelGetter(scrollContainer, 'paddingTop') - pixelGetter(scrollContainer, 'paddingBottom'));
 
     		// get item size (hacky style)
-    		$$invalidate(24, scrollContainer.parentElement.style = 'opacity: 0; display: block', scrollContainer);
+    		$$invalidate(25, scrollContainer.parentElement.style = 'opacity: 0; display: block', scrollContainer);
 
     		const firstItem = refVirtualList.$$.ctx[1].firstElementChild.firstElementChild;
 
@@ -5212,25 +5224,41 @@
     			}
     		}
 
-    		$$invalidate(24, scrollContainer.parentElement.style = '', scrollContainer);
+    		$$invalidate(25, scrollContainer.parentElement.style = '', scrollContainer);
     	}
 
-    	const scrollHandler = e => {
-    		if (!dropdown?.contains) return;
-    		if (!dropdown.contains(e.target)) positionDropdown();
-    	};
-
     	const appendDropdown = () => {
-    		if (!control) $$invalidate(30, control = dropdown.parentElement);
+    		if (!control) $$invalidate(31, control = dropdown.parentElement);
 
     		if (document?.body) {
-    			// control.scrollIntoView({ block: "nearest", inline: "nearest" });
+    			control.scrollIntoView({ block: "nearest", inline: "nearest" });
+    			document.body.appendChild(dim);
     			document.body.appendChild(dropdown);
     		}
     	};
 
     	const removeDropdown = () => {
+    		if (document?.body.contains(dim)) document.body.removeChild(dim);
     		if (document?.body.contains(dropdown)) document.body.removeChild(dropdown);
+    	};
+
+    	const disableScroll = () => {
+    		if (!window) return;
+    		const scrollTop = window.pageYOffset || window.document.documentElement.scrollTop;
+    		const scrollLeft = window.pageXOffset || window.document.documentElement.scrollLeft;
+    		window.onscroll = () => window.scrollTo(scrollLeft, scrollTop);
+    	};
+
+    	const enableScroll = () => {
+    		if (!window) return;
+
+    		window.onscroll = () => {
+    			
+    		};
+    	};
+
+    	const resizeHandler = () => {
+    		hasDropdownOpened.set(false);
     	};
 
     	let dropdownStateSubscription = () => {
@@ -5240,13 +5268,15 @@
     	onMount(() => {
     		dropdownStateSubscription = hasDropdownOpened.subscribe(val => {
     			if (!renderDropdown && val) $$invalidate(20, renderDropdown = true);
-    			document.removeEventListener('scroll', scrollHandler, { capture: true });
+    			window.removeEventListener("resize", resizeHandler);
+    			enableScroll();
 
     			tick().then(() => {
     				if (val) {
+    					window.addEventListener("resize", resizeHandler);
+    					disableScroll();
     					appendDropdown();
     					positionDropdown();
-    					document.addEventListener('scroll', scrollHandler, { capture: true });
     				} else {
     					outOfViewport = undefined;
     					removeDropdown();
@@ -5266,6 +5296,13 @@
     		bubble.call(this, $$self, event);
     	}
 
+    	function div0_binding($$value) {
+    		binding_callbacks[$$value ? 'unshift' : 'push'](() => {
+    			dim = $$value;
+    			$$invalidate(22, dim);
+    		});
+    	}
+
     	function deselect_handler(event) {
     		bubble.call(this, $$self, event);
     	}
@@ -5281,7 +5318,7 @@
     	function virtuallist_binding($$value) {
     		binding_callbacks[$$value ? 'unshift' : 'push'](() => {
     			refVirtualList = $$value;
-    			$$invalidate(25, refVirtualList);
+    			$$invalidate(26, refVirtualList);
     		});
     	}
 
@@ -5293,29 +5330,29 @@
     		bubble.call(this, $$self, event);
     	}
 
-    	function div0_binding($$value) {
-    		binding_callbacks[$$value ? 'unshift' : 'push'](() => {
-    			container = $$value;
-    			$$invalidate(23, container);
-    		});
-    	}
-
     	function div1_binding($$value) {
     		binding_callbacks[$$value ? 'unshift' : 'push'](() => {
-    			scrollContainer = $$value;
-    			$$invalidate(24, scrollContainer);
+    			container = $$value;
+    			$$invalidate(24, container);
     		});
     	}
 
     	function div2_binding($$value) {
     		binding_callbacks[$$value ? 'unshift' : 'push'](() => {
+    			scrollContainer = $$value;
+    			$$invalidate(25, scrollContainer);
+    		});
+    	}
+
+    	function div3_binding($$value) {
+    		binding_callbacks[$$value ? 'unshift' : 'push'](() => {
     			dropdown = $$value;
-    			$$invalidate(22, dropdown);
+    			$$invalidate(23, dropdown);
     		});
     	}
 
     	$$self.$$set = $$props => {
-    		if ('lazyDropdown' in $$props) $$invalidate(31, lazyDropdown = $$props.lazyDropdown);
+    		if ('lazyDropdown' in $$props) $$invalidate(32, lazyDropdown = $$props.lazyDropdown);
     		if ('creatable' in $$props) $$invalidate(1, creatable = $$props.creatable);
     		if ('maxReached' in $$props) $$invalidate(2, maxReached = $$props.maxReached);
     		if ('dropdownIndex' in $$props) $$invalidate(0, dropdownIndex = $$props.dropdownIndex);
@@ -5324,8 +5361,8 @@
     		if ('items' in $$props) $$invalidate(5, items = $$props.items);
     		if ('alreadyCreated' in $$props) $$invalidate(6, alreadyCreated = $$props.alreadyCreated);
     		if ('virtualList' in $$props) $$invalidate(7, virtualList = $$props.virtualList);
-    		if ('vlItemSize' in $$props) $$invalidate(32, vlItemSize = $$props.vlItemSize);
-    		if ('vlHeight' in $$props) $$invalidate(33, vlHeight = $$props.vlHeight);
+    		if ('vlItemSize' in $$props) $$invalidate(33, vlItemSize = $$props.vlItemSize);
+    		if ('vlHeight' in $$props) $$invalidate(34, vlHeight = $$props.vlHeight);
     		if ('inputValue' in $$props) $$invalidate(8, inputValue = $$props.inputValue);
     		if ('multiple' in $$props) $$invalidate(9, multiple = $$props.multiple);
     		if ('listIndex' in $$props) $$invalidate(10, listIndex = $$props.listIndex);
@@ -5336,12 +5373,12 @@
     		if ('metaKey' in $$props) $$invalidate(15, metaKey = $$props.metaKey);
     		if ('itemComponent' in $$props) $$invalidate(16, itemComponent = $$props.itemComponent);
     		if ('selection' in $$props) $$invalidate(17, selection = $$props.selection);
-    		if ('control' in $$props) $$invalidate(30, control = $$props.control);
+    		if ('control' in $$props) $$invalidate(31, control = $$props.control);
     	};
 
     	$$self.$$.update = () => {
     		if ($$self.$$.dirty[0] & /*items*/ 32) {
-    			$$invalidate(27, currentListLength = items.length);
+    			$$invalidate(28, currentListLength = items.length);
     		}
 
     		if ($$self.$$.dirty[0] & /*items, creatable, inputValue, virtualList, isMounted, renderDropdown, hasEmptyList*/ 1835426) {
@@ -5357,8 +5394,8 @@
     			}
     		}
 
-    		if ($$self.$$.dirty[0] & /*vl_itemSize, items*/ 2097184 | $$self.$$.dirty[1] & /*vl_height*/ 16) {
-    			$$invalidate(26, vl_listHeight = Math.min(vl_height, Array.isArray(vl_itemSize)
+    		if ($$self.$$.dirty[0] & /*vl_itemSize, items*/ 2097184 | $$self.$$.dirty[1] & /*vl_height*/ 32) {
+    			$$invalidate(27, vl_listHeight = Math.min(vl_height, Array.isArray(vl_itemSize)
     			? vl_itemSize.reduce(
     					(res, num) => {
     						res += num;
@@ -5393,6 +5430,7 @@
     		hasEmptyList,
     		renderDropdown,
     		vl_itemSize,
+    		dim,
     		dropdown,
     		container,
     		scrollContainer,
@@ -5408,15 +5446,16 @@
     		getDimensions,
     		vl_height,
     		mousedown_handler,
+    		div0_binding,
     		deselect_handler,
     		hover_handler,
     		select_handler,
     		virtuallist_binding,
     		hover_handler_1,
     		select_handler_1,
-    		div0_binding,
     		div1_binding,
-    		div2_binding
+    		div2_binding,
+    		div3_binding
     	];
     }
 
@@ -5431,7 +5470,7 @@
     			create_fragment$4,
     			safe_not_equal,
     			{
-    				lazyDropdown: 31,
+    				lazyDropdown: 32,
     				creatable: 1,
     				maxReached: 2,
     				dropdownIndex: 0,
@@ -5440,8 +5479,8 @@
     				items: 5,
     				alreadyCreated: 6,
     				virtualList: 7,
-    				vlItemSize: 32,
-    				vlHeight: 33,
+    				vlItemSize: 33,
+    				vlHeight: 34,
     				inputValue: 8,
     				multiple: 9,
     				listIndex: 10,
@@ -5452,16 +5491,16 @@
     				metaKey: 15,
     				itemComponent: 16,
     				selection: 17,
-    				control: 30,
-    				getDimensions: 34
+    				control: 31,
+    				getDimensions: 35
     			},
     			null,
-    			[-1, -1]
+    			[-1, -1, -1]
     		);
     	}
 
     	get getDimensions() {
-    		return this.$$.ctx[34];
+    		return this.$$.ctx[35];
     	}
     }
 

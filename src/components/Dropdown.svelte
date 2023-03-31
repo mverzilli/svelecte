@@ -41,6 +41,7 @@
 
   const dispatch = createEventDispatcher();
 
+  let dim;
   let dropdown;
   let outOfViewport;
   let container;
@@ -71,7 +72,9 @@
     if (virtualList && vl_autoMode && isMounted && renderDropdown) {
       if (hasEmptyList) dropdownIndex = null;
       vl_itemSize = 0;
-      tick().then(virtualListDimensionsResolver).then(positionDropdown);
+      tick()
+        .then(virtualListDimensionsResolver)
+        .then(positionDropdown);
     }
   }
 
@@ -130,23 +133,34 @@
     scrollContainer.parentElement.style = '';
   }
 
-  const scrollHandler = (e) => {
-    if(!dropdown?.contains) return;
-    if(!dropdown.contains(e.target)) {
-      positionDropdown();
-    }
-  }
-
   const appendDropdown = () => {
     if(!control) control = dropdown.parentElement;
     if(document?.body) {
-      // control.scrollIntoView({ block: "nearest", inline: "nearest" });
+      control.scrollIntoView({ block: "nearest", inline: "nearest" });
+      document.body.appendChild(dim);
       document.body.appendChild(dropdown);
     }
   }
 
   const removeDropdown = () => {
+    if(document?.body.contains(dim)) document.body.removeChild(dim);
     if(document?.body.contains(dropdown)) document.body.removeChild(dropdown);
+  }
+
+  const disableScroll = () => {
+    if (!window) return;
+    const scrollTop = window.pageYOffset || window.document.documentElement.scrollTop;
+    const scrollLeft = window.pageXOffset || window.document.documentElement.scrollLeft;
+    window.onscroll = () => window.scrollTo(scrollLeft, scrollTop);
+  }
+
+  const enableScroll = () => {
+    if (!window) return;
+    window.onscroll = () => {};
+  }
+
+  const resizeHandler = () => {
+    hasDropdownOpened.set(false);
   }
 
   let dropdownStateSubscription = () => {};
@@ -154,12 +168,14 @@
   onMount(() => {
     dropdownStateSubscription = hasDropdownOpened.subscribe(val => {
       if (!renderDropdown && val) renderDropdown = true;
-      document.removeEventListener('scroll', scrollHandler, { capture: true });
+      window.removeEventListener("resize", resizeHandler)
+      enableScroll();
       tick().then(() => {
         if(val) {
+          window.addEventListener("resize", resizeHandler)
+          disableScroll();
           appendDropdown();
           positionDropdown(true);
-          document.addEventListener('scroll', scrollHandler, { capture: true });
         } else {
           outOfViewport = undefined;
           removeDropdown();
@@ -176,6 +192,7 @@
 </script>
 
 {#if isMounted && renderDropdown}
+<div bind:this={dim} class="dim" />
 <div bind:this={dropdown} class="sv-dropdown" class:is-virtual={virtualList} aria-expanded={$hasDropdownOpened}
   on:mousedown|preventDefault
 >
@@ -257,6 +274,16 @@
 {/if}
 
 <style>
+.dim {
+  content: '';
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  background-color: transparent;
+}
 .sv-dropdown {
   box-sizing: border-box;
   position: fixed;
@@ -268,7 +295,7 @@
   border: 1px solid rgba(0,0,0,0.15);
   border-radius: .25rem;
   box-shadow: var(--sv-dropdown-shadow);
-  z-index: 2;
+  z-index: 1000;
 }
 .sv-dropdown.is-virtual .sv-dropdown-scroll {
   overflow-y: hidden;
